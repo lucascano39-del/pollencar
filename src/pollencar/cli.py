@@ -305,8 +305,17 @@ def run(args):
         worst[name] = dict(per[wi])
         worst[name]["ess"] = min(p["ess"] for p in per)
         worst[name]["mean"] = float(np.mean([p["mean"] for p in per]))
-    results["mcmc"] = {"params": worst,
-                       "ok": all(d["ok"] for d in diag_by_imp)}
+    # gate duro sobre estimandos y varianzas; beta0 se reporta como informativo
+    # (beta0 aislado es la dirección de trade-off con las medias de los RE — la
+    # cantidad identificada, theta, es la que debe converger)
+    gate_params = [n for n in worst if n != "beta0"]
+    results["mcmc"] = {
+        "params": worst,
+        "gate": gate_params,
+        "ok": all(worst[n]["rhat"] < cfg["model"]["rhat_max"]
+                  and worst[n]["ess"] >= cfg["model"]["ess_min"]
+                  for n in gate_params),
+    }
     pooled = {k: np.concatenate(v) for k, v in theta.items()}
     results["mrp"] = {
         k: {"mean": float(v.mean()),

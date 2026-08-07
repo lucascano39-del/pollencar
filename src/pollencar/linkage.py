@@ -74,11 +74,12 @@ def jaro_winkler(s1: str, s2: str) -> float:
 class RespFeatures:
     """Estructuras precomputadas por respondente para el loop de comparación."""
 
-    __slots__ = ("toks", "phons", "exp_givens", "exp_phons", "sexo", "full")
+    __slots__ = ("toks", "phons", "phon_of", "exp_givens", "exp_phons", "sexo", "full")
 
     def __init__(self, toks, nicknames, sexo):
         self.toks = toks
         self.phons = [phonetic_key(t) for t in toks]
+        self.phon_of = dict(zip(toks, self.phons))
         exp = set()
         for t in toks:
             for c in nicknames.get(t, []):
@@ -157,21 +158,28 @@ def compare(feat: RespFeatures, pa: PadronArrays, j: int, jw_bins):
     phonset = set(phons)
 
     # --- apellido ---
-    g_sur, sur_val = 0, None
+    g_sur, sur_val, sur_tok = 0, None, None
     for s in (pa.sur1[j], pa.sur2[j]):
         if s and s in tokset:
-            g_sur, sur_val = 2, s
+            g_sur, sur_val, sur_tok = 2, s, s
             break
     if g_sur == 0:
         for ps, s in ((pa.ph_sur1[j], pa.sur1[j]), (pa.ph_sur2[j], pa.sur2[j])):
             if ps and ps in phonset:
                 g_sur, sur_val = 1, s
+                sur_tok = toks[phons.index(ps)]
                 break
 
-    # --- nombre ---
+    # --- nombre --- (un token del poll no puede aportar evidencia dos veces:
+    # el token que ya acordó como apellido queda excluido, salvo repetido)
+    toks_g = list(toks)
+    if sur_tok is not None and sur_tok in toks_g:
+        toks_g.remove(sur_tok)
+    tokset_g = set(toks_g)
+    phonset_g = {feat.phon_of[t] for t in toks_g}
     g_giv, giv_val = 0, None
     for g in (pa.giv1[j], pa.giv2[j]):
-        if g and g in tokset:
+        if g and g in tokset_g:
             g_giv, giv_val = 3, g
             break
     if g_giv == 0:
@@ -181,7 +189,7 @@ def compare(feat: RespFeatures, pa: PadronArrays, j: int, jw_bins):
                 break
     if g_giv == 0:
         for pg, g in ((pa.ph_giv1[j], pa.giv1[j]), (pa.ph_giv2[j], pa.giv2[j])):
-            if pg and (pg in phonset or pg in feat.exp_phons):
+            if pg and (pg in phonset_g or pg in feat.exp_phons):
                 g_giv, giv_val = 1, g
                 break
 
@@ -394,7 +402,9 @@ class Linker:
             q0 = (1 - lam) / z + (lam / self.N) * (self.N - K) * lr_floor / z
             cand = sorted(((j, (lam / self.N) * lr / z) for j, lr in lrs),
                           key=lambda t: -t[1])[:keep_top]
-            match_mass = sum(q for _, q in cand)
+            # masa de match TOTAL (1-q0), no solo la de los top retenidos:
+            # los híper-homónimos con masa difusa van a imputación, no a no-link
+            match_mass = 1.0 - q0
             q1 = cand[0][1] if cand else 0.0
             q2 = cand[1][1] if len(cand) > 1 else 0.0
             if q1 >= cfg["auto_link_posterior"] and (q2 == 0 or q1 / max(q2, 1e-12) >= 10):
