@@ -1,0 +1,111 @@
+type,pattern,reason
+exact,Sociedad de Escritores del Paraguay Filial Itapúa,organizacion
+exact,OCAP,organizacion
+exact,AtrapaSueños Vestidos,comercio
+exact,El Crucero,comercio
+exact,Crucero del Sur S.R.L,comercio
+exact,Cultivando Y Porã,pagina
+exact,Team Jahana,pagina
+exact,Pickles Boutique,comercio
+exact,Mencho Storeenc,comercio
+exact,Benitez Trucks,comercio
+exact,Cabaña Velazco Elsi,comercio
+exact,Cafs Consultora,comercio
+exact,Solava Lo Más Grande,pagina
+exact,Fragancias Flower,comercio
+exact,Sgeg Py,pagina
+exact,Estilo Creaciones Ale Flores,comercio
+exact,Agronix Srl,comercio
+exact,Paranormal history Py,pagina
+exact,Noticia Paraguay,medio
+exact,Ideas Muebles,comercio
+exact,RADAR Informativo DEL SUR.,medio
+exact,Bandaris,pagina
+exact,Casa Andy,comercio
+exact,Mary Novedades,comercio
+exact,Sabor Saludd,comercio
+exact,Ailén Dulces y Detalles,comercio
+exact,Peinados Taia,comercio
+exact,Wffc Amoblamiento,comercio
+exact,Bebecito Olimpia,pagina
+exact,Belloto Olimpia,pagina
+exact,Olimpia De Mi Vida,pagina
+exact,TERA RERA Joapy,pagina
+exact,Chaipe Oñondivepa,pagina
+exact,Doña Manuela,comercio
+exact,Nimia Cáceres - Concejal 2026,politica
+exact,Concejal Ever Bareiro,politica
+exact,Zulma Memmel Concejal,politica
+exact,Rene Miglio PPC Encarnacion,politica
+exact,Fabian Almada Intendente,politica
+exact,Carlos Pereira intendente,politica
+exact,Comité PLRA Natalio Itapúa,politica
+exact,Ganar Trinidad PLRA,politica
+exact,Itapúa En Marcha,politica
+exact,Encarnación avanza,politica
+exact,Vamos Encarnación,politica
+exact,YoCreo #123,politica
+exact,Ppa AC,politica
+exact,Abg Angel Franco,politica
+exact,Junta San Miguel,organizacion
+exact,Área de Juventud,organizacion
+exact,Abriendo Mentes & Cerrando Estigmas,organizacion
+exact,Iglesia de Dios - Coronel Bogado,organizacion
+exact,La Senda - Hogar de Restauracion,organizacion
+exact,Caza y Pesca San Javier,organizacion
+exact,Saque y Volea,pagina
+exact,Ingenieros Agropecuarios del Paraguay.,organizacion
+exact,Ava Guaraní Paseos Acuáticos,comercio
+exact,Noticias Sin Límite,medio
+exact,SUPER Delicias.,comercio
+exact,Juan Emprendimiento,comercio
+exact,InOffice,comercio
+exact,NotiFlash,medio
+exact,Deportes EncTv,medio
+exact,InfoSalud,medio
+exact,Elne Gociante Encarnacion,pagina
+exact,La Tiendita de Pía,comercio
+exact,La Tiendita De Santi,comercio
+exact,Itapúa Porã,pagina
+exact,Emprendimiento Del Hogar,comercio
+exact,Oferta Construcciones Itapua,comercio
+exact,Muebles Rusticos,comercio
+exact,Bri-mar Recepciones,comercio
+exact,Familia Inmobiliaria,comercio
+exact,Recuerdos Encarnacion Gaby,comercio
+exact,Actualidad Itapúa,medio
+exact,Encarnaceno,pagina
+exact,Pomber One,pagina
+exact,Nose Nose,seudonimo
+exact,Participante Anónimo,anonimo
+exact,Ctnr Encarnacion,pagina
+exact,Encuesta Encarnación Encuesta,pagina
+exact,asesor de ventas,pagina
+exact,Remus Storepy,comercio
+exact,Estancia El Paraíso - Nueva Alborada,comercio
+exact,Ponce Soluciones,comercio
+exact,Hospedaje,comercio
+exact,Classe777,pagina
+exact,Tatakua del Sur,comercio
+exact,Riquissimo,comercio
+exact,agroczera,comercio
+exact,Alborada Fam,pagina
+exact,Comercio Detodo Gimenez,comercio
+exact,Equipar Full,comercio
+exact,Gourmet Cano,comercio
+exact,Sol Luna Complementos,comercio
+exact,Ros Cars,comercio
+exact,Peregrinando Con Maria,pagina
+exact,Hugo Carísimo 2021,politica
+exact,Edmundo Dantes Montecristo,seudonimo
+exact,Anrim Estemaid,seudonimo
+exact,Eston Javes,seudonimo
+exact,Itam Shurr,seudonimo
+exact,Erai Zour,seudonimo
+regex,\bS\.?R\.?L\b,comercio
+regex,\b(BOUTIQUE|STORE|SHOP|MUEBLES|TIENDA|TIENDITA|NOVEDADES|CREACIONES|RECEPCIONES|CONSTRUCCIONES|INMOBILIARIA|CONSULTORA|EMPRENDIMIENTO|SOLUCIONES|COMPLEMENTOS|AMOBLAMIENTO|HOSPEDAJE|ESTANCIA|CABA[NÑ]A|FARMACIA|DELICIAS)\b,comercio
+regex,\b(NOTICIAS?|INFORMATIVO|RADIO|NOTI|PRENSA|TV|CANAL|MEDIOS)\b,medio
+regex,\b(IGLESIA|MINISTERIO|PARROQUIA|CLUB|ASOCIACION|SOCIEDAD|FILIAL|COMITE|JUNTA|COOPERATIVA|SINDICATO|FUNDACION)\b,organizacion
+regex,\b(CONCEJALA?|INTENDENTE|DIPUTADOA?|SENADORA?|GOBERNADORA?|CANDIDATOA?|LISTA|MOVIMIENTO|PARTIDO)\b,politica
+regex,\b(20(2[0-9]|3[0-9]))\b,politica
+regex,\bPY\b$,pagina

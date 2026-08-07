@@ -1,0 +1,388 @@
+{
+ "config": {
+  "seed": 20260807,
+  "election_date": "2026-11-08",
+  "linkage": {
+   "auto_link_posterior": 0.95,
+   "auto_link_runnerup_max": 0.5,
+   "nonlink_posterior_max": 0.1,
+   "rare_surname_freq": 30,
+   "em_max_iter": 200,
+   "em_tol": 1e-06,
+   "prevalence_init": 0.0007,
+   "jw_bins": [
+    0.88,
+    0.94
+   ],
+   "lambda_bounds": [
+    0.15,
+    0.95
+   ],
+   "m_probs": {
+    "sur": [
+     0.02,
+     0.1,
+     0.88
+    ],
+    "giv": [
+     0.02,
+     0.08,
+     0.15,
+     0.75
+    ],
+    "sex": [
+     0.05,
+     0.85,
+     0.1
+    ],
+    "2nd": [
+     0.35,
+     0.65,
+     0.0
+    ],
+    "nota": "P(nivel | match verdadero), fijos y documentados: el EM de patrones degenera con bloqueo por conjuncion (todos los pares acuerdan), asi que la discriminacion viene de u por frecuencia de valor (FS clasico). EM se corre igual y se reporta como diagnostico."
+   },
+   "lr_fixed": {
+    "2nd_absent": 0.36,
+    "2nd_present": 21.0,
+    "jw": [
+     0.6,
+     1.0,
+     2.0,
+     1.0
+    ]
+   }
+  },
+  "imputation": {
+   "M": 20
+  },
+  "model": {
+   "chains": 4,
+   "iters": 6000,
+   "burnin": 2000,
+   "target_accept": 0.44,
+   "sigma2_prior": {
+    "a": 2.0,
+    "b": 0.5
+   },
+   "sigma2_prior_small": {
+    "a": 3.0,
+    "b": 0.25
+   },
+   "beta0_sd": 1.5,
+   "beta_sd": 1.0,
+   "rhat_max": 1.01,
+   "ess_min": 400
+  },
+  "poststrat": {
+   "age_bands": [
+    [
+     18,
+     29
+    ],
+    [
+     30,
+     39
+    ],
+    [
+     40,
+     49
+    ],
+    [
+     50,
+     59
+    ],
+    [
+     60,
+     69
+    ],
+    [
+     70,
+     130
+    ]
+   ],
+   "party_groups": [
+    "ANR",
+    "PLRA",
+    "ANR-PLRA",
+    "OTRO",
+    "SIN_AFILIACION"
+   ]
+  },
+  "turnout": {
+   "target_municipal": 0.6,
+   "age_curve": {
+    "18-29": 0.45,
+    "30-39": 0.55,
+    "40-49": 0.62,
+    "50-59": 0.68,
+    "60-69": 0.7,
+    "70+": 0.55
+   },
+   "age_curve_flat": {
+    "18-29": 0.58,
+    "30-39": 0.6,
+    "40-49": 0.6,
+    "50-59": 0.62,
+    "60-69": 0.62,
+    "70+": 0.58
+   },
+   "age_curve_steep": {
+    "18-29": 0.3,
+    "30-39": 0.48,
+    "40-49": 0.62,
+    "50-59": 0.74,
+    "60-69": 0.78,
+    "70+": 0.5
+   },
+   "tipo_inscrip_factor": {
+    "TRADICIONAL": 1.05,
+    "AUTOMATICA": 0.85,
+    "INFORMATIZADA": 1.0
+   }
+  },
+  "anchors": {
+   "resultados_2023_mesa": "data/raw/resultados_2023_mesa.csv",
+   "nota": "Slot opcional: CSV con columnas local,share_cheba_equiv,participacion. Si no existe, el pipeline lo omite y lo declara en el informe."
+  }
+ },
+ "generated_at": "2026-08-07 04:10:29",
+ "padron_checks": {
+  "filas": 89097,
+  "ANR_share": 0.4214,
+  "SIN_AFILIACION_share": 0.3869,
+  "sexo_no_U": 0.9399,
+  "locales": 40
+ },
+ "candidates": [
+  {
+   "candidate": "Cheba",
+   "pct_declared": 52,
+   "votes_declared": 1934
+  },
+  {
+   "candidate": "Carlos Pereira",
+   "pct_declared": 48,
+   "votes_declared": 1741
+  }
+ ],
+ "exclusiones": [
+  {
+   "candidate": "Carlos Pereira",
+   "tipo": "comercio",
+   "n": 1
+  },
+  {
+   "candidate": "Carlos Pereira",
+   "tipo": "heuristica:sin_nombre_pila",
+   "n": 156
+  },
+  {
+   "candidate": "Carlos Pereira",
+   "tipo": "lexicon",
+   "n": 67
+  },
+  {
+   "candidate": "Cheba",
+   "tipo": "heuristica:sin_nombre_pila",
+   "n": 198
+  },
+  {
+   "candidate": "Cheba",
+   "tipo": "lexicon",
+   "n": 37
+  }
+ ],
+ "funnel": {
+  "votos_declarados": 3675,
+  "nombres_visibles": 3666,
+  "no_persona": 459,
+  "personas": 3207
+ },
+ "raw_shares": {
+  "Cheba": 0.5262585034013605,
+  "Carlos Pereira": 0.47374149659863946
+ },
+ "person_share_cand0": 0.5285313376987839,
+ "linkage": {
+  "pares": 46715,
+  "lambda_en_marco": 0.6534202249136352,
+  "zonas": {
+   "auto": 421,
+   "ambiguous": 2275,
+   "nonlink": 511
+  },
+  "cell_links": 21,
+  "em_diagnostico": {
+   "prevalencia": 0.09162565460808214,
+   "m": [
+    [
+     9.99999000041333e-07,
+     0.00661442833149482,
+     0.9933845716695051
+    ],
+    [
+     9.999989411972647e-07,
+     0.15315117142837156,
+     0.846846828573746,
+     9.999989411972647e-07
+    ],
+    [
+     0.2801924611981464,
+     9.999994668120373e-07,
+     0.7198065388023868
+    ],
+    [
+     0.10711154784890073,
+     0.49305589973183045,
+     0.3998325524192689
+    ],
+    [
+     0.8749054800259545,
+     0.08789503592548127,
+     0.03719848404956427,
+     9.999990000529272e-07
+    ]
+   ],
+   "u": [
+    [
+     0.023518484221186634,
+     0.008405578938650566,
+     0.9680759368401629
+    ],
+    [
+     0.17499826037632873,
+     0.012194440172117233,
+     0.001419688615403808,
+     0.8113876108361502
+    ],
+    [
+     0.5138174608558828,
+     0.020313513436976148,
+     0.4658690257071411
+    ],
+    [
+     0.09818687322118151,
+     0.8530181694808372,
+     0.04879495729798128
+    ],
+    [
+     0.5976038577254981,
+     0.07827986468803944,
+     0.12559953298894716,
+     0.19851674459751542
+    ]
+   ]
+  },
+  "por_candidato": {
+   "Carlos Pereira": {
+    "ambiguous": 1087,
+    "auto": 155,
+    "nonlink": 270
+   },
+   "Cheba": {
+    "ambiguous": 1188,
+    "auto": 266,
+    "nonlink": 241
+   }
+  }
+ },
+ "anchor_2023": "no disponible (slot documentado, inactivo)",
+ "linked_crude_share_cand0": 0.5557996001951766,
+ "mcmc": {
+  "params": {
+   "theta_A": {
+    "mean": 0.5415555583214204,
+    "sd": 0.011073256675644877,
+    "q025": 0.5191698035983536,
+    "q975": 0.5628456679256659,
+    "rhat": 1.0005057964605044,
+    "ess": 2844.731737513048
+   },
+   "beta0": {
+    "mean": -0.2437100435704407,
+    "sd": 0.44185809980874385,
+    "q025": -1.1774613159395537,
+    "q975": 0.5344539566381532,
+    "rhat": 1.0134261446325294,
+    "ess": 510.35524518348325
+   },
+   "s2_party": {
+    "mean": 0.6754863931833801,
+    "sd": 0.5244898844700272,
+    "q025": 0.24624058773213794,
+    "q975": 2.081406391892989,
+    "rhat": 1.0014342494231259,
+    "ess": 1785.7346388763483
+   },
+   "s2_age": {
+    "mean": 0.1782726493008037,
+    "sd": 0.09920521989169652,
+    "q025": 0.05728854716611393,
+    "q975": 0.4276579899654296,
+    "rhat": 1.0012025646836311,
+    "ess": 3069.3698870523995
+   },
+   "s2_local": {
+    "mean": 0.08986720623176123,
+    "sd": 0.03137989540401986,
+    "q025": 0.04661254892866797,
+    "q975": 0.16850812380184158,
+    "rhat": 1.002643255973107,
+    "ess": 1389.861660194702
+   }
+  },
+  "ok": false
+ },
+ "mrp": {
+  "A": {
+   "mean": 0.5415555583214204,
+   "ic95": [
+    0.5178373668173676,
+    0.5649114143438714
+   ]
+  },
+  "B": {
+   "mean": 0.5468627835824678,
+   "ic95": [
+    0.523130159810697,
+    0.5702579813655552
+   ]
+  },
+  "B_flat": {
+   "mean": 0.5439984948200361,
+   "ic95": [
+    0.5203317113995632,
+    0.5671914695479576
+   ]
+  },
+  "B_steep": {
+   "mean": 0.5501919239573055,
+   "ic95": [
+    0.525864137450144,
+    0.574442189768587
+   ]
+  }
+ },
+ "rubin": {
+  "M": 4,
+  "theta_hat": 0.5415796960827806,
+  "W_within": 0.002077585491059101,
+  "B_between": 0.0003534044954005702,
+  "T_total": 0.002519341110309814,
+  "df": 97.57330970439128,
+  "fmi": 0.1952316872043738,
+  "ic95_logit": [
+   0.06832541930308425,
+   0.2650821300843552
+  ],
+  "ic95": [
+   0.5170747127628813,
+   0.5658851790107989
+  ]
+ },
+ "cobertura": {
+  "share_padron_en_celdas_n0": 0.0021212835449005017,
+  "share_padron_en_celdas_n_lt5": 0.053099430957271286
+ }
+}

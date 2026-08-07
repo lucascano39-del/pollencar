@@ -1,0 +1,57 @@
+{
+  "seed": 20260807,
+  "election_date": "2026-11-08",
+  "linkage": {
+    "auto_link_posterior": 0.95,
+    "auto_link_runnerup_max": 0.5,
+    "nonlink_posterior_max": 0.10,
+    "rare_surname_freq": 30,
+    "em_max_iter": 200,
+    "em_tol": 1e-6,
+    "prevalence_init": 0.0007,
+    "jw_bins": [0.88, 0.94],
+    "lambda_bounds": [0.15, 0.95],
+    "m_probs": {
+      "sur": [0.02, 0.10, 0.88],
+      "giv": [0.02, 0.08, 0.15, 0.75],
+      "sex": [0.05, 0.85, 0.10],
+      "2nd": [0.35, 0.65, 0.0],
+      "nota": "P(nivel | match verdadero), fijos y documentados: el EM de patrones degenera con bloqueo por conjuncion (todos los pares acuerdan), asi que la discriminacion viene de u por frecuencia de valor (FS clasico). EM se corre igual y se reporta como diagnostico."
+    },
+    "lr_fixed": {
+      "2nd_absent": 0.36,
+      "2nd_present": 21.0,
+      "jw": [0.6, 1.0, 2.0, 1.0]
+    }
+  },
+  "imputation": {
+    "M": 20
+  },
+  "model": {
+    "chains": 4,
+    "iters": 8000,
+    "burnin": 3000,
+    "target_accept": 0.44,
+    "sigma2_prior": {"a": 2.0, "b": 0.5},
+    "sigma2_prior_small": {"a": 3.0, "b": 0.25},
+    "beta0_sd": 1.5,
+    "beta_sd": 1.0,
+    "rhat_max": 1.01,
+    "ess_min": 400
+  },
+  "poststrat": {
+    "age_bands": [[18, 29], [30, 39], [40, 49], [50, 59], [60, 69], [70, 130]],
+    "party_groups": ["ANR", "PLRA", "ANR-PLRA", "OTRO", "SIN_AFILIACION"]
+  },
+  "turnout": {
+    "target_municipal": 0.60,
+    "age_curve": {"18-29": 0.45, "30-39": 0.55, "40-49": 0.62, "50-59": 0.68, "60-69": 0.70, "70+": 0.55},
+    "age_curve_flat": {"18-29": 0.58, "30-39": 0.60, "40-49": 0.60, "50-59": 0.62, "60-69": 0.62, "70+": 0.58},
+    "age_curve_steep": {"18-29": 0.30, "30-39": 0.48, "40-49": 0.62, "50-59": 0.74, "60-69": 0.78, "70+": 0.50},
+    "tipo_inscrip_factor": {"TRADICIONAL": 1.05, "AUTOMATICA": 0.85, "INFORMATIZADA": 1.00}
+  },
+  "anchors": {
+    "resultados_2023_mesa": "data/raw/resultados_2023_mesa.csv",
+    "nota": "Slot opcional: CSV con columnas local,share_cheba_equiv,participacion. Si no existe, el pipeline lo omite y lo declara en el informe."
+  }
+}

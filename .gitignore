@@ -1,0 +1,12 @@
+# Datos crudos con PII (padrón con cédulas, capturas con nombres de cuentas)
+data/raw/*
+!data/raw/waves.json
+data/interim/
+
+# Salidas intermedias con identificadores individuales
+data/output/audit_sample.csv
+data/output/excluidos_no_persona.csv
+
+__pycache__/
+*.pyc
+.venv/
