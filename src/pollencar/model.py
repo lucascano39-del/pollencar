@@ -27,11 +27,17 @@ class ModelData:
     """Celdas realizadas de una imputación + estructura de niveles."""
 
     def __init__(self, cells_df, n_locals, local_covar=None, extra=None):
-        # cells_df: party_idx, sex_idx, age_idx, local_idx, n, y
+        # cells_df: party_idx, sex_idx, age_idx, local_idx, [wave_idx], n, y
         self.ip = cells_df["party_idx"].to_numpy(int)
         self.isx = cells_df["sex_idx"].to_numpy(int)
         self.ia = cells_df["age_idx"].to_numpy(int)
         self.il = cells_df["local_idx"].to_numpy(int)
+        if "wave_idx" in cells_df.columns:
+            self.iw = cells_df["wave_idx"].to_numpy(int)
+            self.n_wave = int(self.iw.max()) + 1
+        else:
+            self.iw = None
+            self.n_wave = 1
         self.n = cells_df["n"].to_numpy(float)
         self.y = cells_df["y"].to_numpy(float)
         self.C = len(cells_df)
@@ -43,7 +49,7 @@ class ModelData:
 
 
 def respondents_to_cells(linked_df, cfg, n_locals):
-    """linked_df: party_group, sexo, age_band, local (1..40), vote (0/1)."""
+    """linked_df: party_group, sexo, age_band, local (1..40), vote (0/1), [wave]."""
     make_levels(cfg)
     pidx = {p: i for i, p in enumerate(PARTY_LEVELS)}
     sidx = {s: i for i, s in enumerate(SEX_LEVELS)}
@@ -53,8 +59,14 @@ def respondents_to_cells(linked_df, cfg, n_locals):
     df["sex_idx"] = df["sexo"].map(sidx)
     df["age_idx"] = df["age_band"].map(aidx)
     df["local_idx"] = df["local"].astype(int) - 1
-    g = (df.groupby(["party_idx", "sex_idx", "age_idx", "local_idx"])
-           .agg(n=("vote", "size"), y=("vote", "sum")).reset_index())
+    keys = ["party_idx", "sex_idx", "age_idx", "local_idx"]
+    # el término de ola solo existe con >=2 olas observadas (si no, no es identificable)
+    if "wave" in df.columns and df["wave"].nunique() > 1:
+        waves = sorted(df["wave"].unique())
+        widx = {w: i for i, w in enumerate(waves)}
+        df["wave_idx"] = df["wave"].map(widx)
+        keys.append("wave_idx")
+    g = df.groupby(keys).agg(n=("vote", "size"), y=("vote", "sum")).reset_index()
     return g
 
 
@@ -65,6 +77,8 @@ class ParamLayout:
         self.blocks = [("beta0", 1), ("beta_sex", 2),  # M, U (F referencia)
                        ("u_party", data.n_party), ("u_age", data.n_age),
                        ("u_local", data.n_local)]
+        if data.n_wave > 1:  # efecto de ola: solo con >=2 olas (ver respondents_to_cells)
+            self.blocks.append(("u_wave", data.n_wave))
         if data.local_covar is not None:
             self.blocks.append(("beta23", 1))
         self.slices, off = {}, 0
@@ -87,6 +101,8 @@ class ParamLayout:
                     self.masks.append(np.where(data.ia == j)[0])
                 elif name == "u_local":
                     self.masks.append(np.where(data.il == j)[0])
+                elif name == "u_wave":
+                    self.masks.append(np.where(data.iw == j)[0])
 
     def eta(self, x):
         d = self.data
@@ -95,6 +111,8 @@ class ParamLayout:
         bs = x[s["beta_sex"]]
         e += np.where(d.isx == 1, bs[0], 0.0) + np.where(d.isx == 2, bs[1], 0.0)
         e += x[s["u_party"]][d.ip] + x[s["u_age"]][d.ia] + x[s["u_local"]][d.il]
+        if "u_wave" in s:
+            e += x[s["u_wave"]][d.iw]
         if d.local_covar is not None:
             e += x[s["beta23"]][0] * d.local_covar[d.il]
         return e

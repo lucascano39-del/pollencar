@@ -23,27 +23,32 @@ class MwG:
         self.lay = ParamLayout(data)
         self.cfg = cfg_model
         self.rng = np.random.default_rng(seed)
-        self.a0, self.b0 = cfg_model["sigma2_prior"]["a"], cfg_model["sigma2_prior"]["b"]
+        # bloques de RE presentes en el layout; ola/página llevan prior más chico
+        self.re_blocks = [n for n, _ in self.lay.blocks if n.startswith("u_")]
+        self.s2_prior = {}
+        for n in self.re_blocks:
+            p = (cfg_model["sigma2_prior_small"]
+                 if n in ("u_wave", "u_page") else cfg_model["sigma2_prior"])
+            self.s2_prior[n] = (p["a"], p["b"])
+        # nombre de bloque por índice escalar (para prior_sd)
+        self.block_of = {}
+        for n, _k in self.lay.blocks:
+            sl = self.lay.slices[n]
+            for k in range(sl.start, sl.stop):
+                self.block_of[k] = n
 
     def _prior_sd(self, k, s2):
-        lay, cfg = self.lay, self.cfg
-        s = lay.slices
-        if s["beta0"].start <= k < s["beta0"].stop:
-            return cfg["beta0_sd"]
-        if s["beta_sex"].start <= k < s["beta_sex"].stop:
-            return cfg["beta_sd"]
-        if "beta23" in s and s["beta23"].start <= k < s["beta23"].stop:
-            return cfg["beta_sd"]
-        if s["u_party"].start <= k < s["u_party"].stop:
-            return np.sqrt(s2["u_party"])
-        if s["u_age"].start <= k < s["u_age"].stop:
-            return np.sqrt(s2["u_age"])
-        return np.sqrt(s2["u_local"])
+        name = self.block_of[k]
+        if name == "beta0":
+            return self.cfg["beta0_sd"]
+        if name in ("beta_sex", "beta23"):
+            return self.cfg["beta_sd"]
+        return np.sqrt(s2[name])
 
     def run(self, iters, burnin, thin=4):
         d, lay, rng = self.d, self.lay, self.rng
         x = rng.normal(0.0, 0.3, lay.dim)  # arranque sobredisperso por cadena
-        s2 = {"u_party": 0.25, "u_age": 0.25, "u_local": 0.25}
+        s2 = {n: 0.25 for n in self.re_blocks}
         eta = lay.eta(x)
         cll = _cell_loglik(d.y, d.n, eta)
         log_step = np.full(lay.dim, np.log(0.3))
@@ -76,7 +81,7 @@ class MwG:
 
             # movimiento de traslación: beta0+delta, u_bloque-delta (eta invariante,
             # se acepta solo por priors) — decorrela beta0 de las medias de los RE
-            for name in ("u_party", "u_age", "u_local"):
+            for name in self.re_blocks:
                 sl = lay.slices[name]
                 u = x[sl]
                 delta = rng.normal(0.0, 0.15)
@@ -91,10 +96,11 @@ class MwG:
                     x[sl] = u - delta
 
             # Gibbs exacto para las varianzas
-            for name in ("u_party", "u_age", "u_local"):
+            for name in self.re_blocks:
                 u = x[lay.slices[name]]
-                a_post = self.a0 + len(u) / 2
-                b_post = self.b0 + float((u ** 2).sum()) / 2
+                a0, b0 = self.s2_prior[name]
+                a_post = a0 + len(u) / 2
+                b_post = b0 + float((u ** 2).sum()) / 2
                 s2[name] = b_post / rng.gamma(a_post, 1.0)
 
             if it >= burnin and (it - burnin) % thin == 0:

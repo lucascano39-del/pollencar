@@ -3,7 +3,7 @@
   "election_date": "2026-11-08",
   "linkage": {
     "auto_link_posterior": 0.95,
-    "auto_link_runnerup_max": 0.5,
+    "auto_link_runnerup_max": 0.1,
     "nonlink_posterior_max": 0.10,
     "rare_surname_freq": 30,
     "em_max_iter": 200,

@@ -138,7 +138,7 @@ def render_report(results, out_path):
 
     coord_rows = [(e["candidate"], e["tipo"], e["n"])
                   for e in results.get("exclusiones", [])
-                  if e["tipo"] in ("politica", "lexicon")] or [("—", "—", 0)]
+                  if e["tipo"] == "politica"] or [("—", "—", 0)]
 
     porcand = lk.get("por_candidato", {})
     porcand_rows = []

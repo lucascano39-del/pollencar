@@ -29,10 +29,15 @@ def test_phonetics():
         ("BENITEZ", "VENITES"), ("CHAVEZ", "CHABES"), ("ZARATE", "SARATE"),
         ("HECTOR", "ECTOR"), ("YEGROS", "IEGROS"), ("QUINTANA", "KINTANA"),
         ("VAZQUEZ", "VASQUES"), ("OJEDA", "OGEDA"),
+        ("SOPHIA", "SOFIA"), ("THIAGO", "TIAGO"),          # PH/TH antes de h muda
+        ("SHIRLEY", "CHIRLEY"), ("CHRISTIAN", "CRISTIAN"),  # sh=ch; CH+cons=/k/
     ]
     for a, b in pairs:
         assert pk(a) == pk(b), (a, b, pk(a), pk(b))
-    assert pk("ÑUÑEZ") != pk("NUÑES") or True  # ñ se preserva como letra
+    # el dígrafo CH es fonema propio: NO colisiona con C/S/K
+    for a, b in [("CHENA", "CENA"), ("CHENA", "SENA"), ("CHANO", "CANO"),
+                 ("OCHOA", "OCOA"), ("CHAMORRO", "CAMORRO")]:
+        assert pk(a) != pk(b), (a, b, pk(a), pk(b))
     assert "Ñ" in pk("ÑANDUTI")
     print("phonetics ok")
 

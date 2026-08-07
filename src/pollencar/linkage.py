@@ -74,18 +74,25 @@ def jaro_winkler(s1: str, s2: str) -> float:
 class RespFeatures:
     """Estructuras precomputadas por respondente para el loop de comparación."""
 
-    __slots__ = ("toks", "phons", "phon_of", "exp_givens", "exp_phons", "sexo", "full")
+    __slots__ = ("toks", "phons", "phon_of", "exp_givens", "exp_phons",
+                 "exp_src", "exp_phon_src", "sexo", "full")
 
     def __init__(self, toks, nicknames, sexo):
         self.toks = toks
         self.phons = [phonetic_key(t) for t in toks]
         self.phon_of = dict(zip(toks, self.phons))
         exp = set()
+        exp_src = {}       # canónico expandido -> tokens fuente (para no reusar
+        exp_phon_src = {}  # el token que ya acordó como apellido)
         for t in toks:
             for c in nicknames.get(t, []):
                 exp.add(c)
+                exp_src.setdefault(c, set()).add(t)
+                exp_phon_src.setdefault(phonetic_key(c), set()).add(t)
         self.exp_givens = exp
-        self.exp_phons = {phonetic_key(c) for c in exp}
+        self.exp_phons = set(exp_phon_src)
+        self.exp_src = exp_src
+        self.exp_phon_src = exp_phon_src
         self.sexo = sexo
         self.full = " ".join(toks)
 
@@ -149,6 +156,7 @@ class PadronArrays:
         self.ph_giv2 = padron["ph_giv2"].to_numpy()
         self.sexo = padron["sexo"].to_numpy()
         self.full = (padron["giv1"] + " " + padron["sur1"]).to_numpy()
+        self.full_inv = (padron["sur1"] + " " + padron["giv1"]).to_numpy()
 
 
 def compare(feat: RespFeatures, pa: PadronArrays, j: int, jw_bins):
@@ -184,12 +192,14 @@ def compare(feat: RespFeatures, pa: PadronArrays, j: int, jw_bins):
             break
     if g_giv == 0:
         for g in (pa.giv1[j], pa.giv2[j]):
-            if g and g in feat.exp_givens:
+            if g and g in feat.exp_givens and feat.exp_src[g] & tokset_g:
                 g_giv, giv_val = 2, g
                 break
     if g_giv == 0:
         for pg, g in ((pa.ph_giv1[j], pa.giv1[j]), (pa.ph_giv2[j], pa.giv2[j])):
-            if pg and (pg in phonset_g or pg in feat.exp_phons):
+            if pg and (pg in phonset_g
+                       or (pg in feat.exp_phon_src
+                           and feat.exp_phon_src[pg] & tokset_g)):
                 g_giv, giv_val = 1, g
                 break
 
@@ -214,9 +224,10 @@ def compare(feat: RespFeatures, pa: PadronArrays, j: int, jw_bins):
     else:
         g_sex = 1 if feat.sexo == pa.sexo[j] else 0
 
-    # --- Jaro-Winkler (solo si hay señal mínima; si no, bin bajo) ---
+    # --- Jaro-Winkler (mejor orientación: FB puede venir invertido) ---
     if g_sur >= 1 and g_giv >= 1:
-        jw = jaro_winkler(feat.full, pa.full[j])
+        jw = max(jaro_winkler(feat.full, pa.full[j]),
+                 jaro_winkler(feat.full, pa.full_inv[j]))
         g_jw = 2 if jw >= jw_bins[1] else (1 if jw >= jw_bins[0] else 0)
     else:
         g_jw = NA_JW
@@ -292,8 +303,8 @@ class Linker:
         pattern_counts = Counter()
         for rid, feat in feats.items():
             cands = candidate_pairs(feat, self.blocks)
-            if len(cands) > 20000:  # nombre hiperfrecuente con 1 token: cap defensivo
-                cands = set(list(cands)[:20000])
+            if len(cands) > 100000:  # backstop, no debería dispararse nunca
+                cands = set(list(cands)[:100000])
             rows = []
             for j in cands:
                 gamma, sur_val, giv_val = compare(feat, self.pa, j, jw_bins)
@@ -364,7 +375,7 @@ class Linker:
         llr += math.log(lrf["jw"][gamma[4]])
         return llr
 
-    def classify(self, feats, compared, lam_init=0.6, keep_top=30):
+    def classify(self, feats, compared, lam_init=0.6, keep_top=50):
         """Posterior por respondente con masa de no-match; zonas; sin forzar dudosos."""
         cfg = self.cfg["linkage"]
         mp = cfg["m_probs"]
@@ -407,7 +418,8 @@ class Linker:
             match_mass = 1.0 - q0
             q1 = cand[0][1] if cand else 0.0
             q2 = cand[1][1] if len(cand) > 1 else 0.0
-            if q1 >= cfg["auto_link_posterior"] and (q2 == 0 or q1 / max(q2, 1e-12) >= 10):
+            if (q1 >= cfg["auto_link_posterior"]
+                    and q2 <= cfg["auto_link_runnerup_max"] * q1):
                 zone = "auto"
             elif match_mass < cfg["nonlink_posterior_max"]:
                 zone = "nonlink"

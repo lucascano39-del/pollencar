@@ -23,7 +23,8 @@ def rubin_table(theta_draws_by_imp: list) -> dict:
     if B > 0:
         r = (1 + 1 / M) * B / W if W > 0 else np.inf
         df = (M - 1) * (1 + 1 / r) ** 2 if np.isfinite(r) and r > 0 else np.inf
-        fmi = ((1 + 1 / M) * B + 2 / (df + 3) * T) / T if np.isfinite(df) else (1 + 1 / M) * B / T
+        # gamma = (r + 2/(df+3)) / (r+1) = ((1+1/M)B + 2W/(df+3)) / T
+        fmi = ((1 + 1 / M) * B + 2 / (df + 3) * W) / T if np.isfinite(df) else (1 + 1 / M) * B / T
     else:
         df, fmi = np.inf, 0.0
     inv = lambda x: 1 / (1 + np.exp(-x))

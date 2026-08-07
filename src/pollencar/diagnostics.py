@@ -35,20 +35,23 @@ def ess_bulk(chains) -> float:
     if var_all == 0:
         return float(m * n)
     max_lag = min(n - 1, 500)
-    rho = np.zeros(max_lag)
+    # ACF con divisor n (estimador sesgado, semidefinido positivo)
+    rho = np.zeros(max_lag + 1)
+    rho[0] = 1.0
     for t in range(1, max_lag + 1):
         acov = np.mean([
-            np.mean((c[:-t] - mean_all) * (c[t:] - mean_all)) for c in chains
+            np.sum((c[:-t] - mean_all) * (c[t:] - mean_all)) / n for c in chains
         ])
-        rho[t - 1] = acov / var_all
-    # sumas por pares, cortando en el primer par negativo (Geyer)
+        rho[t] = acov / var_all
+    # pares de Geyer desde lag 0: Gamma_k = rho_{2k} + rho_{2k+1}, corte en el
+    # primer par negativo; tau = 2*sum(Gamma) - 1
     s = 0.0
-    for t in range(0, max_lag - 1, 2):
+    for t in range(0, max_lag, 2):
         pair = rho[t] + rho[t + 1]
         if pair < 0:
             break
         s += pair
-    tau = 1 + 2 * s
+    tau = 2 * s - 1
     return float(m * n / max(tau, 1e-9))
 
 
@@ -64,6 +67,7 @@ def summarize(chains_by_param: dict, rhat_max, ess_min) -> dict:
             "q975": float(np.quantile(flat, 0.975)),
             "rhat": r, "ess": e,
         }
-        if not (np.isnan(r) or r < rhat_max) or e < ess_min:
+        # NaN en R-hat cuenta como fallo (cadenas demasiado cortas o degeneradas)
+        if not (r < rhat_max) or e < ess_min:
             ok = False
     return {"params": out, "ok": ok}

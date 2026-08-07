@@ -53,11 +53,11 @@ def parse_capture(path) -> tuple:
 
 
 def load_page_lexicon(path):
-    exact, regexes = set(), []
+    exact, regexes = {}, []
     with open(path, encoding="utf-8") as f:
         for row in csv.DictReader(f):
             if row["type"] == "exact":
-                exact.add(canon(row["pattern"]))
+                exact[canon(row["pattern"])] = row["reason"]
             else:
                 regexes.append((re.compile(row["pattern"], re.I), row["reason"]))
     return exact, regexes
@@ -66,8 +66,11 @@ def load_page_lexicon(path):
 def flag_non_persons(df, lexicon_path, plausible_givens) -> pd.DataFrame:
     """Marca páginas/comercios/cuentas político-institucionales.
 
-    plausible_givens: vocabulario de nombres de pila (léxico de sexo ∪ padrón)
-    para la heurística "ningún token parece nombre de persona".
+    plausible_givens: vocabulario de nombres de pila (léxico de sexo ∪ apodos
+    ∪ padrón) para la heurística "ningún token parece nombre de persona".
+    Los regexes corren sobre el nombre CRUDO además del canónico: canon()
+    elimina dígitos y puntuación, que es justo lo que patrones como el de
+    años de campaña ("Fulano 2026") o "S.R.L" necesitan ver.
     """
     exact, regexes = load_page_lexicon(lexicon_path)
     reasons = []
@@ -76,10 +79,10 @@ def flag_non_persons(df, lexicon_path, plausible_givens) -> pd.DataFrame:
         toks = strong_tokens(tokens(nm))
         reason = ""
         if cn in exact:
-            reason = "lexicon"
+            reason = f"lexicon:{exact[cn]}"
         else:
             for rx, why in regexes:
-                if rx.search(cn):
+                if rx.search(cn) or rx.search(nm):
                     reason = f"regex:{why}"
                     break
         if not reason and toks:

@@ -8,21 +8,21 @@ de sexo del modelo sigue bien definido).
 import csv
 import os
 
-_LEXICON = None
+_CACHE = {}
 
 
 def _load(lexicon_path=None):
-    global _LEXICON
-    if _LEXICON is not None and lexicon_path is None:
-        return _LEXICON
     path = lexicon_path or os.path.join(
         os.path.dirname(__file__), "..", "..", "lexicons", "given_name_sex.csv"
     )
+    path = os.path.abspath(path)
+    if path in _CACHE:
+        return _CACHE[path]
     lex = {}
     with open(path, encoding="utf-8") as f:
         for row in csv.DictReader(f):
             lex[row["name"].strip().upper()] = row["sex"].strip().upper()
-    _LEXICON = lex
+    _CACHE[path] = lex
     return lex
 
 

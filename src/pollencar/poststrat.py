@@ -26,9 +26,17 @@ def padron_cells(padron_df, cfg):
     insc = cfg["turnout"]["tipo_inscrip_factor"]
     df["w_raw"] = (df["age_band"].map(curve).astype(float)
                    * df["tipo_inscrip"].map(insc).fillna(1.0).astype(float))
-    # escala para que la participación media padrón-ponderada dé el target
-    scale = cfg["turnout"]["target_municipal"] / max(float(df["w_raw"].mean()), 1e-9)
-    df["w_turnout"] = np.clip(df["w_raw"] * scale, 0.02, 0.98)
+    # escala iterativa para que la media POST-clip dé el target de participación
+    target = cfg["turnout"]["target_municipal"]
+    w = df["w_raw"].to_numpy(float)
+    scale = target / max(float(w.mean()), 1e-9)
+    for _ in range(5):
+        clipped = np.clip(w * scale, 0.02, 0.98)
+        mean_c = float(clipped.mean())
+        if abs(mean_c - target) < 1e-4:
+            break
+        scale *= target / max(mean_c, 1e-9)
+    df["w_turnout"] = np.clip(w * scale, 0.02, 0.98)
 
     g = (df.groupby(["party_idx", "sex_idx", "age_idx", "local_idx"])
            .agg(N=("cedula", "size"), w_turnout=("w_turnout", "mean"))

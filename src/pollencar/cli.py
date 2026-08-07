@@ -46,7 +46,9 @@ def infer_sex_fb(toks, given_vocab):
 
 def load_or_build_padron(path, cfg, interim, rebuild=False):
     cache = os.path.join(interim, "padron.pkl")
-    key = (os.path.getsize(path), int(os.path.getmtime(path)))
+    # la clave incluye la config que define columnas derivadas (bandas, grupos)
+    cfg_key = json.dumps(cfg["poststrat"], sort_keys=True)
+    key = (os.path.getsize(path), int(os.path.getmtime(path)), cfg_key)
     if not rebuild and os.path.exists(cache):
         with open(cache, "rb") as f:
             k, df = pickle.load(f)
@@ -110,15 +112,19 @@ def theta_from_draws(draws_by_chain, ps_cells, lay_slices, cfg, local_covar=None
 
 def linked_frame(assign, resp_df, padron, cand0):
     vote_of = dict(zip(resp_df["resp_id"], (resp_df["candidate"] == cand0).astype(int)))
+    if "wave" in resp_df.columns:
+        wave_of = dict(zip(resp_df["resp_id"], resp_df["wave"]))
+    else:
+        wave_of = {}
     rows = []
     for rid, j in assign.items():
         if j is None or rid not in vote_of:
             continue
         rows.append((padron["party_group"].iat[j], padron["sexo"].iat[j],
                      padron["age_band"].iat[j], int(padron["mesa"].iat[j]),
-                     vote_of[rid], rid))
+                     vote_of[rid], int(wave_of.get(rid, 1)), rid))
     return pd.DataFrame(rows, columns=["party_group", "sexo", "age_band",
-                                       "local", "vote", "resp_id"])
+                                       "local", "vote", "wave", "resp_id"])
 
 
 def negative_control(linker, resp_df, given_vocab, cfg, rng):
@@ -163,14 +169,16 @@ def run(args):
     log(f"captura ok: {[(c['candidate'], c['votes_declared']) for c in cands]}")
 
     lex_dir = os.path.join(os.path.dirname(os.path.abspath(args.config)), "..", "lexicons")
-    given_vocab = set(load_sex_lexicon()) | set(padron["giv1"]) | set(padron["giv2"])
+    from .linkage import load_nicknames
+    given_vocab = (set(load_sex_lexicon()) | set(load_nicknames())
+                   | set(padron["giv1"]) | set(padron["giv2"]))
     given_vocab.discard("")
     flagged = flag_non_persons(poll_raw, os.path.join(lex_dir, "non_person_pages.csv"),
                                given_vocab)
     excl = flagged[~flagged["is_person"]]
     excl.to_csv(os.path.join(args.out, "excluidos_no_persona.csv"), index=False)
     results["exclusiones"] = (
-        excl.assign(tipo=excl["non_person_reason"].str.replace("regex:", "", regex=False))
+        excl.assign(tipo=excl["non_person_reason"].str.split(":").str[-1])
         .groupby(["candidate", "tipo"]).size().reset_index(name="n")
         .to_dict("records"))
     resp = prepare_respondents(flagged[flagged["is_person"]])
