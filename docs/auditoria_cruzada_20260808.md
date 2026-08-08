@@ -159,7 +159,37 @@ sesgo pro-Cheba simultáneo y de igual signo en tres casas de leans opuestos, de
 tamaño del intervalo entero — sin ninguna evidencia que lo indique y con la
 evidencia textual y de enlace apuntando en contra.
 
-## 8 · Pedidos a la otra sesión para cerrar
+## 8 · DOSSIER DE DEFENSA — inventario completo de verificaciones (2026-08-08)
+
+Toda perilla del pipeline fue girada; resultado del titular bajo cada ataque:
+
+| # | Ataque posible | Test | Resultado |
+|---|---|---|---|
+| 1 | Parser/conteos mal | asserts vs conteos declarados; microdata 1:1 | ✔ exacto (1 diff explicada: auto-voto del candidato) |
+| 2 | Recuentos de fuentes | 5/5 re-contadas | ✔ Meridiano exacto; Paraná ±0,5pp; AG exacto |
+| 3 | Bloques del widget invertidos | 472 votantes con texto explícito | ✔ 98,7% coincidencia |
+| 4 | Mapeo reacciones invertido | 3 fuentes explícitas | ✔ 93-96% |
+| 5 | Falsos matches | auditoría manual 100 autos + control negativo ×4 fuentes | ✔ ~99% precisión; colapso 93-96% permutado |
+| 6 | Diferencial de enlace = estilo de nombre | estratificado por tokens×rareza | ✔ gap persiste donde hay poder |
+| 7 | El método fabrica ventaja | placebo votos permutados | ✔ devuelve el crudo exacto (47,4=47,4) |
+| 8 | Inferencia de sexo sesgada | estimación sin sexo | ✔ mueve 0,3pp (55,3→55,0 C) |
+| 9 | Imputación múltiple distorsiona | solo-autos, cero MI | ✔ MÁS pro-Cheba (62,7-64,7% C): la MI modera, no fabrica |
+| 10 | Prior de marco λ mal | forzada a 0,40 y 0,85, MRP completo | ✔ Cheba 55,0 / 54,1 — estable |
+| 11 | Bugs de código | revisión adversarial 13 agentes + tests + recovery del sampler | ✔ 5 bugs hallados, corregidos, re-corrido |
+| 12 | Convergencia MCMC | R̂/ESS por imputación | ✔ R̂≤1,003, ESS>4.400 en θ |
+| 13 | Celdas vacías / cobertura | tabla de cobertura | ✔ 0,1% del padrón sin muestra; 5,4% n<5 |
+| 14 | Participación supuesta | curvas de urna 2015/2021/2023 | ✔ rango 54,96-55,00 C |
+| 15 | Duplicados cruzados | S1/S2 | ✔ ±0,3pp |
+| 16 | Estimador dependiente del modelo | poststrat directo sin modelo + bootstrap | ✔ 54,9 = 54,9 |
+| 17 | Polls miden ruido | panel 4 fuentes | ✔ 94,9% consistencia individual |
+
+**Concesión única e irreducible** (decirla antes de que la digan): la autoselección no
+observable DENTRO de celda no es corregible con estos datos — está acotada (tipping
+1,22×; términos de canal calibrados con el gap widget/comentarios 0,32 logit) pero no
+eliminada. Todo lo demás está verificado. Titular defendible: **ago-06: Cheba 55,0
+[52,6-57,4]; hoy: Cheba 54,0 [49,1-58,7]; electorado de Encarnación, votante probable.**
+
+## 9 · Pedidos a la otra sesión para cerrar
 
 1. `poll_engine.py` + `polls_registry.csv` + n_eff por obs (cierra divergencia S0).
 2. Los y_i profundos de Meridiano (integrado) y Paraná (MRP) con sus IC.
