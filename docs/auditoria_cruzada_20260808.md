@@ -131,7 +131,35 @@ call 51/49 P no se sostiene con datos. Caveat: la ponderación por masa en-marco
 un ajuste de marco, no de composición (solo AG tiene MRP completo); replicar la
 profundidad MRP en Paraná/Meridiano con sus microdatos es el siguiente paso natural.
 
-## 7 · Pedidos a la otra sesión para cerrar
+## 7 · RECONTRA-AUDITORÍA FINAL (2026-08-08, a pedido del equipo Pereira)
+
+Cuatro tests diseñados para ROMPER la conclusión pro-Cheba; los cuatro la confirman:
+
+1. **Etiquetas de bloques del widget AG**: 472 personas votaron en el widget Y
+   comentaron con texto explícito → **98,7% de coincidencia** (356/369 = 96,5% contra
+   Paraná). Bloques invertidos habrían dado ~1-4%. Descartado el error catastrófico.
+2. **Mapeo de reacciones Meridiano** (MeGusta=P / MeEncanta=C): 93,0-96,4% de
+   coincidencia contra tres fuentes explícitas independientes. Confirmado.
+3. **Enlace diferencial vs artefacto de nombres**: dentro de estratos de estructura
+   de nombre, el gap de masa en-marco pro-Cheba persiste donde el enlace tiene poder
+   (apellidos raros +0,066; 3 tokens +0,141/+0,163) y se anula solo en el estrato de
+   baja identificabilidad (2 tokens comunes, +0,010), donde la masa es prior-driven
+   para ambos bandos. El diferencial es real, no estilístico.
+4. **Placebo del pipeline**: votos permutados al azar → MRP 47,4% P [44,9-50,1] =
+   share muestral crudo exacto (47,4%). El método no genera movimiento bajo el nulo;
+   el ajuste de los datos reales es estructura, no mecánica.
+
+Con los controles previos (negativos de enlace 93-96% de colapso en 3 fuentes,
+auditoría manual ~99% de precisión en autos, verificación adversarial multi-agente
+del código, panel 94,9%), el resultado queda en su forma final:
+**hoy (2026-08-08), electorado de Encarnación, serie 100% enlazada:
+Cheba 54,0 [49,1-58,7] · última medición (ago-06, la más precisa):
+Cheba 55,0 [52,6-57,4]**. Para que Pereira estuviera arriba hoy se necesitaría un
+sesgo pro-Cheba simultáneo y de igual signo en tres casas de leans opuestos, del
+tamaño del intervalo entero — sin ninguna evidencia que lo indique y con la
+evidencia textual y de enlace apuntando en contra.
+
+## 8 · Pedidos a la otra sesión para cerrar
 
 1. `poll_engine.py` + `polls_registry.csv` + n_eff por obs (cierra divergencia S0).
 2. Los y_i profundos de Meridiano (integrado) y Paraná (MRP) con sus IC.
