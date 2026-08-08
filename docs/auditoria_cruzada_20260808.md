@@ -189,7 +189,19 @@ observable DENTRO de celda no es corregible con estos datos — está acotada (t
 eliminada. Todo lo demás está verificado. Titular defendible: **ago-06: Cheba 55,0
 [52,6-57,4]; hoy: Cheba 54,0 [49,1-58,7]; electorado de Encarnación, votante probable.**
 
-## 9 · Pedidos a la otra sesión para cerrar
+## 9 · Escenarios pro-Pereira cuantificados (2026-08-08)
+
+- **Perilla de homónimos** (monótona pro-Pereira, acotada): cero imputación 64,7% C →
+  estándar 55,0% C → λ=0,85 54,1% C → límite físico (todos en-marco) = crudo persona
+  53,2% C. En ningún punto del recorrido Carlos pasa al frente.
+- **Tipping de participación**: Cheba cae a 50% solo si la participación ANR es el
+  **44%** de la del resto (histórico: el bloque ANR participa MÁS, no menos).
+- **Tercera candidatura**: los 43 votantes de Florentín en Paraná son los MÁS locales
+  del poll (masa en-marco 0,69) y casi todos ANR (17/19 identificados) — una
+  candidatura de disidencia ANR fragmenta el bloque que vota 72% Cheba. Es el
+  escenario estructural más realista para Pereira, y es de boleta, no de medición.
+
+## 10 · Pedidos a la otra sesión para cerrar
 
 1. `poll_engine.py` + `polls_registry.csv` + n_eff por obs (cierra divergencia S0).
 2. Los y_i profundos de Meridiano (integrado) y Paraná (MRP) con sus IC.
