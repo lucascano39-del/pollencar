@@ -12,7 +12,7 @@ sesión** desde los crudos; lo no re-contable se marca como GAP.
 | Ítem | Ellos | Yo (recuento) | Veredicto |
 |---|---|---|---|
 | Microdata widget ago vs captura de Lucas | 1.735 P / 1.930 C (3.665) | idéntico 1:1, salvo **1 fila**: su parser excluyó el voto del perfil del propio candidato ("Carlos Pereira Rieve") que la captura sí lista | ✔ fiel; diferencia explicada |
-| Comentarios ago persona-nivel | 227 P / 358 C (61,2% C) | 228 P / 361 C (**61,3% C**); 3 perfiles con votos contradictorios (excluibles) | ✔ confirma; dedup difiere en ±3 |
+| Comentarios ago persona-nivel | 227 P / 358 C (61,2% C) | primer-voto-por-perfil: 228 P / 361 C; excluyendo los 3 perfiles con votos contradictorios: **227 P / 359 C (61,3% C)** — coincide con su 227 | ✔ confirma bajo cualquier regla de dedup |
 | Reacciones feb | 902 P / 1.662 C (35,2% P) | aritmética del crudo cierra (2.564 mapeadas) | ✔ |
 | Calibrado puntual de mi obs con h clase | 57,0 P | logit(0,451)+0,479 → 57,0 | ✔ reproducido |
 
@@ -45,7 +45,7 @@ composicional del sesgo de casa. La clase núcleo mezcla: (composición ANR de l
 fuera-de-distrito + selección dentro de celda). Mi MRP ya removió las dos primeras
 (verificable: crudo 52,6 C → en-marco 55,6 C → MRP 54,9 C). Lo único que mi IC declara no
 cubrir es la **selección dentro de celda**, cuyo tipping es ±0,20 logit (participación
-diferencial 1,22×) — cuatro veces menor que el h aplicado.
+diferencial 1,22×) — 2,4 veces menor que el h aplicado (0,479/0,197).
 
 **Reconstrucción** (gaussiano conjunto, priors de ellos, n_eff escala DDC≈42, y_i recontados):
 
