@@ -36,9 +36,13 @@ def load():
     return ag, mrp
 
 
-HOUSE_SD = 0.10   # residuo de selección dentro de celda por casa (logit)
-TRANSFER_SD = 0.25
-Q_MONTH = 0.06    # RW en logit por mes (supuesto de la sesión serie, citado)
+# Residuo de casa/canal en logit, POR TIPO DE CANAL — calibrado con el par
+# widget vs comentarios de AG-ago (mismo post, mismo ajuste, gap 0.32 logit):
+# la selección por engagement dentro de celda crece con el esfuerzo del canal.
+SD_WIDGET = 0.10      # voto de 1 click semi-privado
+SD_COMMENTS = 0.20    # comentar = militancia visible
+TRANSFER_SD = 0.30    # reacciones sin nombres, calibradas por transferencia
+Q_MONTH = 0.06        # RW en logit por mes (supuesto de la sesión serie, citado)
 
 
 def build_obs(ag, mrp):
@@ -56,7 +60,7 @@ def build_obs(ag, mrp):
              tipo="MRP", p=mrp["parena"]["theta_pereira"]["mean"],
              lo=mrp["parena"]["theta_pereira"]["ic95"][0],
              hi=mrp["parena"]["theta_pereira"]["ic95"][1],
-             sd=math.hypot(mrp["parena"]["logit_sd"], HOUSE_SD)),
+             sd=math.hypot(mrp["parena"]["logit_sd"], SD_COMMENTS)),
         dict(id="ag_0219", fecha="2026-02-19", casa="Analytics Group (reacciones)",
              tipo="transferida",
              p=expit(logit(902 / 2564) + delta_low), sd=TRANSFER_SD),
@@ -64,18 +68,18 @@ def build_obs(ag, mrp):
              tipo="MRP", p=mrp["meridiano"]["theta_pereira"]["mean"],
              lo=mrp["meridiano"]["theta_pereira"]["ic95"][0],
              hi=mrp["meridiano"]["theta_pereira"]["ic95"][1],
-             sd=math.hypot(mrp["meridiano"]["logit_sd"], HOUSE_SD)),
+             sd=math.hypot(mrp["meridiano"]["logit_sd"], SD_COMMENTS)),
         dict(id="redinf_06", fecha="2026-06-15", casa="Red Informativa (reacciones)",
              tipo="transferida",
              p=expit(logit(239 / 822) + delta_low), sd=TRANSFER_SD),
         dict(id="ag_0806", fecha="2026-08-06", casa="Analytics Group (widget)",
              tipo="MRP", p=p_ago, lo=1 - b["ic95"][1], hi=1 - b["ic95"][0],
-             sd=math.hypot(sd_ago, HOUSE_SD)),
+             sd=math.hypot(sd_ago, SD_WIDGET)),
         dict(id="agcom_0806", fecha="2026-08-06", casa="AG comentarios (auxiliar)",
              tipo="auxiliar", p=agc["theta_pereira"]["mean"],
              lo=agc["theta_pereira"]["ic95"][0],
              hi=agc["theta_pereira"]["ic95"][1],
-             sd=math.hypot(agc["logit_sd"], HOUSE_SD)),
+             sd=math.hypot(agc["logit_sd"], SD_COMMENTS)),
     ]
     for o in obs:
         o["y"] = logit(o["p"])
@@ -123,7 +127,7 @@ def kalman(obs, hoy="2026-08-08"):
                              expit(m_hoy + 1.96 * math.sqrt(v_hoy))]}}
 
 
-def render(obs, kal, delta_low, out_html):
+def render(obs, kal, delta_low, out_html, kal_deep=None):
     W, H, PL, PR, PT, PB = 760, 380, 56, 24, 20, 46
     d0 = date.fromisoformat("2025-11-01")
     d1 = date.fromisoformat("2026-08-31")
@@ -233,6 +237,10 @@ Nada de crudos. Generado 2026-08-08.</div>
 <div class="hero-num">Cheba {100*(1-hoy['p']):.1f}% — Pereira {100*hoy['p']:.1f}%</div>
 <div class="note">Nivel a hoy (2026-08-08), filtro de nivel sobre la serie calibrada ·
 IC 95% Cheba: {100*(1-hoy['ic95'][1]):.1f} – {100*(1-hoy['ic95'][0]):.1f}</div>
+{f'''<div class="note">Sensibilidad — solo observaciones profundas (MRP nominal,
+sin las dos transferidas): Cheba {100*(1-kal_deep["hoy"]["p"]):.1f}%
+[{100*(1-kal_deep["hoy"]["ic95"][1]):.1f} – {100*(1-kal_deep["hoy"]["ic95"][0]):.1f}].
+El rango honesto de hoy es Cheba 54-56.</div>''' if kal_deep else ''}
 </div>
 <h2>La serie (eje: share de Cheba en el electorado)</h2>
 <div class="card">{svg}
@@ -246,11 +254,13 @@ atenuado = canal auxiliar (mismo post que el widget). Línea y banda: nivel suav
 <div class="card tblwrap"><table>
 <thead><tr><th>Fecha</th><th>Fuente</th><th>Tratamiento</th><th>Cheba</th>
 <th>IC 95% Cheba</th><th>Pereira</th></tr></thead><tbody>{rows}</tbody></table>
-<p class="note">Cada IC incluye muestreo + enlace (MI) + residuo de casa (±0.10
-logit; ±0.25 para transferidas). Paraná era a 3 candidatos: h2h excluye los votos
-a Florentín (43). Límite honesto: el ajuste corrige marco y composición observable;
-la selección no observable dentro de celda queda cubierta solo por el término de
-casa del filtro.</p></div>
+<p class="note">Cada IC incluye muestreo + enlace (MI) + residuo de casa/canal por
+tipo (widget ±0.10 logit · comentarios ±0.20 · reacciones transferidas ±0.30 —
+calibrado con el gap widget/comentarios de AG-ago: 0.32 logit de selección por
+engagement en el mismo post). Paraná era a 3 candidatos: h2h excluye los 43 votos
+a Florentín. Límite honesto: el ajuste corrige marco y composición observable; la
+selección no observable dentro de celda queda cubierta por el término de canal,
+no eliminada.</p></div>
 </div>"""
     open(out_html, "w", encoding="utf-8").write(doc)
 
@@ -259,12 +269,13 @@ if __name__ == "__main__":
     ag, mrp = load()
     obs, delta_low = build_obs(ag, mrp)
     kal = kalman(obs)
+    kal_deep = kalman([o for o in obs if o["tipo"] == "MRP"])
     json.dump({"obs": [{k: v for k, v in o.items()} for o in obs],
                "delta_canal_bajo_esfuerzo": delta_low, "hoy": kal["hoy"],
-               "supuestos": {"house_sd": HOUSE_SD, "transfer_sd": TRANSFER_SD,
-                             "q_mes": Q_MONTH}},
+               "supuestos": {"sd_widget": SD_WIDGET, "sd_comments": SD_COMMENTS,
+                             "transfer_sd": TRANSFER_SD, "q_mes": Q_MONTH}},
               open("data/output/serie_calibrada.json", "w"), indent=1)
-    render(obs, kal, delta_low, "docs/serie_calibrada_20260808.html")
+    render(obs, kal, delta_low, "docs/serie_calibrada_20260808.html", kal_deep)
     print("HOY: Pereira", round(100 * kal["hoy"]["p"], 1),
           "Cheba", round(100 * (1 - kal["hoy"]["p"]), 1),
           "IC", [round(100 * x, 1) for x in kal["hoy"]["ic95"]])
