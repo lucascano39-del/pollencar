@@ -90,7 +90,7 @@ def build_obs(ag, mrp):
 
 
 def kalman(obs, hoy="2026-08-08"):
-    # solo obs primarias (la auxiliar comparte post/fecha con el widget)
+    # el llamador decide qué obs entran; acá solo se filtra la auxiliar
     prim = [o for o in obs if o["tipo"] != "auxiliar"]
     d0 = date.fromisoformat(prim[0]["fecha"])
     ts = [(date.fromisoformat(o["fecha"]) - d0).days / 30.0 for o in prim]
@@ -155,8 +155,8 @@ def render(obs, kal, delta_low, out_html, kal_deep=None):
     for f, lab in months:
         s.append(f'<text x="{X(f):.1f}" y="{H-16}" text-anchor="middle" '
                  f'fill="var(--muted)" font-size="11">{lab}</text>')
-    # banda y línea suavizada (share Cheba = 1 - p)
-    prim = [o for o in obs if o["tipo"] != "auxiliar"]
+    # banda y línea suavizada SOLO por las obs enlazadas al padrón (share Cheba = 1-p)
+    prim = [o for o in obs if o["tipo"] == "MRP"]
     pts_u, pts_l, pts_m = [], [], []
     for o, (p_sm, mlog, vlog) in zip(prim, kal["smooth"]):
         x = X(o["fecha"])
@@ -235,21 +235,23 @@ th {{ color:var(--ink2); }} td:nth-child(n+4) {{ font-variant-numeric: tabular-n
 Nada de crudos. Generado 2026-08-08.</div>
 <div class="card">
 <div class="hero-num">Cheba {100*(1-hoy['p']):.1f}% — Pereira {100*hoy['p']:.1f}%</div>
-<div class="note">Nivel a hoy (2026-08-08), filtro de nivel sobre la serie calibrada ·
-IC 95% Cheba: {100*(1-hoy['ic95'][1]):.1f} – {100*(1-hoy['ic95'][0]):.1f}</div>
-{f'''<div class="note">Sensibilidad — solo observaciones profundas (MRP nominal,
-sin las dos transferidas): Cheba {100*(1-kal_deep["hoy"]["p"]):.1f}%
+<div class="note">Nivel a hoy (2026-08-08) · serie <b>100% enlazada al padrón</b>
+(solo observaciones con nombres, MRP completo; controles negativos de enlace
+aprobados con colapso 93-96%) · IC 95% Cheba:
+{100*(1-hoy['ic95'][1]):.1f} – {100*(1-hoy['ic95'][0]):.1f}</div>
+{f'''<div class="note">Referencia — incluyendo las dos observaciones sin nombres
+(calibradas por transferencia, banda ancha): Cheba {100*(1-kal_deep["hoy"]["p"]):.1f}%
 [{100*(1-kal_deep["hoy"]["ic95"][1]):.1f} – {100*(1-kal_deep["hoy"]["ic95"][0]):.1f}].
-El rango honesto de hoy es Cheba 54-56.</div>''' if kal_deep else ''}
+Quedan FUERA del titular hasta contar con sus nominales para enlazar.</div>''' if kal_deep else ''}
 </div>
 <h2>La serie (eje: share de Cheba en el electorado)</h2>
 <div class="card">{svg}
 <p class="note">Puntos llenos = MRP completo sobre microdatos nominales (enlace al
-padrón + imputación múltiple + post-estratificación). Puntos vacíos = observaciones
-sin nombres, calibradas por transferencia (Δ canal bajo-esfuerzo = {delta_low:+.3f}
-logit, estimado del par crudo→MRP de AG-comentarios ago) — banda ancha. Punto
-atenuado = canal auxiliar (mismo post que el widget). Línea y banda: nivel suavizado
-(RW logit, q=0.06/mes). Rombo = hoy.</p></div>
+padrón + imputación múltiple + post-estratificación) — <b>solo estos alimentan la
+línea, la banda y el nivel de hoy</b>. Puntos vacíos = observaciones sin nombres
+(transferencia Δ={delta_low:+.3f} logit): referencia visual, EXCLUIDAS del filtro
+hasta contar con sus nominales. Punto atenuado = canal auxiliar (mismo post que el
+widget). Línea/banda: nivel suavizado (RW logit, q=0.06/mes). Rombo = hoy.</p></div>
 <h2>Tabla</h2>
 <div class="card tblwrap"><table>
 <thead><tr><th>Fecha</th><th>Fuente</th><th>Tratamiento</th><th>Cheba</th>
@@ -268,10 +270,13 @@ no eliminada.</p></div>
 if __name__ == "__main__":
     ag, mrp = load()
     obs, delta_low = build_obs(ag, mrp)
-    kal = kalman(obs)
-    kal_deep = kalman([o for o in obs if o["tipo"] == "MRP"])
+    # PRIMARIA: 100% enlazada al padrón; la variante con transferidas es referencia
+    kal = kalman([o for o in obs if o["tipo"] == "MRP"])
+    kal_deep = kalman(obs)
     json.dump({"obs": [{k: v for k, v in o.items()} for o in obs],
-               "delta_canal_bajo_esfuerzo": delta_low, "hoy": kal["hoy"],
+               "delta_canal_bajo_esfuerzo": delta_low,
+               "hoy_100pct_enlazada": kal["hoy"],
+               "referencia_con_transferidas": kal_deep["hoy"],
                "supuestos": {"sd_widget": SD_WIDGET, "sd_comments": SD_COMMENTS,
                              "transfer_sd": TRANSFER_SD, "q_mes": Q_MONTH}},
               open("data/output/serie_calibrada.json", "w"), indent=1)
