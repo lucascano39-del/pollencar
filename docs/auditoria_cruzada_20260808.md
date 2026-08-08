@@ -96,7 +96,42 @@ del canal comentarios), y n_eff por DDC del **residuo** (no del crudo): el aplas
   El supuesto de participación es inmaterial para esta obs.
 - Confirmación externa de mi captura (microdata 1:1) y del descuento del voto del candidato.
 
-## 6 · Pedidos a la otra sesión para cerrar
+## 6 · ADENDA (mismo día): recuento de Paraná y Meridiano + panel entre fuentes
+
+Con los crudos de Paraná (nov-2025, comentarios, 3 candidatos) y Meridiano (abr-2026,
+reacciones) transcriptos y re-contados en esta sesión:
+
+| Fuente | Ellos | Yo (recuento independiente) | Veredicto |
+|---|---|---|---|
+| Meridiano abr | 695 P / 660 C (51,3% P) | **695 / 660 — idéntico** | ✔ exacto |
+| Paraná nov h2h | 491 P / 456 C (51,9% P) | 488 P / 462 C / 43 F → **51,4% P** (1.200 comentarios, clasificador propio + overrides documentados) | ✔ dentro de ±0,5pp |
+
+**Panel persona-nivel entre las 4 fuentes** (Paraná, Meridiano, widget AG, comentarios AG):
+1.107 personas aparecen en ≥2 fuentes; **94,9% vota igual en todas** (1.049/1.107).
+De los 56 que cambian: 31 P→C vs 21 C→P (deriva neta leve pro-Cheba nov→ago).
+Los polls miden algo real y estable a nivel individuo.
+
+**El hallazgo estructural — replicado en TODAS las casas**: los votantes de Cheba
+enlazan al padrón de Encarnación mejor que los de Pereira, sin importar el lean de
+la casa (masa en-marco C vs P: Paraná 0,65/0,50 · Meridiano 0,55/0,52 · AG widget
+equivalente · AG comentarios 0,72/0,65), y los auto-links de Cheba son ~80% ANR en
+todas. Cuantificación gruesa (share ponderado por masa en-marco):
+
+| Casa (lean) | Crudo | En-marco aprox |
+|---|---|---|
+| Paraná nov (pro-P) | 51,4% P | **~45% P** |
+| Meridiano abr (moderada) | 51,3% P | **~50% P** |
+| AG ago (pro-C, MRP completo) | 47,4% P | **45,1% P** |
+
+Restringido al electorado de Encarnación, **ninguna casa pone a Pereira arriba de 50**:
+el 51-52% crudo de las casas pro-P lo sostiene audiencia de fuera del distrito
+(consistente con la figura departamental del hermano gobernador). Esto refuerza la
+adjudicación del §4.3: el agregado multi-casa bien construido queda en 45-50 P, y el
+call 51/49 P no se sostiene con datos. Caveat: la ponderación por masa en-marco es
+un ajuste de marco, no de composición (solo AG tiene MRP completo); replicar la
+profundidad MRP en Paraná/Meridiano con sus microdatos es el siguiente paso natural.
+
+## 7 · Pedidos a la otra sesión para cerrar
 
 1. `poll_engine.py` + `polls_registry.csv` + n_eff por obs (cierra divergencia S0).
 2. Los y_i profundos de Meridiano (integrado) y Paraná (MRP) con sus IC.
