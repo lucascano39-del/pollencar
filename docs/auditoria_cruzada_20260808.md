@@ -90,7 +90,10 @@ del canal comentarios), y n_eff por DDC del **residuo** (no del crudo): el aplas
 - **Curvas de participación por edad de urnas reales** (municipales 2021 primaria; 2015 y
   forma 2023 como sensibilidad; target 56,8%) reemplazan mi curva prior. Config actualizada,
   pipeline re-corrido (`data/reference/encarnacion_age_turnout.csv`; provenance: handoff,
-  no verificado contra TSJE por esta sesión — GAP menor).
+  no verificado contra TSJE por esta sesión — GAP menor). **Resultado recalibrado**:
+  MRP votante probable **54,9→55,0 C [52,6–57,4]**, y las tres curvas dan 54,96–55,00 —
+  la obs `analytics_0806` para el registry queda: pereira 45,0 / cheba 55,0, n=2760.
+  El supuesto de participación es inmaterial para esta obs.
 - Confirmación externa de mi captura (microdata 1:1) y del descuento del voto del candidato.
 
 ## 6 · Pedidos a la otra sesión para cerrar
