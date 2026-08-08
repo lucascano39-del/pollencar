@@ -170,11 +170,14 @@ def render(obs, kal, delta_low, out_html, kal_deep=None):
     line = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts_m)
     s.append(f'<path d="{line}" fill="none" stroke="var(--s1)" stroke-width="2" '
              f'opacity="0.7"/>')
-    # observaciones
+    # observaciones (bigotes recortados al lienzo; etiqueta abajo si no hay lugar)
+    def CL(yv):
+        return max(PT + 4.0, min(H - PB - 4.0, yv))
+
     for o in obs:
         x, pc = X(o["fecha"]), 1 - o["p"]
-        y = Y(pc)
-        ylo, yhi = Y(1 - o["lo"]), Y(1 - o["hi"])
+        y = CL(Y(pc))
+        ylo, yhi = CL(Y(1 - o["lo"])), CL(Y(1 - o["hi"]))
         aux = o["tipo"] == "auxiliar"
         op = "0.55" if aux else "1"
         s.append(f'<line x1="{x:.1f}" y1="{ylo:.1f}" x2="{x:.1f}" y2="{yhi:.1f}" '
@@ -185,7 +188,10 @@ def render(obs, kal, delta_low, out_html, kal_deep=None):
         else:
             s.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="var(--s1)" '
                      f'opacity="{op}"/>')
-        s.append(f'<text x="{x:.1f}" y="{min(ylo, yhi)-8:.1f}" text-anchor="middle" '
+        ylab = min(ylo, yhi) - 8
+        if ylab < PT + 12:
+            ylab = max(ylo, yhi) + 16
+        s.append(f'<text x="{x:.1f}" y="{ylab:.1f}" text-anchor="middle" '
                  f'fill="var(--ink2)" font-size="11" opacity="{op}">{100*pc:.0f}%</text>')
     # HOY
     hoy = kal["hoy"]
