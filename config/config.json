@@ -44,10 +44,11 @@
     "party_groups": ["ANR", "PLRA", "ANR-PLRA", "OTRO", "SIN_AFILIACION"]
   },
   "turnout": {
-    "target_municipal": 0.60,
-    "age_curve": {"18-29": 0.45, "30-39": 0.55, "40-49": 0.62, "50-59": 0.68, "60-69": 0.70, "70+": 0.55},
-    "age_curve_flat": {"18-29": 0.58, "30-39": 0.60, "40-49": 0.60, "50-59": 0.62, "60-69": 0.62, "70+": 0.58},
-    "age_curve_steep": {"18-29": 0.30, "30-39": 0.48, "40-49": 0.62, "50-59": 0.74, "60-69": 0.78, "70+": 0.50},
+    "_fuente": "data/reference/encarnacion_age_turnout.csv (urnas Encarnacion via handoff sesion serie 2026-08-08; primaria=municipales 2021, flat=municipales 2015, steep=forma generales 2023)",
+    "target_municipal": 0.568,
+    "age_curve": {"18-29": 0.509, "30-39": 0.633, "40-49": 0.633, "50-59": 0.633, "60-69": 0.488, "70+": 0.488},
+    "age_curve_flat": {"18-29": 0.443, "30-39": 0.552, "40-49": 0.552, "50-59": 0.552, "60-69": 0.470, "70+": 0.470},
+    "age_curve_steep": {"18-29": 0.544, "30-39": 0.693, "40-49": 0.693, "50-59": 0.693, "60-69": 0.566, "70+": 0.566},
     "tipo_inscrip_factor": {"TRADICIONAL": 1.05, "AUTOMATICA": 0.85, "INFORMATIZADA": 1.00}
   },
   "anchors": {
