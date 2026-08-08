@@ -155,6 +155,50 @@ def test_sampler_recovery():
     print(f"sampler ok (p_true={p_true:.3f} en [{lo:.3f},{hi:.3f}])")
 
 
+def test_wave_term():
+    """Con 2 olas el bloque u_wave se activa, entra a eta y el sampler corre."""
+    import json
+
+    import pandas as pd
+
+    from pollencar import model
+    from pollencar.model import ModelData, ParamLayout, respondents_to_cells
+    from pollencar.sampler_numpy import MwG
+
+    cfg = json.load(open("config/config.json"))
+    model.make_levels(cfg)
+    rng = np.random.default_rng(11)
+    n = 400
+    ldf = pd.DataFrame({
+        "party_group": rng.choice(model.PARTY_LEVELS, n),
+        "sexo": rng.choice(["F", "M"], n),
+        "age_band": rng.choice(model.AGE_LEVELS, n),
+        "local": rng.integers(1, 9, n),
+        "vote": rng.integers(0, 2, n),
+        "wave": np.where(np.arange(n) < 300, 1, 2),
+    })
+    cells = respondents_to_cells(ldf, cfg, 8)
+    assert "wave_idx" in cells.columns
+    data = ModelData(cells, 8)
+    assert data.n_wave == 2
+    lay = ParamLayout(data)
+    assert "u_wave" in lay.slices
+    x = np.zeros(lay.dim)
+    x[lay.slices["u_wave"]] = [0.5, -0.5]
+    eta = lay.eta(x)
+    assert abs(eta[data.iw == 0][0] - 0.5) < 1e-9  # el término de ola entra a eta
+    # una sola ola: el bloque NO debe existir
+    cells1 = respondents_to_cells(ldf.assign(wave=1), cfg, 8)
+    assert "wave_idx" not in cells1.columns
+    lay1 = ParamLayout(ModelData(cells1, 8))
+    assert "u_wave" not in lay1.slices
+    cfg_m = dict(cfg["model"], iters=300, burnin=100, chains=1)
+    s = MwG(data, cfg_m, 5)
+    draws, _ = s.run(300, 100)
+    assert len(draws) > 0
+    print("wave_term ok")
+
+
 def test_rubin():
     from pollencar.rubin import rubin_table
 
@@ -187,6 +231,7 @@ if __name__ == "__main__":
     test_parser()
     test_em_and_zones()
     test_sampler_recovery()
+    test_wave_term()
     test_rubin()
     test_diagnostics()
     print("\nTODOS LOS TESTS OK")

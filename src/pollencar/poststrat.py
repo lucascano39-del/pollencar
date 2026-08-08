@@ -44,7 +44,7 @@ def padron_cells(padron_df, cfg):
     return g
 
 
-def cell_eta(cells, x, slices, local_covar=None):
+def cell_eta(cells, x, slices, local_covar=None, wave_weights=None):
     e = np.full(len(cells), x[slices["beta0"]][0])
     bs = x[slices["beta_sex"]]
     sx = cells["sex_idx"].to_numpy()
@@ -52,13 +52,24 @@ def cell_eta(cells, x, slices, local_covar=None):
     e += (x[slices["u_party"]][cells["party_idx"].to_numpy()]
           + x[slices["u_age"]][cells["age_idx"].to_numpy()]
           + x[slices["u_local"]][cells["local_idx"].to_numpy()])
+    if "u_wave" in slices:
+        # predicción al promedio de olas PONDERADO POR n (poll acumulativo: la ola
+        # nueva es acreción marginal, no una medición independiente). beta0 y u_ola
+        # son colineales — predecir a ola-cero haría explotar el IC; el promedio
+        # ponderado fija el estimando y acota la incertidumbre entre capturas.
+        uw = x[slices["u_wave"]]
+        if wave_weights is not None and len(wave_weights) == len(uw):
+            w = np.asarray(wave_weights, float)
+        else:
+            w = np.full(len(uw), 1.0 / len(uw))
+        e += float(np.dot(w / w.sum(), uw))
     if local_covar is not None and "beta23" in slices:
         e += x[slices["beta23"]][0] * local_covar[cells["local_idx"].to_numpy()]
     return e
 
 
 def mrp_theta_draws(cells, draws, slices, scenario="A", local_covar=None,
-                    age_curve_override=None, cfg=None):
+                    age_curve_override=None, cfg=None, wave_weights=None):
     """Array de draws posteriores de theta para un escenario de participación."""
     N = cells["N"].to_numpy(float)
     if scenario == "A":
@@ -74,7 +85,7 @@ def mrp_theta_draws(cells, draws, slices, scenario="A", local_covar=None,
         w = N * np.clip(wt, 0.02, 0.98)
     out = np.empty(len(draws))
     for i, (x, _s2) in enumerate(draws):
-        p = 1.0 / (1.0 + np.exp(-cell_eta(cells, x, slices, local_covar)))
+        p = 1.0 / (1.0 + np.exp(-cell_eta(cells, x, slices, local_covar, wave_weights)))
         out[i] = float((w * p).sum() / w.sum())
     return out
 

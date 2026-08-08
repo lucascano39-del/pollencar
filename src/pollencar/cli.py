@@ -96,17 +96,19 @@ def fit_imputation(linked_df, cfg, seed, n_locals, local_covar=None, chains=None
     return cells, data, draws_by_chain, infos
 
 
-def theta_from_draws(draws_by_chain, ps_cells, lay_slices, cfg, local_covar=None):
+def theta_from_draws(draws_by_chain, ps_cells, lay_slices, cfg, local_covar=None,
+                     wave_weights=None):
     flat = [d for ch in draws_by_chain for d in ch]
+    kw = {"local_covar": local_covar, "wave_weights": wave_weights}
     out = {}
-    out["A"] = poststrat.mrp_theta_draws(ps_cells, flat, lay_slices, "A", local_covar)
-    out["B"] = poststrat.mrp_theta_draws(ps_cells, flat, lay_slices, "B", local_covar, cfg=cfg)
+    out["A"] = poststrat.mrp_theta_draws(ps_cells, flat, lay_slices, "A", **kw)
+    out["B"] = poststrat.mrp_theta_draws(ps_cells, flat, lay_slices, "B", cfg=cfg, **kw)
     out["B_flat"] = poststrat.mrp_theta_draws(
-        ps_cells, flat, lay_slices, "B", local_covar,
-        age_curve_override=cfg["turnout"]["age_curve_flat"], cfg=cfg)
+        ps_cells, flat, lay_slices, "B",
+        age_curve_override=cfg["turnout"]["age_curve_flat"], cfg=cfg, **kw)
     out["B_steep"] = poststrat.mrp_theta_draws(
-        ps_cells, flat, lay_slices, "B", local_covar,
-        age_curve_override=cfg["turnout"]["age_curve_steep"], cfg=cfg)
+        ps_cells, flat, lay_slices, "B",
+        age_curve_override=cfg["turnout"]["age_curve_steep"], cfg=cfg, **kw)
     return out
 
 
@@ -185,6 +187,13 @@ def run(args):
     resp = resp[resp["n_toks"] > 0].reset_index(drop=True)
     resp["sexo_fb"] = resp["toks"].map(lambda t: infer_sex_fb(t, given_vocab))
     resp["wave"], cur_wave = wave_of_respondents(resp, args.waves)
+    # acreción entre capturas: share por ola de primera aparición (drift/movilización)
+    olas_t = (resp.groupby("wave")
+              .agg(n=("resp_id", "size"),
+                   share_cand0=("candidate", lambda s: float((s == cand0).mean())))
+              .reset_index().sort_values("wave"))
+    results["olas"] = olas_t.to_dict("records")
+    wave_weights = olas_t["n"].to_numpy(float) if len(olas_t) > 1 else None
     results["funnel"] = {
         "votos_declarados": int(sum(c["votes_declared"] for c in cands)),
         "nombres_visibles": int(len(poll_raw)),
@@ -287,7 +296,8 @@ def run(args):
         if lay_slices is None:
             from .model import ParamLayout
             lay_slices = ParamLayout(data).slices
-        th = theta_from_draws(draws_by_chain, ps_cells, lay_slices, cfg, local_covar)
+        th = theta_from_draws(draws_by_chain, ps_cells, lay_slices, cfg, local_covar,
+                              wave_weights)
         for k in theta:
             theta[k].append(th[k])
         theta_A_by_imp.append(th["A"])
@@ -295,7 +305,8 @@ def run(args):
                       "s2_local": []}
         for ch in draws_by_chain:
             imp_chains["theta_A"].append(poststrat.mrp_theta_draws(
-                ps_cells, ch, lay_slices, "A", local_covar))
+                ps_cells, ch, lay_slices, "A", local_covar,
+                wave_weights=wave_weights))
             imp_chains["beta0"].append(np.array([x[lay_slices["beta0"]][0] for x, _ in ch]))
             imp_chains["s2_party"].append(np.array([s2["u_party"] for _, s2 in ch]))
             imp_chains["s2_age"].append(np.array([s2["u_age"] for _, s2 in ch]))
@@ -368,7 +379,8 @@ def run(args):
                 _, data, dbc, _ = fit_imputation(
                     ldf, cfg, cfg["seed"] + 7000 + 1000 * mth, n_locals,
                     local_covar, chains=2)
-                th = theta_from_draws(dbc, ps_cells, lay_slices, cfg, local_covar)
+                th = theta_from_draws(dbc, ps_cells, lay_slices, cfg, local_covar,
+                                      wave_weights)
                 th_list.append(th["A"])
             v = np.concatenate(th_list)
             results.setdefault("sensibilidad", {})[label] = {

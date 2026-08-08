@@ -80,6 +80,20 @@ def _table(headers, rows):
     return f'<div class="tblwrap"><table><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></div>'
 
 
+def _waves_section(results, c0):
+    olas = results.get("olas") or []
+    if len(olas) < 2:
+        return ""
+    rows = [(f"Ola {o['wave']}", o["n"], _fmt_pct(o["share_cand0"])) for o in olas]
+    return f"""
+<h2>Acreción entre capturas (olas)</h2>
+<div class="card">{_table(["Primera aparición", "n personas", f"Share {html.escape(c0)} (crudo)"], rows)}
+<p class="note">Share crudo de cada cohorte según la captura donde apareció por primera
+vez. Un salto fuerte en la cohorte nueva indica movilización organizada entre capturas
+(o drift real de opinión); el término de ola del modelo absorbe la diferencia de nivel
+y el MRP del titular usa la muestra completa.</p></div>"""
+
+
 def render_report(results, out_path):
     cands = results["candidates"]
     c0, c1 = cands[0]["candidate"], cands[1]["candidate"]
@@ -234,6 +248,7 @@ intendente acá — excluirlos es correcto, no una pérdida.</p></div>
 poll vive más fuera del distrito (o usa más seudónimos): el ajuste MRP corrige la
 composición de los enlazados, no puede recuperar a los no enlazados.</p></div>
 
+{_waves_section(results, c0)}
 <h2>Señal de coordinación (páginas no-persona que votaron)</h2>
 <div class="card">{_table(["Candidato", "Tipo", "n"], coord_rows)}
 <p class="note">Páginas políticas, comercios y medios votando en el poll. Se
