@@ -1,7 +1,6 @@
 <style>
 /* ---- LÁMINA 04 · La ventana de corrección · área escalonada ascendente ---- */
 .s04 .head{margin:12px 0 16px}
-.s04 .head .lead{max-width:410px;margin-bottom:3px}
 .s04 .topo.a{opacity:.16;top:-34%;right:-14%}
 
 .s04-c{flex:1;min-height:0;display:grid;
@@ -37,10 +36,12 @@
 
 /* --- eje X: hitos --- */
 .s04-dl{grid-area:2/1;text-align:right;padding:12px 16px 0 0;line-height:1.5}
-.s04-days{grid-area:2/2;display:grid;grid-template-columns:repeat(6,1fr)}
-.s04-days b{position:relative;display:block;text-align:center;padding-top:12px;
+.s04-days{grid-area:2/2;position:relative;display:grid;grid-template-columns:repeat(6,1fr)}
+.s04-days .end{position:absolute;right:0;top:0;padding-top:12px;text-align:right}
+.s04-days .end::before{left:auto;right:0}
+.s04-days b{position:relative;display:block;text-align:left;padding-top:12px;
   font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.14em;color:#b4b8bb}
-.s04-days b::before{content:"";position:absolute;top:0;left:50%;width:1px;height:5px;
+.s04-days b::before{content:"";position:absolute;top:0;left:0;width:1px;height:5px;
   transform:translateX(-.5px);background:var(--line-d)}
 
 /* --- zonas bajo el eje --- */
@@ -112,18 +113,18 @@
             <p class="small">Todavía se puede<br>mover opinión</p>
           </div>
           <div class="s04-l al" style="left:calc(66.6667% + 11px);bottom:calc(58.18% + 12px)">
-            <span class="r"></span><span class="n">Sólo movilización</span>
+            <span class="r"></span><span class="n">Solo movilización</span>
             <p class="small">Ya no convencés:<br>llevás a votar</p>
           </div>
           <div class="s04-l al" style="left:calc(83.3333% + 11px);bottom:calc(75.15% + 12px)">
             <span class="r"></span><span class="n">Contención de daño</span>
-            <p class="small">Sólo evitar que empeore</p>
+            <p class="small">Solo evitar que empeore</p>
           </div>
         </div>
 
         <span class="cap s04-dl">Días a la elección</span>
         <div class="s04-days">
-          <b>180</b><b>120</b><b>90</b><b>60</b><b>30</b><b>7</b>
+          <b>180</b><b>120</b><b>90</b><b>60</b><b>30</b><b>7</b><b class="end">0</b>
         </div>
 
         <div class="s04-zones">

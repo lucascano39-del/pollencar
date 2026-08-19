@@ -33,12 +33,17 @@ Cada lámina mide exactamente 1280×720 px (13,33″ × 7,5″). Si `preview_sli
 
 ## Antes de enviarlo a un cliente
 
-1. **Contacto** — slide 13 tiene placeholders marcados en el HTML con `⚠︎ EDITAR`.
+1. **Contacto** — slide 13 muestra correo y sitio; están marcados en el HTML con
+   `⚠︎ EDITAR` junto con las instrucciones para sumar una tercera columna de WhatsApp.
 2. **Aritmética del margen** — slide 03 usa un distrito de ejemplo de 120.000 votos
    efectivos; conviene recalcularlo con el padrón real del cliente.
 3. **Gráficos esquemáticos** — las láminas 02, 04, 05, 08, 09, 10 llevan al pie la
    aclaración de que el gráfico es conceptual, esquemático o una vista de ejemplo.
    No sacar esas aclaraciones: son lo que hace defendible el material.
+4. **Falta la prueba** — el deck argumenta bien pero no muestra trabajo propio: no hay
+   backtesting (medición contra resultado real), ni cantidad de olas o distritos, ni
+   quién firma la ficha técnica. Es el agregado de mayor impacto pendiente y necesita
+   datos reales de la consultora, no se puede inventar.
 
 ## Estructura
 

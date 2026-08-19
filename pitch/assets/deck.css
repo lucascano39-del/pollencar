@@ -105,9 +105,9 @@ h1,h2,h3,h4,h5,h6,p{margin:0}
 .paper .cap{color:#7b8083}
 
 /* ---------- estructura de slide ---------- */
-.head{display:flex;justify-content:space-between;align-items:flex-end;gap:44px;flex:none;
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:44px;flex:none;
   margin:16px 0 18px}
-.head .lead{max-width:400px}
+.head .lead{width:400px;flex:none}
 .stage{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;gap:10px}
 .stage svg{display:block;width:100%;height:100%;overflow:visible}
 .band{border-top:1px solid var(--line-d);padding-top:15px;margin-top:15px;display:flex;

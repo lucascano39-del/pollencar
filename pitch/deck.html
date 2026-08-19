@@ -68,7 +68,6 @@
 <style>
 /* ---- s02 · barras de cobertura informativa ---- */
 .s02 .head{margin:14px 0 25px}
-.s02 .head .lead{max-width:412px;margin-bottom:5px}
 .s02 .topo.a{opacity:.25;top:-36%;right:-15%}
 .s02-chart{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
 .s02-row{display:grid;grid-template-columns:166px 600px 346px;column-gap:24px;align-items:center}
@@ -149,15 +148,15 @@
           <span></span>
           <div class="ax">
             <span class="tk a"></span><span class="tk b"></span><span class="tk c"></span>
-            <span class="cap z z0">0%</span>
+            
             <span class="mono z z1">Lo que hoy sabés</span>
             <span class="mono z z2">Lo que decide la elección</span>
-            <span class="cap z z3">100%</span>
+            
           </div>
           <span></span>
         </div>
       </div>
-      <span class="cap foot-cap">Cobertura informativa por fuente · esquema conceptual</span>
+      <span class="cap foot-cap">Esquema conceptual: las barras comparan alcance relativo, no son porcentajes medidos</span>
     </div>
     <div class="band"><span class="k">La conclusión</span><p class="t">Nada de esto está mal. Todo esto junto, igual, <span class="em">no alcanza para asignar plata, tiempo y candidato.</span></p></div>
   </div>
@@ -228,16 +227,16 @@
 
             <!-- linea de guia + anotacion -->
             <path class="s03-guide" d="M646.9 317.1 L646.9 344 L833 344"/>
-            <text class="s03-lbl" x="833" y="357" text-anchor="end">1,5 pts = 1.800 votos = 5 o 6 mesas</text>
+            <text class="s03-lbl" x="833" y="357" text-anchor="end">1,5 pts = 1.800 votos = unas 7 mesas</text>
           </svg>
         </div>
         <div class="s03-nums">
           <div class="stat"><b>1,5<span class="s03-un">pts</span></b><span class="u">Margen típico</span></div>
           <div class="stat"><b>1.800</b><span class="u">Votos</span></div>
-          <div class="stat"><b>6</b><span class="u">Mesas</span></div>
+          <div class="stat"><b>7</b><span class="u">Mesas</span></div>
         </div>
       </div>
-      <span class="cap">1 punto = 100 votos · distrito de ejemplo de 120.000 votos efectivos · aritmética, no pronóstico</span>
+      <span class="cap">1 punto = 100 votos · distrito de ejemplo de 120.000 votos efectivos · ≈250 votos emitidos por mesa · aritmética, no pronóstico</span>
     </div>
     <div class="band"><span class="k">Y sin embargo</span><p class="t">El 100% del presupuesto se asigna con <span class="em-alarm">0% de medición propia.</span></p></div>
   </div>
@@ -248,7 +247,6 @@
 <style>
 /* ---- LÁMINA 04 · La ventana de corrección · área escalonada ascendente ---- */
 .s04 .head{margin:12px 0 16px}
-.s04 .head .lead{max-width:410px;margin-bottom:3px}
 .s04 .topo.a{opacity:.16;top:-34%;right:-14%}
 
 .s04-c{flex:1;min-height:0;display:grid;
@@ -284,10 +282,12 @@
 
 /* --- eje X: hitos --- */
 .s04-dl{grid-area:2/1;text-align:right;padding:12px 16px 0 0;line-height:1.5}
-.s04-days{grid-area:2/2;display:grid;grid-template-columns:repeat(6,1fr)}
-.s04-days b{position:relative;display:block;text-align:center;padding-top:12px;
+.s04-days{grid-area:2/2;position:relative;display:grid;grid-template-columns:repeat(6,1fr)}
+.s04-days .end{position:absolute;right:0;top:0;padding-top:12px;text-align:right}
+.s04-days .end::before{left:auto;right:0}
+.s04-days b{position:relative;display:block;text-align:left;padding-top:12px;
   font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.14em;color:#b4b8bb}
-.s04-days b::before{content:"";position:absolute;top:0;left:50%;width:1px;height:5px;
+.s04-days b::before{content:"";position:absolute;top:0;left:0;width:1px;height:5px;
   transform:translateX(-.5px);background:var(--line-d)}
 
 /* --- zonas bajo el eje --- */
@@ -359,18 +359,18 @@
             <p class="small">Todavía se puede<br>mover opinión</p>
           </div>
           <div class="s04-l al" style="left:calc(66.6667% + 11px);bottom:calc(58.18% + 12px)">
-            <span class="r"></span><span class="n">Sólo movilización</span>
+            <span class="r"></span><span class="n">Solo movilización</span>
             <p class="small">Ya no convencés:<br>llevás a votar</p>
           </div>
           <div class="s04-l al" style="left:calc(83.3333% + 11px);bottom:calc(75.15% + 12px)">
             <span class="r"></span><span class="n">Contención de daño</span>
-            <p class="small">Sólo evitar que empeore</p>
+            <p class="small">Solo evitar que empeore</p>
           </div>
         </div>
 
         <span class="cap s04-dl">Días a la elección</span>
         <div class="s04-days">
-          <b>180</b><b>120</b><b>90</b><b>60</b><b>30</b><b>7</b>
+          <b>180</b><b>120</b><b>90</b><b>60</b><b>30</b><b>7</b><b class="end">0</b>
         </div>
 
         <div class="s04-zones">
@@ -391,7 +391,6 @@
 <style>
 /* ---- LÁMINA 05 · La asimetría · dos trayectorias divergentes a 90 días ---- */
 .s05 .head{margin:15px 0 16px}
-.s05 .head .lead{max-width:420px}
 .s05 .topo.a{top:-54%;right:-19%;opacity:.15}
 
 .s05 .s05-plot{flex:1;min-height:0}
@@ -528,7 +527,6 @@
 <style>
 /* ---- LÁMINA 06 · El sistema · diagrama orbital de seis capacidades ---- */
 .s06 .head{margin:14px 0 14px}
-.s06 .head .lead{max-width:400px}
 .s06 .topo.a{top:-38%;right:-21%;opacity:.085}
 .s06 .glow{width:560px;height:560px;left:360px;top:76px}
 .s06 .stage{gap:10px}
@@ -618,15 +616,15 @@
         <div class="s06-n l n5"><span class="mono">05</span><b>NOMOS</b><span class="small">Consola única</span></div>
         <div class="s06-n l n6"><span class="mono">06</span><b>War Room</b><span class="small">Contenido y respuesta</span></div>
 
-        <span class="cap">Esquema conceptual · no representa datos</span>
+        <span class="cap">Las seis capas se contratan por separado o funcionan como un solo sistema</span>
       </div>
       <div class="cyc">
-        <div class="s"><i>01</i><b>Medir</b></div>
-        <div class="s"><i>02</i><b>Entender</b></div>
-        <div class="s"><i>03</i><b>Segmentar</b></div>
-        <div class="s"><i>04</i><b>Decidir</b></div>
-        <div class="s"><i>05</i><b>Operar</b></div>
-        <div class="s"><i>06</i><b>Aprender</b></div>
+        <div class="s"><b>Medir</b></div>
+        <div class="s"><b>Entender</b></div>
+        <div class="s"><b>Segmentar</b></div>
+        <div class="s"><b>Decidir</b></div>
+        <div class="s"><b>Operar</b></div>
+        <div class="s"><b>Aprender</b></div>
       </div>
     </div>
     <div class="band"><span class="k">La diferencia</span><p class="t">Una campaña ve fragmentos. <span class="em">Nosotros reconstruimos la imagen completa.</span></p></div>
@@ -637,7 +635,6 @@
 <!-- ===== slides/07-medicion-auditable.html ===== -->
 <style>
 /* ---- LÁMINA 07 · Medición auditable · embudo de seis controles + estimación con intervalo ---- */
-.s07 .head .lead{max-width:452px}
 .s07 .topo.a{top:-46%;right:-17%;opacity:.12}
 .s07 .stage{gap:10px}
 
@@ -680,12 +677,12 @@
     <div class="eyebrow"><span class="n">06</span><span>Investigación y medición</span><i class="rule"></i><span>Research premium · CAWI · multimodo</span></div>
     <div class="head">
       <h2 class="display h-2">Un número que se puede<br><span class="em">defender frente a un periodista.</span></h2>
-      <p class="lead">CAWI es entrevista web asistida por computadora: medición digital con arquitectura muestral, cuotas, controles y ponderación. No es un formulario reenviado por WhatsApp.</p>
+      <p class="lead">CAWI es entrevista web asistida por computadora: medición digital con arquitectura muestral, cuotas, controles y ponderación. Un formulario reenviado por el grupo no tiene muestra: contesta el que ya te apoya.</p>
     </div>
     <div class="stage">
       <div class="s07-plot">
         <svg viewBox="0 0 1160 364" preserveAspectRatio="xMidYMid meet" role="img"
-             aria-label="Embudo de seis etapas de medición que desemboca en una estimación con intervalo de confianza">
+             aria-label="Embudo de seis etapas de medición que desemboca en una estimación con margen de error declarado">
 
           <!-- seis bloques trapezoidales que se angostan de izquierda a derecha -->
           <path class="s07-bk s07-b1" d="M6 13 L136 42 L136 234 L6 263 Z"/>
@@ -722,8 +719,8 @@
         <div class="s07-lb" style="left:284px;width:130px"><span class="i">03</span><span class="mono">Campo</span><span class="small">Monitoreo diario</span></div>
         <div class="s07-lb" style="left:423px;width:130px"><span class="i">04</span><span class="mono">Validación</span><span class="small">Deduplicación y antifraude</span></div>
         <div class="s07-lb" style="left:562px;width:130px"><span class="i">05</span><span class="mono">Ponderación</span><span class="small">Ajuste a estructura conocida</span></div>
-        <div class="s07-lb" style="left:701px;width:130px"><span class="i">06</span><span class="mono">Estimación</span><span class="small">Intervalo declarado</span></div>
-        <div class="s07-lb r" style="left:900px;width:218px"><span class="i">Salida</span><span class="mono">El número</span><span class="small">Estimación con intervalo de confianza</span></div>
+        <div class="s07-lb" style="left:701px;width:130px"><span class="i">06</span><span class="mono">Estimación</span><span class="small">Margen declarado</span></div>
+        <div class="s07-lb r" style="left:900px;width:218px"><span class="i">Salida</span><span class="mono">El número</span><span class="small">Estimación con margen de error declarado</span></div>
       </div>
       <span class="cap">Esquema del proceso · cada entrega incluye base auditada, tabulados y ficha técnica</span>
       <div class="chips">
@@ -743,7 +740,6 @@
 <style>
 /* ---- LÁMINA 08 · Historia y territorio · mapa hexagonal + ranking de prioridad ---- */
 .s08 .head{margin:14px 0 14px}
-.s08 .head .lead{max-width:412px}
 .s08 .topo.a{top:-52%;right:-21%;opacity:.07}
 
 /* --- reparto: mapa | panel de ranking --- */
@@ -795,7 +791,7 @@
     <div class="eyebrow"><span class="n">07</span><span>Inteligencia histórica y territorial</span><i class="rule"></i><span>Dónde se define la elección</span></div>
     <div class="head">
       <h2 class="display h-2">Cada elección dejó una huella.<br><span class="em">La convertimos en un mapa de prioridades.</span></h2>
-      <p class="lead">Series, participación y transferencias hasta nivel de mesa. No un promedio del distrito: un ranking de dónde rinde cada hora de campaña.</p>
+      <p class="lead">Series y participación por mesa, y transferencias estimadas por circuito con su margen declarado. No un promedio del distrito: un ranking de dónde rinde cada hora de campaña.</p>
     </div>
     <div class="stage">
       <div class="s08-wrap">
@@ -864,7 +860,6 @@
 <!-- ===== slides/09-micro-y-nano.html ===== -->
 <style>
 /* ---- LÁMINA 09 · Micro y nanosegmentación · zoom progresivo distrito → barrio → célula ---- */
-.s09 .head .lead{max-width:430px}
 .s09 .topo.a{top:-52%;right:-18%;opacity:.13}
 .s09 .stage{gap:12px}
 
@@ -994,7 +989,6 @@
 <style>
 /* ---- LÁMINA 10 · NOMOS · consola móvil + salidas del sistema ---- */
 .s10 .head{margin:15px 0 16px}
-.s10 .head .lead{max-width:432px}
 .s10 .topo.a{top:-44%;right:-19%;opacity:.1}
 .s10 .glow{width:520px;height:520px;left:-130px;top:190px;opacity:.7}
 
@@ -1207,7 +1201,6 @@
 <style>
 /* ---- LÁMINA 11 · War Room · reloj de 24 h con ventana útil ---- */
 .s11 .head{margin:12px 0 14px}
-.s11 .head .lead{max-width:436px}
 .s11 .topo.a{top:-42%;right:-18%;opacity:.085}
 .s11 .glow{width:600px;height:600px;left:256px;top:39px;opacity:.9}
 .s11 .stage{gap:9px}
@@ -1301,7 +1294,7 @@
       </div>
       <span class="cap">Esquema ilustrativo · ritmo típico de una ventana de oportunidad</span>
     </div>
-    <div class="band"><span class="k">Lo que sí y lo que no</span><p class="t">Velocidad, coordinación y disciplina. <span class="em">Sin bots, sin identidades falsas, sin desinformación.</span></p></div>
+    <div class="band"><span class="k">El límite</span><p class="t">Velocidad, coordinación y disciplina. <span class="em">Sin bots, sin identidades falsas, sin desinformación.</span></p></div>
   </div>
   <div class="foot"><span>Malaparte Analytica · War Room</span><span class="bar"><i style="width:80%"></i></span><span>Operación · 11 / 13</span></div>
 </section>
@@ -1309,7 +1302,6 @@
 <!-- ===== slides/12-modulos.html ===== -->
 <style>
 /* ---- LÁMINA 12 · Módulos · matriz de alcance por módulo de contratación ---- */
-.s12 .head .lead{max-width:404px}
 .s12 .topo.a{top:-48%;right:-17%;opacity:.11}
 .s12 .stage{gap:13px}
 
@@ -1375,7 +1367,7 @@
   <div class="pad">
     <div class="eyebrow"><span class="n">11</span><span>Cómo se contrata</span><i class="rule"></i><span>Un módulo o el sistema completo</span></div>
     <div class="head">
-      <h2 class="display h-2">Entrás por un problema.<br><span class="em">Escalás cuando el problema se vuelve chico.</span></h2>
+      <h2 class="display h-2">Entrás por un módulo.<br><span class="em">Escalás cuando el margen se cierra.</span></h2>
       <p class="lead">Cada módulo funciona solo y se integra sin rehacer nada.</p>
     </div>
     <div class="stage">
@@ -1385,14 +1377,14 @@
         <div class="s12-vr" style="left:542px"></div>
         <div class="s12-vr" style="left:748px"></div>
         <div class="s12-hl"></div>
-        <div class="s12-rb">Más elegido</div>
+        <div class="s12-rb">Recomendado</div>
 
         <div class="s12-r s12-hd">
           <span class="k">Capacidad</span>
           <span class="h"><i>01</i><b>Diagnóstico</b></span>
           <span class="h"><i>02</i><b>Pulso</b></span>
           <span class="h"><i>03</i><b>Inteligencia</b></span>
-          <span class="h on"><i>04</i><b>Full cycle</b></span>
+          <span class="h on"><i>04</i><b>Ciclo completo</b></span>
         </div>
 
         <!-- 01 · encuesta propia -->
@@ -1483,7 +1475,7 @@
           <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg>Parcial · a medida</span>
           <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg>No incluido</span>
         </div>
-        <span class="cap">Alcance de referencia · sin precios de lista: cada propuesta se cotiza por padrón, cantidad de olas y calendario electoral</span>
+        <span class="cap">Inversión · se cotiza sobre tu distrito: padrón, cantidad de olas y calendario electoral · propuesta cerrada en 72 horas</span>
       </div>
     </div>
     <div class="band"><span class="k">Nota</span><p class="t">Lo que se mide hoy <span class="em">sigue sirviendo cuando la campaña escala.</span></p></div>
@@ -1495,7 +1487,6 @@
 <style>
 /* ---- LÁMINA 13 · Cierre · Gantt de 21 días + llamada a la acción ---- */
 .s13 .head{margin:12px 0 16px}
-.s13 .head .lead{max-width:392px;margin-bottom:4px}
 .s13 .topo.a{top:-40%;right:-15%;opacity:.16}
 .s13 .glow{width:660px;height:660px;left:600px;bottom:-330px;opacity:.9}
 .s13 .stage{gap:18px}
@@ -1551,7 +1542,7 @@
   font-size:11.4px;line-height:1.44;color:#b3b7b9}
 
 /* --- contacto --- */
-.s13-ct{display:grid;grid-template-columns:repeat(3,1fr)}
+.s13-ct{display:grid;grid-template-columns:repeat(2,1fr)}
 .s13-ct div{padding:0 0 0 26px;border-left:1px solid var(--line-d)}
 .s13-ct div:first-child{padding-left:0;border-left:0}
 .s13-ct .v{display:block;margin-top:5px;font-family:var(--mono);font-size:13px;
@@ -1617,15 +1608,16 @@
         <p class="small">45 minutos con tu equipo. Sin costo y sin compromiso: salís con las tres preguntas críticas de tu campaña ordenadas por urgencia.</p>
       </div>
 
-      <!-- ⚠︎ EDITAR: reemplazar por los datos de contacto reales antes de enviar -->
+      <!-- ⚠︎ EDITAR antes de enviar: poner el correo y el sitio reales. Para sumar el
+           WhatsApp, cambiar .s13-ct a repeat(3,1fr) y agregar acá una tercera columna:
+           <div><span class="cap">WhatsApp</span><span class="v">+595 9xx xxx xxx</span></div> -->
       <div class="s13-ct">
         <div><span class="cap">Correo</span><span class="v">contacto@malaparteanalytica.com</span></div>
-        <div><span class="cap">Teléfono / WhatsApp</span><span class="v">+ ___ ___ ______</span></div>
         <div><span class="cap">Sitio</span><span class="v">malaparteanalytica.com</span></div>
       </div>
 
     </div>
-    <div class="band"><span class="k">Costo de esperar</span><p class="t">Cuanto antes empieza la medición, <span class="em">más decisiones quedan disponibles.</span></p></div>
+    <div class="band"><span class="k">Costo de esperar</span><p class="t">Cada semana que esperás cierra una decisión <span class="em">y te deja una ola menos de campo.</span></p></div>
   </div>
   <div class="foot"><span>Malaparte Analytica · Próximo paso</span><span class="bar"><i style="width:100%"></i></span><span>Cierre · 13 / 13</span></div>
 </section>
