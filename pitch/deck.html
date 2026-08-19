@@ -1212,7 +1212,7 @@
 .s11 .glow{width:600px;height:600px;left:256px;top:39px;opacity:.9}
 .s11 .stage{gap:9px}
 
-/* --- lienzo del reloj (1160 x 372, mapeo 1:1 con el viewBox) --- */
+/* --- lienzo del reloj (1160 x 420, mapeo 1:1 con el viewBox) --- */
 .s11-clk{position:relative;height:420px;flex:none}
 .s11-clk > svg{position:absolute;inset:0}
 
@@ -1283,20 +1283,20 @@
           <!-- hitos -->
           <g><circle class="hl" cx="637.0" cy="208.8" r="7"/><circle class="dt" cx="637.0" cy="208.8" r="4"/><circle class="hl" cx="599.2" cy="274.2" r="7"/><circle class="dt" cx="599.2" cy="274.2" r="4"/><circle class="hl" cx="533.8" cy="312.0" r="7"/><circle class="dt" cx="533.8" cy="312.0" r="4"/><circle class="hl" cx="423.0" cy="297.4" r="7"/><circle class="dt" cx="423.0" cy="297.4" r="4"/><circle class="hl" cx="355.0" cy="133.2" r="7"/><circle class="dt" cx="355.0" cy="133.2" r="4"/></g>
           <!-- la ventana ya cerró -->
-          <path class="alln" d="M477.4 348Q700 398 886 396"/>
-          <path class="alhd" d="M885.6 390.6L895.4 396L885.4 401.4"/>
-          <path class="alx" d="M896 389.6L909 402.4M909 389.6L896 402.4"/>
+          <path class="alln" d="M477.4 348Q696 397.6 869 396"/>
+          <path class="alhd" d="M866.5 389.9L878.6 396.1L866.3 402.3"/>
+          <path class="alx" d="M896 389.8L908.4 402.2M908.4 389.8L896 402.2"/>
         </svg>
         <div class="s11-core"><b>El mismo día</b></div>
         <span class="cap s11-h" style="left:496.0px;top:9px">00</span>
         <span class="cap s11-h" style="left:660.0px;top:171.0px">06</span>
         <span class="cap s11-h" style="left:496.0px;top:335.0px">12</span>
         <span class="cap s11-h" style="left:332.0px;top:171.0px">18</span>
-      <div class="s11-l r" style="top:216.0px"><span class="t"><i>07:00</i><b>Radar</b></span><p class="small">el tema aparece y se prioriza</p></div>
-      <div class="s11-l r" style="top:294.0px"><span class="t"><i>09:00</i><b>Decisión</b></span><p class="small">actuar, amplificar, responder o ignorar</p></div>
-      <div class="s11-l r" style="top:344.0px"><span class="t"><i>11:00</i><b>Producción</b></span><p class="small">pieza con ficha estratégica</p></div>
-      <div class="s11-l l" style="top:322.0px"><span class="t"><i>14:00</i><b>Distribución</b></span><p class="small">orgánico, aliados y pauta</p></div>
-      <div class="s11-l l" style="top:126.0px"><span class="t"><i>19:00</i><b>Medición</b></span><p class="small">impacto, aprendizaje y ajuste</p></div>
+        <div class="s11-l r" style="top:216.0px"><span class="t"><i>07:00</i><b>Radar</b></span><p class="small">el tema aparece y se prioriza</p></div>
+        <div class="s11-l r" style="top:294.0px"><span class="t"><i>09:00</i><b>Decisión</b></span><p class="small">actuar, amplificar, responder o ignorar</p></div>
+        <div class="s11-l r" style="top:344.0px"><span class="t"><i>11:00</i><b>Producción</b></span><p class="small">pieza con ficha estratégica</p></div>
+        <div class="s11-l l" style="top:322.0px"><span class="t"><i>14:00</i><b>Distribución</b></span><p class="small">orgánico, aliados y pauta</p></div>
+        <div class="s11-l l" style="top:126.0px"><span class="t"><i>19:00</i><b>Medición</b></span><p class="small">impacto, aprendizaje y ajuste</p></div>
         <span class="mono s11-al">+48 h · la ventana ya cerró</span>
       </div>
       <span class="cap">Esquema ilustrativo · ritmo típico de una ventana de oportunidad</span>
@@ -1515,7 +1515,7 @@
 .s13-ov{position:absolute;top:0;bottom:0;left:316px;right:0;z-index:0;pointer-events:none}
 .s13-ov i{position:absolute;top:23px;bottom:24px;width:0;
   border-left:1px dashed rgba(255,255,255,.11)}
-.s13-ov .m21{position:absolute;right:0;top:23px;bottom:5px;width:1.5px;background:var(--cyan)}
+.s13-ov .m21{position:absolute;right:0;top:23px;bottom:24px;width:1.5px;background:var(--cyan)}
 
 /* filas de fase */
 .s13-ph{height:60px;position:relative;z-index:1}
@@ -1529,6 +1529,8 @@
 .s13-bar .cap{color:#9fa4a7}
 .s13-bar.last{border-color:rgba(40,203,211,.85);background:rgba(40,203,211,.17)}
 .s13-bar.last .cap{color:var(--cyan)}
+.s13-ldr{position:absolute;left:0;top:50%;height:0;
+  border-top:1px dashed rgba(255,255,255,.085)}
 .s13-dia{position:absolute;right:0;top:50%;width:9px;height:9px;background:var(--cyan);
   transform:translate(50%,-50%) rotate(45deg)}
 
@@ -1590,17 +1592,17 @@
 
         <div class="s13-row s13-ph">
           <div class="lb"><b>Diseño</b><p class="small">Muestra, cuestionario, controles e historia del distrito</p></div>
-          <div class="tr"><div class="s13-bar" style="left:14.286%;width:33.333%"><span class="cap">Día 4–10</span></div></div>
+          <div class="tr"><span class="s13-ldr" style="width:14.286%"></span><div class="s13-bar" style="left:14.286%;width:33.333%"><span class="cap">Día 4–10</span></div></div>
         </div>
 
         <div class="s13-row s13-ph">
           <div class="lb"><b>Campo</b><p class="small">Medición con monitoreo diario y validación</p></div>
-          <div class="tr"><div class="s13-bar" style="left:47.619%;width:33.333%"><span class="cap">Día 11–17</span></div></div>
+          <div class="tr"><span class="s13-ldr" style="width:47.619%"></span><div class="s13-bar" style="left:47.619%;width:33.333%"><span class="cap">Día 11–17</span></div></div>
         </div>
 
         <div class="s13-row s13-ph">
           <div class="lb"><b>Primera decisión</b><p class="small">Informe, brief, mapa y NOMOS operativo</p></div>
-          <div class="tr"><div class="s13-bar last" style="left:80.952%;width:19.048%"><span class="cap">Día 18–21</span><span class="s13-dia"></span></div></div>
+          <div class="tr"><span class="s13-ldr" style="width:80.952%"></span><div class="s13-bar last" style="left:80.952%;width:19.048%"><span class="cap">Día 18–21</span><span class="s13-dia"></span></div></div>
         </div>
 
         <div class="s13-row s13-mile">
