@@ -1,0 +1,211 @@
+<style>
+/* ---- LÁMINA 10 · NOMOS · consola móvil + salidas del sistema ---- */
+.s10 .head{margin:15px 0 16px}
+.s10 .head .lead{max-width:432px}
+.s10 .topo.a{top:-44%;right:-19%;opacity:.1}
+.s10 .glow{width:520px;height:520px;left:-130px;top:190px;opacity:.7}
+
+/* --- escenario en dos columnas --- */
+.s10 .stage{flex-direction:row;align-items:stretch;gap:46px}
+.s10-left{width:230px;flex:none;display:flex;flex-direction:column;gap:9px}
+.s10-left > .cap{flex:none;letter-spacing:.12em}
+
+/* --- marco del teléfono --- */
+.s10-ph{flex:1;min-height:0;border:1px solid var(--line-d);border-radius:18px;
+  background:rgba(255,255,255,.022);padding:10px;display:flex;flex-direction:column}
+.s10-sp{flex:none;width:38px;height:3px;border-radius:2px;background:rgba(255,255,255,.16);
+  margin:1px auto 9px}
+.s10-hd{flex:none;display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:7px;border-bottom:1px solid var(--line-d-soft);margin-bottom:9px}
+.s10-hd .cap{letter-spacing:.15em}
+.s10-live{display:flex;align-items:center;gap:4px}
+.s10-live i{width:4px;height:4px;border-radius:50%;background:var(--cyan)}
+
+/* --- tarjetas dentro de la consola --- */
+.s10-cards{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-between}
+.s10-c{flex:none;border:1px solid var(--line-d-soft);border-radius:3px;padding:8px 9px;
+  background:rgba(255,255,255,.02)}
+.s10-c.k1{height:104px}.s10-c.k2{height:66px}.s10-c.k3{height:78px}.s10-c.k4{height:65px}
+.s10-c > .cap{display:block;letter-spacing:.14em;font-size:7px}
+
+/* tarjeta 1 · tracking */
+.s10 .s10-c .s10-spark{display:block;width:100%;height:36px;margin:7px 0 4px;overflow:visible}
+.s10 .s10-spark .ln{fill:none;stroke:var(--cyan);stroke-width:1.4;stroke-linejoin:round;
+  stroke-linecap:round}
+.s10 .s10-spark .bl{fill:none;stroke:var(--line-d-soft);stroke-width:1}
+.s10 .s10-spark .gd{fill:none;stroke:rgba(255,255,255,.07);stroke-width:1;stroke-dasharray:2 4}
+.s10 .s10-spark .dt{fill:var(--black);stroke:var(--cyan);stroke-width:1.4}
+.s10-val{display:flex;align-items:baseline;gap:5px}
+.s10-val b{font-family:var(--serif);font-weight:400;font-size:28px;line-height:.94;
+  letter-spacing:-.02em;color:var(--white)}
+.s10-val u{font-family:var(--serif);text-decoration:none;font-size:14px;color:#8f9497}
+.s10-val s{text-decoration:none;font-family:var(--mono);font-size:7px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--cyan);margin-left:auto}
+
+/* tarjeta 2 · alerta */
+.s10-al{display:flex;align-items:flex-start;gap:7px}
+.s10-al .d{flex:none;width:5px;height:5px;border-radius:50%;background:var(--alarm);margin-top:3.5px}
+.s10-al p{font-size:9.6px;line-height:1.3;color:#dcdedf;font-weight:400}
+.s10-al p em{font-style:normal;display:block;font-family:var(--mono);font-size:6.6px;
+  font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-3);margin-top:3px}
+.s10-act{display:flex;gap:5px;margin-top:8px;padding-left:12px}
+.s10-act span{font-family:var(--mono);font-size:6.6px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;padding:4px 7px;border:1px solid var(--line-d);color:#9ea2a5;
+  border-radius:2px}
+.s10-act span.on{border-color:rgba(40,203,211,.55);color:var(--cyan)}
+
+/* tarjeta 3 · mini mapa */
+.s10-mm{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px}
+.s10-mm i{display:block;height:13px;border:1px solid rgba(255,255,255,.11);border-radius:1px}
+.s10-mm i.on{border-color:rgba(40,203,211,.6);background:rgba(40,203,211,.16)}
+
+/* tarjeta 4 · decisión */
+.s10-dc{font-family:var(--serif);font-size:13.4px;line-height:1.16;color:var(--white);margin-top:4px}
+.s10-ow{display:flex;align-items:center;justify-content:space-between;margin-top:7px}
+.s10-ow .cap{letter-spacing:.15em}
+.s10-ck{flex:none;width:11px;height:11px;border:1px solid rgba(40,203,211,.6);border-radius:2px}
+
+/* --- salidas del sistema (columna derecha) --- */
+.s10-out{flex:1;min-height:0;position:relative;display:flex;flex-direction:column}
+.s10-out::before{content:"";position:absolute;left:0;top:12.5%;bottom:12.5%;width:1px;
+  background:var(--line-d-soft)}
+.s10-row{position:relative;flex:1;display:flex;flex-direction:row;align-items:center;
+  gap:28px;padding:0 2px 0 34px}
+.s10-row + .s10-row::before{content:"";position:absolute;left:22px;right:0;top:0;height:1px;
+  background:var(--line-d-soft)}
+.s10-row .nd{position:absolute;left:-3px;top:50%;width:7px;height:7px;margin-top:-3.5px;
+  border:1px solid var(--cyan);border-radius:50%;background:var(--black)}
+.s10-row .nd::after{content:"";position:absolute;left:8px;top:2.5px;width:14px;height:1px;
+  background:var(--line-d)}
+.s10-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.s10-tx .mono{color:var(--cyan);font-size:7.4px;letter-spacing:.24em}
+.s10-tx b{font-family:var(--serif);font-weight:400;font-size:23px;line-height:1.04;
+  letter-spacing:-.01em;color:var(--white)}
+.s10-tx .small{font-size:11.4px;line-height:1.42;max-width:470px}
+.s10-gl{flex:none}
+.s10 .s10-gl{width:58px;height:38px}
+.s10 .s10-gl .s{fill:none;stroke:var(--line-d);stroke-width:1}
+.s10 .s10-gl .c{fill:rgba(40,203,211,.2);stroke:var(--cyan);stroke-width:1}
+.s10 .s10-gl .cf{fill:var(--cyan)}
+</style>
+<section class="slide s10">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">09</span><span>NOMOS</span><i class="rule"></i><span>Sistema de inteligencia electoral</span></div>
+    <div class="head">
+      <h2 class="display h-2">Toda la campaña<br><span class="em">en una sola pantalla.</span></h2>
+      <p class="lead">Encuestas, historia, territorio, conversación pública y operación en una consola mobile-first: alertas, mapas y decisiones con responsable asignado.</p>
+    </div>
+    <div class="stage">
+
+      <!-- ============ consola móvil ============ -->
+      <div class="s10-left">
+        <div class="s10-ph">
+          <i class="s10-sp"></i>
+          <div class="s10-hd">
+            <span class="cap">NOMOS · consola</span>
+            <span class="s10-live"><i></i><span class="cap">en vivo</span></span>
+          </div>
+          <div class="s10-cards">
+
+            <!-- 1 · tracking -->
+            <div class="s10-c k1">
+              <span class="cap">Intención · ola 4</span>
+              <svg class="s10-spark" viewBox="0 0 200 36" preserveAspectRatio="none" role="img"
+                   aria-label="Sparkline ascendente de intención de voto, vista de ejemplo">
+                <path class="gd" d="M0 13 H200"/>
+                <path class="bl" d="M0 35.5 H200"/>
+                <path class="ln" d="M2 29 L30 24.5 L58 27 L86 18 L114 20 L142 11.5 L170 8.5 L196 3.5"/>
+                <circle class="dt" cx="196" cy="3.5" r="2.6"/>
+              </svg>
+              <div class="s10-val"><b>38,4</b><u>%</u><s>+1,6 pts</s></div>
+            </div>
+
+            <!-- 2 · alerta -->
+            <div class="s10-c k2">
+              <div class="s10-al">
+                <i class="d"></i>
+                <p>Ataque en circulación<em>hace 3 h · alcance en alza</em></p>
+              </div>
+              <div class="s10-act"><span class="on">Responder</span><span>Ignorar</span></div>
+            </div>
+
+            <!-- 3 · mini mapa -->
+            <div class="s10-c k3">
+              <span class="cap">Prioridad territorial</span>
+              <div class="s10-mm">
+                <i></i><i></i><i class="on"></i><i></i>
+                <i></i><i></i><i></i><i></i>
+                <i></i><i class="on"></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- 4 · decisión pendiente -->
+            <div class="s10-c k4">
+              <span class="cap">Decisión pendiente</span>
+              <p class="s10-dc">Reasignar pauta · zona sur</p>
+              <div class="s10-ow"><span class="cap">Responsable · Jefatura</span><i class="s10-ck"></i></div>
+            </div>
+
+          </div>
+        </div>
+        <span class="cap">Vista de ejemplo · valores ilustrativos</span>
+      </div>
+
+      <!-- ============ salidas del sistema ============ -->
+      <div class="s10-out">
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">01</span><b>Consola ejecutiva</b><p class="small">El estado de la campaña en una pantalla.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <rect class="s" x="1.5" y="3.5" width="43" height="23"/>
+            <path class="s" d="M28.5 3.5 V26.5"/>
+            <path class="s" d="M6 12 H23 M6 17 H19 M33 21 H40"/>
+            <rect class="cf" x="6" y="7" width="12" height="2"/>
+            <rect class="c" x="33" y="8" width="7" height="9"/>
+          </svg>
+        </div>
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">02</span><b>Alertas y briefs</b><p class="small">Qué cambió, por qué importa y qué decidir.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <path class="s" d="M12 4.5 L22.5 24.5 H1.5 Z"/>
+            <circle class="cf" cx="12" cy="19.5" r="1.6"/>
+            <path class="s" d="M28 8.5 H44.5 M28 15 H44.5 M28 21.5 H37"/>
+            <path class="c" d="M28 15 H44.5"/>
+          </svg>
+        </div>
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">03</span><b>Mapas y escenarios</b><p class="small">Dónde priorizar y qué exige cada camino.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <rect class="s" x="1.5" y="4.5" width="13" height="9"/>
+            <rect class="c" x="16.5" y="4.5" width="13" height="9"/>
+            <rect class="s" x="31.5" y="4.5" width="13" height="9"/>
+            <rect class="s" x="1.5" y="16.5" width="13" height="9"/>
+            <rect class="s" x="16.5" y="16.5" width="13" height="9"/>
+            <rect class="s" x="31.5" y="16.5" width="13" height="9"/>
+          </svg>
+        </div>
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">04</span><b>Sala de situación</b><p class="small">Evidencia, decisiones y responsables.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <rect class="s" x="11.5" y="10.5" width="23" height="9"/>
+            <circle class="s" cx="17" cy="5.5" r="2.5"/>
+            <circle class="cf" cx="29" cy="5.5" r="2.5"/>
+            <circle class="s" cx="17" cy="24.5" r="2.5"/>
+            <circle class="s" cx="29" cy="24.5" r="2.5"/>
+            <path class="s" d="M1.5 15 H8 M38 15 H44.5"/>
+          </svg>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="band"><span class="k">La diferencia</span><p class="t">Un informe se archiva. <span class="em">Un sistema acumula ventaja.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · NOMOS</span><span class="bar"><i style="width:72%"></i></span><span>Sistema · 10 / 13</span></div>
+</section>

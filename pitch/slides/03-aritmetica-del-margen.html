@@ -1,0 +1,78 @@
+<style>
+/* ---- LÁMINA 03 · Aritmética del margen · dot matrix de 1.200 puntos ---- */
+.s03 .s03-row{flex:1;min-height:0;display:flex;align-items:stretch;gap:34px}
+.s03 .s03-plot{flex:1;min-width:0}
+.s03 .s03-nums{width:274px;flex:none;display:flex;flex-direction:column;
+  justify-content:space-between;border-left:1px solid var(--line-l);padding:2px 0 2px 32px}
+.s03 .s03-nums .stat+.stat{border-top:1px solid var(--line-l-soft);padding-top:20px}
+.s03 .s03-nums .stat b{font-size:53px}
+.s03 .s03-un{font-size:20px;letter-spacing:.01em;margin-left:7px}
+/* la textura no debe competir con los numerales serif */
+.s03 .topo.a{top:-46%;right:-15%;opacity:.19}
+
+/* --- SVG --- */
+.s03 .s03-dot{fill:rgba(12,13,14,.23)}
+.s03 .s03-mass{fill:url(#s03-p)}
+.s03 .s03-hit{fill:var(--cyan-deep)}
+.s03 .s03-wash{fill:rgba(40,203,211,.11)}
+.s03 .s03-frame,.s03 .s03-guide{fill:none;stroke:var(--cyan-deep);stroke-width:1}
+.s03 .s03-lbl{fill:#18201f;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+.s03 .s03-brk{fill:none;stroke:rgba(12,13,14,.26);stroke-width:1}
+.s03 .s03-tot{fill:#7b8083;font-family:var(--mono);font-size:7.2px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+</style>
+<section class="slide paper s03">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">02</span><span>La aritmética del margen</span><i class="rule"></i><span>Por qué el error sale carísimo</span></div>
+    <div class="head">
+      <h2 class="display h-2">La elección entera cabe<br><span class="em">en un puñado de mesas.</span></h2>
+      <p class="lead">Aritmética simple sobre un distrito de 120.000 votos efectivos. Cambiá el tamaño del distrito y cambia el número; no cambia el punto.</p>
+    </div>
+    <div class="stage">
+      <div class="s03-row">
+        <div class="s03-plot">
+          <svg viewBox="0 0 852 366" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Matriz de 1.200 puntos con 18 puntos resaltados">
+            <defs>
+              <pattern id="s03-p" x="12.1" y="41.1" width="13.8" height="13.8" patternUnits="userSpaceOnUse">
+                <circle class="s03-dot" cx="6.9" cy="6.9" r="2.8"/>
+              </pattern>
+              <mask id="s03-m" maskUnits="userSpaceOnUse" x="0" y="0" width="852" height="366">
+                <rect x="0" y="0" width="852" height="366" fill="#fff"/>
+                <rect x="605.5" y="275.7" width="82.8" height="41.4" fill="#000"/>
+              </mask>
+            </defs>
+
+            <!-- el distrito completo: 60 x 20 = 1.200 puntos -->
+            <text class="s03-tot" x="426" y="12" text-anchor="middle">1.200 puntos = 120.000 votos efectivos</text>
+            <path class="s03-brk" d="M12.1 32 L12.1 24 L840.1 24 L840.1 32"/>
+            <rect class="s03-mass" x="12.1" y="41.1" width="828" height="276" mask="url(#s03-m)"/>
+
+            <!-- los 18 puntos que dan vuelta la eleccion -->
+            <rect class="s03-wash" x="605.5" y="275.7" width="82.8" height="41.4"/>
+            <g class="s03-hit">
+              <circle cx="612.4" cy="282.6" r="3"/><circle cx="626.2" cy="282.6" r="3"/><circle cx="640" cy="282.6" r="3"/><circle cx="653.8" cy="282.6" r="3"/><circle cx="667.6" cy="282.6" r="3"/><circle cx="681.4" cy="282.6" r="3"/>
+              <circle cx="612.4" cy="296.4" r="3"/><circle cx="626.2" cy="296.4" r="3"/><circle cx="640" cy="296.4" r="3"/><circle cx="653.8" cy="296.4" r="3"/><circle cx="667.6" cy="296.4" r="3"/><circle cx="681.4" cy="296.4" r="3"/>
+              <circle cx="612.4" cy="310.2" r="3"/><circle cx="626.2" cy="310.2" r="3"/><circle cx="640" cy="310.2" r="3"/><circle cx="653.8" cy="310.2" r="3"/><circle cx="667.6" cy="310.2" r="3"/><circle cx="681.4" cy="310.2" r="3"/>
+            </g>
+            <rect class="s03-frame" x="605.5" y="275.7" width="82.8" height="41.4"/>
+
+            <!-- linea de guia + anotacion -->
+            <path class="s03-guide" d="M646.9 317.1 L646.9 344 L833 344"/>
+            <text class="s03-lbl" x="833" y="357" text-anchor="end">1,5 pts = 1.800 votos = 5 o 6 mesas</text>
+          </svg>
+        </div>
+        <div class="s03-nums">
+          <div class="stat"><b>1,5<span class="s03-un">pts</span></b><span class="u">Margen típico</span></div>
+          <div class="stat"><b>1.800</b><span class="u">Votos</span></div>
+          <div class="stat"><b>6</b><span class="u">Mesas</span></div>
+        </div>
+      </div>
+      <span class="cap">1 punto = 100 votos · distrito de ejemplo de 120.000 votos efectivos · aritmética, no pronóstico</span>
+    </div>
+    <div class="band"><span class="k">Y sin embargo</span><p class="t">El 100% del presupuesto se asigna con <span class="em-alarm">0% de medición propia.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Aritmética del margen</span><span class="bar"><i style="width:16%"></i></span><span>Urgencia · 03 / 13</span></div>
+</section>

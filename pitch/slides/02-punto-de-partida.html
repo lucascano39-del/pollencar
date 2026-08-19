@@ -1,0 +1,98 @@
+<style>
+/* ---- s02 · barras de cobertura informativa ---- */
+.s02 .head{margin:14px 0 25px}
+.s02 .head .lead{max-width:412px;margin-bottom:5px}
+.s02 .topo.a{opacity:.25;top:-36%;right:-15%}
+.s02-chart{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
+.s02-row{display:grid;grid-template-columns:166px 600px 346px;column-gap:24px;align-items:center}
+
+.s02-hd{flex:none;padding-bottom:9px;border-bottom:1px solid var(--line-d)}
+.s02-hd .cap{color:#6f7477}
+.s02-hd .r{text-align:left}
+
+.s02-rows{flex:1;min-height:0;display:flex;flex-direction:column}
+.s02-rows .s02-row{flex:1;border-bottom:1px solid var(--line-d-soft)}
+.s02-rows .s02-row:last-child{border-bottom:0}
+
+.s02 .lb{color:#c8cbcd;line-height:1.2}
+.s02 .trk{position:relative;height:14px;border:1px solid rgba(255,255,255,.13);
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.07) 0 1px,transparent 1px 9px)}
+.s02 .trk i{position:absolute;left:0;top:0;bottom:0;display:block;background:var(--cyan)}
+.s02 .trk i::after{content:"";position:absolute;right:-1px;top:-5px;bottom:-5px;width:1px;
+  background:var(--cyan)}
+.s02 .ph{font-size:11.4px;line-height:1.4;color:#a7abae}
+
+/* frontera del 40% */
+.s02-div{position:absolute;z-index:2;left:430px;top:22px;bottom:30px;width:1px;
+  background-image:repeating-linear-gradient(to bottom,var(--cyan-dim) 0 3px,transparent 3px 8px)}
+
+/* eje */
+.s02-ax{flex:none;padding-top:14px}
+.s02-ax .ax{position:relative;height:30px;border-top:1px solid var(--line-d)}
+.s02-ax .tk{position:absolute;top:0;width:1px;height:5px;background:var(--line-d)}
+.s02-ax .tk.a{left:0}.s02-ax .tk.b{left:40%;background:var(--cyan-dim)}.s02-ax .tk.c{right:0}
+.s02-ax .z{position:absolute;top:12px}
+.s02-ax .z0{left:0}.s02-ax .z3{right:0}
+.s02-ax .z1{left:0;width:40%;text-align:center;color:#7f8487}
+.s02-ax .z2{left:40%;width:60%;text-align:center;color:var(--white)}
+.s02 .foot-cap{flex:none;margin-top:2px}
+.s02 .band{margin-top:20px}
+</style>
+<section class="slide s02">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">01</span><span>El punto de partida</span><i class="rule"></i><span>Con qué información se decide hoy</span></div>
+    <div class="head">
+      <h2 class="display h-2">Tu campaña ya decide con información.<br><span class="em">El problema es cuál.</span></h2>
+      <p class="lead">Cinco fuentes que toda campaña tiene a mano. Ninguna fue diseñada para decidir dónde va la plata, el candidato y la última semana.</p>
+    </div>
+    <div class="stage">
+      <div class="s02-chart">
+        <div class="s02-div"></div>
+        <div class="s02-row s02-hd"><span class="cap">Fuente</span><span class="cap"></span><span class="cap r">No te dice</span></div>
+        <div class="s02-rows">
+          <div class="s02-row">
+            <span class="mono lb">Olfato del dirigente</span>
+            <div class="trk"><i style="width:34%"></i></div>
+            <p class="ph">cuánto de eso ya cambió, y en qué barrios</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">Informe del referente</span>
+            <div class="trk"><i style="width:29%"></i></div>
+            <p class="ph">qué parte es voto propio y qué parte es cortesía</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">La elección pasada</span>
+            <div class="trk"><i style="width:24%"></i></div>
+            <p class="ph">cuánto de ese voto sigue disponible hoy</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">La encuesta que circuló</span>
+            <div class="trk"><i style="width:19%"></i></div>
+            <p class="ph">si el movimiento es real o es ruido</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">Lo que se ve en redes</span>
+            <div class="trk"><i style="width:14%"></i></div>
+            <p class="ph">qué piensa la mayoría que no comenta nada y sí vota</p>
+          </div>
+        </div>
+        <div class="s02-row s02-ax">
+          <span></span>
+          <div class="ax">
+            <span class="tk a"></span><span class="tk b"></span><span class="tk c"></span>
+            <span class="cap z z0">0%</span>
+            <span class="mono z z1">Lo que hoy sabés</span>
+            <span class="mono z z2">Lo que decide la elección</span>
+            <span class="cap z z3">100%</span>
+          </div>
+          <span></span>
+        </div>
+      </div>
+      <span class="cap foot-cap">Cobertura informativa por fuente · esquema conceptual</span>
+    </div>
+    <div class="band"><span class="k">La conclusión</span><p class="t">Nada de esto está mal. Todo esto junto, igual, <span class="em">no alcanza para asignar plata, tiempo y candidato.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Punto de partida</span><span class="bar"><i style="width:8%"></i></span><span>Diagnóstico · 02 / 13</span></div>
+</section>

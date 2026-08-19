@@ -1,0 +1,137 @@
+<style>
+/* ---- LÁMINA 13 · Cierre · Gantt de 21 días + llamada a la acción ---- */
+.s13 .head{margin:12px 0 16px}
+.s13 .head .lead{max-width:392px;margin-bottom:4px}
+.s13 .topo.a{top:-40%;right:-15%;opacity:.16}
+.s13 .glow{width:660px;height:660px;left:600px;bottom:-330px;opacity:.9}
+.s13 .stage{gap:18px}
+
+/* --- Gantt --- */
+.s13-g{position:relative;flex:none}
+.s13-row{display:grid;grid-template-columns:292px 1fr;column-gap:24px;align-items:center}
+
+/* eje superior */
+.s13-ax{height:23px;border-bottom:1px solid var(--line-d);align-items:flex-end}
+.s13-ax .lb{padding-bottom:5px}
+.s13-ax .tk{position:relative;height:100%}
+.s13-ax .tk span{position:absolute;bottom:5px;white-space:nowrap}
+.s13-ax .tk .d21{color:var(--cyan)}
+
+/* retícula y marca del día 21 */
+.s13-ov{position:absolute;top:0;bottom:0;left:316px;right:0;z-index:0;pointer-events:none}
+.s13-ov i{position:absolute;top:23px;bottom:24px;width:0;
+  border-left:1px dashed rgba(255,255,255,.11)}
+.s13-ov .m21{position:absolute;right:0;top:23px;bottom:24px;width:1.5px;background:var(--cyan)}
+
+/* filas de fase */
+.s13-ph{height:60px;position:relative;z-index:1}
+.s13-ph .lb b{display:block;font-family:var(--serif);font-weight:400;font-size:17.5px;
+  line-height:1.06;letter-spacing:-.008em;color:var(--white)}
+.s13-ph .lb .small{font-size:11.2px;line-height:1.42;color:#9ca0a3;margin-top:2px}
+.s13-ph .tr{position:relative;height:100%}
+.s13-bar{position:absolute;top:50%;transform:translateY(-50%);height:34px;
+  border:1px solid rgba(40,203,211,.42);background:rgba(40,203,211,.085);
+  display:flex;align-items:center;padding-left:11px}
+.s13-bar .cap{color:#9fa4a7}
+.s13-bar.last{border-color:rgba(40,203,211,.85);background:rgba(40,203,211,.17)}
+.s13-bar.last .cap{color:var(--cyan)}
+.s13-ldr{position:absolute;left:0;top:50%;height:0;
+  border-top:1px dashed rgba(255,255,255,.085)}
+.s13-dia{position:absolute;right:0;top:50%;width:9px;height:9px;background:var(--cyan);
+  transform:translate(50%,-50%) rotate(45deg)}
+
+/* pie del Gantt: nota y rótulo del hito */
+.s13-mile{display:flex;justify-content:space-between;align-items:baseline;height:24px;padding-top:8px}
+.s13-mile .tr{font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+
+.s13 .stage{justify-content:space-between;gap:14px}
+
+/* --- llamada a la acción --- */
+.s13-cta{display:flex;align-items:center;gap:20px;padding:15px 20px;
+  border:1px solid var(--cyan);background:rgba(40,203,211,.08)}
+.s13-cta .k{color:var(--cyan);flex:none;width:86px;line-height:1.4}
+.s13-cta b{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1;
+  letter-spacing:-.01em;flex:none}
+.s13-cta .small{flex:1;border-left:1px solid rgba(40,203,211,.4);padding-left:20px;
+  font-size:11.4px;line-height:1.44;color:#b3b7b9}
+
+/* --- contacto --- */
+.s13-ct{display:grid;grid-template-columns:repeat(3,1fr)}
+.s13-ct div{padding:0 0 0 26px;border-left:1px solid var(--line-d)}
+.s13-ct div:first-child{padding-left:0;border-left:0}
+.s13-ct .v{display:block;margin-top:5px;font-family:var(--mono);font-size:13px;
+  font-weight:400;letter-spacing:.005em;color:#e9eaea}
+</style>
+<section class="slide s13">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">12</span><span>Próximo paso</span><i class="rule"></i><span>De la primera reunión a la primera decisión</span></div>
+    <div class="head">
+      <h2 class="display h-1">En 21 días tu campaña<br><span class="em">decide con evidencia propia.</span></h2>
+      <p class="lead">Sin reorganizar el equipo ni contratar gente nueva. Trabajamos con la estructura que ya funciona.</p>
+    </div>
+    <div class="stage">
+
+      <div class="s13-g">
+        <div class="s13-ov">
+          <i style="left:33.333%"></i><i style="left:66.667%"></i>
+          <span class="m21"></span>
+        </div>
+
+        <div class="s13-row s13-ax">
+          <span class="cap lb">Plan de 21 días</span>
+          <div class="tk">
+            <span class="cap" style="left:0">Día 1</span>
+            <span class="cap" style="left:33.333%;transform:translateX(-50%)">Día 7</span>
+            <span class="cap" style="left:66.667%;transform:translateX(-50%)">Día 14</span>
+            <span class="cap d21" style="right:0">Día 21</span>
+          </div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Inmersión</b><p class="small">Qué decisiones hay que tomar y con qué plazo</p></div>
+          <div class="tr"><div class="s13-bar" style="left:0;width:14.286%"><span class="cap">Día 1–3</span></div></div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Diseño</b><p class="small">Muestra, cuestionario, controles e historia del distrito</p></div>
+          <div class="tr"><span class="s13-ldr" style="width:14.286%"></span><div class="s13-bar" style="left:14.286%;width:33.333%"><span class="cap">Día 4–10</span></div></div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Campo</b><p class="small">Medición con monitoreo diario y validación</p></div>
+          <div class="tr"><span class="s13-ldr" style="width:47.619%"></span><div class="s13-bar" style="left:47.619%;width:33.333%"><span class="cap">Día 11–17</span></div></div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Primera decisión</b><p class="small">Informe, brief, mapa y NOMOS operativo</p></div>
+          <div class="tr"><span class="s13-ldr" style="width:80.952%"></span><div class="s13-bar last" style="left:80.952%;width:19.048%"><span class="cap">Día 18–21</span><span class="s13-dia"></span></div></div>
+        </div>
+
+        <div class="s13-row s13-mile">
+          <span class="cap">Cronograma de referencia · las fechas se ajustan al calendario de tu elección</span>
+          <span class="tr">Primera decisión con datos propios</span>
+        </div>
+      </div>
+
+      <div class="s13-cta">
+        <span class="mono k">Próximo paso</span>
+        <b>Solicitá tu reunión de diagnóstico</b>
+        <p class="small">45 minutos con tu equipo. Sin costo y sin compromiso: salís con las tres preguntas críticas de tu campaña ordenadas por urgencia.</p>
+      </div>
+
+      <!-- ⚠︎ EDITAR: reemplazar por los datos de contacto reales antes de enviar -->
+      <div class="s13-ct">
+        <div><span class="cap">Correo</span><span class="v">contacto@malaparteanalytica.com</span></div>
+        <div><span class="cap">Teléfono / WhatsApp</span><span class="v">+ ___ ___ ______</span></div>
+        <div><span class="cap">Sitio</span><span class="v">malaparteanalytica.com</span></div>
+      </div>
+
+    </div>
+    <div class="band"><span class="k">Costo de esperar</span><p class="t">Cuanto antes empieza la medición, <span class="em">más decisiones quedan disponibles.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Próximo paso</span><span class="bar"><i style="width:100%"></i></span><span>Cierre · 13 / 13</span></div>
+</section>

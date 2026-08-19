@@ -1,0 +1,120 @@
+<style>
+/* ---- LÁMINA 08 · Historia y territorio · mapa hexagonal + ranking de prioridad ---- */
+.s08 .head{margin:14px 0 14px}
+.s08 .head .lead{max-width:412px}
+.s08 .topo.a{top:-52%;right:-21%;opacity:.07}
+
+/* --- reparto: mapa | panel de ranking --- */
+.s08 .s08-wrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 400px;gap:36px}
+.s08 .s08-left{display:flex;flex-direction:column;gap:9px;min-width:0}
+.s08 .s08-map{flex:1;min-height:0}
+.s08 .s08-map svg{display:block;width:100%;height:100%;overflow:visible}
+
+/* --- rampa secuencial de un solo cyan (4 pasos) --- */
+.s08 .h1{fill:#071e1f;stroke:rgba(255,255,255,.135);stroke-width:1}
+.s08 .h2{fill:#114b4f;stroke:rgba(255,255,255,.035);stroke-width:1}
+.s08 .h3{fill:#17767b}
+.s08 .h4{fill:var(--cyan)}
+.s08 .hb{fill:none;stroke:var(--white);stroke-width:1.5}
+.s08 .ld{fill:none;stroke:rgba(255,255,255,.5);stroke-width:1}
+.s08 .anb{fill:var(--white);font-family:var(--mono);font-size:7.4px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+.s08 .lg{fill:#83888b;font-family:var(--mono);font-size:7.2px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase}
+.s08 .lgw{fill:#a4a8ab}
+
+/* --- panel derecho --- */
+.s08 .s08-side{border-left:1px solid var(--line-d);padding-left:34px;
+  display:flex;flex-direction:column;min-width:0}
+.s08 .s08-side .kicker{flex:none}
+.s08 .s08-tab{margin:auto 0;border-top:1px solid var(--line-d);flex:none}
+.s08 .s08-r{display:grid;grid-template-columns:1fr 74px 84px 58px;gap:8px;align-items:center;
+  border-bottom:1px solid var(--line-d-soft);padding:0 0 0 11px;position:relative;height:74px}
+.s08 .s08-r.hd{height:26px;border-bottom-color:var(--line-d)}
+.s08 .s08-r.hd span{font-family:var(--mono);font-size:7.2px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--txt-3)}
+.s08 .s08-r .z{font-family:var(--serif);font-weight:400;font-size:20.5px;color:var(--white);
+  letter-spacing:-.008em}
+.s08 .s08-r .v{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
+  color:var(--txt-2)}
+.s08 .s08-r .p{font-family:var(--serif);font-weight:400;font-size:27px;color:var(--grey);
+  line-height:1}
+.s08 .s08-r.on::before{content:"";position:absolute;left:0;top:11px;bottom:11px;width:2px;
+  background:var(--cyan)}
+.s08 .s08-r.on .p{color:var(--cyan)}
+.s08 .s08-r.on .v{color:#d3d6d7}
+.s08 .s08-note{padding-top:14px;display:flex;flex-direction:column;gap:9px}
+.s08 .s08-note .small{font-size:11.6px;line-height:1.46}
+</style>
+<section class="slide s08">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">07</span><span>Inteligencia histórica y territorial</span><i class="rule"></i><span>Dónde se define la elección</span></div>
+    <div class="head">
+      <h2 class="display h-2">Cada elección dejó una huella.<br><span class="em">La convertimos en un mapa de prioridades.</span></h2>
+      <p class="lead">Series, participación y transferencias hasta nivel de mesa. No un promedio del distrito: un ranking de dónde rinde cada hora de campaña.</p>
+    </div>
+    <div class="stage">
+      <div class="s08-wrap">
+
+        <div class="s08-left">
+          <div class="s08-map">
+            <svg viewBox="0 0 700 396" preserveAspectRatio="xMidYMid meet" role="img"
+                 aria-label="Mapa esquematico de celdas hexagonales con cuatro niveles de voto propio y seis mesas bisagra marcadas">
+          <g><polygon class="h1" points="162.2,36.2 139.1,49.6 139.1,76.3 162.2,89.6 185.4,76.3 185.4,49.6"/><polygon class="h1" points="212.3,36.2 189.2,49.6 189.2,76.3 212.3,89.6 235.4,76.3 235.4,49.6"/><polygon class="h1" points="262.4,36.2 239.2,49.6 239.2,76.3 262.4,89.6 285.5,76.3 285.5,49.6"/><polygon class="h1" points="312.4,36.2 289.3,49.6 289.3,76.3 312.4,89.6 335.6,76.3 335.6,49.6"/><polygon class="h1" points="362.5,36.2 339.4,49.6 339.4,76.3 362.5,89.6 385.6,76.3 385.6,49.6"/><polygon class="h1" points="412.6,36.2 389.5,49.6 389.5,76.3 412.6,89.6 435.7,76.3 435.7,49.6"/><polygon class="h2" points="462.7,36.2 439.5,49.6 439.5,76.3 462.7,89.6 485.8,76.3 485.8,49.6"/><polygon class="h2" points="512.7,36.2 489.6,49.6 489.6,76.3 512.7,89.6 535.9,76.3 535.9,49.6"/></g>
+          <g><polygon class="h1" points="137.2,79.6 114.1,92.9 114.1,119.6 137.2,133.0 160.3,119.6 160.3,92.9"/><polygon class="h1" points="187.3,79.6 164.1,92.9 164.1,119.6 187.3,133.0 210.4,119.6 210.4,92.9"/><polygon class="h1" points="237.3,79.6 214.2,92.9 214.2,119.6 237.3,133.0 260.5,119.6 260.5,92.9"/><polygon class="h1" points="287.4,79.6 264.3,92.9 264.3,119.6 287.4,133.0 310.5,119.6 310.5,92.9"/><polygon class="h1" points="337.5,79.6 314.4,92.9 314.4,119.6 337.5,133.0 360.6,119.6 360.6,92.9"/><polygon class="h2" points="387.6,79.6 364.4,92.9 364.4,119.6 387.6,133.0 410.7,119.6 410.7,92.9"/><polygon class="h3" points="437.6,79.6 414.5,92.9 414.5,119.6 437.6,133.0 460.8,119.6 460.8,92.9"/><polygon class="h3" points="487.7,79.6 464.6,92.9 464.6,119.6 487.7,133.0 510.8,119.6 510.8,92.9"/><polygon class="h3" points="537.8,79.6 514.6,92.9 514.6,119.6 537.8,133.0 560.9,119.6 560.9,92.9"/><polygon class="h2" points="587.8,79.6 564.7,92.9 564.7,119.6 587.8,133.0 611.0,119.6 611.0,92.9"/><polygon class="h2" points="637.9,79.6 614.8,92.9 614.8,119.6 637.9,133.0 661.0,119.6 661.0,92.9"/></g>
+          <g><polygon class="h1" points="62.1,122.9 39.0,136.3 39.0,163.0 62.1,176.3 85.2,163.0 85.2,136.3"/><polygon class="h2" points="112.2,122.9 89.0,136.3 89.0,163.0 112.2,176.3 135.3,163.0 135.3,136.3"/><polygon class="h2" points="162.2,122.9 139.1,136.3 139.1,163.0 162.2,176.3 185.4,163.0 185.4,136.3"/><polygon class="h2" points="212.3,122.9 189.2,136.3 189.2,163.0 212.3,176.3 235.4,163.0 235.4,136.3"/><polygon class="h2" points="262.4,122.9 239.2,136.3 239.2,163.0 262.4,176.3 285.5,163.0 285.5,136.3"/><polygon class="h2" points="312.4,122.9 289.3,136.3 289.3,163.0 312.4,176.3 335.6,163.0 335.6,136.3"/><polygon class="h2" points="362.5,122.9 339.4,136.3 339.4,163.0 362.5,176.3 385.6,163.0 385.6,136.3"/><polygon class="h2" points="412.6,122.9 389.5,136.3 389.5,163.0 412.6,176.3 435.7,163.0 435.7,136.3"/><polygon class="h2" points="462.7,122.9 439.5,136.3 439.5,163.0 462.7,176.3 485.8,163.0 485.8,136.3"/><polygon class="h4" points="512.7,122.9 489.6,136.3 489.6,163.0 512.7,176.3 535.9,163.0 535.9,136.3"/><polygon class="h3" points="562.8,122.9 539.7,136.3 539.7,163.0 562.8,176.3 585.9,163.0 585.9,136.3"/><polygon class="h2" points="612.9,122.9 589.7,136.3 589.7,163.0 612.9,176.3 636.0,163.0 636.0,136.3"/></g>
+          <g><polygon class="h2" points="87.1,166.3 64.0,179.6 64.0,206.4 87.1,219.7 110.3,206.4 110.3,179.6"/><polygon class="h3" points="137.2,166.3 114.1,179.6 114.1,206.4 137.2,219.7 160.3,206.4 160.3,179.6"/><polygon class="h3" points="187.3,166.3 164.1,179.6 164.1,206.4 187.3,219.7 210.4,206.4 210.4,179.6"/><polygon class="h3" points="237.3,166.3 214.2,179.6 214.2,206.4 237.3,219.7 260.5,206.4 260.5,179.6"/><polygon class="h4" points="287.4,166.3 264.3,179.6 264.3,206.4 287.4,219.7 310.5,206.4 310.5,179.6"/><polygon class="h3" points="337.5,166.3 314.4,179.6 314.4,206.4 337.5,219.7 360.6,206.4 360.6,179.6"/><polygon class="h2" points="387.6,166.3 364.4,179.6 364.4,206.4 387.6,219.7 410.7,206.4 410.7,179.6"/><polygon class="h2" points="437.6,166.3 414.5,179.6 414.5,206.4 437.6,219.7 460.8,206.4 460.8,179.6"/><polygon class="h2" points="487.7,166.3 464.6,179.6 464.6,206.4 487.7,219.7 510.8,206.4 510.8,179.6"/><polygon class="h2" points="537.8,166.3 514.6,179.6 514.6,206.4 537.8,219.7 560.9,206.4 560.9,179.6"/><polygon class="h1" points="587.8,166.3 564.7,179.6 564.7,206.4 587.8,219.7 611.0,206.4 611.0,179.6"/><polygon class="h1" points="637.9,166.3 614.8,179.6 614.8,206.4 637.9,219.7 661.0,206.4 661.0,179.6"/></g>
+          <g><polygon class="h3" points="62.1,209.7 39.0,223.0 39.0,249.7 62.1,263.1 85.2,249.7 85.2,223.0"/><polygon class="h3" points="112.2,209.7 89.0,223.0 89.0,249.7 112.2,263.1 135.3,249.7 135.3,223.0"/><polygon class="h4" points="162.2,209.7 139.1,223.0 139.1,249.7 162.2,263.1 185.4,249.7 185.4,223.0"/><polygon class="h4" points="212.3,209.7 189.2,223.0 189.2,249.7 212.3,263.1 235.4,249.7 235.4,223.0"/><polygon class="h4" points="262.4,209.7 239.2,223.0 239.2,249.7 262.4,263.1 285.5,249.7 285.5,223.0"/><polygon class="h3" points="312.4,209.7 289.3,223.0 289.3,249.7 312.4,263.1 335.6,249.7 335.6,223.0"/><polygon class="h3" points="362.5,209.7 339.4,223.0 339.4,249.7 362.5,263.1 385.6,249.7 385.6,223.0"/><polygon class="h2" points="412.6,209.7 389.5,223.0 389.5,249.7 412.6,263.1 435.7,249.7 435.7,223.0"/><polygon class="h1" points="462.7,209.7 439.5,223.0 439.5,249.7 462.7,263.1 485.8,249.7 485.8,223.0"/><polygon class="h1" points="512.7,209.7 489.6,223.0 489.6,249.7 512.7,263.1 535.9,249.7 535.9,223.0"/><polygon class="h1" points="562.8,209.7 539.7,223.0 539.7,249.7 562.8,263.1 585.9,249.7 585.9,223.0"/><polygon class="h1" points="612.9,209.7 589.7,223.0 589.7,249.7 612.9,263.1 636.0,249.7 636.0,223.0"/></g>
+          <g><polygon class="h3" points="87.1,253.0 64.0,266.4 64.0,293.1 87.1,306.4 110.3,293.1 110.3,266.4"/><polygon class="h4" points="137.2,253.0 114.1,266.4 114.1,293.1 137.2,306.4 160.3,293.1 160.3,266.4"/><polygon class="h4" points="187.3,253.0 164.1,266.4 164.1,293.1 187.3,306.4 210.4,293.1 210.4,266.4"/><polygon class="h4" points="237.3,253.0 214.2,266.4 214.2,293.1 237.3,306.4 260.5,293.1 260.5,266.4"/><polygon class="h4" points="287.4,253.0 264.3,266.4 264.3,293.1 287.4,306.4 310.5,293.1 310.5,266.4"/><polygon class="h3" points="337.5,253.0 314.4,266.4 314.4,293.1 337.5,306.4 360.6,293.1 360.6,266.4"/><polygon class="h2" points="387.6,253.0 364.4,266.4 364.4,293.1 387.6,306.4 410.7,293.1 410.7,266.4"/><polygon class="h1" points="437.6,253.0 414.5,266.4 414.5,293.1 437.6,306.4 460.8,293.1 460.8,266.4"/><polygon class="h1" points="487.7,253.0 464.6,266.4 464.6,293.1 487.7,306.4 510.8,293.1 510.8,266.4"/><polygon class="h1" points="537.8,253.0 514.6,266.4 514.6,293.1 537.8,306.4 560.9,293.1 560.9,266.4"/><polygon class="h1" points="587.8,253.0 564.7,266.4 564.7,293.1 587.8,306.4 611.0,293.1 611.0,266.4"/></g>
+          <g><polygon class="h3" points="162.2,296.4 139.1,309.7 139.1,336.4 162.2,349.8 185.4,336.4 185.4,309.7"/><polygon class="h4" points="212.3,296.4 189.2,309.7 189.2,336.4 212.3,349.8 235.4,336.4 235.4,309.7"/><polygon class="h4" points="262.4,296.4 239.2,309.7 239.2,336.4 262.4,349.8 285.5,336.4 285.5,309.7"/><polygon class="h3" points="312.4,296.4 289.3,309.7 289.3,336.4 312.4,349.8 335.6,336.4 335.6,309.7"/><polygon class="h2" points="362.5,296.4 339.4,309.7 339.4,336.4 362.5,349.8 385.6,336.4 385.6,309.7"/><polygon class="h1" points="412.6,296.4 389.5,309.7 389.5,336.4 412.6,349.8 435.7,336.4 435.7,309.7"/><polygon class="h1" points="462.7,296.4 439.5,309.7 439.5,336.4 462.7,349.8 485.8,336.4 485.8,309.7"/><polygon class="h1" points="512.7,296.4 489.6,309.7 489.6,336.4 512.7,349.8 535.9,336.4 535.9,309.7"/></g>
+
+          <!-- seis mesas bisagra: contorno blanco 1.5px -->
+          <polygon class="hb" points="512.7,36.2 489.6,49.6 489.6,76.3 512.7,89.6 535.9,76.3 535.9,49.6"/>
+          <polygon class="hb" points="562.8,122.9 539.7,136.3 539.7,163.0 562.8,176.3 585.9,163.0 585.9,136.3"/>
+          <polygon class="hb" points="362.5,122.9 339.4,136.3 339.4,163.0 362.5,176.3 385.6,163.0 385.6,136.3"/>
+          <polygon class="hb" points="412.6,209.7 389.5,223.0 389.5,249.7 412.6,263.1 435.7,249.7 435.7,223.0"/>
+          <polygon class="hb" points="337.5,253.0 314.4,266.4 314.4,293.1 337.5,306.4 360.6,293.1 360.6,266.4"/>
+          <polygon class="hb" points="162.2,296.4 139.1,309.7 139.1,336.4 162.2,349.8 185.4,336.4 185.4,309.7"/>
+
+              <!-- etiqueta de mesa bisagra -->
+              <path class="ld" d="M512.7 34 L512.7 20"/>
+              <text class="anb" x="512.7" y="13" text-anchor="middle">bisagra</text>
+
+              <!-- leyenda: rampa de 4 pasos -->
+              <text class="lg" x="37" y="385">Voto propio</text>
+              <text class="lg lgw" x="122" y="385">bajo</text>
+              <g transform="translate(163,382)"><polygon class="h1" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <g transform="translate(184,382)"><polygon class="h2" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <g transform="translate(205,382)"><polygon class="h3" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <g transform="translate(226,382)"><polygon class="h4" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <text class="lg lgw" x="243" y="385">alto</text>
+              <!-- leyenda: mesa bisagra -->
+              <g transform="translate(534,382)"><polygon class="hb" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <text class="lg" x="552" y="385">6 mesas bisagra</text>
+            </svg>
+          </div>
+          <span class="cap">Mapa esquemático · no corresponde a un distrito real</span>
+        </div>
+
+        <div class="s08-side">
+          <span class="kicker">Ranking de prioridad</span>
+          <div class="s08-tab">
+            <div class="s08-r hd"><span>Zona</span><span>Voto propio</span><span>Participación</span><span>Prioridad</span></div>
+            <div class="s08-r on"><span class="z">Norte</span><span class="v">35–40%</span><span class="v">55–60%</span><span class="p">1</span></div>
+            <div class="s08-r"><span class="z">Centro</span><span class="v">45–50%</span><span class="v">70–75%</span><span class="p">2</span></div>
+            <div class="s08-r"><span class="z">Sur</span><span class="v">25–30%</span><span class="v">65–70%</span><span class="p">3</span></div>
+          </div>
+          <div class="s08-note">
+            <p class="small">La prioridad no la fija el voto propio: la fija <strong>cuánto puede moverse</strong> y cuánta gente falta traer a votar.</p>
+            <span class="cap">Valores de ejemplo · se recalculan en cada ola</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="band"><span class="k">Lo que habilita</span><p class="t">Saber qué tendría que cambiar para que un resultado sea posible — <span class="em">y si está al alcance de esta campaña.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Historia y territorio</span><span class="bar"><i style="width:56%"></i></span><span>Capacidades · 08 / 13</span></div>
+</section>

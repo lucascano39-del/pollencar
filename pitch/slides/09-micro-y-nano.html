@@ -1,0 +1,127 @@
+<style>
+/* ---- LÁMINA 09 · Micro y nanosegmentación · zoom progresivo distrito → barrio → célula ---- */
+.s09 .head .lead{max-width:430px}
+.s09 .topo.a{top:-52%;right:-18%;opacity:.13}
+.s09 .stage{gap:12px}
+
+/* --- lienzo: 1160 x 424, mapeo 1:1 con el viewBox --- */
+.s09-plot{position:relative;height:410px;flex:none}
+.s09-plot > svg{position:absolute;inset:0;z-index:1}
+
+/* --- rótulo de cada panel, sobre el marco --- */
+.s09-th{position:absolute;top:0;display:flex;align-items:center;gap:9px;height:15px}
+.s09-th .i{font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.2em;color:#8b9093}
+.s09-th .t{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:#22292c}
+.s09-th .u{margin-left:auto}
+.s09-th.on .i,.s09-th.on .t{color:var(--cyan-deep)}
+
+/* --- etiquetas de agrupamiento del panel 2 --- */
+.s09-cl{position:absolute;z-index:3;transform:translateX(-50%);
+  font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:#6f7477;white-space:nowrap}
+.s09-cl.on{color:var(--cyan-deep);font-weight:700}
+
+/* --- panel 3: la ficha de la célula --- */
+.s09-card{position:absolute;z-index:3;left:696px;top:22px;width:464px;height:388px;
+  border:1px solid rgba(14,143,151,.42);background:rgba(40,203,211,.075);
+  padding:20px 24px 22px;display:flex;flex-direction:column}
+.s09-card .hd{display:flex;align-items:baseline;gap:14px;padding-bottom:16px}
+.s09 .s09-card h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1;
+  letter-spacing:-.014em;color:var(--ink)}
+.s09-card .tie{margin-left:auto;display:flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:7.4px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--cyan-deep)}
+.s09-card .tie i{width:6px;height:6px;background:var(--cyan-deep);display:block}
+.s09-card .r{flex:1;display:flex;align-items:center;gap:14px;
+  border-top:1px solid rgba(12,13,14,.11)}
+.s09-card .l{width:132px;flex:none;font-family:var(--mono);font-size:7.4px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:#7b8083}
+.s09-card .v{font-size:12.2px;line-height:1.32;font-weight:400;color:#1e2528}
+.s09-card .v.n{font-family:var(--serif);font-size:21px;line-height:1;letter-spacing:-.01em}
+
+/* --- trazos del SVG --- */
+.s09 .s09-fr{fill:rgba(255,255,255,.55);stroke:var(--line-l);stroke-width:1}
+.s09 .s09-dot{fill:rgba(12,13,14,.26)}
+.s09 .s09-dotz{fill:rgba(12,13,14,.44)}
+.s09 .s09-dot2{fill:rgba(12,13,14,.34)}
+.s09 .s09-dotc{fill:var(--cyan-deep)}
+.s09 .s09-box{fill:rgba(40,203,211,.06);stroke:var(--cyan-deep);stroke-width:1}
+.s09 .s09-pr{fill:none;stroke:rgba(14,143,151,.5);stroke-width:1;stroke-dasharray:3 4}
+.s09 .s09-ch{fill:none;stroke:var(--cyan-deep);stroke-width:1.3;stroke-linecap:round}
+</style>
+<section class="slide paper s09">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">08</span><span>Big Data y segmentación</span><i class="rule"></i><span>Micro y nanosegmentación electoral</span></div>
+    <div class="head">
+      <h2 class="display h-2">Del promedio a la célula.<br><span class="em">Ahí es donde se gana.</span></h2>
+      <p class="lead">Quién puede cambiar, dónde está, qué problema lo mueve y por qué canal se lo alcanza.</p>
+    </div>
+    <div class="stage">
+      <div class="s09-plot">
+        <svg viewBox="0 0 1160 410" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Zoom progresivo en tres paneles: distrito, barrio y celula">
+
+          <!-- marcos de los paneles 1 y 2 -->
+          <rect class="s09-fr" x="0.5" y="22.5" width="299" height="387"/>
+          <rect class="s09-fr" x="348.5" y="22.5" width="299" height="387"/>
+
+          <!-- PANEL 1 · nube del distrito -->
+          <g class="s09-dot">
+<circle cx="18.4" cy="52.5" r="1.75"/> <circle cx="40.8" cy="48.4" r="1.75"/> <circle cx="76.2" cy="47.5" r="1.75"/> <circle cx="112.2" cy="44.1" r="1.75"/> <circle cx="145.8" cy="43.4" r="1.75"/> <circle cx="169.9" cy="53.1" r="1.75"/> <circle cx="204.1" cy="41.0" r="1.75"/> <circle cx="228.6" cy="40.8" r="1.75"/> <circle cx="253.5" cy="53.0" r="1.75"/> <circle cx="281.8" cy="41.0" r="1.75"/> <circle cx="33.1" cy="86.8" r="1.75"/> <circle cx="64.0" cy="82.0" r="1.75"/> <circle cx="92.7" cy="86.1" r="1.75"/> <circle cx="119.6" cy="80.2" r="1.75"/> <circle cx="156.9" cy="80.1" r="1.75"/> <circle cx="187.9" cy="81.1" r="1.75"/> <circle cx="219.1" cy="76.5" r="1.75"/> <circle cx="240.0" cy="84.8" r="1.75"/> <circle cx="268.6" cy="82.7" r="1.75"/> <circle cx="19.3" cy="111.2" r="1.75"/> <circle cx="54.6" cy="105.7" r="1.75"/> <circle cx="80.0" cy="104.4" r="1.75"/> <circle cx="106.9" cy="115.0" r="1.75"/> <circle cx="138.7" cy="114.1" r="1.75"/> <circle cx="162.2" cy="112.7" r="1.75"/> <circle cx="199.9" cy="105.2" r="1.75"/> <circle cx="220.5" cy="115.9" r="1.75"/> <circle cx="280.3" cy="114.3" r="1.75"/> <circle cx="31.1" cy="145.3" r="1.75"/> <circle cx="67.5" cy="151.0" r="1.75"/> <circle cx="93.2" cy="137.6" r="1.75"/> <circle cx="122.5" cy="147.1" r="1.75"/> <circle cx="156.7" cy="148.5" r="1.75"/> <circle cx="186.6" cy="138.7" r="1.75"/> <circle cx="212.0" cy="137.3" r="1.75"/> <circle cx="244.3" cy="148.7" r="1.75"/> <circle cx="275.3" cy="144.6" r="1.75"/> <circle cx="25.6" cy="173.6" r="1.75"/> <circle cx="56.0" cy="179.1" r="1.75"/> <circle cx="76.5" cy="178.1" r="1.75"/> <circle cx="107.6" cy="180.1" r="1.75"/> <circle cx="141.8" cy="171.2" r="1.75"/> <circle cx="174.0" cy="179.7" r="1.75"/> <circle cx="204.4" cy="177.6" r="1.75"/> <circle cx="235.4" cy="171.3" r="1.75"/> <circle cx="264.1" cy="179.9" r="1.75"/> <circle cx="30.0" cy="217.3" r="1.75"/> <circle cx="65.6" cy="209.6" r="1.75"/> <circle cx="85.5" cy="210.9" r="1.75"/> <circle cx="126.6" cy="209.2" r="1.75"/> <circle cx="150.2" cy="214.8" r="1.75"/> <circle cx="269.2" cy="205.2" r="1.75"/> <circle cx="14.8" cy="251.5" r="1.75"/> <circle cx="45.3" cy="236.4" r="1.75"/> <circle cx="79.6" cy="241.0" r="1.75"/> <circle cx="106.3" cy="248.8" r="1.75"/> <circle cx="137.0" cy="242.4" r="1.75"/> <circle cx="261.3" cy="237.9" r="1.75"/> <circle cx="27.7" cy="283.1" r="1.75"/> <circle cx="68.0" cy="277.4" r="1.75"/> <circle cx="89.1" cy="272.8" r="1.75"/> <circle cx="130.2" cy="278.9" r="1.75"/> <circle cx="189.6" cy="282.8" r="1.75"/> <circle cx="221.0" cy="270.8" r="1.75"/> <circle cx="250.3" cy="277.2" r="1.75"/> <circle cx="279.6" cy="271.7" r="1.75"/> <circle cx="85.2" cy="308.3" r="1.75"/> <circle cx="103.6" cy="303.1" r="1.75"/> <circle cx="145.7" cy="311.7" r="1.75"/> <circle cx="169.1" cy="316.7" r="1.75"/> <circle cx="197.2" cy="305.1" r="1.75"/> <circle cx="228.7" cy="315.1" r="1.75"/> <circle cx="251.8" cy="313.4" r="1.75"/> <circle cx="39.6" cy="342.8" r="1.75"/> <circle cx="69.4" cy="348.2" r="1.75"/> <circle cx="87.1" cy="344.8" r="1.75"/> <circle cx="119.2" cy="345.2" r="1.75"/> <circle cx="160.4" cy="343.4" r="1.75"/> <circle cx="186.1" cy="338.6" r="1.75"/> <circle cx="206.5" cy="346.7" r="1.75"/> <circle cx="246.5" cy="346.9" r="1.75"/> <circle cx="273.6" cy="345.0" r="1.75"/> <circle cx="21.2" cy="375.9" r="1.75"/> <circle cx="40.3" cy="370.7" r="1.75"/> <circle cx="71.2" cy="378.8" r="1.75"/> <circle cx="110.3" cy="380.5" r="1.75"/> <circle cx="233.1" cy="382.0" r="1.75"/> <circle cx="257.2" cy="378.9" r="1.75"/> <circle cx="286.0" cy="383.5" r="1.75"/> <circle cx="267.4" cy="231.2" r="1.75"/> <circle cx="286.1" cy="247.9" r="1.75"/> <circle cx="240.5" cy="286.0" r="1.75"/> <circle cx="36.9" cy="311.4" r="1.75"/> <circle cx="57.2" cy="305.6" r="1.75"/> <circle cx="152.6" cy="377.2" r="1.75"/> <circle cx="190.4" cy="371.8" r="1.75"/>
+          </g>
+          <g class="s09-dotz">
+<circle cx="183.7" cy="217.1" r="1.85"/> <circle cx="213.1" cy="210.6" r="1.85"/> <circle cx="235.1" cy="215.4" r="1.85"/> <circle cx="195.0" cy="241.4" r="1.85"/> <circle cx="229.0" cy="238.4" r="1.85"/>
+          </g>
+          <!-- zona seleccionada dentro del distrito -->
+          <rect class="s09-box" x="167.5" y="189.5" width="85" height="73"/>
+
+          <!-- lupa 1: la zona se abre sobre el panel 2 -->
+          <path class="s09-pr" d="M253 190 L347.5 23"/>
+          <path class="s09-pr" d="M253 262 L347.5 409"/>
+          <path class="s09-ch" d="M317 210 L325 216 L317 222"/>
+
+          <!-- PANEL 2 · agrupamientos del barrio -->
+          <g class="s09-dot2"><circle cx="409.9" cy="112.3" r="2.05"/> <circle cx="432.4" cy="116.3" r="2.05"/> <circle cx="415.5" cy="102.3" r="2.05"/> <circle cx="422.6" cy="113.0" r="2.05"/> <circle cx="440.4" cy="130.7" r="2.05"/> <circle cx="454.6" cy="123.9" r="2.05"/> <circle cx="432.4" cy="103.0" r="2.05"/> <circle cx="417.5" cy="122.5" r="2.05"/> <circle cx="444.5" cy="139.5" r="2.05"/> <circle cx="414.0" cy="131.7" r="2.05"/> <circle cx="447.6" cy="106.7" r="2.05"/> <circle cx="446.0" cy="116.6" r="2.05"/> <circle cx="419.0" cy="143.8" r="2.05"/> <circle cx="428.9" cy="130.7" r="2.05"/> <circle cx="435.9" cy="146.3" r="2.05"/> <circle cx="434.3" cy="124.7" r="2.05"/></g>
+          <g class="s09-dotc"><circle cx="554.0" cy="126.3" r="2.2"/> <circle cx="561.5" cy="101.9" r="2.2"/> <circle cx="579.7" cy="109.3" r="2.2"/> <circle cx="577.9" cy="141.2" r="2.2"/> <circle cx="569.1" cy="127.5" r="2.2"/> <circle cx="545.0" cy="116.6" r="2.2"/> <circle cx="550.5" cy="139.1" r="2.2"/> <circle cx="582.0" cy="130.6" r="2.2"/> <circle cx="563.4" cy="116.9" r="2.2"/> <circle cx="580.3" cy="121.6" r="2.2"/> <circle cx="568.3" cy="137.3" r="2.2"/> <circle cx="579.3" cy="101.2" r="2.2"/> <circle cx="588.0" cy="116.2" r="2.2"/> <circle cx="569.2" cy="110.6" r="2.2"/> <circle cx="557.2" cy="109.7" r="2.2"/> <circle cx="561.0" cy="132.9" r="2.2"/> <circle cx="571.3" cy="146.0" r="2.2"/></g>
+          <g class="s09-dot2" transform="translate(0,-14)"><circle cx="415.0" cy="298.8" r="2.05"/> <circle cx="430.4" cy="316.0" r="2.05"/> <circle cx="433.0" cy="295.3" r="2.05"/> <circle cx="406.7" cy="300.4" r="2.05"/> <circle cx="414.8" cy="307.4" r="2.05"/> <circle cx="438.7" cy="280.0" r="2.05"/> <circle cx="452.5" cy="305.6" r="2.05"/> <circle cx="426.4" cy="303.4" r="2.05"/> <circle cx="425.4" cy="279.9" r="2.05"/> <circle cx="445.7" cy="292.1" r="2.05"/> <circle cx="443.7" cy="314.2" r="2.05"/> <circle cx="421.4" cy="318.6" r="2.05"/> <circle cx="448.0" cy="284.3" r="2.05"/> <circle cx="438.8" cy="306.5" r="2.05"/> <circle cx="421.0" cy="290.0" r="2.05"/></g>
+          <g class="s09-dot2" transform="translate(0,-14)"><circle cx="549.1" cy="288.6" r="2.05"/> <circle cx="573.6" cy="301.4" r="2.05"/> <circle cx="546.6" cy="310.8" r="2.05"/> <circle cx="577.5" cy="321.4" r="2.05"/> <circle cx="553.9" cy="303.4" r="2.05"/> <circle cx="591.5" cy="299.3" r="2.05"/> <circle cx="561.8" cy="308.1" r="2.05"/> <circle cx="553.4" cy="318.9" r="2.05"/> <circle cx="561.2" cy="295.7" r="2.05"/> <circle cx="571.6" cy="287.3" r="2.05"/> <circle cx="580.4" cy="289.3" r="2.05"/> <circle cx="575.4" cy="280.3" r="2.05"/> <circle cx="562.5" cy="316.7" r="2.05"/> <circle cx="556.1" cy="284.7" r="2.05"/> <circle cx="587.2" cy="306.8" r="2.05"/> <circle cx="582.5" cy="297.5" r="2.05"/></g>
+          <rect class="s09-box" x="533.5" y="87.5" width="69" height="69"/>
+
+          <!-- lupa 2: el agrupamiento se abre sobre la ficha -->
+          <path class="s09-pr" d="M603 88 L695.5 23"/>
+          <path class="s09-pr" d="M603 157 L695.5 409"/>
+          <path class="s09-ch" d="M665 210 L673 216 L665 222"/>
+
+        </svg>
+
+        <div class="s09-th" style="left:0;width:300px"><span class="i">01</span><span class="t">Distrito</span><span class="u cap">todo el padrón</span></div>
+        <div class="s09-th" style="left:348px;width:300px"><span class="i">02</span><span class="t">Barrio</span><span class="u cap">zona ampliada</span></div>
+        <div class="s09-th on" style="left:696px;width:464px"><span class="i">03</span><span class="t">Célula</span><span class="u cap">unidad de acción</span></div>
+
+        <div class="s09-cl" style="left:430px;top:164px">base propia</div>
+        <div class="s09-cl on" style="left:568px;top:164px">voto blando</div>
+        <div class="s09-cl" style="left:430px;top:320px">indeciso</div>
+        <div class="s09-cl" style="left:568px;top:320px">abstencionista</div>
+
+        <div class="s09-card">
+          <div class="hd">
+            <h3>Célula 41</h3>
+            <span class="tie"><i></i>voto blando</span>
+          </div>
+          <div class="r"><span class="l">Votantes agregados</span><span class="v n">1.240</span></div>
+          <div class="r"><span class="l">Problema que ordena</span><span class="v">agua y presión</span></div>
+          <div class="r"><span class="l">Mensaje</span><span class="v">obra en ejecución, plazo verificable</span></div>
+          <div class="r"><span class="l">Canal</span><span class="v">WhatsApp + puerta a puerta</span></div>
+          <div class="r"><span class="l">Ventana</span><span class="v n">10 días</span></div>
+          <div class="r"><span class="l">Meta de mesa</span><span class="v n">+90 votos</span></div>
+        </div>
+      </div>
+      <span class="cap">ejemplo de salida · las células son agregadas, nunca perfiles individuales</span>
+    </div>
+    <div class="band"><span class="k">Límite explícito</span><p class="t">Trabajamos con grupos: <span class="em">nunca con expedientes individuales ni datos sensibles de personas.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Segmentación</span><span class="bar"><i style="width:64%"></i></span><span>Capacidades · 09 / 13</span></div>
+</section>

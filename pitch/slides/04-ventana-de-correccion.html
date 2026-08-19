@@ -1,0 +1,141 @@
+<style>
+/* ---- LÁMINA 04 · La ventana de corrección · área escalonada ascendente ---- */
+.s04 .head{margin:12px 0 16px}
+.s04 .head .lead{max-width:410px;margin-bottom:3px}
+.s04 .topo.a{opacity:.16;top:-34%;right:-14%}
+
+.s04-c{flex:1;min-height:0;display:grid;
+  grid-template-columns:100px 1fr;grid-template-rows:1fr auto auto}
+
+/* --- eje Y --- */
+.s04-y{grid-area:1/1;position:relative;display:flex;align-items:center;
+  justify-content:flex-end;padding-right:16px}
+.s04-y .t{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;color:#8d9295}
+.s04-y .ln{position:absolute;right:0;top:0;bottom:0;width:1px;background:var(--line-d)}
+.s04-y .ar{position:absolute;right:-2px;top:0;width:5px;height:5px;transform:rotate(-45deg);
+  border-top:1px solid var(--line-d);border-right:1px solid var(--line-d)}
+
+/* --- área del gráfico --- */
+.s04-plot{grid-area:1/2;position:relative}
+.s04-plot svg{position:absolute;inset:0}
+.s04-fill-c{fill:rgba(40,203,211,.085)}
+.s04-fill-a{fill:rgba(216,69,44,.105)}
+.s04-st-c{fill:none;stroke:var(--cyan);stroke-width:1.5}
+.s04-st-a{fill:none;stroke:var(--alarm);stroke-width:1.5}
+.s04-ax{fill:none;stroke:var(--line-d);stroke-width:1}
+.s04-gr{fill:none;stroke:var(--line-d-soft);stroke-width:1;stroke-dasharray:2 5}
+
+/* --- etiquetas sobre cada escalón --- */
+.s04-l{position:absolute;width:calc(16.6667% - 22px);display:flex;flex-direction:column;
+  align-items:flex-start;gap:5px}
+.s04-l .r{width:22px;height:1px;background:var(--cyan);margin-bottom:3px}
+.s04-l .n{font-family:var(--mono);font-size:9.3px;font-weight:600;letter-spacing:.145em;
+  text-transform:uppercase;color:#eceded;line-height:1.34}
+.s04-l .small{font-size:11.2px;line-height:1.44;color:#9ca0a3}
+.s04-l.al .r{background:var(--alarm)}
+.s04-l.al .n{color:var(--alarm)}
+
+/* --- eje X: hitos --- */
+.s04-dl{grid-area:2/1;text-align:right;padding:12px 16px 0 0;line-height:1.5}
+.s04-days{grid-area:2/2;display:grid;grid-template-columns:repeat(6,1fr)}
+.s04-days b{position:relative;display:block;text-align:center;padding-top:12px;
+  font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.14em;color:#b4b8bb}
+.s04-days b::before{content:"";position:absolute;top:0;left:50%;width:1px;height:5px;
+  transform:translateX(-.5px);background:var(--line-d)}
+
+/* --- zonas bajo el eje --- */
+.s04-zones{grid-area:3/2;display:grid;grid-template-columns:3fr 1fr 2fr;margin-top:12px}
+.s04-zones .z{position:relative;border-top:1px solid var(--line-d);padding-top:9px;
+  text-align:center;color:#8d9295}
+.s04-zones .z::before{content:"";position:absolute;left:0;top:0;width:1px;height:5px;
+  background:var(--line-d)}
+.s04-zones .z:last-child::after{content:"";position:absolute;right:0;top:0;width:1px;height:5px;
+  background:var(--alarm-dim)}
+.s04-zones .z.al{border-top-color:var(--alarm-dim);color:var(--alarm)}
+.s04-zones .z.al::before{background:var(--alarm-dim)}
+
+.s04 .stage{gap:12px}
+.s04 .band{margin-top:18px}
+</style>
+<section class="slide s04">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">03</span><span>La ventana de corrección</span><i class="rule"></i><span>Qué se puede arreglar y hasta cuándo</span></div>
+    <div class="head">
+      <h2 class="display h-2">Casi todo se puede corregir.<br><span class="em">Pero no en cualquier momento.</span></h2>
+      <p class="lead">Una campaña no pierde de golpe: agota decisiones. Cada semana la lista de lo que todavía se puede cambiar se hace más corta y más caro cambiarlo.</p>
+    </div>
+    <div class="stage">
+      <div class="s04-c">
+
+        <div class="s04-y">
+          <span class="mono t">Costo de corregir</span>
+          <span class="ln"></span><span class="ar"></span>
+        </div>
+
+        <div class="s04-plot">
+          <svg viewBox="0 0 1068 330" preserveAspectRatio="none" role="img" aria-label="Área escalonada ascendente: el costo de corregir sube a medida que se acerca la elección">
+            <!-- retícula de columnas -->
+            <g class="s04-gr">
+              <path d="M178 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M356 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M534 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M712 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M890 0V330" vector-effect="non-scaling-stroke"/>
+            </g>
+            <!-- área reversible / cara -->
+            <path class="s04-fill-c" d="M0 330V290H178V264H356V231H534V188H712V330Z"/>
+            <!-- área irreversible -->
+            <path class="s04-fill-a" d="M712 330V138H890V82H1068V330Z"/>
+            <!-- perfil -->
+            <path class="s04-st-c" d="M0 290H178V264H356V231H534V188H712" vector-effect="non-scaling-stroke"/>
+            <path class="s04-st-a" d="M712 188V138H890V82H1068" vector-effect="non-scaling-stroke"/>
+            <!-- eje X -->
+            <path class="s04-ax" d="M0 330H1068" vector-effect="non-scaling-stroke"/>
+          </svg>
+
+          <div class="s04-l" style="left:11px;bottom:calc(12.12% + 12px)">
+            <span class="r"></span><span class="n">Posicionamiento</span>
+            <p class="small">Quién sos y contra<br>quién corrés</p>
+          </div>
+          <div class="s04-l" style="left:calc(16.6667% + 11px);bottom:calc(20% + 12px)">
+            <span class="r"></span><span class="n">Eje y relato</span>
+            <p class="small">Qué tema pone la<br>campaña arriba</p>
+          </div>
+          <div class="s04-l" style="left:calc(33.3333% + 11px);bottom:calc(30% + 12px)">
+            <span class="r"></span><span class="n">Asignación de plata<br>y agenda</span>
+            <p class="small">Dónde va cada peso<br>y cada acto</p>
+          </div>
+          <div class="s04-l" style="left:calc(50% + 11px);bottom:calc(43.03% + 12px)">
+            <span class="r"></span><span class="n">Persuasión del indeciso</span>
+            <p class="small">Todavía se puede<br>mover opinión</p>
+          </div>
+          <div class="s04-l al" style="left:calc(66.6667% + 11px);bottom:calc(58.18% + 12px)">
+            <span class="r"></span><span class="n">Sólo movilización</span>
+            <p class="small">Ya no convencés:<br>llevás a votar</p>
+          </div>
+          <div class="s04-l al" style="left:calc(83.3333% + 11px);bottom:calc(75.15% + 12px)">
+            <span class="r"></span><span class="n">Contención de daño</span>
+            <p class="small">Sólo evitar que empeore</p>
+          </div>
+        </div>
+
+        <span class="cap s04-dl">Días a la elección</span>
+        <div class="s04-days">
+          <b>180</b><b>120</b><b>90</b><b>60</b><b>30</b><b>7</b>
+        </div>
+
+        <div class="s04-zones">
+          <span class="mono z">Reversible</span>
+          <span class="mono z">Caro</span>
+          <span class="mono z al">Irreversible</span>
+        </div>
+
+      </div>
+      <span class="cap">Escala conceptual del costo de corregir según el momento en que se detecta</span>
+    </div>
+    <div class="band"><span class="k">La consecuencia</span><p class="t">Medir tarde no es medir menos: es pagar por información que <span class="em-alarm">ya no cambia ninguna decisión.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Ventana de corrección</span><span class="bar"><i style="width:24%"></i></span><span>Urgencia · 04 / 13</span></div>
+</section>

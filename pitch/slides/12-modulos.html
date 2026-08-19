@@ -1,0 +1,183 @@
+<style>
+/* ---- LÁMINA 12 · Módulos · matriz de alcance por módulo de contratación ---- */
+.s12 .head .lead{max-width:404px}
+.s12 .topo.a{top:-48%;right:-17%;opacity:.11}
+.s12 .stage{gap:13px}
+
+/* --- matriz: 1160 de ancho. Columnas: capacidad 336 + 4 x 206 --- */
+.s12-mx{position:relative;flex:none;padding-top:21px}
+.s12-r{position:relative;z-index:2;display:grid;
+  grid-template-columns:336px repeat(4,206px);align-items:center}
+
+/* separadores verticales de columna (la 4.ª la marca el realce) */
+.s12-vr{position:absolute;z-index:1;top:21px;bottom:0;width:1px;background:var(--line-l-soft)}
+
+/* realce de la columna FULL CYCLE + cinta */
+.s12-hl{position:absolute;z-index:1;top:21px;bottom:0;left:954px;width:206px;
+  border:1.4px solid rgba(14,143,151,.55);background:rgba(40,203,211,.055)}
+.s12-rb{position:absolute;z-index:3;top:0;left:1057px;transform:translateX(-50%);
+  padding:4px 9px;background:var(--cyan-deep);color:var(--paper);
+  font-family:var(--mono);font-size:6.8px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;white-space:nowrap}
+
+/* fila de encabezado */
+.s12-hd{height:42px;align-items:flex-end;border-bottom:1px solid rgba(12,13,14,.3)}
+.s12-hd .h{display:flex;flex-direction:column;align-items:center;gap:5px;padding-bottom:9px}
+.s12-hd .h i{font-family:var(--mono);font-style:normal;font-size:6.8px;font-weight:600;
+  letter-spacing:.22em;color:#8b9093}
+.s12-hd .h b{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.19em;
+  text-transform:uppercase;color:#22292c}
+.s12-hd .h.on i,.s12-hd .h.on b{color:var(--cyan-deep)}
+.s12-hd .k{font-family:var(--mono);font-size:7.2px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:#7b8083;padding-bottom:9px}
+
+/* filas de capacidad */
+.s12-rw{height:36px;border-bottom:1px solid var(--line-l-soft)}
+.s12-rw.e{border-bottom:0}
+.s12-rw .l{padding-right:20px;font-size:11.6px;font-weight:300;line-height:1.3;color:#43484c}
+.s12-rw .c{display:flex;align-items:center;justify-content:center}
+
+/* marcas: círculo lleno / mitad / contorno */
+.s12 .s12-m{display:block;width:14px;height:14px}
+.s12 .s12-f{fill:var(--cyan-deep)}
+.s12 .s12-p{fill:none;stroke:var(--cyan-deep);stroke-width:1.2}
+.s12 .s12-pf{fill:var(--cyan-deep)}
+.s12 .s12-o{fill:none;stroke:rgba(12,13,14,.22);stroke-width:1.2}
+
+/* fila IDEAL SI */
+.s12-id{border-top:1px solid rgba(12,13,14,.3);padding-top:13px;align-items:flex-start;
+  min-height:46px}
+.s12-id .k{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cyan-deep)}
+.s12-id .v{padding:0 15px;text-align:center;font-size:10.4px;font-weight:300;
+  line-height:1.34;color:#4e5357}
+.s12-id .v.on{color:#1e2528;font-weight:400}
+
+/* pie del gráfico: leyenda + aclaración */
+.s12-ft{display:flex;align-items:center;gap:26px}
+.s12-ft .lg{display:flex;align-items:center;gap:20px}
+.s12-ft .lg span{display:flex;align-items:center;gap:7px;font-family:var(--mono);
+  font-size:7.2px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7b8083}
+.s12-ft .cap{margin-left:auto;text-align:right}
+</style>
+<section class="slide paper s12">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">11</span><span>Cómo se contrata</span><i class="rule"></i><span>Un módulo o el sistema completo</span></div>
+    <div class="head">
+      <h2 class="display h-2">Entrás por un problema.<br><span class="em">Escalás cuando el problema se vuelve chico.</span></h2>
+      <p class="lead">Cada módulo funciona solo y se integra sin rehacer nada.</p>
+    </div>
+    <div class="stage">
+      <div class="s12-mx">
+
+        <div class="s12-vr" style="left:336px"></div>
+        <div class="s12-vr" style="left:542px"></div>
+        <div class="s12-vr" style="left:748px"></div>
+        <div class="s12-hl"></div>
+        <div class="s12-rb">Más elegido</div>
+
+        <div class="s12-r s12-hd">
+          <span class="k">Capacidad</span>
+          <span class="h"><i>01</i><b>Diagnóstico</b></span>
+          <span class="h"><i>02</i><b>Pulso</b></span>
+          <span class="h"><i>03</i><b>Inteligencia</b></span>
+          <span class="h on"><i>04</i><b>Full cycle</b></span>
+        </div>
+
+        <!-- 01 · encuesta propia -->
+        <div class="s12-r s12-rw">
+          <span class="l">Encuesta propia con ficha técnica</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 02 · informe y tabulados -->
+        <div class="s12-r s12-rw">
+          <span class="l">Informe, tabulados y brief ejecutivo</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 03 · tracking -->
+        <div class="s12-r s12-rw">
+          <span class="l">Tracking y flash polls</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 04 · alertas -->
+        <div class="s12-r s12-rw">
+          <span class="l">Alertas de movimiento</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 05 · historia electoral -->
+        <div class="s12-r s12-rw">
+          <span class="l">Historia electoral y mapa de mesas</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 06 · micro y nano -->
+        <div class="s12-r s12-rw">
+          <span class="l">Micro y nanosegmentación</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 07 · NOMOS -->
+        <div class="s12-r s12-rw">
+          <span class="l">NOMOS para todo el equipo</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 08 · contenido y rapid response -->
+        <div class="s12-r s12-rw e">
+          <span class="l">Contenido y rapid response</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <div class="s12-r s12-id">
+          <span class="k">Ideal si</span>
+          <span class="v">Arrancás o cambió el escenario</span>
+          <span class="v">Ya estás en campaña y hay que corregir</span>
+          <span class="v">Tenés datos sueltos y ninguna consola</span>
+          <span class="v on">La elección se define por poco margen</span>
+        </div>
+
+      </div>
+
+      <div class="s12-ft">
+        <div class="lg">
+          <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg>Incluido</span>
+          <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg>Parcial · a medida</span>
+          <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg>No incluido</span>
+        </div>
+        <span class="cap">Alcance de referencia · sin precios de lista: cada propuesta se cotiza por padrón, cantidad de olas y calendario electoral</span>
+      </div>
+    </div>
+    <div class="band"><span class="k">Nota</span><p class="t">Lo que se mide hoy <span class="em">sigue sirviendo cuando la campaña escala.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Soluciones</span><span class="bar"><i style="width:90%"></i></span><span>Soluciones · 12 / 13</span></div>
+</section>

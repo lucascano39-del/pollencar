@@ -1,0 +1,103 @@
+<style>
+/* ---- LÁMINA 07 · Medición auditable · embudo de seis controles + estimación con intervalo ---- */
+.s07 .head .lead{max-width:452px}
+.s07 .topo.a{top:-46%;right:-17%;opacity:.12}
+.s07 .stage{gap:10px}
+
+/* --- lienzo del embudo: 1160 x 364, mapeo 1:1 con el viewBox --- */
+.s07-plot{position:relative;height:364px;flex:none}
+.s07-plot > svg{position:absolute;inset:0}
+
+/* --- rótulos de etapa (HTML sobre el SVG, alineados al borde de cada bloque) --- */
+.s07-lb{position:absolute;top:289px;display:flex;flex-direction:column;gap:5px}
+.s07-lb .i{font-family:var(--mono);font-size:7.2px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:#82878a}
+.s07-lb .mono{font-size:8.2px;letter-spacing:.19em}
+.s07-lb .small{font-size:10.9px;line-height:1.42}
+.s07-lb.r .i{color:var(--cyan-deep)}
+
+.s07 .chips{margin-top:14px}
+
+/* --- trazos del SVG (todo con prefijo propio) --- */
+.s07 .s07-bk{stroke:rgba(12,13,14,.4);stroke-width:1.2}
+.s07 .s07-b1{fill:rgba(255,255,255,.5)}
+.s07 .s07-b2{fill:rgba(40,203,211,.045)}
+.s07 .s07-b3{fill:rgba(40,203,211,.07)}
+.s07 .s07-b4{fill:rgba(40,203,211,.095)}
+.s07 .s07-b5{fill:rgba(40,203,211,.125)}
+.s07 .s07-b6{fill:rgba(40,203,211,.16);stroke:var(--cyan-deep)}
+.s07 .s07-tk{fill:none;stroke:rgba(12,13,14,.24);stroke-width:1}
+.s07 .s07-ax{fill:none;stroke:var(--line-l);stroke-width:1}
+.s07 .s07-dm{fill:none;stroke:rgba(12,13,14,.24);stroke-width:1}
+.s07 .s07-gd{fill:none;stroke:rgba(14,143,151,.34);stroke-width:1;stroke-dasharray:2 4}
+.s07 .s07-ar,.s07 .s07-br{fill:none;stroke:var(--cyan-deep);stroke-width:1.5}
+.s07 .s07-dt{fill:var(--paper);stroke:var(--cyan-deep);stroke-width:1.5}
+.s07 .s07-cr{fill:var(--cyan-deep)}
+.s07 .s07-tx{fill:#6f7477;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+</style>
+<section class="slide paper s07">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">06</span><span>Investigación y medición</span><i class="rule"></i><span>Research premium · CAWI · multimodo</span></div>
+    <div class="head">
+      <h2 class="display h-2">Un número que se puede<br><span class="em">defender frente a un periodista.</span></h2>
+      <p class="lead">CAWI es entrevista web asistida por computadora: medición digital con arquitectura muestral, cuotas, controles y ponderación. No es un formulario reenviado por WhatsApp.</p>
+    </div>
+    <div class="stage">
+      <div class="s07-plot">
+        <svg viewBox="0 0 1160 364" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Embudo de seis etapas de medición que desemboca en una estimación con intervalo de confianza">
+
+          <!-- seis bloques trapezoidales que se angostan de izquierda a derecha -->
+          <path class="s07-bk s07-b1" d="M6 13 L136 42 L136 234 L6 263 Z"/>
+          <path class="s07-bk s07-b2" d="M145 48 L275 64 L275 212 L145 228 Z"/>
+          <path class="s07-bk s07-b3" d="M284 68 L414 80 L414 196 L284 208 Z"/>
+          <path class="s07-bk s07-b4" d="M423 83 L553 91 L553 185 L423 193 Z"/>
+          <path class="s07-bk s07-b5" d="M562 94 L692 102 L692 174 L562 182 Z"/>
+          <path class="s07-bk s07-b6" d="M701 104 L831 112 L831 164 L701 172 Z"/>
+
+          <!-- el cuello del embudo proyecta exactamente el ancho del intervalo -->
+          <path class="s07-gd" d="M833 112 L898 112 M833 164 L898 164"/>
+          <path class="s07-ar" d="M838 138 L888 138"/>
+          <path class="s07-ar" d="M881 133 L887 138 L881 143"/>
+
+          <!-- estimación puntual con intervalo declarado -->
+          <path class="s07-dm" d="M1010 104 L1010 110 M1010 104 L1120 104 M1120 104 L1120 110"/>
+          <text class="s07-tx" x="1065" y="95" text-anchor="middle">± pts</text>
+          <path class="s07-br" d="M900 138 L1120 138 M900 112 L900 164 M1120 112 L1120 164"/>
+          <circle class="s07-dt" cx="1010" cy="138" r="8"/>
+          <circle class="s07-cr" cx="1010" cy="138" r="3"/>
+
+          <!-- eje de rótulos -->
+          <g class="s07-tk">
+            <path d="M6 273 L6 281"/><path d="M145 273 L145 281"/><path d="M284 273 L284 281"/>
+            <path d="M423 273 L423 281"/><path d="M562 273 L562 281"/><path d="M701 273 L701 281"/>
+            <path d="M900 273 L900 281"/>
+          </g>
+          <path class="s07-ax" d="M6 281.5 L1120 281.5"/>
+
+        </svg>
+
+        <div class="s07-lb" style="left:6px;width:130px"><span class="i">01</span><span class="mono">Población</span><span class="small">Marco y cobertura</span></div>
+        <div class="s07-lb" style="left:145px;width:130px"><span class="i">02</span><span class="mono">Muestra</span><span class="small">Cuotas por sexo, edad y zona</span></div>
+        <div class="s07-lb" style="left:284px;width:130px"><span class="i">03</span><span class="mono">Campo</span><span class="small">Monitoreo diario</span></div>
+        <div class="s07-lb" style="left:423px;width:130px"><span class="i">04</span><span class="mono">Validación</span><span class="small">Deduplicación y antifraude</span></div>
+        <div class="s07-lb" style="left:562px;width:130px"><span class="i">05</span><span class="mono">Ponderación</span><span class="small">Ajuste a estructura conocida</span></div>
+        <div class="s07-lb" style="left:701px;width:130px"><span class="i">06</span><span class="mono">Estimación</span><span class="small">Intervalo declarado</span></div>
+        <div class="s07-lb r" style="left:900px;width:218px"><span class="i">Salida</span><span class="mono">El número</span><span class="small">Estimación con intervalo de confianza</span></div>
+      </div>
+      <span class="cap">Esquema del proceso · cada entrega incluye base auditada, tabulados y ficha técnica</span>
+      <div class="chips">
+        <span class="chip on">Línea de base</span>
+        <span class="chip">Tracking</span>
+        <span class="chip">Flash poll</span>
+        <span class="chip">Test de mensaje</span>
+        <span class="chip">Cualitativo</span>
+      </div>
+    </div>
+    <div class="band"><span class="k">La diferencia</span><p class="t">No maquillamos la incertidumbre: <span class="em">la medimos, la declaramos y la explicamos.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Medición</span><span class="bar"><i style="width:48%"></i></span><span>Capacidades · 07 / 13</span></div>
+</section>

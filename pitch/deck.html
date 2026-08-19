@@ -1,0 +1,1632 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Malaparte Analytica · investigación de opinión pública, inteligencia electoral y operación digital para campañas.">
+<title>Malaparte Analytica · Capacidades · Opinión pública e inteligencia electoral</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<body>
+
+<!-- ===== slides/01-portada.html ===== -->
+<style>
+.s01-ring{position:absolute;z-index:2;border:1px solid rgba(255,255,255,.075);border-radius:50%}
+.s01-mark{position:absolute;z-index:2;right:-60px;bottom:-90px;width:430px;height:430px;
+  color:#fff;opacity:.05}
+.s01-mark svg{width:100%;height:100%;display:block}
+.s01-keys{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-d);
+  padding-top:15px;flex:none}
+.s01-keys div{padding-right:18px}
+.s01-keys .v{font-size:11.6px;line-height:1.45;color:var(--txt-2);font-weight:300;margin-top:5px}
+</style>
+<section class="slide">
+  <div class="topo a"></div>
+  <div class="topo b"></div>
+  <div class="glow" style="top:-330px;left:-270px"></div>
+  <div class="s01-ring" style="width:820px;height:820px;right:-250px;bottom:-320px"></div>
+  <div class="s01-ring" style="width:1140px;height:1140px;right:-420px;bottom:-500px"></div>
+  <div class="s01-mark">
+    <svg viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M20 25 43 11h33v51L53 77H20Z"/>
+      <path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/>
+      <ellipse cx="48" cy="48" rx="18" ry="12"/><circle cx="48" cy="48" r="5" fill="currentColor"/>
+    </g></svg></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow">
+      <span>Malaparte Analytica</span><i class="rule"></i>
+      <span>Research · Data · Political Intelligence</span>
+      <span class="tag">Capacidades · Documento confidencial</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;padding-bottom:10px">
+      <div class="mark" style="width:80px;height:80px">
+        <svg viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M20 25 43 11h33v51L53 77H20Z"/>
+          <path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/>
+          <ellipse cx="48" cy="48" rx="18" ry="12"/><circle cx="48" cy="48" r="5" fill="currentColor"/>
+        </g></svg>
+      </div>
+      <h1 class="display h-cover" style="max-width:1000px">
+        No adivinamos<br>qué piensa la gente.<br><span class="em it">Lo medimos.</span>
+      </h1>
+      <p class="lead" style="max-width:520px">Opinión pública, inteligencia electoral y operación digital
+        para campañas que necesitan <strong>decidir antes que el adversario</strong>.</p>
+    </div>
+    <div class="s01-keys">
+      <div><div class="kicker">Research</div><div class="v">Estudios a medida</div></div>
+      <div><div class="kicker">Medición</div><div class="v">CAWI + multimodo</div></div>
+      <div><div class="kicker">Inteligencia</div><div class="v">Historia + Big Data</div></div>
+      <div><div class="kicker">Operación</div><div class="v">War Room continuo</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Opinión pública e inteligencia electoral</span>
+    <span class="bar"><i style="width:4%"></i></span><span>Portada · 01 / 13</span></div>
+</section>
+
+<!-- ===== slides/02-punto-de-partida.html ===== -->
+<style>
+/* ---- s02 · barras de cobertura informativa ---- */
+.s02 .head{margin:14px 0 25px}
+.s02 .head .lead{max-width:412px;margin-bottom:5px}
+.s02 .topo.a{opacity:.25;top:-36%;right:-15%}
+.s02-chart{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
+.s02-row{display:grid;grid-template-columns:166px 600px 346px;column-gap:24px;align-items:center}
+
+.s02-hd{flex:none;padding-bottom:9px;border-bottom:1px solid var(--line-d)}
+.s02-hd .cap{color:#6f7477}
+.s02-hd .r{text-align:left}
+
+.s02-rows{flex:1;min-height:0;display:flex;flex-direction:column}
+.s02-rows .s02-row{flex:1;border-bottom:1px solid var(--line-d-soft)}
+.s02-rows .s02-row:last-child{border-bottom:0}
+
+.s02 .lb{color:#c8cbcd;line-height:1.2}
+.s02 .trk{position:relative;height:14px;border:1px solid rgba(255,255,255,.13);
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.07) 0 1px,transparent 1px 9px)}
+.s02 .trk i{position:absolute;left:0;top:0;bottom:0;display:block;background:var(--cyan)}
+.s02 .trk i::after{content:"";position:absolute;right:-1px;top:-5px;bottom:-5px;width:1px;
+  background:var(--cyan)}
+.s02 .ph{font-size:11.4px;line-height:1.4;color:#a7abae}
+
+/* frontera del 40% */
+.s02-div{position:absolute;z-index:2;left:430px;top:22px;bottom:30px;width:1px;
+  background-image:repeating-linear-gradient(to bottom,var(--cyan-dim) 0 3px,transparent 3px 8px)}
+
+/* eje */
+.s02-ax{flex:none;padding-top:14px}
+.s02-ax .ax{position:relative;height:30px;border-top:1px solid var(--line-d)}
+.s02-ax .tk{position:absolute;top:0;width:1px;height:5px;background:var(--line-d)}
+.s02-ax .tk.a{left:0}.s02-ax .tk.b{left:40%;background:var(--cyan-dim)}.s02-ax .tk.c{right:0}
+.s02-ax .z{position:absolute;top:12px}
+.s02-ax .z0{left:0}.s02-ax .z3{right:0}
+.s02-ax .z1{left:0;width:40%;text-align:center;color:#7f8487}
+.s02-ax .z2{left:40%;width:60%;text-align:center;color:var(--white)}
+.s02 .foot-cap{flex:none;margin-top:2px}
+.s02 .band{margin-top:20px}
+</style>
+<section class="slide s02">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">01</span><span>El punto de partida</span><i class="rule"></i><span>Con qué información se decide hoy</span></div>
+    <div class="head">
+      <h2 class="display h-2">Tu campaña ya decide con información.<br><span class="em">El problema es cuál.</span></h2>
+      <p class="lead">Cinco fuentes que toda campaña tiene a mano. Ninguna fue diseñada para decidir dónde va la plata, el candidato y la última semana.</p>
+    </div>
+    <div class="stage">
+      <div class="s02-chart">
+        <div class="s02-div"></div>
+        <div class="s02-row s02-hd"><span class="cap">Fuente</span><span class="cap"></span><span class="cap r">No te dice</span></div>
+        <div class="s02-rows">
+          <div class="s02-row">
+            <span class="mono lb">Olfato del dirigente</span>
+            <div class="trk"><i style="width:34%"></i></div>
+            <p class="ph">cuánto de eso ya cambió, y en qué barrios</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">Informe del referente</span>
+            <div class="trk"><i style="width:29%"></i></div>
+            <p class="ph">qué parte es voto propio y qué parte es cortesía</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">La elección pasada</span>
+            <div class="trk"><i style="width:24%"></i></div>
+            <p class="ph">cuánto de ese voto sigue disponible hoy</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">La encuesta que circuló</span>
+            <div class="trk"><i style="width:19%"></i></div>
+            <p class="ph">si el movimiento es real o es ruido</p>
+          </div>
+          <div class="s02-row">
+            <span class="mono lb">Lo que se ve en redes</span>
+            <div class="trk"><i style="width:14%"></i></div>
+            <p class="ph">qué piensa la mayoría que no comenta nada y sí vota</p>
+          </div>
+        </div>
+        <div class="s02-row s02-ax">
+          <span></span>
+          <div class="ax">
+            <span class="tk a"></span><span class="tk b"></span><span class="tk c"></span>
+            <span class="cap z z0">0%</span>
+            <span class="mono z z1">Lo que hoy sabés</span>
+            <span class="mono z z2">Lo que decide la elección</span>
+            <span class="cap z z3">100%</span>
+          </div>
+          <span></span>
+        </div>
+      </div>
+      <span class="cap foot-cap">Cobertura informativa por fuente · esquema conceptual</span>
+    </div>
+    <div class="band"><span class="k">La conclusión</span><p class="t">Nada de esto está mal. Todo esto junto, igual, <span class="em">no alcanza para asignar plata, tiempo y candidato.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Punto de partida</span><span class="bar"><i style="width:8%"></i></span><span>Diagnóstico · 02 / 13</span></div>
+</section>
+
+<!-- ===== slides/03-aritmetica-del-margen.html ===== -->
+<style>
+/* ---- LÁMINA 03 · Aritmética del margen · dot matrix de 1.200 puntos ---- */
+.s03 .s03-row{flex:1;min-height:0;display:flex;align-items:stretch;gap:34px}
+.s03 .s03-plot{flex:1;min-width:0}
+.s03 .s03-nums{width:274px;flex:none;display:flex;flex-direction:column;
+  justify-content:space-between;border-left:1px solid var(--line-l);padding:2px 0 2px 32px}
+.s03 .s03-nums .stat+.stat{border-top:1px solid var(--line-l-soft);padding-top:20px}
+.s03 .s03-nums .stat b{font-size:53px}
+.s03 .s03-un{font-size:20px;letter-spacing:.01em;margin-left:7px}
+/* la textura no debe competir con los numerales serif */
+.s03 .topo.a{top:-46%;right:-15%;opacity:.19}
+
+/* --- SVG --- */
+.s03 .s03-dot{fill:rgba(12,13,14,.23)}
+.s03 .s03-mass{fill:url(#s03-p)}
+.s03 .s03-hit{fill:var(--cyan-deep)}
+.s03 .s03-wash{fill:rgba(40,203,211,.11)}
+.s03 .s03-frame,.s03 .s03-guide{fill:none;stroke:var(--cyan-deep);stroke-width:1}
+.s03 .s03-lbl{fill:#18201f;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+.s03 .s03-brk{fill:none;stroke:rgba(12,13,14,.26);stroke-width:1}
+.s03 .s03-tot{fill:#7b8083;font-family:var(--mono);font-size:7.2px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+</style>
+<section class="slide paper s03">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">02</span><span>La aritmética del margen</span><i class="rule"></i><span>Por qué el error sale carísimo</span></div>
+    <div class="head">
+      <h2 class="display h-2">La elección entera cabe<br><span class="em">en un puñado de mesas.</span></h2>
+      <p class="lead">Aritmética simple sobre un distrito de 120.000 votos efectivos. Cambiá el tamaño del distrito y cambia el número; no cambia el punto.</p>
+    </div>
+    <div class="stage">
+      <div class="s03-row">
+        <div class="s03-plot">
+          <svg viewBox="0 0 852 366" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Matriz de 1.200 puntos con 18 puntos resaltados">
+            <defs>
+              <pattern id="s03-p" x="12.1" y="41.1" width="13.8" height="13.8" patternUnits="userSpaceOnUse">
+                <circle class="s03-dot" cx="6.9" cy="6.9" r="2.8"/>
+              </pattern>
+              <mask id="s03-m" maskUnits="userSpaceOnUse" x="0" y="0" width="852" height="366">
+                <rect x="0" y="0" width="852" height="366" fill="#fff"/>
+                <rect x="605.5" y="275.7" width="82.8" height="41.4" fill="#000"/>
+              </mask>
+            </defs>
+
+            <!-- el distrito completo: 60 x 20 = 1.200 puntos -->
+            <text class="s03-tot" x="426" y="12" text-anchor="middle">1.200 puntos = 120.000 votos efectivos</text>
+            <path class="s03-brk" d="M12.1 32 L12.1 24 L840.1 24 L840.1 32"/>
+            <rect class="s03-mass" x="12.1" y="41.1" width="828" height="276" mask="url(#s03-m)"/>
+
+            <!-- los 18 puntos que dan vuelta la eleccion -->
+            <rect class="s03-wash" x="605.5" y="275.7" width="82.8" height="41.4"/>
+            <g class="s03-hit">
+              <circle cx="612.4" cy="282.6" r="3"/><circle cx="626.2" cy="282.6" r="3"/><circle cx="640" cy="282.6" r="3"/><circle cx="653.8" cy="282.6" r="3"/><circle cx="667.6" cy="282.6" r="3"/><circle cx="681.4" cy="282.6" r="3"/>
+              <circle cx="612.4" cy="296.4" r="3"/><circle cx="626.2" cy="296.4" r="3"/><circle cx="640" cy="296.4" r="3"/><circle cx="653.8" cy="296.4" r="3"/><circle cx="667.6" cy="296.4" r="3"/><circle cx="681.4" cy="296.4" r="3"/>
+              <circle cx="612.4" cy="310.2" r="3"/><circle cx="626.2" cy="310.2" r="3"/><circle cx="640" cy="310.2" r="3"/><circle cx="653.8" cy="310.2" r="3"/><circle cx="667.6" cy="310.2" r="3"/><circle cx="681.4" cy="310.2" r="3"/>
+            </g>
+            <rect class="s03-frame" x="605.5" y="275.7" width="82.8" height="41.4"/>
+
+            <!-- linea de guia + anotacion -->
+            <path class="s03-guide" d="M646.9 317.1 L646.9 344 L833 344"/>
+            <text class="s03-lbl" x="833" y="357" text-anchor="end">1,5 pts = 1.800 votos = 5 o 6 mesas</text>
+          </svg>
+        </div>
+        <div class="s03-nums">
+          <div class="stat"><b>1,5<span class="s03-un">pts</span></b><span class="u">Margen típico</span></div>
+          <div class="stat"><b>1.800</b><span class="u">Votos</span></div>
+          <div class="stat"><b>6</b><span class="u">Mesas</span></div>
+        </div>
+      </div>
+      <span class="cap">1 punto = 100 votos · distrito de ejemplo de 120.000 votos efectivos · aritmética, no pronóstico</span>
+    </div>
+    <div class="band"><span class="k">Y sin embargo</span><p class="t">El 100% del presupuesto se asigna con <span class="em-alarm">0% de medición propia.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Aritmética del margen</span><span class="bar"><i style="width:16%"></i></span><span>Urgencia · 03 / 13</span></div>
+</section>
+
+<!-- ===== slides/04-ventana-de-correccion.html ===== -->
+<style>
+/* ---- LÁMINA 04 · La ventana de corrección · área escalonada ascendente ---- */
+.s04 .head{margin:12px 0 16px}
+.s04 .head .lead{max-width:410px;margin-bottom:3px}
+.s04 .topo.a{opacity:.16;top:-34%;right:-14%}
+
+.s04-c{flex:1;min-height:0;display:grid;
+  grid-template-columns:100px 1fr;grid-template-rows:1fr auto auto}
+
+/* --- eje Y --- */
+.s04-y{grid-area:1/1;position:relative;display:flex;align-items:center;
+  justify-content:flex-end;padding-right:16px}
+.s04-y .t{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;color:#8d9295}
+.s04-y .ln{position:absolute;right:0;top:0;bottom:0;width:1px;background:var(--line-d)}
+.s04-y .ar{position:absolute;right:-2px;top:0;width:5px;height:5px;transform:rotate(-45deg);
+  border-top:1px solid var(--line-d);border-right:1px solid var(--line-d)}
+
+/* --- área del gráfico --- */
+.s04-plot{grid-area:1/2;position:relative}
+.s04-plot svg{position:absolute;inset:0}
+.s04-fill-c{fill:rgba(40,203,211,.085)}
+.s04-fill-a{fill:rgba(216,69,44,.105)}
+.s04-st-c{fill:none;stroke:var(--cyan);stroke-width:1.5}
+.s04-st-a{fill:none;stroke:var(--alarm);stroke-width:1.5}
+.s04-ax{fill:none;stroke:var(--line-d);stroke-width:1}
+.s04-gr{fill:none;stroke:var(--line-d-soft);stroke-width:1;stroke-dasharray:2 5}
+
+/* --- etiquetas sobre cada escalón --- */
+.s04-l{position:absolute;width:calc(16.6667% - 22px);display:flex;flex-direction:column;
+  align-items:flex-start;gap:5px}
+.s04-l .r{width:22px;height:1px;background:var(--cyan);margin-bottom:3px}
+.s04-l .n{font-family:var(--mono);font-size:9.3px;font-weight:600;letter-spacing:.145em;
+  text-transform:uppercase;color:#eceded;line-height:1.34}
+.s04-l .small{font-size:11.2px;line-height:1.44;color:#9ca0a3}
+.s04-l.al .r{background:var(--alarm)}
+.s04-l.al .n{color:var(--alarm)}
+
+/* --- eje X: hitos --- */
+.s04-dl{grid-area:2/1;text-align:right;padding:12px 16px 0 0;line-height:1.5}
+.s04-days{grid-area:2/2;display:grid;grid-template-columns:repeat(6,1fr)}
+.s04-days b{position:relative;display:block;text-align:center;padding-top:12px;
+  font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.14em;color:#b4b8bb}
+.s04-days b::before{content:"";position:absolute;top:0;left:50%;width:1px;height:5px;
+  transform:translateX(-.5px);background:var(--line-d)}
+
+/* --- zonas bajo el eje --- */
+.s04-zones{grid-area:3/2;display:grid;grid-template-columns:3fr 1fr 2fr;margin-top:12px}
+.s04-zones .z{position:relative;border-top:1px solid var(--line-d);padding-top:9px;
+  text-align:center;color:#8d9295}
+.s04-zones .z::before{content:"";position:absolute;left:0;top:0;width:1px;height:5px;
+  background:var(--line-d)}
+.s04-zones .z:last-child::after{content:"";position:absolute;right:0;top:0;width:1px;height:5px;
+  background:var(--alarm-dim)}
+.s04-zones .z.al{border-top-color:var(--alarm-dim);color:var(--alarm)}
+.s04-zones .z.al::before{background:var(--alarm-dim)}
+
+.s04 .stage{gap:12px}
+.s04 .band{margin-top:18px}
+</style>
+<section class="slide s04">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">03</span><span>La ventana de corrección</span><i class="rule"></i><span>Qué se puede arreglar y hasta cuándo</span></div>
+    <div class="head">
+      <h2 class="display h-2">Casi todo se puede corregir.<br><span class="em">Pero no en cualquier momento.</span></h2>
+      <p class="lead">Una campaña no pierde de golpe: agota decisiones. Cada semana la lista de lo que todavía se puede cambiar se hace más corta y más caro cambiarlo.</p>
+    </div>
+    <div class="stage">
+      <div class="s04-c">
+
+        <div class="s04-y">
+          <span class="mono t">Costo de corregir</span>
+          <span class="ln"></span><span class="ar"></span>
+        </div>
+
+        <div class="s04-plot">
+          <svg viewBox="0 0 1068 330" preserveAspectRatio="none" role="img" aria-label="Área escalonada ascendente: el costo de corregir sube a medida que se acerca la elección">
+            <!-- retícula de columnas -->
+            <g class="s04-gr">
+              <path d="M178 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M356 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M534 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M712 0V330" vector-effect="non-scaling-stroke"/>
+              <path d="M890 0V330" vector-effect="non-scaling-stroke"/>
+            </g>
+            <!-- área reversible / cara -->
+            <path class="s04-fill-c" d="M0 330V290H178V264H356V231H534V188H712V330Z"/>
+            <!-- área irreversible -->
+            <path class="s04-fill-a" d="M712 330V138H890V82H1068V330Z"/>
+            <!-- perfil -->
+            <path class="s04-st-c" d="M0 290H178V264H356V231H534V188H712" vector-effect="non-scaling-stroke"/>
+            <path class="s04-st-a" d="M712 188V138H890V82H1068" vector-effect="non-scaling-stroke"/>
+            <!-- eje X -->
+            <path class="s04-ax" d="M0 330H1068" vector-effect="non-scaling-stroke"/>
+          </svg>
+
+          <div class="s04-l" style="left:11px;bottom:calc(12.12% + 12px)">
+            <span class="r"></span><span class="n">Posicionamiento</span>
+            <p class="small">Quién sos y contra<br>quién corrés</p>
+          </div>
+          <div class="s04-l" style="left:calc(16.6667% + 11px);bottom:calc(20% + 12px)">
+            <span class="r"></span><span class="n">Eje y relato</span>
+            <p class="small">Qué tema pone la<br>campaña arriba</p>
+          </div>
+          <div class="s04-l" style="left:calc(33.3333% + 11px);bottom:calc(30% + 12px)">
+            <span class="r"></span><span class="n">Asignación de plata<br>y agenda</span>
+            <p class="small">Dónde va cada peso<br>y cada acto</p>
+          </div>
+          <div class="s04-l" style="left:calc(50% + 11px);bottom:calc(43.03% + 12px)">
+            <span class="r"></span><span class="n">Persuasión del indeciso</span>
+            <p class="small">Todavía se puede<br>mover opinión</p>
+          </div>
+          <div class="s04-l al" style="left:calc(66.6667% + 11px);bottom:calc(58.18% + 12px)">
+            <span class="r"></span><span class="n">Sólo movilización</span>
+            <p class="small">Ya no convencés:<br>llevás a votar</p>
+          </div>
+          <div class="s04-l al" style="left:calc(83.3333% + 11px);bottom:calc(75.15% + 12px)">
+            <span class="r"></span><span class="n">Contención de daño</span>
+            <p class="small">Sólo evitar que empeore</p>
+          </div>
+        </div>
+
+        <span class="cap s04-dl">Días a la elección</span>
+        <div class="s04-days">
+          <b>180</b><b>120</b><b>90</b><b>60</b><b>30</b><b>7</b>
+        </div>
+
+        <div class="s04-zones">
+          <span class="mono z">Reversible</span>
+          <span class="mono z">Caro</span>
+          <span class="mono z al">Irreversible</span>
+        </div>
+
+      </div>
+      <span class="cap">Escala conceptual del costo de corregir según el momento en que se detecta</span>
+    </div>
+    <div class="band"><span class="k">La consecuencia</span><p class="t">Medir tarde no es medir menos: es pagar por información que <span class="em-alarm">ya no cambia ninguna decisión.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Ventana de corrección</span><span class="bar"><i style="width:24%"></i></span><span>Urgencia · 04 / 13</span></div>
+</section>
+
+<!-- ===== slides/05-asimetria.html ===== -->
+<style>
+/* ---- LÁMINA 05 · La asimetría · dos trayectorias divergentes a 90 días ---- */
+.s05 .head{margin:15px 0 16px}
+.s05 .head .lead{max-width:420px}
+.s05 .topo.a{top:-54%;right:-19%;opacity:.15}
+
+.s05 .s05-plot{flex:1;min-height:0}
+
+/* pares de contraste bajo el gráfico */
+.s05 .s05-vs{border-top:1px solid var(--line-l);padding-top:9px;
+  display:flex;flex-direction:column;gap:5px}
+.s05 .s05-vs .cap{color:#6b7074}
+.s05 .s05-vs .small{display:flex;align-items:baseline;gap:9px;color:#3f4448;font-weight:400}
+.s05 .s05-vs .small i{flex:none;width:17px;height:1px;position:relative;top:-4px}
+.s05 .s05-vs .a i{background:repeating-linear-gradient(to right,
+  var(--alarm) 0 3px,transparent 3px 6px)}
+.s05 .s05-vs .b i{background:var(--cyan-deep)}
+.s05 .s05-vs .small u{text-decoration:none;font-family:var(--mono);font-size:7.2px;
+  font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8b9093;
+  width:46px;flex:none}
+
+/* --- SVG --- */
+.s05 .ax{fill:none;stroke:var(--line-l);stroke-width:1}
+.s05 .axd{fill:none;stroke:var(--line-l);stroke-width:1;stroke-dasharray:2 5}
+.s05 .la{fill:none;stroke:var(--alarm);stroke-width:1.5;stroke-dasharray:6 5;stroke-linecap:round}
+.s05 .lb{fill:none;stroke:var(--cyan-deep);stroke-width:1.5;stroke-linecap:round}
+.s05 .dotb{fill:var(--cyan-deep)}
+.s05 .halo{fill:none;stroke:var(--cyan-deep);stroke-width:1}
+.s05 .ring{fill:var(--paper);stroke:var(--grey-mid);stroke-width:1}
+.s05 .ringa{fill:var(--paper);stroke:var(--alarm);stroke-width:1.5}
+.s05 .cn{fill:none;stroke:var(--cyan-deep);stroke-width:1}
+.s05 .tk{fill:#5d6266;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase}
+.s05 .tk0{fill:#182022}
+.s05 .ttl{fill:#8b9093;font-family:var(--mono);font-size:7.2px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+.s05 .ank{fill:var(--cyan-deep);font-family:var(--mono);font-size:8px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase}
+.s05 .anb{fill:#1c2426;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+.s05 .ana{fill:var(--alarm);font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+.s05 .lg{fill:#3f4448;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+</style>
+<section class="slide paper s05">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">04</span><span>La asimetría</span><i class="rule"></i><span>Mismo presupuesto, distinto rendimiento</span></div>
+    <div class="head">
+      <h2 class="display h-2">El que mide no es más inteligente.<br><span class="em">Llega antes.</span></h2>
+      <p class="lead">Dos campañas con el mismo presupuesto. La diferencia no está en cuánto gastan: está en cuándo se enteran.</p>
+    </div>
+    <div class="stage">
+      <div class="s05-plot">
+        <svg viewBox="0 0 1200 348" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Dos trayectorias de rendimiento por peso invertido a lo largo de 90 dias hasta la eleccion">
+
+          <!-- ejes -->
+          <path class="ax" d="M44 12 L44 310 L1046 310"/>
+          <path class="axd" d="M1046 12 L1046 306"/>
+          <path class="ax" d="M44 310 L44 315 M378 310 L378 315 M712 310 L712 315 M1046 310 L1046 315"/>
+          <text class="tk" x="44" y="326" text-anchor="middle">-90</text>
+          <text class="tk" x="378" y="326" text-anchor="middle">-60</text>
+          <text class="tk" x="712" y="326" text-anchor="middle">-30</text>
+          <text class="tk tk0" x="1046" y="326" text-anchor="middle">Día 0</text>
+          <text class="ttl" x="545" y="342" text-anchor="middle">Días hasta la elección</text>
+          <text class="ttl" transform="translate(16,161) rotate(-90)" text-anchor="middle">Rendimiento por peso invertido</text>
+
+          <!-- trayectoria A - campana que estima: arranca igual, se aplana, cae -->
+          <path class="la" d="M44 262 C120 255 195 248 267 246 C380 241 470 239 600 239
+                               C720 240 820 250 900 262 C960 271 1010 280 1046 285"/>
+
+          <!-- trayectoria B - campana que mide: cada medicion acelera la pendiente -->
+          <path class="lb" d="M44 262 C115 256 195 246 267 236 C360 223 450 210 534 196
+                               C645 178 740 155 823 130 C905 103 1000 56 1046 30"/>
+
+          <!-- arranque compartido -->
+          <circle class="ring" cx="44" cy="262" r="4"/>
+          <path class="ax" d="M44 268 L44 277 L54 277"/>
+          <text class="ttl" x="58" y="280">Mismo arranque</text>
+
+          <!-- hitos de la campana que mide -->
+          <path class="cn" d="M267 228 L267 207 M534 188 L534 167 M823 122 L823 101"/>
+          <circle class="dotb" cx="267" cy="236" r="4"/>
+          <circle class="dotb" cx="534" cy="196" r="4"/>
+          <circle class="dotb" cx="823" cy="130" r="4"/>
+          <text class="ank" x="267" y="189" text-anchor="middle">Ola 1</text>
+          <text class="anb" x="267" y="201" text-anchor="middle">Corrige territorio</text>
+          <text class="ank" x="534" y="149" text-anchor="middle">Flash poll</text>
+          <text class="anb" x="534" y="161" text-anchor="middle">Cambia el eje</text>
+          <text class="ank" x="823" y="83" text-anchor="middle">Tracking</text>
+          <text class="anb" x="823" y="95" text-anchor="middle">Reasigna pauta</text>
+
+          <!-- llegada de B -->
+          <circle class="halo" cx="1046" cy="30" r="8.5"/>
+          <circle class="dotb" cx="1046" cy="30" r="4"/>
+
+          <!-- llegada de A + anotacion en la calle derecha -->
+          <circle class="ringa" cx="1046" cy="285" r="4"/>
+          <text class="ana" x="1062" y="281">Descubre el problema</text>
+          <text class="ana" x="1062" y="293">en el resultado</text>
+
+          <!-- leyenda -->
+          <path class="la" d="M60 44 L92 44"/>
+          <text class="lg" x="102" y="47">Campaña que estima</text>
+          <path class="lb" d="M60 64 L92 64"/>
+          <circle class="dotb" cx="76" cy="64" r="4"/>
+          <text class="lg" x="102" y="67">Campaña que mide</text>
+        </svg>
+      </div>
+      <span class="cap">Ilustrativo · no es una proyección</span>
+      <div class="cols c3">
+        <div class="s05-vs">
+          <span class="cap">Presupuesto</span>
+          <p class="small a"><i></i><u>Estima</u>igual</p>
+          <p class="small b"><i></i><u>Mide</u>igual</p>
+        </div>
+        <div class="s05-vs">
+          <span class="cap">Cuándo detecta el problema</span>
+          <p class="small a"><i></i><u>Estima</u>en el resultado</p>
+          <p class="small b"><i></i><u>Mide</u>a los 30 días</p>
+        </div>
+        <div class="s05-vs">
+          <span class="cap">Qué queda después</span>
+          <p class="small a"><i></i><u>Estima</u>una hipótesis</p>
+          <p class="small b"><i></i><u>Mide</u>un sistema</p>
+        </div>
+      </div>
+    </div>
+    <div class="band"><span class="k">La verdad incómoda</span><p class="t">La ventaja no es tener más plata: es <span class="em">equivocarse menos veces con la misma plata.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · La asimetría</span><span class="bar"><i style="width:32%"></i></span><span>Urgencia · 05 / 13</span></div>
+</section>
+
+<!-- ===== slides/06-el-sistema.html ===== -->
+<style>
+/* ---- LÁMINA 06 · El sistema · diagrama orbital de seis capacidades ---- */
+.s06 .head{margin:14px 0 14px}
+.s06 .head .lead{max-width:400px}
+.s06 .topo.a{top:-38%;right:-21%;opacity:.085}
+.s06 .glow{width:560px;height:560px;left:360px;top:76px}
+.s06 .stage{gap:10px}
+
+/* --- lienzo del orbital --- */
+.s06-orb{position:relative;height:380px;flex:none}
+.s06-orb > svg{position:absolute;inset:0}
+.s06-orb .cap{position:absolute;left:0;bottom:7px}
+
+/* --- trazos --- */
+.s06 .ring{fill:none;stroke:var(--line-d);stroke-width:1;stroke-dasharray:1.5 6.5;
+  stroke-linecap:round}
+.s06 .hub{fill:none;stroke:var(--line-d);stroke-width:1}
+.s06 .spk{fill:none;stroke:rgba(40,203,211,.36);stroke-width:1}
+.s06 .tick{fill:none;stroke:rgba(40,203,211,.34);stroke-width:1}
+.s06 .nd{fill:var(--black);stroke:var(--cyan);stroke-width:1.2}
+.s06 .ndc{fill:var(--cyan)}
+.s06 .mk{color:var(--white)}
+
+/* --- etiquetas de nodo --- */
+.s06-n{position:absolute;transform:translateY(calc(-50% - 2px));display:flex;flex-direction:column;
+  gap:3px;white-space:nowrap}
+.s06-n .mono{color:var(--cyan);font-size:8.4px;letter-spacing:.24em}
+.s06-n b{font-family:var(--serif);font-weight:400;font-size:17px;line-height:1.06;
+  letter-spacing:-.008em;color:var(--white)}
+.s06-n .small{font-size:11.2px;line-height:1.3}
+.s06-n.l{text-align:right}
+
+.s06-n.n1{right:746px;top:61.8px}
+.s06-n.n2{left:746px;top:61.8px}
+.s06-n.n3{left:890px;top:190px}
+.s06-n.n4{left:746px;top:318.2px}
+.s06-n.n5{right:746px;top:318.2px}
+.s06-n.n6{right:890px;top:190px}
+
+.s06 .cyc .s b{font-size:16.4px}
+</style>
+<section class="slide s06">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">05</span><span>La respuesta</span><i class="rule"></i><span>Seis capacidades, un solo sistema</span></div>
+    <div class="head">
+      <h2 class="display h-2">No vendemos encuestas.<br><span class="em">Instalamos capacidad de decisión.</span></h2>
+      <p class="lead">Las campañas compran research por un lado, historia por otro y redes por otro, y nadie junta las piezas.</p>
+    </div>
+    <div class="stage">
+      <div class="s06-orb">
+        <svg viewBox="0 0 1160 380" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Diagrama orbital: seis capacidades conectadas a un núcleo único">
+
+          <!-- anillo punteado -->
+          <ellipse class="ring" cx="580" cy="190" rx="288" ry="148"/>
+
+          <!-- radios hacia el núcleo -->
+          <path class="spk" d="M650 190 L855 190"/>
+          <path class="spk" d="M510 190 L305 190"/>
+          <path class="spk" d="M632.3 143.4 L714.3 70.4"/>
+          <path class="spk" d="M527.7 143.4 L445.7 70.4"/>
+          <path class="spk" d="M527.7 236.6 L445.7 309.6"/>
+          <path class="spk" d="M632.3 236.6 L714.3 309.6"/>
+
+          <!-- núcleo -->
+          <circle class="hub" cx="580" cy="190" r="60"/>
+          <g class="mk" transform="translate(541,151.5) scale(0.875)">
+            <g fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 25 43 11h33v51L53 77H20Z"/><path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/><ellipse cx="48" cy="48" rx="18" ry="12"/><circle cx="48" cy="48" r="5" fill="currentColor"/></g>
+          </g>
+
+          <!-- nodos -->
+          <circle class="nd" cx="436" cy="61.8" r="6.5"/><circle class="ndc" cx="436" cy="61.8" r="2.1"/>
+          <circle class="nd" cx="724" cy="61.8" r="6.5"/><circle class="ndc" cx="724" cy="61.8" r="2.1"/>
+          <circle class="nd" cx="868" cy="190" r="6.5"/><circle class="ndc" cx="868" cy="190" r="2.1"/>
+          <circle class="nd" cx="724" cy="318.2" r="6.5"/><circle class="ndc" cx="724" cy="318.2" r="2.1"/>
+          <circle class="nd" cx="436" cy="318.2" r="6.5"/><circle class="ndc" cx="436" cy="318.2" r="2.1"/>
+          <circle class="nd" cx="292" cy="190" r="6.5"/><circle class="ndc" cx="292" cy="190" r="2.1"/>
+
+          <!-- guías hacia las etiquetas -->
+          <path class="tick" d="M427 61.8 L419 61.8 M427 318.2 L419 318.2 M283 190 L275 190"/>
+          <path class="tick" d="M733 61.8 L741 61.8 M733 318.2 L741 318.2 M877 190 L885 190"/>
+        </svg>
+
+        <div class="s06-n l n1"><span class="mono">01</span><b>Research</b><span class="small">Informe + brief</span></div>
+        <div class="s06-n n2"><span class="mono">02</span><b>Medición CAWI</b><span class="small">Serie comparable</span></div>
+        <div class="s06-n n3"><span class="mono">03</span><b>Historia y territorio</b><span class="small">Atlas y escenarios</span></div>
+        <div class="s06-n n4"><span class="mono">04</span><b>Big Data</b><span class="small">Clusters y prioridades</span></div>
+        <div class="s06-n l n5"><span class="mono">05</span><b>NOMOS</b><span class="small">Consola única</span></div>
+        <div class="s06-n l n6"><span class="mono">06</span><b>War Room</b><span class="small">Contenido y respuesta</span></div>
+
+        <span class="cap">Esquema conceptual · no representa datos</span>
+      </div>
+      <div class="cyc">
+        <div class="s"><i>01</i><b>Medir</b></div>
+        <div class="s"><i>02</i><b>Entender</b></div>
+        <div class="s"><i>03</i><b>Segmentar</b></div>
+        <div class="s"><i>04</i><b>Decidir</b></div>
+        <div class="s"><i>05</i><b>Operar</b></div>
+        <div class="s"><i>06</i><b>Aprender</b></div>
+      </div>
+    </div>
+    <div class="band"><span class="k">La diferencia</span><p class="t">Una campaña ve fragmentos. <span class="em">Nosotros reconstruimos la imagen completa.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · El sistema</span><span class="bar"><i style="width:40%"></i></span><span>Capacidades · 06 / 13</span></div>
+</section>
+
+<!-- ===== slides/07-medicion-auditable.html ===== -->
+<style>
+/* ---- LÁMINA 07 · Medición auditable · embudo de seis controles + estimación con intervalo ---- */
+.s07 .head .lead{max-width:452px}
+.s07 .topo.a{top:-46%;right:-17%;opacity:.12}
+.s07 .stage{gap:10px}
+
+/* --- lienzo del embudo: 1160 x 364, mapeo 1:1 con el viewBox --- */
+.s07-plot{position:relative;height:364px;flex:none}
+.s07-plot > svg{position:absolute;inset:0}
+
+/* --- rótulos de etapa (HTML sobre el SVG, alineados al borde de cada bloque) --- */
+.s07-lb{position:absolute;top:289px;display:flex;flex-direction:column;gap:5px}
+.s07-lb .i{font-family:var(--mono);font-size:7.2px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:#82878a}
+.s07-lb .mono{font-size:8.2px;letter-spacing:.19em}
+.s07-lb .small{font-size:10.9px;line-height:1.42}
+.s07-lb.r .i{color:var(--cyan-deep)}
+
+.s07 .chips{margin-top:14px}
+
+/* --- trazos del SVG (todo con prefijo propio) --- */
+.s07 .s07-bk{stroke:rgba(12,13,14,.4);stroke-width:1.2}
+.s07 .s07-b1{fill:rgba(255,255,255,.5)}
+.s07 .s07-b2{fill:rgba(40,203,211,.045)}
+.s07 .s07-b3{fill:rgba(40,203,211,.07)}
+.s07 .s07-b4{fill:rgba(40,203,211,.095)}
+.s07 .s07-b5{fill:rgba(40,203,211,.125)}
+.s07 .s07-b6{fill:rgba(40,203,211,.16);stroke:var(--cyan-deep)}
+.s07 .s07-tk{fill:none;stroke:rgba(12,13,14,.24);stroke-width:1}
+.s07 .s07-ax{fill:none;stroke:var(--line-l);stroke-width:1}
+.s07 .s07-dm{fill:none;stroke:rgba(12,13,14,.24);stroke-width:1}
+.s07 .s07-gd{fill:none;stroke:rgba(14,143,151,.34);stroke-width:1;stroke-dasharray:2 4}
+.s07 .s07-ar,.s07 .s07-br{fill:none;stroke:var(--cyan-deep);stroke-width:1.5}
+.s07 .s07-dt{fill:var(--paper);stroke:var(--cyan-deep);stroke-width:1.5}
+.s07 .s07-cr{fill:var(--cyan-deep)}
+.s07 .s07-tx{fill:#6f7477;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+</style>
+<section class="slide paper s07">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">06</span><span>Investigación y medición</span><i class="rule"></i><span>Research premium · CAWI · multimodo</span></div>
+    <div class="head">
+      <h2 class="display h-2">Un número que se puede<br><span class="em">defender frente a un periodista.</span></h2>
+      <p class="lead">CAWI es entrevista web asistida por computadora: medición digital con arquitectura muestral, cuotas, controles y ponderación. No es un formulario reenviado por WhatsApp.</p>
+    </div>
+    <div class="stage">
+      <div class="s07-plot">
+        <svg viewBox="0 0 1160 364" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Embudo de seis etapas de medición que desemboca en una estimación con intervalo de confianza">
+
+          <!-- seis bloques trapezoidales que se angostan de izquierda a derecha -->
+          <path class="s07-bk s07-b1" d="M6 13 L136 42 L136 234 L6 263 Z"/>
+          <path class="s07-bk s07-b2" d="M145 48 L275 64 L275 212 L145 228 Z"/>
+          <path class="s07-bk s07-b3" d="M284 68 L414 80 L414 196 L284 208 Z"/>
+          <path class="s07-bk s07-b4" d="M423 83 L553 91 L553 185 L423 193 Z"/>
+          <path class="s07-bk s07-b5" d="M562 94 L692 102 L692 174 L562 182 Z"/>
+          <path class="s07-bk s07-b6" d="M701 104 L831 112 L831 164 L701 172 Z"/>
+
+          <!-- el cuello del embudo proyecta exactamente el ancho del intervalo -->
+          <path class="s07-gd" d="M833 112 L898 112 M833 164 L898 164"/>
+          <path class="s07-ar" d="M838 138 L888 138"/>
+          <path class="s07-ar" d="M881 133 L887 138 L881 143"/>
+
+          <!-- estimación puntual con intervalo declarado -->
+          <path class="s07-dm" d="M1010 104 L1010 110 M1010 104 L1120 104 M1120 104 L1120 110"/>
+          <text class="s07-tx" x="1065" y="95" text-anchor="middle">± pts</text>
+          <path class="s07-br" d="M900 138 L1120 138 M900 112 L900 164 M1120 112 L1120 164"/>
+          <circle class="s07-dt" cx="1010" cy="138" r="8"/>
+          <circle class="s07-cr" cx="1010" cy="138" r="3"/>
+
+          <!-- eje de rótulos -->
+          <g class="s07-tk">
+            <path d="M6 273 L6 281"/><path d="M145 273 L145 281"/><path d="M284 273 L284 281"/>
+            <path d="M423 273 L423 281"/><path d="M562 273 L562 281"/><path d="M701 273 L701 281"/>
+            <path d="M900 273 L900 281"/>
+          </g>
+          <path class="s07-ax" d="M6 281.5 L1120 281.5"/>
+
+        </svg>
+
+        <div class="s07-lb" style="left:6px;width:130px"><span class="i">01</span><span class="mono">Población</span><span class="small">Marco y cobertura</span></div>
+        <div class="s07-lb" style="left:145px;width:130px"><span class="i">02</span><span class="mono">Muestra</span><span class="small">Cuotas por sexo, edad y zona</span></div>
+        <div class="s07-lb" style="left:284px;width:130px"><span class="i">03</span><span class="mono">Campo</span><span class="small">Monitoreo diario</span></div>
+        <div class="s07-lb" style="left:423px;width:130px"><span class="i">04</span><span class="mono">Validación</span><span class="small">Deduplicación y antifraude</span></div>
+        <div class="s07-lb" style="left:562px;width:130px"><span class="i">05</span><span class="mono">Ponderación</span><span class="small">Ajuste a estructura conocida</span></div>
+        <div class="s07-lb" style="left:701px;width:130px"><span class="i">06</span><span class="mono">Estimación</span><span class="small">Intervalo declarado</span></div>
+        <div class="s07-lb r" style="left:900px;width:218px"><span class="i">Salida</span><span class="mono">El número</span><span class="small">Estimación con intervalo de confianza</span></div>
+      </div>
+      <span class="cap">Esquema del proceso · cada entrega incluye base auditada, tabulados y ficha técnica</span>
+      <div class="chips">
+        <span class="chip on">Línea de base</span>
+        <span class="chip">Tracking</span>
+        <span class="chip">Flash poll</span>
+        <span class="chip">Test de mensaje</span>
+        <span class="chip">Cualitativo</span>
+      </div>
+    </div>
+    <div class="band"><span class="k">La diferencia</span><p class="t">No maquillamos la incertidumbre: <span class="em">la medimos, la declaramos y la explicamos.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Medición</span><span class="bar"><i style="width:48%"></i></span><span>Capacidades · 07 / 13</span></div>
+</section>
+
+<!-- ===== slides/08-historia-y-territorio.html ===== -->
+<style>
+/* ---- LÁMINA 08 · Historia y territorio · mapa hexagonal + ranking de prioridad ---- */
+.s08 .head{margin:14px 0 14px}
+.s08 .head .lead{max-width:412px}
+.s08 .topo.a{top:-52%;right:-21%;opacity:.07}
+
+/* --- reparto: mapa | panel de ranking --- */
+.s08 .s08-wrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 400px;gap:36px}
+.s08 .s08-left{display:flex;flex-direction:column;gap:9px;min-width:0}
+.s08 .s08-map{flex:1;min-height:0}
+.s08 .s08-map svg{display:block;width:100%;height:100%;overflow:visible}
+
+/* --- rampa secuencial de un solo cyan (4 pasos) --- */
+.s08 .h1{fill:#071e1f;stroke:rgba(255,255,255,.135);stroke-width:1}
+.s08 .h2{fill:#114b4f;stroke:rgba(255,255,255,.035);stroke-width:1}
+.s08 .h3{fill:#17767b}
+.s08 .h4{fill:var(--cyan)}
+.s08 .hb{fill:none;stroke:var(--white);stroke-width:1.5}
+.s08 .ld{fill:none;stroke:rgba(255,255,255,.5);stroke-width:1}
+.s08 .anb{fill:var(--white);font-family:var(--mono);font-size:7.4px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+.s08 .lg{fill:#83888b;font-family:var(--mono);font-size:7.2px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase}
+.s08 .lgw{fill:#a4a8ab}
+
+/* --- panel derecho --- */
+.s08 .s08-side{border-left:1px solid var(--line-d);padding-left:34px;
+  display:flex;flex-direction:column;min-width:0}
+.s08 .s08-side .kicker{flex:none}
+.s08 .s08-tab{margin:auto 0;border-top:1px solid var(--line-d);flex:none}
+.s08 .s08-r{display:grid;grid-template-columns:1fr 74px 84px 58px;gap:8px;align-items:center;
+  border-bottom:1px solid var(--line-d-soft);padding:0 0 0 11px;position:relative;height:74px}
+.s08 .s08-r.hd{height:26px;border-bottom-color:var(--line-d)}
+.s08 .s08-r.hd span{font-family:var(--mono);font-size:7.2px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--txt-3)}
+.s08 .s08-r .z{font-family:var(--serif);font-weight:400;font-size:20.5px;color:var(--white);
+  letter-spacing:-.008em}
+.s08 .s08-r .v{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
+  color:var(--txt-2)}
+.s08 .s08-r .p{font-family:var(--serif);font-weight:400;font-size:27px;color:var(--grey);
+  line-height:1}
+.s08 .s08-r.on::before{content:"";position:absolute;left:0;top:11px;bottom:11px;width:2px;
+  background:var(--cyan)}
+.s08 .s08-r.on .p{color:var(--cyan)}
+.s08 .s08-r.on .v{color:#d3d6d7}
+.s08 .s08-note{padding-top:14px;display:flex;flex-direction:column;gap:9px}
+.s08 .s08-note .small{font-size:11.6px;line-height:1.46}
+</style>
+<section class="slide s08">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">07</span><span>Inteligencia histórica y territorial</span><i class="rule"></i><span>Dónde se define la elección</span></div>
+    <div class="head">
+      <h2 class="display h-2">Cada elección dejó una huella.<br><span class="em">La convertimos en un mapa de prioridades.</span></h2>
+      <p class="lead">Series, participación y transferencias hasta nivel de mesa. No un promedio del distrito: un ranking de dónde rinde cada hora de campaña.</p>
+    </div>
+    <div class="stage">
+      <div class="s08-wrap">
+
+        <div class="s08-left">
+          <div class="s08-map">
+            <svg viewBox="0 0 700 396" preserveAspectRatio="xMidYMid meet" role="img"
+                 aria-label="Mapa esquematico de celdas hexagonales con cuatro niveles de voto propio y seis mesas bisagra marcadas">
+          <g><polygon class="h1" points="162.2,36.2 139.1,49.6 139.1,76.3 162.2,89.6 185.4,76.3 185.4,49.6"/><polygon class="h1" points="212.3,36.2 189.2,49.6 189.2,76.3 212.3,89.6 235.4,76.3 235.4,49.6"/><polygon class="h1" points="262.4,36.2 239.2,49.6 239.2,76.3 262.4,89.6 285.5,76.3 285.5,49.6"/><polygon class="h1" points="312.4,36.2 289.3,49.6 289.3,76.3 312.4,89.6 335.6,76.3 335.6,49.6"/><polygon class="h1" points="362.5,36.2 339.4,49.6 339.4,76.3 362.5,89.6 385.6,76.3 385.6,49.6"/><polygon class="h1" points="412.6,36.2 389.5,49.6 389.5,76.3 412.6,89.6 435.7,76.3 435.7,49.6"/><polygon class="h2" points="462.7,36.2 439.5,49.6 439.5,76.3 462.7,89.6 485.8,76.3 485.8,49.6"/><polygon class="h2" points="512.7,36.2 489.6,49.6 489.6,76.3 512.7,89.6 535.9,76.3 535.9,49.6"/></g>
+          <g><polygon class="h1" points="137.2,79.6 114.1,92.9 114.1,119.6 137.2,133.0 160.3,119.6 160.3,92.9"/><polygon class="h1" points="187.3,79.6 164.1,92.9 164.1,119.6 187.3,133.0 210.4,119.6 210.4,92.9"/><polygon class="h1" points="237.3,79.6 214.2,92.9 214.2,119.6 237.3,133.0 260.5,119.6 260.5,92.9"/><polygon class="h1" points="287.4,79.6 264.3,92.9 264.3,119.6 287.4,133.0 310.5,119.6 310.5,92.9"/><polygon class="h1" points="337.5,79.6 314.4,92.9 314.4,119.6 337.5,133.0 360.6,119.6 360.6,92.9"/><polygon class="h2" points="387.6,79.6 364.4,92.9 364.4,119.6 387.6,133.0 410.7,119.6 410.7,92.9"/><polygon class="h3" points="437.6,79.6 414.5,92.9 414.5,119.6 437.6,133.0 460.8,119.6 460.8,92.9"/><polygon class="h3" points="487.7,79.6 464.6,92.9 464.6,119.6 487.7,133.0 510.8,119.6 510.8,92.9"/><polygon class="h3" points="537.8,79.6 514.6,92.9 514.6,119.6 537.8,133.0 560.9,119.6 560.9,92.9"/><polygon class="h2" points="587.8,79.6 564.7,92.9 564.7,119.6 587.8,133.0 611.0,119.6 611.0,92.9"/><polygon class="h2" points="637.9,79.6 614.8,92.9 614.8,119.6 637.9,133.0 661.0,119.6 661.0,92.9"/></g>
+          <g><polygon class="h1" points="62.1,122.9 39.0,136.3 39.0,163.0 62.1,176.3 85.2,163.0 85.2,136.3"/><polygon class="h2" points="112.2,122.9 89.0,136.3 89.0,163.0 112.2,176.3 135.3,163.0 135.3,136.3"/><polygon class="h2" points="162.2,122.9 139.1,136.3 139.1,163.0 162.2,176.3 185.4,163.0 185.4,136.3"/><polygon class="h2" points="212.3,122.9 189.2,136.3 189.2,163.0 212.3,176.3 235.4,163.0 235.4,136.3"/><polygon class="h2" points="262.4,122.9 239.2,136.3 239.2,163.0 262.4,176.3 285.5,163.0 285.5,136.3"/><polygon class="h2" points="312.4,122.9 289.3,136.3 289.3,163.0 312.4,176.3 335.6,163.0 335.6,136.3"/><polygon class="h2" points="362.5,122.9 339.4,136.3 339.4,163.0 362.5,176.3 385.6,163.0 385.6,136.3"/><polygon class="h2" points="412.6,122.9 389.5,136.3 389.5,163.0 412.6,176.3 435.7,163.0 435.7,136.3"/><polygon class="h2" points="462.7,122.9 439.5,136.3 439.5,163.0 462.7,176.3 485.8,163.0 485.8,136.3"/><polygon class="h4" points="512.7,122.9 489.6,136.3 489.6,163.0 512.7,176.3 535.9,163.0 535.9,136.3"/><polygon class="h3" points="562.8,122.9 539.7,136.3 539.7,163.0 562.8,176.3 585.9,163.0 585.9,136.3"/><polygon class="h2" points="612.9,122.9 589.7,136.3 589.7,163.0 612.9,176.3 636.0,163.0 636.0,136.3"/></g>
+          <g><polygon class="h2" points="87.1,166.3 64.0,179.6 64.0,206.4 87.1,219.7 110.3,206.4 110.3,179.6"/><polygon class="h3" points="137.2,166.3 114.1,179.6 114.1,206.4 137.2,219.7 160.3,206.4 160.3,179.6"/><polygon class="h3" points="187.3,166.3 164.1,179.6 164.1,206.4 187.3,219.7 210.4,206.4 210.4,179.6"/><polygon class="h3" points="237.3,166.3 214.2,179.6 214.2,206.4 237.3,219.7 260.5,206.4 260.5,179.6"/><polygon class="h4" points="287.4,166.3 264.3,179.6 264.3,206.4 287.4,219.7 310.5,206.4 310.5,179.6"/><polygon class="h3" points="337.5,166.3 314.4,179.6 314.4,206.4 337.5,219.7 360.6,206.4 360.6,179.6"/><polygon class="h2" points="387.6,166.3 364.4,179.6 364.4,206.4 387.6,219.7 410.7,206.4 410.7,179.6"/><polygon class="h2" points="437.6,166.3 414.5,179.6 414.5,206.4 437.6,219.7 460.8,206.4 460.8,179.6"/><polygon class="h2" points="487.7,166.3 464.6,179.6 464.6,206.4 487.7,219.7 510.8,206.4 510.8,179.6"/><polygon class="h2" points="537.8,166.3 514.6,179.6 514.6,206.4 537.8,219.7 560.9,206.4 560.9,179.6"/><polygon class="h1" points="587.8,166.3 564.7,179.6 564.7,206.4 587.8,219.7 611.0,206.4 611.0,179.6"/><polygon class="h1" points="637.9,166.3 614.8,179.6 614.8,206.4 637.9,219.7 661.0,206.4 661.0,179.6"/></g>
+          <g><polygon class="h3" points="62.1,209.7 39.0,223.0 39.0,249.7 62.1,263.1 85.2,249.7 85.2,223.0"/><polygon class="h3" points="112.2,209.7 89.0,223.0 89.0,249.7 112.2,263.1 135.3,249.7 135.3,223.0"/><polygon class="h4" points="162.2,209.7 139.1,223.0 139.1,249.7 162.2,263.1 185.4,249.7 185.4,223.0"/><polygon class="h4" points="212.3,209.7 189.2,223.0 189.2,249.7 212.3,263.1 235.4,249.7 235.4,223.0"/><polygon class="h4" points="262.4,209.7 239.2,223.0 239.2,249.7 262.4,263.1 285.5,249.7 285.5,223.0"/><polygon class="h3" points="312.4,209.7 289.3,223.0 289.3,249.7 312.4,263.1 335.6,249.7 335.6,223.0"/><polygon class="h3" points="362.5,209.7 339.4,223.0 339.4,249.7 362.5,263.1 385.6,249.7 385.6,223.0"/><polygon class="h2" points="412.6,209.7 389.5,223.0 389.5,249.7 412.6,263.1 435.7,249.7 435.7,223.0"/><polygon class="h1" points="462.7,209.7 439.5,223.0 439.5,249.7 462.7,263.1 485.8,249.7 485.8,223.0"/><polygon class="h1" points="512.7,209.7 489.6,223.0 489.6,249.7 512.7,263.1 535.9,249.7 535.9,223.0"/><polygon class="h1" points="562.8,209.7 539.7,223.0 539.7,249.7 562.8,263.1 585.9,249.7 585.9,223.0"/><polygon class="h1" points="612.9,209.7 589.7,223.0 589.7,249.7 612.9,263.1 636.0,249.7 636.0,223.0"/></g>
+          <g><polygon class="h3" points="87.1,253.0 64.0,266.4 64.0,293.1 87.1,306.4 110.3,293.1 110.3,266.4"/><polygon class="h4" points="137.2,253.0 114.1,266.4 114.1,293.1 137.2,306.4 160.3,293.1 160.3,266.4"/><polygon class="h4" points="187.3,253.0 164.1,266.4 164.1,293.1 187.3,306.4 210.4,293.1 210.4,266.4"/><polygon class="h4" points="237.3,253.0 214.2,266.4 214.2,293.1 237.3,306.4 260.5,293.1 260.5,266.4"/><polygon class="h4" points="287.4,253.0 264.3,266.4 264.3,293.1 287.4,306.4 310.5,293.1 310.5,266.4"/><polygon class="h3" points="337.5,253.0 314.4,266.4 314.4,293.1 337.5,306.4 360.6,293.1 360.6,266.4"/><polygon class="h2" points="387.6,253.0 364.4,266.4 364.4,293.1 387.6,306.4 410.7,293.1 410.7,266.4"/><polygon class="h1" points="437.6,253.0 414.5,266.4 414.5,293.1 437.6,306.4 460.8,293.1 460.8,266.4"/><polygon class="h1" points="487.7,253.0 464.6,266.4 464.6,293.1 487.7,306.4 510.8,293.1 510.8,266.4"/><polygon class="h1" points="537.8,253.0 514.6,266.4 514.6,293.1 537.8,306.4 560.9,293.1 560.9,266.4"/><polygon class="h1" points="587.8,253.0 564.7,266.4 564.7,293.1 587.8,306.4 611.0,293.1 611.0,266.4"/></g>
+          <g><polygon class="h3" points="162.2,296.4 139.1,309.7 139.1,336.4 162.2,349.8 185.4,336.4 185.4,309.7"/><polygon class="h4" points="212.3,296.4 189.2,309.7 189.2,336.4 212.3,349.8 235.4,336.4 235.4,309.7"/><polygon class="h4" points="262.4,296.4 239.2,309.7 239.2,336.4 262.4,349.8 285.5,336.4 285.5,309.7"/><polygon class="h3" points="312.4,296.4 289.3,309.7 289.3,336.4 312.4,349.8 335.6,336.4 335.6,309.7"/><polygon class="h2" points="362.5,296.4 339.4,309.7 339.4,336.4 362.5,349.8 385.6,336.4 385.6,309.7"/><polygon class="h1" points="412.6,296.4 389.5,309.7 389.5,336.4 412.6,349.8 435.7,336.4 435.7,309.7"/><polygon class="h1" points="462.7,296.4 439.5,309.7 439.5,336.4 462.7,349.8 485.8,336.4 485.8,309.7"/><polygon class="h1" points="512.7,296.4 489.6,309.7 489.6,336.4 512.7,349.8 535.9,336.4 535.9,309.7"/></g>
+
+          <!-- seis mesas bisagra: contorno blanco 1.5px -->
+          <polygon class="hb" points="512.7,36.2 489.6,49.6 489.6,76.3 512.7,89.6 535.9,76.3 535.9,49.6"/>
+          <polygon class="hb" points="562.8,122.9 539.7,136.3 539.7,163.0 562.8,176.3 585.9,163.0 585.9,136.3"/>
+          <polygon class="hb" points="362.5,122.9 339.4,136.3 339.4,163.0 362.5,176.3 385.6,163.0 385.6,136.3"/>
+          <polygon class="hb" points="412.6,209.7 389.5,223.0 389.5,249.7 412.6,263.1 435.7,249.7 435.7,223.0"/>
+          <polygon class="hb" points="337.5,253.0 314.4,266.4 314.4,293.1 337.5,306.4 360.6,293.1 360.6,266.4"/>
+          <polygon class="hb" points="162.2,296.4 139.1,309.7 139.1,336.4 162.2,349.8 185.4,336.4 185.4,309.7"/>
+
+              <!-- etiqueta de mesa bisagra -->
+              <path class="ld" d="M512.7 34 L512.7 20"/>
+              <text class="anb" x="512.7" y="13" text-anchor="middle">bisagra</text>
+
+              <!-- leyenda: rampa de 4 pasos -->
+              <text class="lg" x="37" y="385">Voto propio</text>
+              <text class="lg lgw" x="122" y="385">bajo</text>
+              <g transform="translate(163,382)"><polygon class="h1" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <g transform="translate(184,382)"><polygon class="h2" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <g transform="translate(205,382)"><polygon class="h3" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <g transform="translate(226,382)"><polygon class="h4" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <text class="lg lgw" x="243" y="385">alto</text>
+              <!-- leyenda: mesa bisagra -->
+              <g transform="translate(534,382)"><polygon class="hb" points="0.0,-8.6 -7.4,-4.3 -7.4,4.3 -0.0,8.6 7.4,4.3 7.4,-4.3"/></g>
+              <text class="lg" x="552" y="385">6 mesas bisagra</text>
+            </svg>
+          </div>
+          <span class="cap">Mapa esquemático · no corresponde a un distrito real</span>
+        </div>
+
+        <div class="s08-side">
+          <span class="kicker">Ranking de prioridad</span>
+          <div class="s08-tab">
+            <div class="s08-r hd"><span>Zona</span><span>Voto propio</span><span>Participación</span><span>Prioridad</span></div>
+            <div class="s08-r on"><span class="z">Norte</span><span class="v">35–40%</span><span class="v">55–60%</span><span class="p">1</span></div>
+            <div class="s08-r"><span class="z">Centro</span><span class="v">45–50%</span><span class="v">70–75%</span><span class="p">2</span></div>
+            <div class="s08-r"><span class="z">Sur</span><span class="v">25–30%</span><span class="v">65–70%</span><span class="p">3</span></div>
+          </div>
+          <div class="s08-note">
+            <p class="small">La prioridad no la fija el voto propio: la fija <strong>cuánto puede moverse</strong> y cuánta gente falta traer a votar.</p>
+            <span class="cap">Valores de ejemplo · se recalculan en cada ola</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="band"><span class="k">Lo que habilita</span><p class="t">Saber qué tendría que cambiar para que un resultado sea posible — <span class="em">y si está al alcance de esta campaña.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Historia y territorio</span><span class="bar"><i style="width:56%"></i></span><span>Capacidades · 08 / 13</span></div>
+</section>
+
+<!-- ===== slides/09-micro-y-nano.html ===== -->
+<style>
+/* ---- LÁMINA 09 · Micro y nanosegmentación · zoom progresivo distrito → barrio → célula ---- */
+.s09 .head .lead{max-width:430px}
+.s09 .topo.a{top:-52%;right:-18%;opacity:.13}
+.s09 .stage{gap:12px}
+
+/* --- lienzo: 1160 x 424, mapeo 1:1 con el viewBox --- */
+.s09-plot{position:relative;height:410px;flex:none}
+.s09-plot > svg{position:absolute;inset:0;z-index:1}
+
+/* --- rótulo de cada panel, sobre el marco --- */
+.s09-th{position:absolute;top:0;display:flex;align-items:center;gap:9px;height:15px}
+.s09-th .i{font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.2em;color:#8b9093}
+.s09-th .t{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:#22292c}
+.s09-th .u{margin-left:auto}
+.s09-th.on .i,.s09-th.on .t{color:var(--cyan-deep)}
+
+/* --- etiquetas de agrupamiento del panel 2 --- */
+.s09-cl{position:absolute;z-index:3;transform:translateX(-50%);
+  font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:#6f7477;white-space:nowrap}
+.s09-cl.on{color:var(--cyan-deep);font-weight:700}
+
+/* --- panel 3: la ficha de la célula --- */
+.s09-card{position:absolute;z-index:3;left:696px;top:22px;width:464px;height:388px;
+  border:1px solid rgba(14,143,151,.42);background:rgba(40,203,211,.075);
+  padding:20px 24px 22px;display:flex;flex-direction:column}
+.s09-card .hd{display:flex;align-items:baseline;gap:14px;padding-bottom:16px}
+.s09 .s09-card h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1;
+  letter-spacing:-.014em;color:var(--ink)}
+.s09-card .tie{margin-left:auto;display:flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:7.4px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--cyan-deep)}
+.s09-card .tie i{width:6px;height:6px;background:var(--cyan-deep);display:block}
+.s09-card .r{flex:1;display:flex;align-items:center;gap:14px;
+  border-top:1px solid rgba(12,13,14,.11)}
+.s09-card .l{width:132px;flex:none;font-family:var(--mono);font-size:7.4px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:#7b8083}
+.s09-card .v{font-size:12.2px;line-height:1.32;font-weight:400;color:#1e2528}
+.s09-card .v.n{font-family:var(--serif);font-size:21px;line-height:1;letter-spacing:-.01em}
+
+/* --- trazos del SVG --- */
+.s09 .s09-fr{fill:rgba(255,255,255,.55);stroke:var(--line-l);stroke-width:1}
+.s09 .s09-dot{fill:rgba(12,13,14,.26)}
+.s09 .s09-dotz{fill:rgba(12,13,14,.44)}
+.s09 .s09-dot2{fill:rgba(12,13,14,.34)}
+.s09 .s09-dotc{fill:var(--cyan-deep)}
+.s09 .s09-box{fill:rgba(40,203,211,.06);stroke:var(--cyan-deep);stroke-width:1}
+.s09 .s09-pr{fill:none;stroke:rgba(14,143,151,.5);stroke-width:1;stroke-dasharray:3 4}
+.s09 .s09-ch{fill:none;stroke:var(--cyan-deep);stroke-width:1.3;stroke-linecap:round}
+</style>
+<section class="slide paper s09">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">08</span><span>Big Data y segmentación</span><i class="rule"></i><span>Micro y nanosegmentación electoral</span></div>
+    <div class="head">
+      <h2 class="display h-2">Del promedio a la célula.<br><span class="em">Ahí es donde se gana.</span></h2>
+      <p class="lead">Quién puede cambiar, dónde está, qué problema lo mueve y por qué canal se lo alcanza.</p>
+    </div>
+    <div class="stage">
+      <div class="s09-plot">
+        <svg viewBox="0 0 1160 410" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Zoom progresivo en tres paneles: distrito, barrio y celula">
+
+          <!-- marcos de los paneles 1 y 2 -->
+          <rect class="s09-fr" x="0.5" y="22.5" width="299" height="387"/>
+          <rect class="s09-fr" x="348.5" y="22.5" width="299" height="387"/>
+
+          <!-- PANEL 1 · nube del distrito -->
+          <g class="s09-dot">
+<circle cx="18.4" cy="52.5" r="1.75"/> <circle cx="40.8" cy="48.4" r="1.75"/> <circle cx="76.2" cy="47.5" r="1.75"/> <circle cx="112.2" cy="44.1" r="1.75"/> <circle cx="145.8" cy="43.4" r="1.75"/> <circle cx="169.9" cy="53.1" r="1.75"/> <circle cx="204.1" cy="41.0" r="1.75"/> <circle cx="228.6" cy="40.8" r="1.75"/> <circle cx="253.5" cy="53.0" r="1.75"/> <circle cx="281.8" cy="41.0" r="1.75"/> <circle cx="33.1" cy="86.8" r="1.75"/> <circle cx="64.0" cy="82.0" r="1.75"/> <circle cx="92.7" cy="86.1" r="1.75"/> <circle cx="119.6" cy="80.2" r="1.75"/> <circle cx="156.9" cy="80.1" r="1.75"/> <circle cx="187.9" cy="81.1" r="1.75"/> <circle cx="219.1" cy="76.5" r="1.75"/> <circle cx="240.0" cy="84.8" r="1.75"/> <circle cx="268.6" cy="82.7" r="1.75"/> <circle cx="19.3" cy="111.2" r="1.75"/> <circle cx="54.6" cy="105.7" r="1.75"/> <circle cx="80.0" cy="104.4" r="1.75"/> <circle cx="106.9" cy="115.0" r="1.75"/> <circle cx="138.7" cy="114.1" r="1.75"/> <circle cx="162.2" cy="112.7" r="1.75"/> <circle cx="199.9" cy="105.2" r="1.75"/> <circle cx="220.5" cy="115.9" r="1.75"/> <circle cx="280.3" cy="114.3" r="1.75"/> <circle cx="31.1" cy="145.3" r="1.75"/> <circle cx="67.5" cy="151.0" r="1.75"/> <circle cx="93.2" cy="137.6" r="1.75"/> <circle cx="122.5" cy="147.1" r="1.75"/> <circle cx="156.7" cy="148.5" r="1.75"/> <circle cx="186.6" cy="138.7" r="1.75"/> <circle cx="212.0" cy="137.3" r="1.75"/> <circle cx="244.3" cy="148.7" r="1.75"/> <circle cx="275.3" cy="144.6" r="1.75"/> <circle cx="25.6" cy="173.6" r="1.75"/> <circle cx="56.0" cy="179.1" r="1.75"/> <circle cx="76.5" cy="178.1" r="1.75"/> <circle cx="107.6" cy="180.1" r="1.75"/> <circle cx="141.8" cy="171.2" r="1.75"/> <circle cx="174.0" cy="179.7" r="1.75"/> <circle cx="204.4" cy="177.6" r="1.75"/> <circle cx="235.4" cy="171.3" r="1.75"/> <circle cx="264.1" cy="179.9" r="1.75"/> <circle cx="30.0" cy="217.3" r="1.75"/> <circle cx="65.6" cy="209.6" r="1.75"/> <circle cx="85.5" cy="210.9" r="1.75"/> <circle cx="126.6" cy="209.2" r="1.75"/> <circle cx="150.2" cy="214.8" r="1.75"/> <circle cx="269.2" cy="205.2" r="1.75"/> <circle cx="14.8" cy="251.5" r="1.75"/> <circle cx="45.3" cy="236.4" r="1.75"/> <circle cx="79.6" cy="241.0" r="1.75"/> <circle cx="106.3" cy="248.8" r="1.75"/> <circle cx="137.0" cy="242.4" r="1.75"/> <circle cx="261.3" cy="237.9" r="1.75"/> <circle cx="27.7" cy="283.1" r="1.75"/> <circle cx="68.0" cy="277.4" r="1.75"/> <circle cx="89.1" cy="272.8" r="1.75"/> <circle cx="130.2" cy="278.9" r="1.75"/> <circle cx="189.6" cy="282.8" r="1.75"/> <circle cx="221.0" cy="270.8" r="1.75"/> <circle cx="250.3" cy="277.2" r="1.75"/> <circle cx="279.6" cy="271.7" r="1.75"/> <circle cx="85.2" cy="308.3" r="1.75"/> <circle cx="103.6" cy="303.1" r="1.75"/> <circle cx="145.7" cy="311.7" r="1.75"/> <circle cx="169.1" cy="316.7" r="1.75"/> <circle cx="197.2" cy="305.1" r="1.75"/> <circle cx="228.7" cy="315.1" r="1.75"/> <circle cx="251.8" cy="313.4" r="1.75"/> <circle cx="39.6" cy="342.8" r="1.75"/> <circle cx="69.4" cy="348.2" r="1.75"/> <circle cx="87.1" cy="344.8" r="1.75"/> <circle cx="119.2" cy="345.2" r="1.75"/> <circle cx="160.4" cy="343.4" r="1.75"/> <circle cx="186.1" cy="338.6" r="1.75"/> <circle cx="206.5" cy="346.7" r="1.75"/> <circle cx="246.5" cy="346.9" r="1.75"/> <circle cx="273.6" cy="345.0" r="1.75"/> <circle cx="21.2" cy="375.9" r="1.75"/> <circle cx="40.3" cy="370.7" r="1.75"/> <circle cx="71.2" cy="378.8" r="1.75"/> <circle cx="110.3" cy="380.5" r="1.75"/> <circle cx="233.1" cy="382.0" r="1.75"/> <circle cx="257.2" cy="378.9" r="1.75"/> <circle cx="286.0" cy="383.5" r="1.75"/> <circle cx="267.4" cy="231.2" r="1.75"/> <circle cx="286.1" cy="247.9" r="1.75"/> <circle cx="240.5" cy="286.0" r="1.75"/> <circle cx="36.9" cy="311.4" r="1.75"/> <circle cx="57.2" cy="305.6" r="1.75"/> <circle cx="152.6" cy="377.2" r="1.75"/> <circle cx="190.4" cy="371.8" r="1.75"/>
+          </g>
+          <g class="s09-dotz">
+<circle cx="183.7" cy="217.1" r="1.85"/> <circle cx="213.1" cy="210.6" r="1.85"/> <circle cx="235.1" cy="215.4" r="1.85"/> <circle cx="195.0" cy="241.4" r="1.85"/> <circle cx="229.0" cy="238.4" r="1.85"/>
+          </g>
+          <!-- zona seleccionada dentro del distrito -->
+          <rect class="s09-box" x="167.5" y="189.5" width="85" height="73"/>
+
+          <!-- lupa 1: la zona se abre sobre el panel 2 -->
+          <path class="s09-pr" d="M253 190 L347.5 23"/>
+          <path class="s09-pr" d="M253 262 L347.5 409"/>
+          <path class="s09-ch" d="M317 210 L325 216 L317 222"/>
+
+          <!-- PANEL 2 · agrupamientos del barrio -->
+          <g class="s09-dot2"><circle cx="409.9" cy="112.3" r="2.05"/> <circle cx="432.4" cy="116.3" r="2.05"/> <circle cx="415.5" cy="102.3" r="2.05"/> <circle cx="422.6" cy="113.0" r="2.05"/> <circle cx="440.4" cy="130.7" r="2.05"/> <circle cx="454.6" cy="123.9" r="2.05"/> <circle cx="432.4" cy="103.0" r="2.05"/> <circle cx="417.5" cy="122.5" r="2.05"/> <circle cx="444.5" cy="139.5" r="2.05"/> <circle cx="414.0" cy="131.7" r="2.05"/> <circle cx="447.6" cy="106.7" r="2.05"/> <circle cx="446.0" cy="116.6" r="2.05"/> <circle cx="419.0" cy="143.8" r="2.05"/> <circle cx="428.9" cy="130.7" r="2.05"/> <circle cx="435.9" cy="146.3" r="2.05"/> <circle cx="434.3" cy="124.7" r="2.05"/></g>
+          <g class="s09-dotc"><circle cx="554.0" cy="126.3" r="2.2"/> <circle cx="561.5" cy="101.9" r="2.2"/> <circle cx="579.7" cy="109.3" r="2.2"/> <circle cx="577.9" cy="141.2" r="2.2"/> <circle cx="569.1" cy="127.5" r="2.2"/> <circle cx="545.0" cy="116.6" r="2.2"/> <circle cx="550.5" cy="139.1" r="2.2"/> <circle cx="582.0" cy="130.6" r="2.2"/> <circle cx="563.4" cy="116.9" r="2.2"/> <circle cx="580.3" cy="121.6" r="2.2"/> <circle cx="568.3" cy="137.3" r="2.2"/> <circle cx="579.3" cy="101.2" r="2.2"/> <circle cx="588.0" cy="116.2" r="2.2"/> <circle cx="569.2" cy="110.6" r="2.2"/> <circle cx="557.2" cy="109.7" r="2.2"/> <circle cx="561.0" cy="132.9" r="2.2"/> <circle cx="571.3" cy="146.0" r="2.2"/></g>
+          <g class="s09-dot2" transform="translate(0,-14)"><circle cx="415.0" cy="298.8" r="2.05"/> <circle cx="430.4" cy="316.0" r="2.05"/> <circle cx="433.0" cy="295.3" r="2.05"/> <circle cx="406.7" cy="300.4" r="2.05"/> <circle cx="414.8" cy="307.4" r="2.05"/> <circle cx="438.7" cy="280.0" r="2.05"/> <circle cx="452.5" cy="305.6" r="2.05"/> <circle cx="426.4" cy="303.4" r="2.05"/> <circle cx="425.4" cy="279.9" r="2.05"/> <circle cx="445.7" cy="292.1" r="2.05"/> <circle cx="443.7" cy="314.2" r="2.05"/> <circle cx="421.4" cy="318.6" r="2.05"/> <circle cx="448.0" cy="284.3" r="2.05"/> <circle cx="438.8" cy="306.5" r="2.05"/> <circle cx="421.0" cy="290.0" r="2.05"/></g>
+          <g class="s09-dot2" transform="translate(0,-14)"><circle cx="549.1" cy="288.6" r="2.05"/> <circle cx="573.6" cy="301.4" r="2.05"/> <circle cx="546.6" cy="310.8" r="2.05"/> <circle cx="577.5" cy="321.4" r="2.05"/> <circle cx="553.9" cy="303.4" r="2.05"/> <circle cx="591.5" cy="299.3" r="2.05"/> <circle cx="561.8" cy="308.1" r="2.05"/> <circle cx="553.4" cy="318.9" r="2.05"/> <circle cx="561.2" cy="295.7" r="2.05"/> <circle cx="571.6" cy="287.3" r="2.05"/> <circle cx="580.4" cy="289.3" r="2.05"/> <circle cx="575.4" cy="280.3" r="2.05"/> <circle cx="562.5" cy="316.7" r="2.05"/> <circle cx="556.1" cy="284.7" r="2.05"/> <circle cx="587.2" cy="306.8" r="2.05"/> <circle cx="582.5" cy="297.5" r="2.05"/></g>
+          <rect class="s09-box" x="533.5" y="87.5" width="69" height="69"/>
+
+          <!-- lupa 2: el agrupamiento se abre sobre la ficha -->
+          <path class="s09-pr" d="M603 88 L695.5 23"/>
+          <path class="s09-pr" d="M603 157 L695.5 409"/>
+          <path class="s09-ch" d="M665 210 L673 216 L665 222"/>
+
+        </svg>
+
+        <div class="s09-th" style="left:0;width:300px"><span class="i">01</span><span class="t">Distrito</span><span class="u cap">todo el padrón</span></div>
+        <div class="s09-th" style="left:348px;width:300px"><span class="i">02</span><span class="t">Barrio</span><span class="u cap">zona ampliada</span></div>
+        <div class="s09-th on" style="left:696px;width:464px"><span class="i">03</span><span class="t">Célula</span><span class="u cap">unidad de acción</span></div>
+
+        <div class="s09-cl" style="left:430px;top:164px">base propia</div>
+        <div class="s09-cl on" style="left:568px;top:164px">voto blando</div>
+        <div class="s09-cl" style="left:430px;top:320px">indeciso</div>
+        <div class="s09-cl" style="left:568px;top:320px">abstencionista</div>
+
+        <div class="s09-card">
+          <div class="hd">
+            <h3>Célula 41</h3>
+            <span class="tie"><i></i>voto blando</span>
+          </div>
+          <div class="r"><span class="l">Votantes agregados</span><span class="v n">1.240</span></div>
+          <div class="r"><span class="l">Problema que ordena</span><span class="v">agua y presión</span></div>
+          <div class="r"><span class="l">Mensaje</span><span class="v">obra en ejecución, plazo verificable</span></div>
+          <div class="r"><span class="l">Canal</span><span class="v">WhatsApp + puerta a puerta</span></div>
+          <div class="r"><span class="l">Ventana</span><span class="v n">10 días</span></div>
+          <div class="r"><span class="l">Meta de mesa</span><span class="v n">+90 votos</span></div>
+        </div>
+      </div>
+      <span class="cap">ejemplo de salida · las células son agregadas, nunca perfiles individuales</span>
+    </div>
+    <div class="band"><span class="k">Límite explícito</span><p class="t">Trabajamos con grupos: <span class="em">nunca con expedientes individuales ni datos sensibles de personas.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Segmentación</span><span class="bar"><i style="width:64%"></i></span><span>Capacidades · 09 / 13</span></div>
+</section>
+
+<!-- ===== slides/10-nomos.html ===== -->
+<style>
+/* ---- LÁMINA 10 · NOMOS · consola móvil + salidas del sistema ---- */
+.s10 .head{margin:15px 0 16px}
+.s10 .head .lead{max-width:432px}
+.s10 .topo.a{top:-44%;right:-19%;opacity:.1}
+.s10 .glow{width:520px;height:520px;left:-130px;top:190px;opacity:.7}
+
+/* --- escenario en dos columnas --- */
+.s10 .stage{flex-direction:row;align-items:stretch;gap:46px}
+.s10-left{width:230px;flex:none;display:flex;flex-direction:column;gap:9px}
+.s10-left > .cap{flex:none;letter-spacing:.12em}
+
+/* --- marco del teléfono --- */
+.s10-ph{flex:1;min-height:0;border:1px solid var(--line-d);border-radius:18px;
+  background:rgba(255,255,255,.022);padding:10px;display:flex;flex-direction:column}
+.s10-sp{flex:none;width:38px;height:3px;border-radius:2px;background:rgba(255,255,255,.16);
+  margin:1px auto 9px}
+.s10-hd{flex:none;display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:7px;border-bottom:1px solid var(--line-d-soft);margin-bottom:9px}
+.s10-hd .cap{letter-spacing:.15em}
+.s10-live{display:flex;align-items:center;gap:4px}
+.s10-live i{width:4px;height:4px;border-radius:50%;background:var(--cyan)}
+
+/* --- tarjetas dentro de la consola --- */
+.s10-cards{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-between}
+.s10-c{flex:none;border:1px solid var(--line-d-soft);border-radius:3px;padding:8px 9px;
+  background:rgba(255,255,255,.02)}
+.s10-c.k1{height:104px}.s10-c.k2{height:66px}.s10-c.k3{height:78px}.s10-c.k4{height:65px}
+.s10-c > .cap{display:block;letter-spacing:.14em;font-size:7px}
+
+/* tarjeta 1 · tracking */
+.s10 .s10-c .s10-spark{display:block;width:100%;height:36px;margin:7px 0 4px;overflow:visible}
+.s10 .s10-spark .ln{fill:none;stroke:var(--cyan);stroke-width:1.4;stroke-linejoin:round;
+  stroke-linecap:round}
+.s10 .s10-spark .bl{fill:none;stroke:var(--line-d-soft);stroke-width:1}
+.s10 .s10-spark .gd{fill:none;stroke:rgba(255,255,255,.07);stroke-width:1;stroke-dasharray:2 4}
+.s10 .s10-spark .dt{fill:var(--black);stroke:var(--cyan);stroke-width:1.4}
+.s10-val{display:flex;align-items:baseline;gap:5px}
+.s10-val b{font-family:var(--serif);font-weight:400;font-size:28px;line-height:.94;
+  letter-spacing:-.02em;color:var(--white)}
+.s10-val u{font-family:var(--serif);text-decoration:none;font-size:14px;color:#8f9497}
+.s10-val s{text-decoration:none;font-family:var(--mono);font-size:7px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--cyan);margin-left:auto}
+
+/* tarjeta 2 · alerta */
+.s10-al{display:flex;align-items:flex-start;gap:7px}
+.s10-al .d{flex:none;width:5px;height:5px;border-radius:50%;background:var(--alarm);margin-top:3.5px}
+.s10-al p{font-size:9.6px;line-height:1.3;color:#dcdedf;font-weight:400}
+.s10-al p em{font-style:normal;display:block;font-family:var(--mono);font-size:6.6px;
+  font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-3);margin-top:3px}
+.s10-act{display:flex;gap:5px;margin-top:8px;padding-left:12px}
+.s10-act span{font-family:var(--mono);font-size:6.6px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;padding:4px 7px;border:1px solid var(--line-d);color:#9ea2a5;
+  border-radius:2px}
+.s10-act span.on{border-color:rgba(40,203,211,.55);color:var(--cyan)}
+
+/* tarjeta 3 · mini mapa */
+.s10-mm{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px}
+.s10-mm i{display:block;height:13px;border:1px solid rgba(255,255,255,.11);border-radius:1px}
+.s10-mm i.on{border-color:rgba(40,203,211,.6);background:rgba(40,203,211,.16)}
+
+/* tarjeta 4 · decisión */
+.s10-dc{font-family:var(--serif);font-size:13.4px;line-height:1.16;color:var(--white);margin-top:4px}
+.s10-ow{display:flex;align-items:center;justify-content:space-between;margin-top:7px}
+.s10-ow .cap{letter-spacing:.15em}
+.s10-ck{flex:none;width:11px;height:11px;border:1px solid rgba(40,203,211,.6);border-radius:2px}
+
+/* --- salidas del sistema (columna derecha) --- */
+.s10-out{flex:1;min-height:0;position:relative;display:flex;flex-direction:column}
+.s10-out::before{content:"";position:absolute;left:0;top:12.5%;bottom:12.5%;width:1px;
+  background:var(--line-d-soft)}
+.s10-row{position:relative;flex:1;display:flex;flex-direction:row;align-items:center;
+  gap:28px;padding:0 2px 0 34px}
+.s10-row + .s10-row::before{content:"";position:absolute;left:22px;right:0;top:0;height:1px;
+  background:var(--line-d-soft)}
+.s10-row .nd{position:absolute;left:-3px;top:50%;width:7px;height:7px;margin-top:-3.5px;
+  border:1px solid var(--cyan);border-radius:50%;background:var(--black)}
+.s10-row .nd::after{content:"";position:absolute;left:8px;top:2.5px;width:14px;height:1px;
+  background:var(--line-d)}
+.s10-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.s10-tx .mono{color:var(--cyan);font-size:7.4px;letter-spacing:.24em}
+.s10-tx b{font-family:var(--serif);font-weight:400;font-size:23px;line-height:1.04;
+  letter-spacing:-.01em;color:var(--white)}
+.s10-tx .small{font-size:11.4px;line-height:1.42;max-width:470px}
+.s10-gl{flex:none}
+.s10 .s10-gl{width:58px;height:38px}
+.s10 .s10-gl .s{fill:none;stroke:var(--line-d);stroke-width:1}
+.s10 .s10-gl .c{fill:rgba(40,203,211,.2);stroke:var(--cyan);stroke-width:1}
+.s10 .s10-gl .cf{fill:var(--cyan)}
+</style>
+<section class="slide s10">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">09</span><span>NOMOS</span><i class="rule"></i><span>Sistema de inteligencia electoral</span></div>
+    <div class="head">
+      <h2 class="display h-2">Toda la campaña<br><span class="em">en una sola pantalla.</span></h2>
+      <p class="lead">Encuestas, historia, territorio, conversación pública y operación en una consola mobile-first: alertas, mapas y decisiones con responsable asignado.</p>
+    </div>
+    <div class="stage">
+
+      <!-- ============ consola móvil ============ -->
+      <div class="s10-left">
+        <div class="s10-ph">
+          <i class="s10-sp"></i>
+          <div class="s10-hd">
+            <span class="cap">NOMOS · consola</span>
+            <span class="s10-live"><i></i><span class="cap">en vivo</span></span>
+          </div>
+          <div class="s10-cards">
+
+            <!-- 1 · tracking -->
+            <div class="s10-c k1">
+              <span class="cap">Intención · ola 4</span>
+              <svg class="s10-spark" viewBox="0 0 200 36" preserveAspectRatio="none" role="img"
+                   aria-label="Sparkline ascendente de intención de voto, vista de ejemplo">
+                <path class="gd" d="M0 13 H200"/>
+                <path class="bl" d="M0 35.5 H200"/>
+                <path class="ln" d="M2 29 L30 24.5 L58 27 L86 18 L114 20 L142 11.5 L170 8.5 L196 3.5"/>
+                <circle class="dt" cx="196" cy="3.5" r="2.6"/>
+              </svg>
+              <div class="s10-val"><b>38,4</b><u>%</u><s>+1,6 pts</s></div>
+            </div>
+
+            <!-- 2 · alerta -->
+            <div class="s10-c k2">
+              <div class="s10-al">
+                <i class="d"></i>
+                <p>Ataque en circulación<em>hace 3 h · alcance en alza</em></p>
+              </div>
+              <div class="s10-act"><span class="on">Responder</span><span>Ignorar</span></div>
+            </div>
+
+            <!-- 3 · mini mapa -->
+            <div class="s10-c k3">
+              <span class="cap">Prioridad territorial</span>
+              <div class="s10-mm">
+                <i></i><i></i><i class="on"></i><i></i>
+                <i></i><i></i><i></i><i></i>
+                <i></i><i class="on"></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- 4 · decisión pendiente -->
+            <div class="s10-c k4">
+              <span class="cap">Decisión pendiente</span>
+              <p class="s10-dc">Reasignar pauta · zona sur</p>
+              <div class="s10-ow"><span class="cap">Responsable · Jefatura</span><i class="s10-ck"></i></div>
+            </div>
+
+          </div>
+        </div>
+        <span class="cap">Vista de ejemplo · valores ilustrativos</span>
+      </div>
+
+      <!-- ============ salidas del sistema ============ -->
+      <div class="s10-out">
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">01</span><b>Consola ejecutiva</b><p class="small">El estado de la campaña en una pantalla.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <rect class="s" x="1.5" y="3.5" width="43" height="23"/>
+            <path class="s" d="M28.5 3.5 V26.5"/>
+            <path class="s" d="M6 12 H23 M6 17 H19 M33 21 H40"/>
+            <rect class="cf" x="6" y="7" width="12" height="2"/>
+            <rect class="c" x="33" y="8" width="7" height="9"/>
+          </svg>
+        </div>
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">02</span><b>Alertas y briefs</b><p class="small">Qué cambió, por qué importa y qué decidir.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <path class="s" d="M12 4.5 L22.5 24.5 H1.5 Z"/>
+            <circle class="cf" cx="12" cy="19.5" r="1.6"/>
+            <path class="s" d="M28 8.5 H44.5 M28 15 H44.5 M28 21.5 H37"/>
+            <path class="c" d="M28 15 H44.5"/>
+          </svg>
+        </div>
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">03</span><b>Mapas y escenarios</b><p class="small">Dónde priorizar y qué exige cada camino.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <rect class="s" x="1.5" y="4.5" width="13" height="9"/>
+            <rect class="c" x="16.5" y="4.5" width="13" height="9"/>
+            <rect class="s" x="31.5" y="4.5" width="13" height="9"/>
+            <rect class="s" x="1.5" y="16.5" width="13" height="9"/>
+            <rect class="s" x="16.5" y="16.5" width="13" height="9"/>
+            <rect class="s" x="31.5" y="16.5" width="13" height="9"/>
+          </svg>
+        </div>
+
+        <div class="s10-row"><i class="nd"></i>
+          <div class="s10-tx"><span class="mono">04</span><b>Sala de situación</b><p class="small">Evidencia, decisiones y responsables.</p></div>
+          <svg class="s10-gl" viewBox="0 0 46 30" aria-hidden="true">
+            <rect class="s" x="11.5" y="10.5" width="23" height="9"/>
+            <circle class="s" cx="17" cy="5.5" r="2.5"/>
+            <circle class="cf" cx="29" cy="5.5" r="2.5"/>
+            <circle class="s" cx="17" cy="24.5" r="2.5"/>
+            <circle class="s" cx="29" cy="24.5" r="2.5"/>
+            <path class="s" d="M1.5 15 H8 M38 15 H44.5"/>
+          </svg>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="band"><span class="k">La diferencia</span><p class="t">Un informe se archiva. <span class="em">Un sistema acumula ventaja.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · NOMOS</span><span class="bar"><i style="width:72%"></i></span><span>Sistema · 10 / 13</span></div>
+</section>
+
+<!-- ===== slides/11-war-room.html ===== -->
+<style>
+/* ---- LÁMINA 11 · War Room · reloj de 24 h con ventana útil ---- */
+.s11 .head{margin:12px 0 14px}
+.s11 .head .lead{max-width:436px}
+.s11 .topo.a{top:-42%;right:-18%;opacity:.085}
+.s11 .glow{width:600px;height:600px;left:256px;top:39px;opacity:.9}
+.s11 .stage{gap:9px}
+
+/* --- lienzo del reloj (1160 x 372, mapeo 1:1 con el viewBox) --- */
+.s11-clk{position:relative;height:420px;flex:none}
+.s11-clk > svg{position:absolute;inset:0}
+
+/* --- trazos --- */
+.s11 .rg{fill:none;stroke:var(--line-d);stroke-width:1}
+.s11 .tk{fill:none;stroke:rgba(255,255,255,.17);stroke-width:1}
+.s11 .tkm{fill:none;stroke:rgba(255,255,255,.34);stroke-width:1}
+.s11 .arc{fill:none;stroke:var(--cyan);stroke-width:2.5}
+.s11 .ld{fill:none;stroke:rgba(40,203,211,.32);stroke-width:1}
+.s11 .hl{fill:var(--black)}
+.s11 .dt{fill:var(--cyan)}
+.s11 .arclab{font-family:var(--mono);font-size:8.2px;font-weight:600;letter-spacing:.26em;
+  fill:var(--cyan)}
+.s11 .alln{fill:none;stroke:var(--alarm-dim);stroke-width:1;stroke-dasharray:4 5}
+.s11 .alhd{fill:none;stroke:var(--alarm);stroke-width:1.1}
+.s11 .alx{fill:none;stroke:var(--alarm);stroke-width:1.4}
+
+/* --- centro --- */
+.s11-core{position:absolute;left:0;width:992px;text-align:center;
+  transform:translateY(-50%);top:171px}
+.s11-core b{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;
+  letter-spacing:-.014em;color:var(--white);display:block}
+
+/* --- horas de referencia --- */
+.s11-h{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;
+  letter-spacing:.14em;color:#7b8083}
+
+/* --- hitos --- */
+.s11-l{position:absolute;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px}
+.s11-l.r{left:680px;width:238px}
+.s11-l.l{left:0;width:292px;text-align:right}
+.s11-l .t{display:flex;align-items:baseline;gap:8px}
+.s11-l.l .t{justify-content:flex-end}
+.s11-l .t i{font-family:var(--mono);font-style:normal;font-size:8.4px;font-weight:600;
+  letter-spacing:.2em;color:var(--cyan);flex:none}
+.s11-l .t b{font-family:var(--serif);font-weight:400;font-size:17.5px;line-height:1.04;
+  letter-spacing:-.008em;color:var(--white)}
+.s11-l .small{font-size:11px;line-height:1.36;color:#9ca0a3}
+
+/* --- marca de ventana cerrada --- */
+.s11-al{position:absolute;left:921px;top:396px;transform:translateY(-50%);white-space:nowrap;
+  color:var(--alarm);letter-spacing:.19em}
+</style>
+<section class="slide s11">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">10</span><span>War Room digital</span><i class="rule"></i><span>Radar, decisión, producción, distribución, medición</span></div>
+    <div class="head">
+      <h2 class="display h-2">La ventana dura horas.<br><span class="em">La operación no puede tardar días.</span></h2>
+      <p class="lead">No administramos redes: construimos capacidad de combate comunicacional. Detectar, decidir, producir, distribuir y medir dentro del mismo día.</p>
+    </div>
+    <div class="stage">
+      <div class="s11-clk">
+        <svg viewBox="0 0 1160 420" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Reloj de 24 horas: arco cyan de 07:00 a 19:00 con cinco hitos del ciclo operativo">
+          <!-- marcas horarias -->
+          <g class="tk"><path d="M533.8 30.0L531.2 39.6"/><path d="M569.0 44.6L564.0 53.2"/><path d="M599.2 67.8L592.2 74.8"/><path d="M622.4 98.0L613.8 103.0"/><path d="M637.0 133.2L627.4 135.8"/><path d="M637.0 208.8L627.4 206.2"/><path d="M622.4 244.0L613.8 239.0"/><path d="M599.2 274.2L592.2 267.2"/><path d="M569.0 297.4L564.0 288.8"/><path d="M533.8 312.0L531.2 302.4"/><path d="M458.2 312.0L460.8 302.4"/><path d="M423.0 297.4L428.0 288.8"/><path d="M392.8 274.2L399.8 267.2"/><path d="M369.6 244.0L378.2 239.0"/><path d="M355.0 208.8L364.6 206.2"/><path d="M355.0 133.2L364.6 135.8"/><path d="M369.6 98.0L378.2 103.0"/><path d="M392.8 67.8L399.8 74.8"/><path d="M423.0 44.6L428.0 53.2"/><path d="M458.2 30.0L460.8 39.6"/></g>
+          <g class="tkm"><path d="M496.0 25.0L496.0 45.0"/><path d="M642.0 171.0L622.0 171.0"/><path d="M496.0 317.0L496.0 297.0"/><path d="M350.0 171.0L370.0 171.0"/></g>
+          <circle class="rg" cx="496.0" cy="171.0" r="146.0"/>
+          <!-- ventana útil 07:00 - 19:00 -->
+          <path class="arc" d="M637.0 208.8A146.0 146.0 0 0 1 355.0 133.2"/>
+          <path id="s11arc" d="M382.0 140.5A118 118 0 0 0 610.0 201.5" fill="none"/>
+          <text class="arclab"><textPath href="#s11arc" startOffset="50%" text-anchor="middle">VENTANA ÚTIL</textPath></text>
+          <!-- guías -->
+          <g><path class="ld" d="M642.8 210.3L664.1 216.0L672.0 216.0"/><path class="ld" d="M603.5 278.5L619.0 294.0L672.0 294.0"/><path class="ld" d="M535.3 317.8L541.0 339.1L672.0 344.0"/><path class="ld" d="M420.0 302.6L409.0 321.7L300.0 322.0"/><path class="ld" d="M349.2 131.7L327.9 126.0L300.0 126.0"/></g>
+          <!-- hitos -->
+          <g><circle class="hl" cx="637.0" cy="208.8" r="7"/><circle class="dt" cx="637.0" cy="208.8" r="4"/><circle class="hl" cx="599.2" cy="274.2" r="7"/><circle class="dt" cx="599.2" cy="274.2" r="4"/><circle class="hl" cx="533.8" cy="312.0" r="7"/><circle class="dt" cx="533.8" cy="312.0" r="4"/><circle class="hl" cx="423.0" cy="297.4" r="7"/><circle class="dt" cx="423.0" cy="297.4" r="4"/><circle class="hl" cx="355.0" cy="133.2" r="7"/><circle class="dt" cx="355.0" cy="133.2" r="4"/></g>
+          <!-- la ventana ya cerró -->
+          <path class="alln" d="M477.4 348Q700 398 886 396"/>
+          <path class="alhd" d="M885.6 390.6L895.4 396L885.4 401.4"/>
+          <path class="alx" d="M896 389.6L909 402.4M909 389.6L896 402.4"/>
+        </svg>
+        <div class="s11-core"><b>El mismo día</b></div>
+        <span class="cap s11-h" style="left:496.0px;top:9px">00</span>
+        <span class="cap s11-h" style="left:660.0px;top:171.0px">06</span>
+        <span class="cap s11-h" style="left:496.0px;top:335.0px">12</span>
+        <span class="cap s11-h" style="left:332.0px;top:171.0px">18</span>
+      <div class="s11-l r" style="top:216.0px"><span class="t"><i>07:00</i><b>Radar</b></span><p class="small">el tema aparece y se prioriza</p></div>
+      <div class="s11-l r" style="top:294.0px"><span class="t"><i>09:00</i><b>Decisión</b></span><p class="small">actuar, amplificar, responder o ignorar</p></div>
+      <div class="s11-l r" style="top:344.0px"><span class="t"><i>11:00</i><b>Producción</b></span><p class="small">pieza con ficha estratégica</p></div>
+      <div class="s11-l l" style="top:322.0px"><span class="t"><i>14:00</i><b>Distribución</b></span><p class="small">orgánico, aliados y pauta</p></div>
+      <div class="s11-l l" style="top:126.0px"><span class="t"><i>19:00</i><b>Medición</b></span><p class="small">impacto, aprendizaje y ajuste</p></div>
+        <span class="mono s11-al">+48 h · la ventana ya cerró</span>
+      </div>
+      <span class="cap">Esquema ilustrativo · ritmo típico de una ventana de oportunidad</span>
+    </div>
+    <div class="band"><span class="k">Lo que sí y lo que no</span><p class="t">Velocidad, coordinación y disciplina. <span class="em">Sin bots, sin identidades falsas, sin desinformación.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · War Room</span><span class="bar"><i style="width:80%"></i></span><span>Operación · 11 / 13</span></div>
+</section>
+
+<!-- ===== slides/12-modulos.html ===== -->
+<style>
+/* ---- LÁMINA 12 · Módulos · matriz de alcance por módulo de contratación ---- */
+.s12 .head .lead{max-width:404px}
+.s12 .topo.a{top:-48%;right:-17%;opacity:.11}
+.s12 .stage{gap:13px}
+
+/* --- matriz: 1160 de ancho. Columnas: capacidad 336 + 4 x 206 --- */
+.s12-mx{position:relative;flex:none;padding-top:21px}
+.s12-r{position:relative;z-index:2;display:grid;
+  grid-template-columns:336px repeat(4,206px);align-items:center}
+
+/* separadores verticales de columna (la 4.ª la marca el realce) */
+.s12-vr{position:absolute;z-index:1;top:21px;bottom:0;width:1px;background:var(--line-l-soft)}
+
+/* realce de la columna FULL CYCLE + cinta */
+.s12-hl{position:absolute;z-index:1;top:21px;bottom:0;left:954px;width:206px;
+  border:1.4px solid rgba(14,143,151,.55);background:rgba(40,203,211,.055)}
+.s12-rb{position:absolute;z-index:3;top:0;left:1057px;transform:translateX(-50%);
+  padding:4px 9px;background:var(--cyan-deep);color:var(--paper);
+  font-family:var(--mono);font-size:6.8px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;white-space:nowrap}
+
+/* fila de encabezado */
+.s12-hd{height:42px;align-items:flex-end;border-bottom:1px solid rgba(12,13,14,.3)}
+.s12-hd .h{display:flex;flex-direction:column;align-items:center;gap:5px;padding-bottom:9px}
+.s12-hd .h i{font-family:var(--mono);font-style:normal;font-size:6.8px;font-weight:600;
+  letter-spacing:.22em;color:#8b9093}
+.s12-hd .h b{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.19em;
+  text-transform:uppercase;color:#22292c}
+.s12-hd .h.on i,.s12-hd .h.on b{color:var(--cyan-deep)}
+.s12-hd .k{font-family:var(--mono);font-size:7.2px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:#7b8083;padding-bottom:9px}
+
+/* filas de capacidad */
+.s12-rw{height:36px;border-bottom:1px solid var(--line-l-soft)}
+.s12-rw.e{border-bottom:0}
+.s12-rw .l{padding-right:20px;font-size:11.6px;font-weight:300;line-height:1.3;color:#43484c}
+.s12-rw .c{display:flex;align-items:center;justify-content:center}
+
+/* marcas: círculo lleno / mitad / contorno */
+.s12 .s12-m{display:block;width:14px;height:14px}
+.s12 .s12-f{fill:var(--cyan-deep)}
+.s12 .s12-p{fill:none;stroke:var(--cyan-deep);stroke-width:1.2}
+.s12 .s12-pf{fill:var(--cyan-deep)}
+.s12 .s12-o{fill:none;stroke:rgba(12,13,14,.22);stroke-width:1.2}
+
+/* fila IDEAL SI */
+.s12-id{border-top:1px solid rgba(12,13,14,.3);padding-top:13px;align-items:flex-start;
+  min-height:46px}
+.s12-id .k{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cyan-deep)}
+.s12-id .v{padding:0 15px;text-align:center;font-size:10.4px;font-weight:300;
+  line-height:1.34;color:#4e5357}
+.s12-id .v.on{color:#1e2528;font-weight:400}
+
+/* pie del gráfico: leyenda + aclaración */
+.s12-ft{display:flex;align-items:center;gap:26px}
+.s12-ft .lg{display:flex;align-items:center;gap:20px}
+.s12-ft .lg span{display:flex;align-items:center;gap:7px;font-family:var(--mono);
+  font-size:7.2px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7b8083}
+.s12-ft .cap{margin-left:auto;text-align:right}
+</style>
+<section class="slide paper s12">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">11</span><span>Cómo se contrata</span><i class="rule"></i><span>Un módulo o el sistema completo</span></div>
+    <div class="head">
+      <h2 class="display h-2">Entrás por un problema.<br><span class="em">Escalás cuando el problema se vuelve chico.</span></h2>
+      <p class="lead">Cada módulo funciona solo y se integra sin rehacer nada.</p>
+    </div>
+    <div class="stage">
+      <div class="s12-mx">
+
+        <div class="s12-vr" style="left:336px"></div>
+        <div class="s12-vr" style="left:542px"></div>
+        <div class="s12-vr" style="left:748px"></div>
+        <div class="s12-hl"></div>
+        <div class="s12-rb">Más elegido</div>
+
+        <div class="s12-r s12-hd">
+          <span class="k">Capacidad</span>
+          <span class="h"><i>01</i><b>Diagnóstico</b></span>
+          <span class="h"><i>02</i><b>Pulso</b></span>
+          <span class="h"><i>03</i><b>Inteligencia</b></span>
+          <span class="h on"><i>04</i><b>Full cycle</b></span>
+        </div>
+
+        <!-- 01 · encuesta propia -->
+        <div class="s12-r s12-rw">
+          <span class="l">Encuesta propia con ficha técnica</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 02 · informe y tabulados -->
+        <div class="s12-r s12-rw">
+          <span class="l">Informe, tabulados y brief ejecutivo</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 03 · tracking -->
+        <div class="s12-r s12-rw">
+          <span class="l">Tracking y flash polls</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 04 · alertas -->
+        <div class="s12-r s12-rw">
+          <span class="l">Alertas de movimiento</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 05 · historia electoral -->
+        <div class="s12-r s12-rw">
+          <span class="l">Historia electoral y mapa de mesas</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 06 · micro y nano -->
+        <div class="s12-r s12-rw">
+          <span class="l">Micro y nanosegmentación</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 07 · NOMOS -->
+        <div class="s12-r s12-rw">
+          <span class="l">NOMOS para todo el equipo</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <!-- 08 · contenido y rapid response -->
+        <div class="s12-r s12-rw e">
+          <span class="l">Contenido y rapid response</span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg></span>
+          <span class="c"><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg></span>
+        </div>
+
+        <div class="s12-r s12-id">
+          <span class="k">Ideal si</span>
+          <span class="v">Arrancás o cambió el escenario</span>
+          <span class="v">Ya estás en campaña y hay que corregir</span>
+          <span class="v">Tenés datos sueltos y ninguna consola</span>
+          <span class="v on">La elección se define por poco margen</span>
+        </div>
+
+      </div>
+
+      <div class="s12-ft">
+        <div class="lg">
+          <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-f" cx="7" cy="7" r="5.6"/></svg>Incluido</span>
+          <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-p" cx="7" cy="7" r="5.6"/><path class="s12-pf" d="M7 1.4A5.6 5.6 0 0 0 7 12.6Z"/></svg>Parcial · a medida</span>
+          <span><svg class="s12-m" viewBox="0 0 14 14"><circle class="s12-o" cx="7" cy="7" r="5.6"/></svg>No incluido</span>
+        </div>
+        <span class="cap">Alcance de referencia · sin precios de lista: cada propuesta se cotiza por padrón, cantidad de olas y calendario electoral</span>
+      </div>
+    </div>
+    <div class="band"><span class="k">Nota</span><p class="t">Lo que se mide hoy <span class="em">sigue sirviendo cuando la campaña escala.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Soluciones</span><span class="bar"><i style="width:90%"></i></span><span>Soluciones · 12 / 13</span></div>
+</section>
+
+<!-- ===== slides/13-cierre.html ===== -->
+<style>
+/* ---- LÁMINA 13 · Cierre · Gantt de 21 días + llamada a la acción ---- */
+.s13 .head{margin:12px 0 16px}
+.s13 .head .lead{max-width:392px;margin-bottom:4px}
+.s13 .topo.a{top:-40%;right:-15%;opacity:.16}
+.s13 .glow{width:660px;height:660px;left:600px;bottom:-330px;opacity:.9}
+.s13 .stage{gap:18px}
+
+/* --- Gantt --- */
+.s13-g{position:relative;flex:none}
+.s13-row{display:grid;grid-template-columns:292px 1fr;column-gap:24px;align-items:center}
+
+/* eje superior */
+.s13-ax{height:23px;border-bottom:1px solid var(--line-d);align-items:flex-end}
+.s13-ax .lb{padding-bottom:5px}
+.s13-ax .tk{position:relative;height:100%}
+.s13-ax .tk span{position:absolute;bottom:5px;white-space:nowrap}
+.s13-ax .tk .d21{color:var(--cyan)}
+
+/* retícula y marca del día 21 */
+.s13-ov{position:absolute;top:0;bottom:0;left:316px;right:0;z-index:0;pointer-events:none}
+.s13-ov i{position:absolute;top:23px;bottom:24px;width:0;
+  border-left:1px dashed rgba(255,255,255,.11)}
+.s13-ov .m21{position:absolute;right:0;top:23px;bottom:5px;width:1.5px;background:var(--cyan)}
+
+/* filas de fase */
+.s13-ph{height:60px;position:relative;z-index:1}
+.s13-ph .lb b{display:block;font-family:var(--serif);font-weight:400;font-size:17.5px;
+  line-height:1.06;letter-spacing:-.008em;color:var(--white)}
+.s13-ph .lb .small{font-size:11.2px;line-height:1.42;color:#9ca0a3;margin-top:2px}
+.s13-ph .tr{position:relative;height:100%}
+.s13-bar{position:absolute;top:50%;transform:translateY(-50%);height:34px;
+  border:1px solid rgba(40,203,211,.42);background:rgba(40,203,211,.085);
+  display:flex;align-items:center;padding-left:11px}
+.s13-bar .cap{color:#9fa4a7}
+.s13-bar.last{border-color:rgba(40,203,211,.85);background:rgba(40,203,211,.17)}
+.s13-bar.last .cap{color:var(--cyan)}
+.s13-dia{position:absolute;right:0;top:50%;width:9px;height:9px;background:var(--cyan);
+  transform:translate(50%,-50%) rotate(45deg)}
+
+/* pie del Gantt: nota y rótulo del hito */
+.s13-mile{display:flex;justify-content:space-between;align-items:baseline;height:24px;padding-top:8px}
+.s13-mile .tr{font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+
+.s13 .stage{justify-content:space-between;gap:14px}
+
+/* --- llamada a la acción --- */
+.s13-cta{display:flex;align-items:center;gap:20px;padding:15px 20px;
+  border:1px solid var(--cyan);background:rgba(40,203,211,.08)}
+.s13-cta .k{color:var(--cyan);flex:none;width:86px;line-height:1.4}
+.s13-cta b{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1;
+  letter-spacing:-.01em;flex:none}
+.s13-cta .small{flex:1;border-left:1px solid rgba(40,203,211,.4);padding-left:20px;
+  font-size:11.4px;line-height:1.44;color:#b3b7b9}
+
+/* --- contacto --- */
+.s13-ct{display:grid;grid-template-columns:repeat(3,1fr)}
+.s13-ct div{padding:0 0 0 26px;border-left:1px solid var(--line-d)}
+.s13-ct div:first-child{padding-left:0;border-left:0}
+.s13-ct .v{display:block;margin-top:5px;font-family:var(--mono);font-size:13px;
+  font-weight:400;letter-spacing:.005em;color:#e9eaea}
+</style>
+<section class="slide s13">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">12</span><span>Próximo paso</span><i class="rule"></i><span>De la primera reunión a la primera decisión</span></div>
+    <div class="head">
+      <h2 class="display h-1">En 21 días tu campaña<br><span class="em">decide con evidencia propia.</span></h2>
+      <p class="lead">Sin reorganizar el equipo ni contratar gente nueva. Trabajamos con la estructura que ya funciona.</p>
+    </div>
+    <div class="stage">
+
+      <div class="s13-g">
+        <div class="s13-ov">
+          <i style="left:33.333%"></i><i style="left:66.667%"></i>
+          <span class="m21"></span>
+        </div>
+
+        <div class="s13-row s13-ax">
+          <span class="cap lb">Plan de 21 días</span>
+          <div class="tk">
+            <span class="cap" style="left:0">Día 1</span>
+            <span class="cap" style="left:33.333%;transform:translateX(-50%)">Día 7</span>
+            <span class="cap" style="left:66.667%;transform:translateX(-50%)">Día 14</span>
+            <span class="cap d21" style="right:0">Día 21</span>
+          </div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Inmersión</b><p class="small">Qué decisiones hay que tomar y con qué plazo</p></div>
+          <div class="tr"><div class="s13-bar" style="left:0;width:14.286%"><span class="cap">Día 1–3</span></div></div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Diseño</b><p class="small">Muestra, cuestionario, controles e historia del distrito</p></div>
+          <div class="tr"><div class="s13-bar" style="left:14.286%;width:33.333%"><span class="cap">Día 4–10</span></div></div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Campo</b><p class="small">Medición con monitoreo diario y validación</p></div>
+          <div class="tr"><div class="s13-bar" style="left:47.619%;width:33.333%"><span class="cap">Día 11–17</span></div></div>
+        </div>
+
+        <div class="s13-row s13-ph">
+          <div class="lb"><b>Primera decisión</b><p class="small">Informe, brief, mapa y NOMOS operativo</p></div>
+          <div class="tr"><div class="s13-bar last" style="left:80.952%;width:19.048%"><span class="cap">Día 18–21</span><span class="s13-dia"></span></div></div>
+        </div>
+
+        <div class="s13-row s13-mile">
+          <span class="cap">Cronograma de referencia · las fechas se ajustan al calendario de tu elección</span>
+          <span class="tr">Primera decisión con datos propios</span>
+        </div>
+      </div>
+
+      <div class="s13-cta">
+        <span class="mono k">Próximo paso</span>
+        <b>Solicitá tu reunión de diagnóstico</b>
+        <p class="small">45 minutos con tu equipo. Sin costo y sin compromiso: salís con las tres preguntas críticas de tu campaña ordenadas por urgencia.</p>
+      </div>
+
+      <!-- ⚠︎ EDITAR: reemplazar por los datos de contacto reales antes de enviar -->
+      <div class="s13-ct">
+        <div><span class="cap">Correo</span><span class="v">contacto@malaparteanalytica.com</span></div>
+        <div><span class="cap">Teléfono / WhatsApp</span><span class="v">+ ___ ___ ______</span></div>
+        <div><span class="cap">Sitio</span><span class="v">malaparteanalytica.com</span></div>
+      </div>
+
+    </div>
+    <div class="band"><span class="k">Costo de esperar</span><p class="t">Cuanto antes empieza la medición, <span class="em">más decisiones quedan disponibles.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Próximo paso</span><span class="bar"><i style="width:100%"></i></span><span>Cierre · 13 / 13</span></div>
+</section>
+
+</body>
+</html>

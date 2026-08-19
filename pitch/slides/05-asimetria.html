@@ -1,0 +1,135 @@
+<style>
+/* ---- LÁMINA 05 · La asimetría · dos trayectorias divergentes a 90 días ---- */
+.s05 .head{margin:15px 0 16px}
+.s05 .head .lead{max-width:420px}
+.s05 .topo.a{top:-54%;right:-19%;opacity:.15}
+
+.s05 .s05-plot{flex:1;min-height:0}
+
+/* pares de contraste bajo el gráfico */
+.s05 .s05-vs{border-top:1px solid var(--line-l);padding-top:9px;
+  display:flex;flex-direction:column;gap:5px}
+.s05 .s05-vs .cap{color:#6b7074}
+.s05 .s05-vs .small{display:flex;align-items:baseline;gap:9px;color:#3f4448;font-weight:400}
+.s05 .s05-vs .small i{flex:none;width:17px;height:1px;position:relative;top:-4px}
+.s05 .s05-vs .a i{background:repeating-linear-gradient(to right,
+  var(--alarm) 0 3px,transparent 3px 6px)}
+.s05 .s05-vs .b i{background:var(--cyan-deep)}
+.s05 .s05-vs .small u{text-decoration:none;font-family:var(--mono);font-size:7.2px;
+  font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8b9093;
+  width:46px;flex:none}
+
+/* --- SVG --- */
+.s05 .ax{fill:none;stroke:var(--line-l);stroke-width:1}
+.s05 .axd{fill:none;stroke:var(--line-l);stroke-width:1;stroke-dasharray:2 5}
+.s05 .la{fill:none;stroke:var(--alarm);stroke-width:1.5;stroke-dasharray:6 5;stroke-linecap:round}
+.s05 .lb{fill:none;stroke:var(--cyan-deep);stroke-width:1.5;stroke-linecap:round}
+.s05 .dotb{fill:var(--cyan-deep)}
+.s05 .halo{fill:none;stroke:var(--cyan-deep);stroke-width:1}
+.s05 .ring{fill:var(--paper);stroke:var(--grey-mid);stroke-width:1}
+.s05 .ringa{fill:var(--paper);stroke:var(--alarm);stroke-width:1.5}
+.s05 .cn{fill:none;stroke:var(--cyan-deep);stroke-width:1}
+.s05 .tk{fill:#5d6266;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase}
+.s05 .tk0{fill:#182022}
+.s05 .ttl{fill:#8b9093;font-family:var(--mono);font-size:7.2px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase}
+.s05 .ank{fill:var(--cyan-deep);font-family:var(--mono);font-size:8px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase}
+.s05 .anb{fill:#1c2426;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+.s05 .ana{fill:var(--alarm);font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+.s05 .lg{fill:#3f4448;font-family:var(--mono);font-size:8px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase}
+</style>
+<section class="slide paper s05">
+  <div class="topo a"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">04</span><span>La asimetría</span><i class="rule"></i><span>Mismo presupuesto, distinto rendimiento</span></div>
+    <div class="head">
+      <h2 class="display h-2">El que mide no es más inteligente.<br><span class="em">Llega antes.</span></h2>
+      <p class="lead">Dos campañas con el mismo presupuesto. La diferencia no está en cuánto gastan: está en cuándo se enteran.</p>
+    </div>
+    <div class="stage">
+      <div class="s05-plot">
+        <svg viewBox="0 0 1200 348" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Dos trayectorias de rendimiento por peso invertido a lo largo de 90 dias hasta la eleccion">
+
+          <!-- ejes -->
+          <path class="ax" d="M44 12 L44 310 L1046 310"/>
+          <path class="axd" d="M1046 12 L1046 306"/>
+          <path class="ax" d="M44 310 L44 315 M378 310 L378 315 M712 310 L712 315 M1046 310 L1046 315"/>
+          <text class="tk" x="44" y="326" text-anchor="middle">-90</text>
+          <text class="tk" x="378" y="326" text-anchor="middle">-60</text>
+          <text class="tk" x="712" y="326" text-anchor="middle">-30</text>
+          <text class="tk tk0" x="1046" y="326" text-anchor="middle">Día 0</text>
+          <text class="ttl" x="545" y="342" text-anchor="middle">Días hasta la elección</text>
+          <text class="ttl" transform="translate(16,161) rotate(-90)" text-anchor="middle">Rendimiento por peso invertido</text>
+
+          <!-- trayectoria A - campana que estima: arranca igual, se aplana, cae -->
+          <path class="la" d="M44 262 C120 255 195 248 267 246 C380 241 470 239 600 239
+                               C720 240 820 250 900 262 C960 271 1010 280 1046 285"/>
+
+          <!-- trayectoria B - campana que mide: cada medicion acelera la pendiente -->
+          <path class="lb" d="M44 262 C115 256 195 246 267 236 C360 223 450 210 534 196
+                               C645 178 740 155 823 130 C905 103 1000 56 1046 30"/>
+
+          <!-- arranque compartido -->
+          <circle class="ring" cx="44" cy="262" r="4"/>
+          <path class="ax" d="M44 268 L44 277 L54 277"/>
+          <text class="ttl" x="58" y="280">Mismo arranque</text>
+
+          <!-- hitos de la campana que mide -->
+          <path class="cn" d="M267 228 L267 207 M534 188 L534 167 M823 122 L823 101"/>
+          <circle class="dotb" cx="267" cy="236" r="4"/>
+          <circle class="dotb" cx="534" cy="196" r="4"/>
+          <circle class="dotb" cx="823" cy="130" r="4"/>
+          <text class="ank" x="267" y="189" text-anchor="middle">Ola 1</text>
+          <text class="anb" x="267" y="201" text-anchor="middle">Corrige territorio</text>
+          <text class="ank" x="534" y="149" text-anchor="middle">Flash poll</text>
+          <text class="anb" x="534" y="161" text-anchor="middle">Cambia el eje</text>
+          <text class="ank" x="823" y="83" text-anchor="middle">Tracking</text>
+          <text class="anb" x="823" y="95" text-anchor="middle">Reasigna pauta</text>
+
+          <!-- llegada de B -->
+          <circle class="halo" cx="1046" cy="30" r="8.5"/>
+          <circle class="dotb" cx="1046" cy="30" r="4"/>
+
+          <!-- llegada de A + anotacion en la calle derecha -->
+          <circle class="ringa" cx="1046" cy="285" r="4"/>
+          <text class="ana" x="1062" y="281">Descubre el problema</text>
+          <text class="ana" x="1062" y="293">en el resultado</text>
+
+          <!-- leyenda -->
+          <path class="la" d="M60 44 L92 44"/>
+          <text class="lg" x="102" y="47">Campaña que estima</text>
+          <path class="lb" d="M60 64 L92 64"/>
+          <circle class="dotb" cx="76" cy="64" r="4"/>
+          <text class="lg" x="102" y="67">Campaña que mide</text>
+        </svg>
+      </div>
+      <span class="cap">Ilustrativo · no es una proyección</span>
+      <div class="cols c3">
+        <div class="s05-vs">
+          <span class="cap">Presupuesto</span>
+          <p class="small a"><i></i><u>Estima</u>igual</p>
+          <p class="small b"><i></i><u>Mide</u>igual</p>
+        </div>
+        <div class="s05-vs">
+          <span class="cap">Cuándo detecta el problema</span>
+          <p class="small a"><i></i><u>Estima</u>en el resultado</p>
+          <p class="small b"><i></i><u>Mide</u>a los 30 días</p>
+        </div>
+        <div class="s05-vs">
+          <span class="cap">Qué queda después</span>
+          <p class="small a"><i></i><u>Estima</u>una hipótesis</p>
+          <p class="small b"><i></i><u>Mide</u>un sistema</p>
+        </div>
+      </div>
+    </div>
+    <div class="band"><span class="k">La verdad incómoda</span><p class="t">La ventaja no es tener más plata: es <span class="em">equivocarse menos veces con la misma plata.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · La asimetría</span><span class="bar"><i style="width:32%"></i></span><span>Urgencia · 05 / 13</span></div>
+</section>

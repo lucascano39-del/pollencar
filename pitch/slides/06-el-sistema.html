@@ -1,0 +1,108 @@
+<style>
+/* ---- LÁMINA 06 · El sistema · diagrama orbital de seis capacidades ---- */
+.s06 .head{margin:14px 0 14px}
+.s06 .head .lead{max-width:400px}
+.s06 .topo.a{top:-38%;right:-21%;opacity:.085}
+.s06 .glow{width:560px;height:560px;left:360px;top:76px}
+.s06 .stage{gap:10px}
+
+/* --- lienzo del orbital --- */
+.s06-orb{position:relative;height:380px;flex:none}
+.s06-orb > svg{position:absolute;inset:0}
+.s06-orb .cap{position:absolute;left:0;bottom:7px}
+
+/* --- trazos --- */
+.s06 .ring{fill:none;stroke:var(--line-d);stroke-width:1;stroke-dasharray:1.5 6.5;
+  stroke-linecap:round}
+.s06 .hub{fill:none;stroke:var(--line-d);stroke-width:1}
+.s06 .spk{fill:none;stroke:rgba(40,203,211,.36);stroke-width:1}
+.s06 .tick{fill:none;stroke:rgba(40,203,211,.34);stroke-width:1}
+.s06 .nd{fill:var(--black);stroke:var(--cyan);stroke-width:1.2}
+.s06 .ndc{fill:var(--cyan)}
+.s06 .mk{color:var(--white)}
+
+/* --- etiquetas de nodo --- */
+.s06-n{position:absolute;transform:translateY(calc(-50% - 2px));display:flex;flex-direction:column;
+  gap:3px;white-space:nowrap}
+.s06-n .mono{color:var(--cyan);font-size:8.4px;letter-spacing:.24em}
+.s06-n b{font-family:var(--serif);font-weight:400;font-size:17px;line-height:1.06;
+  letter-spacing:-.008em;color:var(--white)}
+.s06-n .small{font-size:11.2px;line-height:1.3}
+.s06-n.l{text-align:right}
+
+.s06-n.n1{right:746px;top:61.8px}
+.s06-n.n2{left:746px;top:61.8px}
+.s06-n.n3{left:890px;top:190px}
+.s06-n.n4{left:746px;top:318.2px}
+.s06-n.n5{right:746px;top:318.2px}
+.s06-n.n6{right:890px;top:190px}
+
+.s06 .cyc .s b{font-size:16.4px}
+</style>
+<section class="slide s06">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">05</span><span>La respuesta</span><i class="rule"></i><span>Seis capacidades, un solo sistema</span></div>
+    <div class="head">
+      <h2 class="display h-2">No vendemos encuestas.<br><span class="em">Instalamos capacidad de decisión.</span></h2>
+      <p class="lead">Las campañas compran research por un lado, historia por otro y redes por otro, y nadie junta las piezas.</p>
+    </div>
+    <div class="stage">
+      <div class="s06-orb">
+        <svg viewBox="0 0 1160 380" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Diagrama orbital: seis capacidades conectadas a un núcleo único">
+
+          <!-- anillo punteado -->
+          <ellipse class="ring" cx="580" cy="190" rx="288" ry="148"/>
+
+          <!-- radios hacia el núcleo -->
+          <path class="spk" d="M650 190 L855 190"/>
+          <path class="spk" d="M510 190 L305 190"/>
+          <path class="spk" d="M632.3 143.4 L714.3 70.4"/>
+          <path class="spk" d="M527.7 143.4 L445.7 70.4"/>
+          <path class="spk" d="M527.7 236.6 L445.7 309.6"/>
+          <path class="spk" d="M632.3 236.6 L714.3 309.6"/>
+
+          <!-- núcleo -->
+          <circle class="hub" cx="580" cy="190" r="60"/>
+          <g class="mk" transform="translate(541,151.5) scale(0.875)">
+            <g fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 25 43 11h33v51L53 77H20Z"/><path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/><ellipse cx="48" cy="48" rx="18" ry="12"/><circle cx="48" cy="48" r="5" fill="currentColor"/></g>
+          </g>
+
+          <!-- nodos -->
+          <circle class="nd" cx="436" cy="61.8" r="6.5"/><circle class="ndc" cx="436" cy="61.8" r="2.1"/>
+          <circle class="nd" cx="724" cy="61.8" r="6.5"/><circle class="ndc" cx="724" cy="61.8" r="2.1"/>
+          <circle class="nd" cx="868" cy="190" r="6.5"/><circle class="ndc" cx="868" cy="190" r="2.1"/>
+          <circle class="nd" cx="724" cy="318.2" r="6.5"/><circle class="ndc" cx="724" cy="318.2" r="2.1"/>
+          <circle class="nd" cx="436" cy="318.2" r="6.5"/><circle class="ndc" cx="436" cy="318.2" r="2.1"/>
+          <circle class="nd" cx="292" cy="190" r="6.5"/><circle class="ndc" cx="292" cy="190" r="2.1"/>
+
+          <!-- guías hacia las etiquetas -->
+          <path class="tick" d="M427 61.8 L419 61.8 M427 318.2 L419 318.2 M283 190 L275 190"/>
+          <path class="tick" d="M733 61.8 L741 61.8 M733 318.2 L741 318.2 M877 190 L885 190"/>
+        </svg>
+
+        <div class="s06-n l n1"><span class="mono">01</span><b>Research</b><span class="small">Informe + brief</span></div>
+        <div class="s06-n n2"><span class="mono">02</span><b>Medición CAWI</b><span class="small">Serie comparable</span></div>
+        <div class="s06-n n3"><span class="mono">03</span><b>Historia y territorio</b><span class="small">Atlas y escenarios</span></div>
+        <div class="s06-n n4"><span class="mono">04</span><b>Big Data</b><span class="small">Clusters y prioridades</span></div>
+        <div class="s06-n l n5"><span class="mono">05</span><b>NOMOS</b><span class="small">Consola única</span></div>
+        <div class="s06-n l n6"><span class="mono">06</span><b>War Room</b><span class="small">Contenido y respuesta</span></div>
+
+        <span class="cap">Esquema conceptual · no representa datos</span>
+      </div>
+      <div class="cyc">
+        <div class="s"><i>01</i><b>Medir</b></div>
+        <div class="s"><i>02</i><b>Entender</b></div>
+        <div class="s"><i>03</i><b>Segmentar</b></div>
+        <div class="s"><i>04</i><b>Decidir</b></div>
+        <div class="s"><i>05</i><b>Operar</b></div>
+        <div class="s"><i>06</i><b>Aprender</b></div>
+      </div>
+    </div>
+    <div class="band"><span class="k">La diferencia</span><p class="t">Una campaña ve fragmentos. <span class="em">Nosotros reconstruimos la imagen completa.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · El sistema</span><span class="bar"><i style="width:40%"></i></span><span>Capacidades · 06 / 13</span></div>
+</section>

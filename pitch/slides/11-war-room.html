@@ -1,0 +1,101 @@
+<style>
+/* ---- LÁMINA 11 · War Room · reloj de 24 h con ventana útil ---- */
+.s11 .head{margin:12px 0 14px}
+.s11 .head .lead{max-width:436px}
+.s11 .topo.a{top:-42%;right:-18%;opacity:.085}
+.s11 .glow{width:600px;height:600px;left:256px;top:39px;opacity:.9}
+.s11 .stage{gap:9px}
+
+/* --- lienzo del reloj (1160 x 372, mapeo 1:1 con el viewBox) --- */
+.s11-clk{position:relative;height:420px;flex:none}
+.s11-clk > svg{position:absolute;inset:0}
+
+/* --- trazos --- */
+.s11 .rg{fill:none;stroke:var(--line-d);stroke-width:1}
+.s11 .tk{fill:none;stroke:rgba(255,255,255,.17);stroke-width:1}
+.s11 .tkm{fill:none;stroke:rgba(255,255,255,.34);stroke-width:1}
+.s11 .arc{fill:none;stroke:var(--cyan);stroke-width:2.5}
+.s11 .ld{fill:none;stroke:rgba(40,203,211,.32);stroke-width:1}
+.s11 .hl{fill:var(--black)}
+.s11 .dt{fill:var(--cyan)}
+.s11 .arclab{font-family:var(--mono);font-size:8.2px;font-weight:600;letter-spacing:.26em;
+  fill:var(--cyan)}
+.s11 .alln{fill:none;stroke:var(--alarm-dim);stroke-width:1;stroke-dasharray:4 5}
+.s11 .alhd{fill:none;stroke:var(--alarm);stroke-width:1.1}
+.s11 .alx{fill:none;stroke:var(--alarm);stroke-width:1.4}
+
+/* --- centro --- */
+.s11-core{position:absolute;left:0;width:992px;text-align:center;
+  transform:translateY(-50%);top:171px}
+.s11-core b{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;
+  letter-spacing:-.014em;color:var(--white);display:block}
+
+/* --- horas de referencia --- */
+.s11-h{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;
+  letter-spacing:.14em;color:#7b8083}
+
+/* --- hitos --- */
+.s11-l{position:absolute;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px}
+.s11-l.r{left:680px;width:238px}
+.s11-l.l{left:0;width:292px;text-align:right}
+.s11-l .t{display:flex;align-items:baseline;gap:8px}
+.s11-l.l .t{justify-content:flex-end}
+.s11-l .t i{font-family:var(--mono);font-style:normal;font-size:8.4px;font-weight:600;
+  letter-spacing:.2em;color:var(--cyan);flex:none}
+.s11-l .t b{font-family:var(--serif);font-weight:400;font-size:17.5px;line-height:1.04;
+  letter-spacing:-.008em;color:var(--white)}
+.s11-l .small{font-size:11px;line-height:1.36;color:#9ca0a3}
+
+/* --- marca de ventana cerrada --- */
+.s11-al{position:absolute;left:921px;top:396px;transform:translateY(-50%);white-space:nowrap;
+  color:var(--alarm);letter-spacing:.19em}
+</style>
+<section class="slide s11">
+  <div class="topo a"></div>
+  <div class="glow"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">10</span><span>War Room digital</span><i class="rule"></i><span>Radar, decisión, producción, distribución, medición</span></div>
+    <div class="head">
+      <h2 class="display h-2">La ventana dura horas.<br><span class="em">La operación no puede tardar días.</span></h2>
+      <p class="lead">No administramos redes: construimos capacidad de combate comunicacional. Detectar, decidir, producir, distribuir y medir dentro del mismo día.</p>
+    </div>
+    <div class="stage">
+      <div class="s11-clk">
+        <svg viewBox="0 0 1160 420" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Reloj de 24 horas: arco cyan de 07:00 a 19:00 con cinco hitos del ciclo operativo">
+          <!-- marcas horarias -->
+          <g class="tk"><path d="M533.8 30.0L531.2 39.6"/><path d="M569.0 44.6L564.0 53.2"/><path d="M599.2 67.8L592.2 74.8"/><path d="M622.4 98.0L613.8 103.0"/><path d="M637.0 133.2L627.4 135.8"/><path d="M637.0 208.8L627.4 206.2"/><path d="M622.4 244.0L613.8 239.0"/><path d="M599.2 274.2L592.2 267.2"/><path d="M569.0 297.4L564.0 288.8"/><path d="M533.8 312.0L531.2 302.4"/><path d="M458.2 312.0L460.8 302.4"/><path d="M423.0 297.4L428.0 288.8"/><path d="M392.8 274.2L399.8 267.2"/><path d="M369.6 244.0L378.2 239.0"/><path d="M355.0 208.8L364.6 206.2"/><path d="M355.0 133.2L364.6 135.8"/><path d="M369.6 98.0L378.2 103.0"/><path d="M392.8 67.8L399.8 74.8"/><path d="M423.0 44.6L428.0 53.2"/><path d="M458.2 30.0L460.8 39.6"/></g>
+          <g class="tkm"><path d="M496.0 25.0L496.0 45.0"/><path d="M642.0 171.0L622.0 171.0"/><path d="M496.0 317.0L496.0 297.0"/><path d="M350.0 171.0L370.0 171.0"/></g>
+          <circle class="rg" cx="496.0" cy="171.0" r="146.0"/>
+          <!-- ventana útil 07:00 - 19:00 -->
+          <path class="arc" d="M637.0 208.8A146.0 146.0 0 0 1 355.0 133.2"/>
+          <path id="s11arc" d="M382.0 140.5A118 118 0 0 0 610.0 201.5" fill="none"/>
+          <text class="arclab"><textPath href="#s11arc" startOffset="50%" text-anchor="middle">VENTANA ÚTIL</textPath></text>
+          <!-- guías -->
+          <g><path class="ld" d="M642.8 210.3L664.1 216.0L672.0 216.0"/><path class="ld" d="M603.5 278.5L619.0 294.0L672.0 294.0"/><path class="ld" d="M535.3 317.8L541.0 339.1L672.0 344.0"/><path class="ld" d="M420.0 302.6L409.0 321.7L300.0 322.0"/><path class="ld" d="M349.2 131.7L327.9 126.0L300.0 126.0"/></g>
+          <!-- hitos -->
+          <g><circle class="hl" cx="637.0" cy="208.8" r="7"/><circle class="dt" cx="637.0" cy="208.8" r="4"/><circle class="hl" cx="599.2" cy="274.2" r="7"/><circle class="dt" cx="599.2" cy="274.2" r="4"/><circle class="hl" cx="533.8" cy="312.0" r="7"/><circle class="dt" cx="533.8" cy="312.0" r="4"/><circle class="hl" cx="423.0" cy="297.4" r="7"/><circle class="dt" cx="423.0" cy="297.4" r="4"/><circle class="hl" cx="355.0" cy="133.2" r="7"/><circle class="dt" cx="355.0" cy="133.2" r="4"/></g>
+          <!-- la ventana ya cerró -->
+          <path class="alln" d="M477.4 348Q696 397.6 869 396"/>
+          <path class="alhd" d="M866.5 389.9L878.6 396.1L866.3 402.3"/>
+          <path class="alx" d="M896 389.8L908.4 402.2M908.4 389.8L896 402.2"/>
+        </svg>
+        <div class="s11-core"><b>El mismo día</b></div>
+        <span class="cap s11-h" style="left:496.0px;top:9px">00</span>
+        <span class="cap s11-h" style="left:660.0px;top:171.0px">06</span>
+        <span class="cap s11-h" style="left:496.0px;top:335.0px">12</span>
+        <span class="cap s11-h" style="left:332.0px;top:171.0px">18</span>
+      <div class="s11-l r" style="top:216.0px"><span class="t"><i>07:00</i><b>Radar</b></span><p class="small">el tema aparece y se prioriza</p></div>
+      <div class="s11-l r" style="top:294.0px"><span class="t"><i>09:00</i><b>Decisión</b></span><p class="small">actuar, amplificar, responder o ignorar</p></div>
+      <div class="s11-l r" style="top:344.0px"><span class="t"><i>11:00</i><b>Producción</b></span><p class="small">pieza con ficha estratégica</p></div>
+      <div class="s11-l l" style="top:322.0px"><span class="t"><i>14:00</i><b>Distribución</b></span><p class="small">orgánico, aliados y pauta</p></div>
+      <div class="s11-l l" style="top:126.0px"><span class="t"><i>19:00</i><b>Medición</b></span><p class="small">impacto, aprendizaje y ajuste</p></div>
+        <span class="mono s11-al">+48 h · la ventana ya cerró</span>
+      </div>
+      <span class="cap">Esquema ilustrativo · ritmo típico de una ventana de oportunidad</span>
+    </div>
+    <div class="band"><span class="k">Lo que sí y lo que no</span><p class="t">Velocidad, coordinación y disciplina. <span class="em">Sin bots, sin identidades falsas, sin desinformación.</span></p></div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · War Room</span><span class="bar"><i style="width:80%"></i></span><span>Operación · 11 / 13</span></div>
+</section>
