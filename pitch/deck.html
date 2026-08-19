@@ -1,0 +1,1539 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Malaparte Analytica · Capacidades · Opinión Pública e Inteligencia Electoral</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* ============================================================
+   MALAPARTE ANALYTICA — DECK DE CAPACIDADES (versión imprimible)
+   Página: 1280 x 720 px = 13.333in x 7.5in @96dpi (16:9)
+   ============================================================ */
+:root{
+  --black:#000;
+  --ink-deep:#07080a;
+  --ink:#0c0d0e;
+  --paper:#f2f1ed;
+  --paper-deep:#e7e5df;
+  --white:#f7f7f4;
+  --grey:#9a9ea1;
+  --grey-mid:#6f7478;
+  --grey-dark:#54595d;
+  --cyan:#28cbd3;
+  --cyan-deep:#0e8f97;
+  --alarm:#d8452c;
+  --line-d:rgba(255,255,255,.15);
+  --line-d-soft:rgba(255,255,255,.085);
+  --line-l:rgba(12,13,14,.16);
+  --line-l-soft:rgba(12,13,14,.085);
+  --sans:'Inter','Liberation Sans',Arial,sans-serif;
+  --serif:'Instrument Serif','Liberation Serif',Georgia,serif;
+  --mono:'IBM Plex Mono','Liberation Mono',monospace;
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;padding:0;background:#1b1c1e}
+body{font-family:var(--sans);font-weight:400;color:var(--white);
+  -webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+@page{size:1280px 720px;margin:0}
+
+.slide{
+  position:relative;width:1280px;height:720px;overflow:hidden;
+  page-break-after:always;break-after:page;background:var(--black);
+}
+.slide:last-child{page-break-after:auto;break-after:auto}
+.slide.paper{background:var(--paper);color:var(--ink)}
+.pad{position:relative;z-index:5;height:100%;padding:52px 68px 62px;display:flex;flex-direction:column}
+
+/* ---------- chrome ---------- */
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:8.6px;
+  font-weight:600;letter-spacing:.235em;text-transform:uppercase;color:#8d9295}
+.paper .eyebrow{color:#6b7074}
+.eyebrow .n{color:var(--cyan);font-weight:600}
+.paper .eyebrow .n{color:var(--cyan-deep)}
+.eyebrow .rule{flex:1;height:1px;background:var(--line-d)}
+.paper .eyebrow .rule{background:var(--line-l)}
+.eyebrow .tag{padding:5px 9px;border:1px solid var(--line-d);font-size:7.6px;letter-spacing:.18em;color:#a7abae}
+.paper .eyebrow .tag{border-color:var(--line-l);color:#5d6266}
+
+.foot{position:absolute;left:68px;right:68px;bottom:22px;z-index:6;display:grid;
+  grid-template-columns:1fr 64px auto;align-items:center;gap:20px;
+  font-family:var(--mono);font-size:7.2px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:#6a6f72}
+.paper .foot{color:#8b8f92}
+.bar{display:block;width:64px;height:3px;overflow:hidden;background:rgba(255,255,255,.14)}
+.paper .bar{background:rgba(12,13,14,.13)}
+.bar i{display:block;height:100%;background:var(--cyan)}
+.paper .bar i{background:var(--cyan-deep)}
+
+/* crop marks */
+.crop{position:absolute;z-index:7;width:9px;height:9px;border:0 solid rgba(255,255,255,.28)}
+.paper .crop{border-color:rgba(12,13,14,.22)}
+.crop.tl{top:26px;left:30px;border-top-width:1px;border-left-width:1px}
+.crop.tr{top:26px;right:30px;border-top-width:1px;border-right-width:1px}
+.crop.bl{bottom:26px;left:30px;border-bottom-width:1px;border-left-width:1px}
+.crop.br{bottom:26px;right:30px;border-bottom-width:1px;border-right-width:1px}
+
+/* ---------- decor ---------- */
+.topo{position:absolute;z-index:1;pointer-events:none;opacity:.5;
+  background:repeating-radial-gradient(at 52% 48%,transparent 0,transparent 52px,
+    rgba(255,255,255,.13) 53px,rgba(255,255,255,.13) 54px,transparent 55px,transparent 106px);
+  -webkit-mask-image:linear-gradient(105deg,transparent,#000 42%,#000);
+  mask-image:linear-gradient(105deg,transparent,#000 42%,#000)}
+.paper .topo{background:repeating-radial-gradient(at 52% 48%,transparent 0,transparent 52px,
+    rgba(12,13,14,.13) 53px,rgba(12,13,14,.13) 54px,transparent 55px,transparent 106px);opacity:.4}
+.topo.a{top:-26%;right:-10%;width:760px;height:940px;transform:rotate(-9deg)}
+.topo.b{bottom:-42%;left:-14%;width:600px;height:760px;transform:rotate(12deg);opacity:.3}
+.gridlines{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(90deg,var(--line-d-soft) 1px,transparent 1px);
+  background-size:106.66px 100%}
+.paper .gridlines{background-image:linear-gradient(90deg,var(--line-l-soft) 1px,transparent 1px)}
+.glow{position:absolute;z-index:1;width:720px;height:720px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(40,203,211,.14),rgba(40,203,211,0) 66%)}
+
+/* ---------- brand mark ---------- */
+.mark{color:var(--white);display:block}
+.paper .mark{color:var(--ink)}
+.mark svg{display:block;width:100%;height:100%;overflow:visible}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4,p{margin:0}
+.display{font-family:var(--serif);font-weight:400;letter-spacing:-.014em;line-height:.99}
+.h-cover{font-size:70px}
+.h-1{font-size:53px;line-height:1.01}
+.h-2{font-size:44px;line-height:1.03}
+.h-3{font-size:34px;line-height:1.06}
+.em{color:var(--cyan)}
+.paper .em{color:var(--cyan-deep)}
+.em-alarm{color:var(--alarm)}
+.it{font-style:italic}
+.lead{font-family:var(--sans);font-weight:300;font-size:16.4px;line-height:1.52;color:#b9bdbf;max-width:760px}
+.paper .lead{color:#43484c}
+.lead strong{font-weight:600;color:var(--white)}
+.paper .lead strong{color:var(--ink)}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;font-size:8.4px;font-weight:600}
+.kicker{font-family:var(--mono);font-size:8.6px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+.paper .kicker{color:var(--cyan-deep)}
+.small{font-size:12.1px;line-height:1.5;color:#a5a9ac;font-weight:300}
+.paper .small{color:#4d5256}
+.hair{height:1px;background:var(--line-d);border:0}
+.paper .hair{background:var(--line-l)}
+
+/* ---------- generic layout helpers ---------- */
+.body{flex:1;display:flex;flex-direction:column;min-height:0}
+.center{justify-content:center}
+.row{display:flex}
+.between{justify-content:space-between}
+.spacer{flex:1}
+.cols{display:grid;gap:16px}
+.c2{grid-template-columns:repeat(2,1fr)}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+.c5{grid-template-columns:repeat(5,1fr)}
+.c6{grid-template-columns:repeat(6,1fr)}
+
+/* ---------- cards ---------- */
+.card{position:relative;border:1px solid var(--line-d);background:rgba(255,255,255,.022);
+  padding:17px 17px 16px;display:flex;flex-direction:column;gap:8px;min-height:0}
+.paper .card{border-color:var(--line-l);background:rgba(255,255,255,.5)}
+.card .idx{font-family:var(--mono);font-size:8.2px;font-weight:600;letter-spacing:.2em;color:var(--cyan)}
+.paper .card .idx{color:var(--cyan-deep)}
+.card h4{font-family:var(--serif);font-weight:400;font-size:23px;line-height:1.06;letter-spacing:-.01em}
+.card p{font-size:11.6px;line-height:1.5;color:#a4a8ab;font-weight:300}
+.paper .card p{color:#4e5357}
+.card.accent{border-color:rgba(40,203,211,.5);background:rgba(40,203,211,.06)}
+.paper .card.accent{border-color:rgba(14,143,151,.45);background:rgba(40,203,211,.09)}
+.card.alarm{border-color:rgba(216,69,44,.45);background:rgba(216,69,44,.055)}
+.card .tick{position:absolute;top:-1px;left:-1px;width:22px;height:2px;background:var(--cyan)}
+.paper .card .tick{background:var(--cyan-deep)}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  padding:6px 9px;border:1px solid var(--line-d);color:#9ea2a5}
+.paper .chip{border-color:var(--line-l);color:#5a5f63}
+.chip.on{border-color:rgba(40,203,211,.55);color:var(--cyan)}
+.paper .chip.on{border-color:rgba(14,143,151,.5);color:var(--cyan-deep)}
+
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.list li{position:relative;padding-left:15px;font-size:11.5px;line-height:1.45;color:#a4a8ab;font-weight:300}
+.paper .list li{color:#4e5357}
+.list li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:1px;background:var(--cyan)}
+.paper .list li::before{background:var(--cyan-deep)}
+
+/* ---------- ledger rows ---------- */
+.ledger{display:flex;flex-direction:column;border-top:1px solid var(--line-d)}
+.paper .ledger{border-color:var(--line-l)}
+.ledger .lr{display:grid;align-items:center;gap:18px;padding:11px 2px;border-bottom:1px solid var(--line-d-soft);flex:1 1 auto}
+.paper .ledger .lr{border-color:var(--line-l-soft)}
+.ledger .lr .q{font-family:var(--serif);font-size:19px;line-height:1.12}
+.ledger .lr .a{font-size:11.3px;line-height:1.42;color:#a4a8ab;font-weight:300}
+.paper .ledger .lr .a{color:#4e5357}
+.ledger .lr .k{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--cyan)}
+.paper .ledger .lr .k{color:var(--cyan-deep)}
+
+/* ---------- big stat ---------- */
+.stat{display:flex;flex-direction:column;gap:5px}
+.stat b{font-family:var(--serif);font-weight:400;font-size:62px;line-height:.92;letter-spacing:-.02em}
+.stat .u{font-family:var(--mono);font-size:7.8px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#8f9497}
+.paper .stat .u{color:#6b7074}
+.stat .d{font-size:11.4px;line-height:1.45;color:#a4a8ab;font-weight:300}
+.paper .stat .d{color:#4e5357}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:6px}
+.tl .seg{position:relative;padding:26px 14px 0 0}
+.tl .axis{position:absolute;left:0;right:0;top:12px;height:1px;background:var(--line-d)}
+.paper .tl .axis{background:var(--line-l)}
+.tl .seg::before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%;
+  background:var(--black);border:1px solid var(--cyan)}
+.paper .tl .seg::before{background:var(--paper);border-color:var(--cyan-deep)}
+.tl .seg.hot::before{background:var(--alarm);border-color:var(--alarm)}
+.tl .d{font-family:var(--mono);font-size:8.4px;font-weight:600;letter-spacing:.16em;color:var(--cyan);margin-bottom:7px}
+.paper .tl .d{color:var(--cyan-deep)}
+.tl .seg.hot .d{color:var(--alarm)}
+.tl h5{margin:0 0 6px;font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.1}
+.tl p{font-size:10.6px;line-height:1.42;color:#9ea2a5;font-weight:300;padding-right:6px}
+.paper .tl p{color:#53585c}
+
+/* ---------- versus ---------- */
+.vs{display:grid;grid-template-columns:1fr 44px 1fr;align-items:stretch;gap:0}
+.vs .side{padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+.vs .side.l{border:1px solid rgba(216,69,44,.4);background:rgba(216,69,44,.05)}
+.vs .side.r{border:1px solid rgba(40,203,211,.5);background:rgba(40,203,211,.06)}
+.vs .mid{position:relative;display:flex;align-items:center;justify-content:center}
+.vs .mid::before{content:"";position:absolute;top:12px;bottom:12px;left:50%;width:1px;
+  background:var(--line-d)}
+.paper .vs .mid::before{background:var(--line-l)}
+.vs .mid b{position:relative;z-index:2;font-family:var(--mono);font-size:7.6px;font-weight:600;
+  letter-spacing:.14em;color:#8d9295;background:var(--black);padding:7px 0;width:30px;text-align:center;
+  border:1px solid var(--line-d);border-radius:99px}
+.paper .vs .mid b{color:#6b7074;background:var(--paper);border-color:var(--line-l)}
+.vs h5{margin:0;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05}
+.vs .lbl{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.vs .side.l .lbl{color:var(--alarm)}
+.vs .side.r .lbl{color:var(--cyan)}
+.paper .vs .side.r .lbl{color:var(--cyan-deep)}
+
+/* ---------- flow ---------- */
+.flow{display:flex;align-items:stretch;gap:0;border:1px solid var(--line-d)}
+.paper .flow{border-color:var(--line-l)}
+.flow .st{flex:1;padding:14px 15px;border-right:1px solid var(--line-d-soft);display:flex;flex-direction:column;gap:6px}
+.paper .flow .st{border-color:var(--line-l-soft)}
+.flow .st:last-child{border-right:0}
+.flow .st .n{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.2em;color:var(--cyan)}
+.paper .flow .st .n{color:var(--cyan-deep)}
+.flow .st h6{margin:0;font-family:var(--serif);font-weight:400;font-size:18px;line-height:1.08}
+.flow .st p{font-size:10.4px;line-height:1.4;color:#9ea2a5;font-weight:300}
+.paper .flow .st p{color:#53585c}
+
+/* ---------- quote / statement band ---------- */
+.band{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:18px 0;
+  display:flex;align-items:center;gap:22px}
+.paper .band{border-color:var(--line-l)}
+.band .t{font-family:var(--serif);font-size:25px;line-height:1.14;flex:1}
+.band .k{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cyan);width:118px;flex:none}
+.paper .band .k{color:var(--cyan-deep)}
+
+/* ---------- ghost numeral inside cards ---------- */
+.card .ghost{margin-top:auto;align-self:flex-end;font-family:var(--serif);font-size:46px;line-height:.8;
+  color:rgba(255,255,255,.075);letter-spacing:-.03em}
+.paper .card .ghost{color:rgba(12,13,14,.075)}
+.nb{white-space:nowrap}
+.watermark{position:absolute;z-index:2;pointer-events:none;color:#fff;opacity:.045}
+.paper .watermark{color:var(--ink);opacity:.05}
+.watermark svg{width:100%;height:100%;display:block}
+
+/* ---------- urgency ramp ---------- */
+.ramp{display:grid;grid-template-columns:repeat(6,1fr);align-items:end;gap:0;height:104px;
+  border-bottom:1px solid var(--line-d);margin-top:4px}
+.paper .ramp{border-color:var(--line-l)}
+.ramp .b{margin-right:16px;border-radius:3px 3px 0 0;position:relative}
+.ramp .b span{position:absolute;left:0;top:-14px;font-family:var(--mono);font-size:7px;
+  font-weight:600;letter-spacing:.14em;color:#83888b}
+.paper .ramp .b span{color:#6f7478}
+
+
+/* ---------- compact cards & schematic ---------- */
+.card.lg{padding:19px 19px 17px;gap:10px}
+.card.lg h4{font-size:26px}
+.card.lg p{font-size:12.7px;line-height:1.55}
+.card.lg .list li{font-size:12.5px;line-height:1.5;padding-left:16px}
+.card.lg .list{gap:7px}
+.card.lg .deliver{font-size:7.4px;line-height:1.8;padding-top:11px}
+.card.sm{padding:13px 14px 12px;gap:6px}
+.card.sm h4{font-size:18px}
+.card.sm p{font-size:10.4px;line-height:1.42}
+.card.sm .idx{font-size:7.4px}
+.card .deliver{margin-top:auto;padding-top:9px;border-top:1px solid var(--line-d-soft);
+  font-family:var(--mono);font-size:7px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:#83888b;line-height:1.7}
+.paper .card .deliver{border-color:var(--line-l-soft);color:#6f7478}
+.card .deliver b{color:var(--cyan);font-weight:600}
+.paper .card .deliver b{color:var(--cyan-deep)}
+
+.schema{display:grid;grid-template-columns:1fr 250px 1fr;gap:0;align-items:stretch}
+.schema .col{display:flex;flex-direction:column;gap:9px;justify-content:center}
+.schema .node{border:1px solid var(--line-d);padding:11px 13px;display:flex;gap:11px;align-items:baseline}
+.paper .schema .node{border-color:var(--line-l);background:rgba(255,255,255,.45)}
+.schema .node i{font-family:var(--mono);font-style:normal;font-size:7.4px;font-weight:600;
+  letter-spacing:.18em;color:var(--cyan);flex:none;width:16px}
+.paper .schema .node i{color:var(--cyan-deep)}
+.schema .node b{font-family:var(--serif);font-weight:400;font-size:17px;line-height:1.1;display:block}
+.schema .node p{font-size:10.2px;line-height:1.4;color:#989c9f;font-weight:300;margin-top:3px}
+.paper .schema .node p{color:#53585c}
+.schema .hub{margin:0 22px;border:1px solid rgba(40,203,211,.55);background:rgba(40,203,211,.07);
+  display:flex;flex-direction:column;justify-content:center;gap:11px;padding:20px 20px;text-align:center;
+  position:relative}
+.paper .schema .hub{border-color:rgba(14,143,151,.5);background:rgba(40,203,211,.1)}
+.schema .hub::before,.schema .hub::after{content:"";position:absolute;top:50%;width:22px;height:1px;
+  background:rgba(40,203,211,.5)}
+.schema .hub::before{left:-22px}.schema .hub::after{right:-22px}
+.schema .hub h5{margin:0;font-family:var(--serif);font-weight:400;font-size:32px;line-height:1;letter-spacing:.02em}
+.schema .hub p{font-size:10.6px;line-height:1.45;color:#b3b7b9;font-weight:300}
+.paper .schema .hub p{color:#454a4e}
+.cyc{display:flex;align-items:center;gap:0;border:1px solid var(--line-d)}
+.paper .cyc{border-color:var(--line-l)}
+.cyc .s{flex:1;padding:11px 14px;display:flex;align-items:baseline;gap:9px;
+  border-right:1px solid var(--line-d-soft)}
+.paper .cyc .s{border-color:var(--line-l-soft)}
+.cyc .s:last-child{border-right:0}
+.cyc .s i{font-family:var(--mono);font-style:normal;font-size:7.2px;font-weight:600;letter-spacing:.16em;color:var(--cyan)}
+.paper .cyc .s i{color:var(--cyan-deep)}
+.cyc .s b{font-family:var(--serif);font-weight:400;font-size:17.5px}
+
+
+/* ---------- resolution ladder ---------- */
+.lad{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line-d)}
+.paper .lad{border-color:var(--line-l)}
+.lad .z{border-right:1px solid var(--line-d-soft);padding:11px 13px;display:flex;flex-direction:column;gap:7px}
+.paper .lad .z{border-color:var(--line-l-soft)}
+.lad .z:last-child{border-right:0}
+.lad .z .t{font-family:var(--mono);font-size:7.2px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#83888b}
+.paper .lad .z .t{color:#6f7478}
+.lad .z.on .t{color:var(--cyan)}
+.paper .lad .z.on .t{color:var(--cyan-deep)}
+.lad .z .f{flex:1;background-repeat:repeat;
+  background-image:radial-gradient(circle at 50% 50%,rgba(255,255,255,.34) 1.1px,transparent 1.2px)}
+.paper .lad .z .f{background-image:radial-gradient(circle at 50% 50%,rgba(12,13,14,.34) 1.1px,transparent 1.2px)}
+.lad .z.on .f{background-image:radial-gradient(circle at 50% 50%,rgba(40,203,211,.85) 1.3px,transparent 1.4px)}
+.paper .lad .z.on .f{background-image:radial-gradient(circle at 50% 50%,rgba(14,143,151,.85) 1.3px,transparent 1.4px)}
+
+/* ---------- week strip ---------- */
+.week{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line-d);
+  border-bottom:1px solid var(--line-d)}
+.paper .week{border-color:var(--line-l)}
+.week .d{padding:15px 15px 15px 0;border-right:1px solid var(--line-d-soft);display:flex;flex-direction:column;gap:7px}
+.paper .week .d{border-color:var(--line-l-soft)}
+.week .d:last-child{border-right:0}
+.week .d>span:first-child{font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cyan)}
+.paper .week .d>span:first-child{color:var(--cyan-deep)}
+.week .d h5{margin:0;font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.08}
+.week .d .dw{margin-top:auto;padding-top:10px;border-top:1px solid var(--line-d-soft);
+  font-family:var(--mono);font-size:6.8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#83888b}
+.paper .week .d .dw{border-color:var(--line-l-soft);color:#6f7478}
+.week .d p{font-size:10.4px;line-height:1.42;color:#9ea2a5;font-weight:300;padding-right:10px}
+.paper .week .d p{color:#53585c}
+
+/* ---------- package cards ---------- */
+.pack{position:relative;border:1px solid var(--line-d);padding:18px 17px 16px;display:flex;
+  flex-direction:column;gap:9px;background:rgba(255,255,255,.022)}
+.paper .pack{border-color:var(--line-l);background:rgba(255,255,255,.5)}
+.pack.reco{border-color:rgba(40,203,211,.6);background:rgba(40,203,211,.07)}
+.paper .pack.reco{border-color:rgba(14,143,151,.55);background:rgba(40,203,211,.1)}
+.pack .rib{position:absolute;top:-1px;right:-1px;font-family:var(--mono);font-size:6.8px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;background:var(--cyan);color:#04191a;padding:4px 8px}
+.pack .n{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+.paper .pack .n{color:var(--cyan-deep)}
+.pack h4{margin:0;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.03}
+.pack .who{font-size:10.8px;line-height:1.45;color:#a4a8ab;font-weight:300}
+.paper .pack .who{color:#4e5357}
+.pack .inc{margin-top:auto;padding-top:10px;border-top:1px solid var(--line-d-soft);
+  font-family:var(--mono);font-size:7px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:#8b9093;line-height:1.75}
+.paper .pack .inc{border-color:var(--line-l-soft);color:#6b7074}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line-d)}
+.paper .steps{border-color:var(--line-l)}
+.steps .sp{padding:17px 17px;border-right:1px solid var(--line-d-soft);display:flex;flex-direction:column;gap:8px}
+.paper .steps .sp{border-color:var(--line-l-soft)}
+.steps .sp:last-child{border-right:0}
+.steps .sp .n{font-family:var(--serif);font-size:34px;line-height:.9;color:rgba(255,255,255,.2)}
+.paper .steps .sp .n{color:rgba(12,13,14,.2)}
+.steps .sp.on .n{color:var(--cyan)}
+.paper .steps .sp.on .n{color:var(--cyan-deep)}
+.steps .sp h5{margin:0;font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.06}
+.steps .sp p{font-size:10.6px;line-height:1.45;color:#9ea2a5;font-weight:300}
+.paper .steps .sp p{color:#53585c}
+.steps .sp .w{font-family:var(--mono);font-size:7px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cyan);margin-top:auto;padding-top:8px}
+.paper .steps .sp .w{color:var(--cyan-deep)}
+
+
+/* ---------- two paths ---------- */
+.paths{display:grid;grid-template-columns:132px repeat(4,1fr);border:1px solid var(--line-d);align-content:center}
+.paper .paths{border-color:var(--line-l)}
+.paths>div{padding:12px 14px;border-right:1px solid var(--line-d-soft);border-bottom:1px solid var(--line-d-soft)}
+.paper .paths>div{border-color:var(--line-l-soft)}
+.paths>div:nth-child(5n){border-right:0}
+.paths .hd{font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:#83888b}
+.paper .paths .hd{color:#6f7478}
+.paths .lb{display:flex;flex-direction:column;gap:4px}
+.paths .lb b{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.05}
+.paths .lb span{font-family:var(--mono);font-size:6.8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.paths .rowA{background:rgba(216,69,44,.05)}
+.paths .rowA .lb span{color:var(--alarm)}
+.paths .rowB{background:rgba(40,203,211,.06)}
+.paths .rowB .lb span{color:var(--cyan)}
+.paper .paths .rowB .lb span{color:var(--cyan-deep)}
+.paths p{font-size:10.4px;line-height:1.42;color:#a4a8ab;font-weight:300;margin:0}
+.paper .paths p{color:#4e5357}
+.paths .rowA:last-child,.paths .rowB:last-child{border-bottom:0}
+
+/* ---------- CTA block ---------- */
+.cta{display:flex;align-items:center;gap:14px;border:1px solid var(--cyan);padding:15px 22px;
+  background:rgba(40,203,211,.09)}
+.cta b{font-family:var(--serif);font-weight:400;font-size:24px}
+.cta span{font-family:var(--mono);font-size:7.4px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--cyan)}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-d)}
+.paper .contact{border-color:var(--line-l)}
+.contact>div{padding:14px 20px 0 0}
+.contact .l{font-family:var(--mono);font-size:7px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:#7c8184;display:block;margin-bottom:6px}
+.contact .v{font-family:var(--sans);font-size:14px;font-weight:400}
+
+/* ---------- matrix grid (grilla maestra) ---------- */
+.matrix{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line-d);
+  border-top:1px solid var(--line-d)}
+.paper .matrix{border-color:var(--line-l)}
+.matrix .cell{border-right:1px solid var(--line-d);border-bottom:1px solid var(--line-d);
+  padding:14px 15px 13px;display:flex;flex-direction:column;gap:6px;min-height:0}
+.paper .matrix .cell{border-color:var(--line-l)}
+.matrix .cell .n{font-family:var(--mono);font-size:7.6px;font-weight:600;letter-spacing:.2em;color:#7f8487}
+.paper .matrix .cell .n{color:#82878b}
+.matrix .cell h5{margin:0;font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.06}
+.matrix .cell p{font-size:10.3px;line-height:1.4;color:#989c9f;font-weight:300}
+.paper .matrix .cell p{color:#53585c}
+.matrix .cell .pg{font-family:var(--mono);font-size:7.2px;letter-spacing:.16em;color:var(--cyan);margin-top:auto}
+.paper .matrix .cell .pg{color:var(--cyan-deep)}
+.matrix .cell.dim{background:rgba(255,255,255,.02)}
+.paper .matrix .cell.dim{background:rgba(255,255,255,.45)}
+</style>
+</head>
+<body>
+
+<!-- ============ 01 · PORTADA ============ -->
+<section class="slide">
+  <div class="topo a"></div>
+  <div class="topo b"></div>
+  <div class="glow" style="top:-320px;left:-260px"></div>
+  <div class="watermark" style="width:470px;height:470px;right:-96px;bottom:-108px">
+    <svg viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M20 25 43 11h33v51L53 77H20Z"/>
+      <path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/>
+      <ellipse cx="48" cy="48" rx="18" ry="12"/><circle cx="48" cy="48" r="5" fill="currentColor"/>
+    </g></svg></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow">
+      <span>Malaparte Analytica</span><i class="rule"></i>
+      <span>Research · Data · Political Intelligence</span>
+      <span class="tag">Capacidades · Documento confidencial</span>
+    </div>
+    <div class="body center" style="gap:24px;padding-bottom:14px">
+      <div class="mark" style="width:82px;height:82px">
+        <svg viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M20 25 43 11h33v51L53 77H20Z"/>
+          <path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/>
+          <ellipse cx="48" cy="48" rx="18" ry="12"/>
+          <circle cx="48" cy="48" r="5" fill="currentColor"/>
+        </g></svg>
+      </div>
+      <h1 class="display h-cover" style="max-width:1140px">
+        <span class="nb">No adivinamos qué piensa la gente.</span><br>
+        <span class="em it">Lo medimos.</span> Lo explicamos.<br>
+        Lo convertimos en ventaja.
+      </h1>
+      <p class="lead" style="max-width:700px">
+        Investigación de opinión pública, medición digital, inteligencia histórico-estadística,
+        Big&nbsp;Data y operación digital para campañas que necesitan
+        <strong>comprender mejor, decidir antes y ejecutar con precisión</strong>.
+      </p>
+    </div>
+    <div class="cols c4" style="gap:0;border-top:1px solid var(--line-d);padding-top:16px">
+      <div><div class="kicker">Research</div><div class="small" style="margin-top:5px">Estudios a medida</div></div>
+      <div><div class="kicker">Medición</div><div class="small" style="margin-top:5px">CAWI + multimodo</div></div>
+      <div><div class="kicker">Inteligencia</div><div class="small" style="margin-top:5px">Historia + Big Data</div></div>
+      <div><div class="kicker">Operación</div><div class="small" style="margin-top:5px">War Room continuo</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Opinión pública e inteligencia electoral</span>
+    <span class="bar"><i style="width:4%"></i></span><span>Portada · 01 / 26</span></div>
+</section>
+
+<!-- ============ 02 · GRILLA MAESTRA ============ -->
+<section class="slide paper">
+  <div class="topo a" style="opacity:.22"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad" style="padding-bottom:56px">
+    <div class="eyebrow"><span class="n">00</span><span>Grilla de capacidades</span><i class="rule"></i>
+      <span>Una puerta de entrada o el sistema completo</span></div>
+    <div class="row between" style="align-items:flex-end;margin:20px 0 18px;gap:40px">
+      <h2 class="display h-2" style="max-width:620px">Todo lo que una campaña<br>necesita saber, decidir y hacer.<br><span class="em">En una sola grilla.</span></h2>
+      <p class="small" style="max-width:380px;text-align:right">Doce capacidades que se contratan por separado o funcionan como
+        un sistema único. Cada celda indica la página donde se desarrolla.</p>
+    </div>
+    <div class="matrix" style="flex:1">
+      <div class="cell"><span class="n">01</span><h5>Línea de base</h5><p>Clima, agenda, problemas y demanda real del electorado.</p><span class="pg">Pág. 10</span></div>
+      <div class="cell dim"><span class="n">02</span><h5>Imagen y liderazgo</h5><p>Conocimiento, valoración, atributos, techos y rechazo.</p><span class="pg">Pág. 10</span></div>
+      <div class="cell"><span class="n">03</span><h5>Escenario electoral</h5><p>Intención, indecisión, transferencias y escenarios.</p><span class="pg">Pág. 10</span></div>
+      <div class="cell dim"><span class="n">04</span><h5>Test de mensaje</h5><p>Qué comunica, qué se recuerda y qué mueve el voto.</p><span class="pg">Pág. 10</span></div>
+      <div class="cell dim"><span class="n">05</span><h5>Medición CAWI</h5><p>Campo digital auditable, rápido y trazable.</p><span class="pg">Pág. 11</span></div>
+      <div class="cell"><span class="n">06</span><h5>Tracking y flash</h5><p>Pulso comparable y medición de eventos críticos.</p><span class="pg">Pág. 11</span></div>
+      <div class="cell dim"><span class="n">07</span><h5>Historia electoral</h5><p>Series, participación, transferencia y territorio.</p><span class="pg">Pág. 12</span></div>
+      <div class="cell"><span class="n">08</span><h5>Modelos y simulación</h5><p>Propensión, escenarios y qué tendría que cambiar.</p><span class="pg">Pág. 12</span></div>
+      <div class="cell"><span class="n">09</span><h5>Micro y nano</h5><p>Del promedio a la célula territorial accionable.</p><span class="pg">Pág. 13</span></div>
+      <div class="cell dim"><span class="n">10</span><h5>NOMOS</h5><p>Consola única de inteligencia electoral en tu teléfono.</p><span class="pg">Pág. 14</span></div>
+      <div class="cell"><span class="n">11</span><h5>War Room digital</h5><p>Radar, narrativa, contenido y respuesta rápida.</p><span class="pg">Pág. 15</span></div>
+      <div class="cell dim"><span class="n">12</span><h5>Operación multicuentas</h5><p>Voces coordinadas, calendario y trazabilidad.</p><span class="pg">Pág. 16</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Grilla de capacidades</span>
+    <span class="bar"><i style="width:8%"></i></span><span>Grilla · 02 / 26</span></div>
+</section>
+
+<!-- ============ 03 · ASÍ SE DECIDE HOY ============ -->
+<section class="slide">
+  <div class="topo b"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">01</span><span>Punto de partida</span><i class="rule"></i>
+      <span>Cómo se decide una campaña hoy</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:700px;font-size:41px"><span class="nb">Tu campaña ya decide con información.</span><br><span class="em">El problema es cuál.</span></h2>
+      <p class="small" style="max-width:400px">Ninguna campaña decide en el vacío: decide con lo que tiene a mano.
+        Experiencia, territorio, conversación de comité y algún número suelto. Todo eso es real.
+        Ninguno de esos insumos fue diseñado para asignar el último tercio del presupuesto.</p>
+    </div>
+    <div class="cols c5" style="flex:1;gap:13px">
+      <div class="card"><span class="tick"></span><span class="idx">01 · Olfato</span><h4>La lectura del dirigente</h4>
+        <p><strong style="color:#e9eaea;font-weight:500">Te da:</strong> años de calle y sentido político.</p>
+        <p><strong style="color:#e9eaea;font-weight:500">No te da:</strong> cuánto de eso ya cambió, en qué barrios y desde cuándo.</p><span class="ghost">01</span></div>
+      <div class="card"><span class="idx">02 · Territorio</span><h4>El informe del referente</h4>
+        <p><strong style="color:#e9eaea;font-weight:500">Te da:</strong> el pulso de quien camina la zona.</p>
+        <p><strong style="color:#e9eaea;font-weight:500">No te da:</strong> qué parte es voto propio y qué parte es cortesía con el que pregunta.</p><span class="ghost">02</span></div>
+      <div class="card"><span class="idx">03 · Memoria</span><h4>La elección pasada</h4>
+        <p><strong style="color:#e9eaea;font-weight:500">Te da:</strong> el resultado que todos citan de memoria.</p>
+        <p><strong style="color:#e9eaea;font-weight:500">No te da:</strong> cuánto de ese voto sigue disponible y cuánto ya se fue.</p><span class="ghost">03</span></div>
+      <div class="card"><span class="idx">04 · Número suelto</span><h4>La encuesta que circuló</h4>
+        <p><strong style="color:#e9eaea;font-weight:500">Te da:</strong> un porcentaje para discutir.</p>
+        <p><strong style="color:#e9eaea;font-weight:500">No te da:</strong> ficha técnica, serie ni forma de saber si el movimiento es real.</p><span class="ghost">04</span></div>
+      <div class="card"><span class="idx">05 · Pantalla</span><h4>Lo que se ve en redes</h4>
+        <p><strong style="color:#e9eaea;font-weight:500">Te da:</strong> volumen, ruido y clima militante.</p>
+        <p><strong style="color:#e9eaea;font-weight:500">No te da:</strong> qué piensa la mayoría que no comenta nada y sí vota.</p><span class="ghost">05</span></div>
+    </div>
+    <div class="band" style="margin-top:16px;border-bottom:0;padding-bottom:0">
+      <span class="k">La conclusión</span>
+      <p class="t">Nada de esto está mal. Todo esto junto, igual,
+        <span class="em">no alcanza para decidir dónde va la plata, el candidato y la última semana.</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Punto de partida</span>
+    <span class="bar"><i style="width:12%"></i></span><span>Diagnóstico · 03 / 26</span></div>
+</section>
+
+<!-- ============ 04 · CUATRO PREGUNTAS ============ -->
+<section class="slide paper">
+  <div class="gridlines"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">02</span><span>Las preguntas que deciden</span><i class="rule"></i>
+      <span>Si no tienen número, hay apuesta</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 20px;gap:48px">
+      <h2 class="display h-2" style="max-width:700px">Cuatro preguntas.<br>Si alguna no tiene número,<br><span class="em">la campaña está apostando.</span></h2>
+      <p class="small" style="max-width:340px">Toda estrategia electoral se apoya, sepa o no, en cuatro respuestas.
+        La diferencia entre una campaña profesional y una intuitiva no es el talento: es de dónde salen esas cuatro respuestas.</p>
+    </div>
+    <div class="ledger" style="flex:1">
+      <div class="lr" style="grid-template-columns:36px 1fr 1fr 1fr;padding:9px 2px">
+        <span class="k"></span><span class="k">La pregunta</span><span class="k">Cómo se responde hoy</span><span class="k">Cómo la respondemos</span></div>
+      <div class="lr" style="grid-template-columns:36px 1fr 1fr 1fr">
+        <span class="k">01</span>
+        <span class="q">¿Cuántos me votan hoy?</span>
+        <span class="a">Una cifra sin ficha técnica, discutida en la mesa chica y defendida por quien la trajo.</span>
+        <span class="a">Estimación con muestra, ponderación, intervalo y serie comparable en el tiempo.</span></div>
+      <div class="lr" style="grid-template-columns:36px 1fr 1fr 1fr">
+        <span class="k">02</span>
+        <span class="q">¿Quién puede cambiar?</span>
+        <span class="a">Todo el electorado tratado igual: se le habla al que ya vota como al que nunca votaría.</span>
+        <span class="a">Segmentos identificados: base, voto blando, indeciso real, abstencionista movilizable.</span></div>
+      <div class="lr" style="grid-template-columns:36px 1fr 1fr 1fr">
+        <span class="k">03</span>
+        <span class="q">¿Qué lo mueve?</span>
+        <span class="a">El tema que convence al equipo, repetido en todos los canales y a todos los públicos.</span>
+        <span class="a">Jerarquía de problemas por segmento y mensajes testeados antes de salir al aire.</span></div>
+      <div class="lr" style="grid-template-columns:36px 1fr 1fr 1fr;border-bottom:0">
+        <span class="k">04</span>
+        <span class="q">¿Dónde está y cuántos son?</span>
+        <span class="a">La recorrida que pide el referente disponible, no la que rinde más votos por hora.</span>
+        <span class="a">Mapa por barrio, circuito y mesa, con índice de oportunidad y prioridad de inversión.</span></div>
+    </div>
+    <div class="band" style="margin-top:14px;border-bottom:0;padding-bottom:0">
+      <span class="k">Lo que cambia</span>
+      <p class="t">No se trata de tener más información. Se trata de que
+        <span class="em">las cuatro decisiones caras de la campaña dejen de depender de una discusión de pasillo.</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Las preguntas que deciden</span>
+    <span class="bar"><i style="width:15%"></i></span><span>Diagnóstico · 04 / 26</span></div>
+</section>
+
+<!-- ============ 05 · ARITMÉTICA DEL MARGEN ============ -->
+<section class="slide">
+  <div class="glow" style="bottom:-360px;right:-240px"></div>
+  <div class="topo a" style="opacity:.3"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">03</span><span>La aritmética del margen</span><i class="rule"></i>
+      <span>Por qué el error sale caro</span></div>
+    <div class="body" style="justify-content:center;gap:26px">
+      <h2 class="display h-1" style="max-width:900px">La distancia entre ganar y explicar la derrota
+        <span class="em">entra en un margen muy chico.</span></h2>
+      <div class="cols c4" style="gap:0;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:22px 0">
+        <div class="stat" style="border-right:1px solid var(--line-d-soft);padding-right:22px">
+          <span class="u">Margen típico</span><b>1,5<span style="font-size:26px"> pts</span></b>
+          <span class="d">Lo que separa a dos candidaturas competitivas en la mayoría de las elecciones ajustadas.</span></div>
+        <div class="stat" style="border-right:1px solid var(--line-d-soft);padding:0 22px">
+          <span class="u">Traducido a votos</span><b>1.800</b>
+          <span class="d">Esos 1,5 puntos, en un distrito de 120.000 votos efectivos.</span></div>
+        <div class="stat" style="border-right:1px solid var(--line-d-soft);padding:0 22px">
+          <span class="u">Traducido a territorio</span><b>6 <span style="font-size:26px">mesas</span></b>
+          <span class="d">Cinco o seis mesas de votación: la elección entera cabe en un puñado que hoy nadie identificó.</span></div>
+        <div class="stat" style="padding-left:22px">
+          <span class="u">Y sin embargo</span><b class="em-alarm">100 / 0</b>
+          <span class="d">Cien por ciento del presupuesto asignado; cero por ciento respaldado por medición propia.</span></div>
+      </div>
+      <div class="row" style="gap:40px;align-items:flex-start">
+        <p class="lead" style="max-width:560px">Con esa aritmética, <strong>el error no se reparte parejo</strong>:
+          una semana de pauta mal dirigida, tres recorridas en barrios ya ganados o un eje de campaña
+          que no le habla a nadie alcanzan, solos, para consumir el margen completo.</p>
+        <p class="small" style="max-width:420px;border-left:1px solid var(--line-d);padding-left:20px">
+          Los números de esta página son aritmética, no un pronóstico: se recalculan con el padrón real
+          de tu distrito en la primera reunión de diagnóstico. El punto no cambia.
+          <span style="color:var(--cyan)">Cuanto más ajustada la elección, más caro sale cada supuesto no verificado.</span></p>
+      </div>
+      <div class="band" style="margin-top:6px;border-bottom:0;padding-bottom:0">
+        <span class="k">Lo que compra medir</span>
+        <p class="t">Que ese margen se resuelva <span class="em">por diseño</span> y no por suerte:
+          saber, antes de gastar, cuáles son esas mesas, quién vive ahí y qué le importa.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · La aritmética del margen</span>
+    <span class="bar"><i style="width:19%"></i></span><span>Urgencia · 05 / 26</span></div>
+</section>
+
+<!-- ============ 06 · COSTO DE DECIDIR A CIEGAS ============ -->
+<section class="slide paper">
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">04</span><span>El costo de decidir a ciegas</span><i class="rule"></i>
+      <span>Seis pérdidas que no figuran en ninguna factura</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:640px">No medir no es gratis.<br><span class="em-alarm">Es la partida más cara</span><br>del presupuesto.</h2>
+      <p class="small" style="max-width:400px">La campaña sin medición no gasta menos: gasta lo mismo con menor rendimiento.
+        Estas seis pérdidas ocurren en silencio, se pagan igual y recién se ven cuando ya no hay tiempo de corregirlas.</p>
+    </div>
+    <div class="cols c3" style="flex:1;gap:13px">
+      <div class="card"><span class="tick"></span><span class="idx">Pérdida 01 · Pauta</span><h4>Frecuencia sobre convencidos</h4>
+        <p>Se le repite el mensaje a quien ya te vota porque es el público que más responde. El costo por voto nuevo se dispara y nadie lo calcula.</p></div>
+      <div class="card"><span class="idx">Pérdida 02 · Agenda</span><h4>El candidato en el lugar equivocado</h4>
+        <p>Recorridas donde ya ganás, silencio donde se define. La hora del candidato es el recurso más escaso y el peor asignado.</p></div>
+      <div class="card"><span class="idx">Pérdida 03 · Mensaje</span><h4>El eje que convence al equipo</h4>
+        <p>Se comunica el tema que entusiasma adentro. El indeciso escucha algo que no responde a su problema y no se mueve.</p></div>
+      <div class="card"><span class="idx">Pérdida 04 · Crisis</span><h4>Enterarse por el titular</h4>
+        <p>El ataque circula 48 horas antes de que el equipo reaccione. La respuesta llega cuando el marco ya se instaló.</p></div>
+      <div class="card"><span class="idx">Pérdida 05 · Lectura</span><h4>Confundir techo con tendencia</h4>
+        <p>Se empuja donde ya no hay recorrido y se abandona el segmento que sí estaba creciendo. Sin serie, ambos errores son invisibles.</p></div>
+      <div class="card alarm"><span class="idx" style="color:var(--alarm)">Pérdida 06 · Tiempo</span><h4>Corregir en la última semana</h4>
+        <p>Cuando por fin aparece el dato, el voto ya está formado. La información llega correcta y llega tarde: cuesta lo mismo y no cambia nada.</p></div>
+    </div>
+    <div class="band" style="margin-top:16px;border-bottom:0;padding-bottom:0">
+      <span class="k">El punto</span>
+      <p class="t">Ninguna de estas pérdidas se factura como pérdida.
+        <span class="em-alarm">Todas se pagan igual</span>, y se pagan con el mismo presupuesto que hoy ya está comprometido.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · El costo de decidir a ciegas</span>
+    <span class="bar"><i style="width:23%"></i></span><span>Urgencia · 06 / 26</span></div>
+</section>
+
+<!-- ============ 07 · LA VENTANA ============ -->
+<section class="slide">
+  <div class="topo a" style="opacity:.34"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">05</span><span>La ventana de corrección</span><i class="rule"></i>
+      <span>Qué se puede arreglar y hasta cuándo</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 22px;gap:48px">
+      <h2 class="display h-2" style="max-width:660px">Casi todo se puede corregir.<br><span class="em">Pero no en cualquier momento.</span></h2>
+      <p class="small" style="max-width:400px">Una campaña no pierde de golpe: agota decisiones. Cada semana que pasa,
+        la lista de cosas que todavía se pueden cambiar se hace más corta y más caro cambiarlas.
+        Esta es la única cuenta regresiva que importa.</p>
+    </div>
+    <div class="tl" style="height:158px">
+      <div class="axis"></div>
+      <div class="seg"><div class="d">180 días</div><h5>Posicionamiento</h5>
+        <p>Todavía se define quién sos ante el electorado: atributos, contraste y territorio de disputa. Todo es reversible.</p></div>
+      <div class="seg"><div class="d">120 días</div><h5>Eje y relato</h5>
+        <p>Se puede cambiar el eje central y sostenerlo el tiempo suficiente para que instale. Después ya no da el calendario.</p></div>
+      <div class="seg"><div class="d">90 días</div><h5>Asignación</h5>
+        <p>Se redistribuye presupuesto, agenda y estructura con tiempo de efecto medible. Última ventana barata.</p></div>
+      <div class="seg"><div class="d">60 días</div><h5>Persuasión</h5>
+        <p>Se trabaja al indeciso con contenido segmentado. Cambiar de opinión todavía es posible; cambiar de identidad, no.</p></div>
+      <div class="seg hot"><div class="d">30 días</div><h5>Sólo movilización</h5>
+        <p>Casi nadie cambia de preferencia: se ordena quién efectivamente va a ir a votar. Persuadir dejó de ser una opción.</p></div>
+      <div class="seg hot"><div class="d">7 días</div><h5>Contención</h5>
+        <p>Se defiende lo construido y se apaga daño. Cualquier hallazgo nuevo llega sin tiempo de ejecución.</p></div>
+    </div>
+    <div class="ramp" style="flex:1;height:auto;min-height:96px">
+      <div class="b" style="height:15%;background:rgba(40,203,211,.32)"><span>Barato</span></div>
+      <div class="b" style="height:26%;background:rgba(40,203,211,.42)"></div>
+      <div class="b" style="height:40%;background:rgba(40,203,211,.55)"></div>
+      <div class="b" style="height:58%;background:rgba(40,203,211,.7)"><span>Caro</span></div>
+      <div class="b" style="height:80%;background:rgba(216,69,44,.62)"></div>
+      <div class="b" style="height:100%;background:rgba(216,69,44,.85)"><span>Irreversible</span></div>
+    </div>
+    <div class="row between" style="margin-top:7px">
+      <span class="mono" style="color:#7c8184;font-size:7.2px">Costo de corregir una decisión según el momento en que se detecta · escala conceptual</span>
+      <span class="mono" style="color:#7c8184;font-size:7.2px">Día de la elección →</span>
+    </div>
+    <div class="band" style="margin-top:18px;border-bottom:0;padding-bottom:0">
+      <span class="k">La consecuencia</span>
+      <p class="t">Medir tarde no es medir menos:
+        <span class="em-alarm">es pagar por información que ya no puede cambiar ninguna decisión.</span>
+        La medición tiene plazo de fabricación.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · La ventana de corrección</span>
+    <span class="bar"><i style="width:27%"></i></span><span>Urgencia · 07 / 26</span></div>
+</section>
+
+<!-- ============ 08 · LA ASIMETRÍA ============ -->
+<section class="slide paper">
+  <div class="gridlines"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">06</span><span>La asimetría</span><i class="rule"></i>
+      <span>Mismo presupuesto, distinto rendimiento</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 18px;gap:48px">
+      <h2 class="display h-2" style="max-width:640px">El adversario que mide<br>no es más inteligente.<br><span class="em">Llega antes.</span></h2>
+      <p class="small" style="max-width:400px">La ventaja no aparece en el discurso ni en el acto de cierre: aparece
+        semanas antes, en decisiones chicas tomadas con información que el otro lado no tiene.
+        Cuando se vuelve visible, ya está consolidada.</p>
+    </div>
+    <div class="vs" style="flex:1">
+      <div class="side l">
+        <span class="lbl">Escenario A · Campaña que estima</span>
+        <h5>Decide por consenso interno</h5>
+        <ul class="list" style="gap:9px">
+          <li>El presupuesto se reparte por peso político de quien lo pide.</li>
+          <li>El mensaje se elige por convicción, no por efecto medido.</li>
+          <li>El problema se descubre el día del resultado.</li>
+          <li>La discusión se gana con relato: no hay dato que la cierre.</li>
+          <li>Cada error se repite porque nunca queda registrado.</li>
+        </ul>
+        <div class="spacer"></div>
+        <p class="small" style="color:var(--alarm)">Aprende una sola vez, y aprende tarde.</p>
+      </div>
+      <div class="mid"><b>VS</b></div>
+      <div class="side r">
+        <span class="lbl">Escenario B · Campaña que mide</span>
+        <h5>Decide por evidencia</h5>
+        <ul class="list" style="gap:9px">
+          <li>El presupuesto va donde hay votos disponibles, no donde hay presión.</li>
+          <li>El mensaje se testea antes de comprar el primer aviso.</li>
+          <li>El problema aparece cuando todavía hay semanas para corregir.</li>
+          <li>La discusión interna se cierra con números y sigue.</li>
+          <li>Cada acción deja registro: la campaña acumula aprendizaje.</li>
+        </ul>
+        <div class="spacer"></div>
+        <p class="small" style="color:var(--cyan-deep)">Aprende cada semana, y corrige a tiempo.</p>
+      </div>
+    </div>
+    <div class="band" style="margin-top:16px;border-bottom:0;padding-bottom:0">
+      <span class="k">La verdad incómoda</span>
+      <p class="t">En elecciones ajustadas la ventaja no es tener más plata:
+        <span class="em">es equivocarse menos veces con la misma plata.</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · La asimetría</span>
+    <span class="bar"><i style="width:31%"></i></span><span>Urgencia · 08 / 26</span></div>
+</section>
+
+<!-- ============ 09 · EL SISTEMA ============ -->
+<section class="slide">
+  <div class="topo a" style="opacity:.28"></div>
+  <div class="glow" style="top:120px;left:-380px"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">07</span><span>La respuesta</span><i class="rule"></i>
+      <span>Seis capacidades, un sistema</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:660px">No vendemos encuestas.<br><span class="em">Instalamos capacidad de decisión.</span></h2>
+      <p class="small" style="max-width:400px">Las campañas compran research por un lado, historia por otro,
+        redes por otro y nadie junta las piezas. Malaparte entrega las seis capas conectadas: cada una
+        alimenta a la siguiente y todas devuelven aprendizaje al sistema.</p>
+    </div>
+    <div class="cols c3" style="flex:1;gap:13px">
+      <div class="card sm"><span class="tick"></span><span class="idx">Capa 01 · Research</span><h4>Medir con rigor</h4>
+        <p>Estudios propios de opinión pública: clima, agenda, imagen, escenario y mensaje. La base de todo lo demás.</p>
+        <div class="deliver">Entrega · <b>Informe + base auditada + brief</b></div></div>
+      <div class="card sm"><span class="idx">Capa 02 · Medición</span><h4>Campo digital auditable</h4>
+        <p>CAWI, multimodo, flash polls y tracking: velocidad de campo con ficha técnica y trazabilidad.</p>
+        <div class="deliver">Entrega · <b>Serie comparable + tabulados</b></div></div>
+      <div class="card sm"><span class="idx">Capa 03 · Historia</span><h4>Contexto estructural</h4>
+        <p>Series electorales, participación, transferencias y territorio: qué es coyuntura y qué es estructura.</p>
+        <div class="deliver">Entrega · <b>Atlas electoral + escenarios</b></div></div>
+      <div class="card sm"><span class="idx">Capa 04 · Datos</span><h4>Micro y nanosegmentación</h4>
+        <p>Del promedio a la célula: quién puede cambiar, dónde está, qué lo mueve y por qué canal llega.</p>
+        <div class="deliver">Entrega · <b>Clusters + prioridad de inversión</b></div></div>
+      <div class="card sm accent"><span class="idx">Capa 05 · NOMOS</span><h4>Una sola consola</h4>
+        <p>Todo lo anterior integrado en una plataforma mobile-first: alertas, mapas, escenarios y decisiones.</p>
+        <div class="deliver">Entrega · <b>Sala de situación permanente</b></div></div>
+      <div class="card sm"><span class="idx">Capa 06 · Operación</span><h4>War Room digital</h4>
+        <p>Radar, narrativa, contenido a medida, multicuentas y respuesta rápida. La evidencia sale al aire.</p>
+        <div class="deliver">Entrega · <b>Producción + pauta + analítica</b></div></div>
+    </div>
+    <div class="cyc" style="margin-top:15px">
+      <div class="s"><i>01</i><b>Medir</b></div>
+      <div class="s"><i>02</i><b>Entender</b></div>
+      <div class="s"><i>03</i><b>Segmentar</b></div>
+      <div class="s"><i>04</i><b>Decidir</b></div>
+      <div class="s"><i>05</i><b>Operar</b></div>
+      <div class="s"><i>06</i><b>Aprender</b></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · El sistema</span>
+    <span class="bar"><i style="width:35%"></i></span><span>Capacidades · 09 / 26</span></div>
+</section>
+
+<!-- ============ 10 · RESEARCH ============ -->
+<section class="slide paper">
+  <div class="topo a" style="opacity:.2"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">08</span><span>Capacidad 01 · Investigación de opinión pública</span><i class="rule"></i>
+      <span>Research premium a medida</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:660px">Medimos lo que el electorado piensa.<br><span class="em">Y lo que todavía no sabe decir.</span></h2>
+      <p class="small" style="max-width:400px">No entregamos una colección de porcentajes: construimos una explicación
+        del escenario. Qué ocurre, por qué, entre quiénes y hacia dónde puede moverse. Cuatro estudios que
+        se contratan solos o como una línea de base completa.</p>
+    </div>
+    <div class="cols c4" style="flex:1;gap:13px">
+      <div class="card lg"><span class="tick"></span><span class="idx">Estudio 01 · Línea de base</span><h4>Clima, agenda y demanda</h4>
+        <p>Reconstruimos preocupaciones, prioridades, motivaciones y tensiones que organizan la opinión pública.
+          El punto de partida que ordena toda la estrategia.</p>
+        <ul class="list" style="gap:4px"><li>Qué problema manda en cada zona</li><li>Qué promesa suena creíble y qué no</li><li>Qué segmentos están en juego</li></ul><div class="deliver">Recibís · <b>Diagnóstico · agenda priorizada · mapa de problemas · segmentos</b></div></div>
+      <div class="card lg"><span class="idx">Estudio 02 · Liderazgo</span><h4>Imagen, atributos y rechazo</h4>
+        <p>Conocimiento, valoración, credibilidad, asociaciones, fortalezas, debilidades, piso y techo real
+          de cada candidatura en juego.</p>
+        <ul class="list" style="gap:4px"><li>Cuánto te conocen y cuánto te valoran</li><li>Qué atributo te falta construir</li><li>Cuál es tu techo real hoy</li></ul><div class="deliver">Recibís · <b>Perfil de imagen · drivers · barreras · posicionamiento</b></div></div>
+      <div class="card lg"><span class="idx">Estudio 03 · Escenario</span><h4>Voto, participación y competencia</h4>
+        <p>Intención, indecisión, segunda preferencia, probabilidad de voto, transferencias y escenarios
+          alternativos bajo supuestos explícitos.</p>
+        <ul class="list" style="gap:4px"><li>Intención de voto con intervalo</li><li>De dónde puede venir tu crecimiento</li><li>Qué escenarios son plausibles</li></ul><div class="deliver">Recibís · <b>Topline · crosstabs · escenarios · mapa de crecimiento</b></div></div>
+      <div class="card lg"><span class="idx">Estudio 04 · Efecto</span><h4>Mensajes, propuestas y piezas</h4>
+        <p>Testeamos comprensión, relevancia, credibilidad, recuerdo e impacto antes de invertir un peso
+          en difundirlo.</p>
+        <ul class="list" style="gap:4px"><li>Qué mensaje mueve y a quién</li><li>Qué pieza conviene pautar</li><li>Qué argumento conviene abandonar</li></ul><div class="deliver">Recibís · <b>Test de mensaje · brief creativo · matriz de impacto</b></div></div>
+    </div>
+    <div class="row between" style="margin-top:15px;align-items:center;gap:24px">
+      <div class="chips">
+        <span class="chip on">Línea de base</span><span class="chip">Tracking electoral</span>
+        <span class="chip">Flash polls</span><span class="chip">Cualitativo + preguntas abiertas</span>
+        <span class="chip">Brief estratégico</span>
+      </div>
+      <p class="small" style="max-width:380px;text-align:right;font-weight:400">
+        <strong>La diferencia:</strong> no maquillamos la incertidumbre. La medimos, la explicamos y la convertimos en ventaja decisional.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Public opinion research</span>
+    <span class="bar"><i style="width:38%"></i></span><span>Research · 10 / 26</span></div>
+</section>
+
+<!-- ============ 11 · MEDICIÓN CAWI ============ -->
+<section class="slide">
+  <div class="topo b" style="opacity:.26"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">09</span><span>Capacidad 02 · Medición digital</span><i class="rule"></i>
+      <span>CAWI · multimodo · diseños híbridos</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:620px">Velocidad de campo.<br><span class="em">Rigor que se puede auditar.</span></h2>
+      <p class="small" style="max-width:430px"><strong style="color:#e9eaea">CAWI</strong> es entrevista web asistida por computadora.
+        En castellano claro: una medición digital con arquitectura muestral, cuotas, controles antifraude,
+        ponderación y ficha técnica. <span style="color:var(--cyan)">No es un formulario reenviado por WhatsApp
+        y contado a mano.</span> Esa es toda la diferencia entre un número que se puede defender y uno que
+        se cae en la primera pregunta.</p>
+    </div>
+    <div class="cols c4" style="flex:1;gap:13px">
+      <div class="card sm"><span class="tick"></span><span class="idx">Modalidad 01 · CAWI</span><h4>Encuesta online</h4>
+        <p>Cuestionario web programado, reclutamiento digital, experiencia móvil y control de campo en tiempo real.</p>
+        <ul class="list" style="gap:4px"><li>Saltos y filtros lógicos</li><li>Cuotas y cobertura</li><li>Deduplicación y antifraude</li></ul><div class="deliver">Sirve para · <b>Medir rápido sin perder rigor</b></div></div>
+      <div class="card sm"><span class="idx">Modalidad 02 · Multimodo</span><h4>Semi-online e híbrida</h4>
+        <p>Combinamos reclutamiento digital, telefónico o territorial cuando la población exige ampliar cobertura.</p>
+        <ul class="list" style="gap:4px"><li>Diseño adaptado al territorio</li><li>Un solo instrumento</li><li>Control de efectos de modo</li></ul><div class="deliver">Sirve para · <b>Llegar a públicos que no están online</b></div></div>
+      <div class="card sm"><span class="idx">Modalidad 03 · Flash</span><h4>Medición crítica</h4>
+        <p>Estudios rápidos para debates, crisis, anuncios, piezas o cambios bruscos de coyuntura.</p>
+        <ul class="list" style="gap:4px"><li>Impacto y recuerdo</li><li>Cambio de asociación</li><li>Lectura por segmentos</li></ul><div class="deliver">Sirve para · <b>Saber en 48 h si algo te movió</b></div></div>
+      <div class="card sm"><span class="idx">Modalidad 04 · Tracking</span><h4>Pulso comparable</h4>
+        <p>Series periódicas para separar oscilación, tendencia y cambio estructural durante toda la campaña.</p>
+        <ul class="list" style="gap:4px"><li>Evolución comparable</li><li>Alertas de movimiento</li><li>Explicación del cambio</li></ul><div class="deliver">Sirve para · <b>Distinguir ruido de tendencia</b></div></div>
+    </div>
+    <div class="cyc" style="margin-top:15px">
+      <div class="s"><i>01</i><b>Diseño</b></div>
+      <div class="s"><i>02</i><b>Campo</b></div>
+      <div class="s"><i>03</i><b>Validación</b></div>
+      <div class="s"><i>04</i><b>Ponderación</b></div>
+      <div class="s"><i>05</i><b>Inferencia</b></div>
+      <div class="s" style="flex:1.6"><i>Entrega</i><b style="font-size:15px">Base auditada · tabulados · informe · dashboard · ficha técnica</b></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · CAWI &amp; measurement</span>
+    <span class="bar"><i style="width:42%"></i></span><span>Medición · 11 / 26</span></div>
+</section>
+
+<!-- ============ 12 · INTELIGENCIA HISTÓRICA ============ -->
+<section class="slide paper">
+  <div class="gridlines"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">10</span><span>Capacidad 03 · Inteligencia histórico-estadística</span><i class="rule"></i>
+      <span>El presente tiene memoria</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:640px">Cada elección dejó una huella.<br><span class="em">La convertimos en mapa y prioridad.</span></h2>
+      <p class="small" style="max-width:400px">Una encuesta muestra el momento. La historia estadística permite distinguir
+        lo coyuntural de lo estructural y detectar qué movimiento es realmente extraordinario. Es la capa que
+        casi ninguna campaña construye, y la más barata de todas.</p>
+    </div>
+    <div class="cols c3" style="flex:1;gap:13px">
+      <div class="card sm"><span class="tick"></span><span class="idx">Capa 01</span><h4>Historia electoral</h4>
+        <p>Resultados comparables por elección, fuerza, candidatura y nivel territorial, homogeneizados y verificados.</p><div class="deliver">Salida · <b>Atlas electoral comparable</b></div></div>
+      <div class="card sm"><span class="idx">Capa 02</span><h4>Participación y abstención</h4>
+        <p>Evolución del voto activo, intensidad y capacidad real de movilización por zona y por perfil.</p><div class="deliver">Salida · <b>Mapa de movilización</b></div></div>
+      <div class="card sm"><span class="idx">Capa 03</span><h4>Transferencia y volatilidad</h4>
+        <p>Crecimiento, pérdida, fragmentación, arrastre y flujos probables entre opciones de una elección a la siguiente.</p><div class="deliver">Salida · <b>Matriz de transferencia</b></div></div>
+      <div class="card sm"><span class="idx">Capa 04</span><h4>Geografía del voto</h4>
+        <p>Barrios, locales y mesas: fortalezas, debilidades y territorios bisagra donde se define el resultado.</p><div class="deliver">Salida · <b>Mapas y ranking de mesas</b></div></div>
+      <div class="card sm"><span class="idx">Capa 05</span><h4>Modelos y propensión</h4>
+        <p>Patrones estadísticos, benchmarks, análisis de sensibilidad y escenarios bajo supuestos declarados.</p><div class="deliver">Salida · <b>Índices de competitividad</b></div></div>
+      <div class="card sm accent"><span class="idx">Capa 06</span><h4>Simulación</h4>
+        <p>Contrafactuales: qué combinación de crecimiento y participación hace posible cada resultado.</p><div class="deliver">Salida · <b>Simulador de escenarios</b></div></div>
+    </div>
+    <div class="band" style="margin-top:15px;border-bottom:0;padding-bottom:0">
+      <span class="k">Lo que habilita</span>
+      <p class="t">Los datos históricos no predicen el futuro de manera mecánica.
+        <span class="em">Revelan qué tendría que cambiar para que un resultado sea posible</span> — y si eso está al alcance de esta campaña.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Historical intelligence</span>
+    <span class="bar"><i style="width:46%"></i></span><span>Historia · 12 / 26</span></div>
+</section>
+
+<!-- ============ 13 · BIG DATA / MICRO Y NANO ============ -->
+<section class="slide">
+  <div class="glow" style="bottom:-380px;left:-200px"></div>
+  <div class="topo a" style="opacity:.24"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">11</span><span>Capacidad 04 · Big Data y segmentación</span><i class="rule"></i>
+      <span>Micro y nanosegmentación electoral</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 15px;gap:48px">
+      <h2 class="display h-2" style="max-width:660px">Del promedio a la precisión.<br><span class="em">Ahí es donde se gana.</span></h2>
+      <p class="small" style="max-width:400px">Cuando el dato no existe, lo producimos. Cuando existe, lo volvemos ventaja.
+        El objetivo es uno: dónde está el movimiento, quién puede cambiar, qué problema lo organiza,
+        qué canal lo alcanza y cuándo conviene actuar.</p>
+    </div>
+    <div class="cyc" style="margin-bottom:14px">
+      <div class="s" style="flex-direction:column;align-items:flex-start;gap:3px"><i>01 · Crear</i><b>Dato nuevo</b>
+        <p class="small" style="font-size:9.8px">Encuestas, pulsos, escucha y etiquetado territorial propio.</p></div>
+      <div class="s" style="flex-direction:column;align-items:flex-start;gap:3px"><i>02 · Integrar</i><b>Fuente única</b>
+        <p class="small" style="font-size:9.8px">Normalización, vinculación, geocodificación y control de calidad.</p></div>
+      <div class="s" style="flex-direction:column;align-items:flex-start;gap:3px"><i>03 · Modelar</i><b>Patrón</b>
+        <p class="small" style="font-size:9.8px">Clustering, propensión, afinidad temática y participación.</p></div>
+      <div class="s" style="flex-direction:column;align-items:flex-start;gap:3px"><i>04 · Micro</i><b>Clusters</b>
+        <p class="small" style="font-size:9.8px">Grupos amplios con prioridades claramente diferenciadas.</p></div>
+      <div class="s" style="flex-direction:column;align-items:flex-start;gap:3px"><i>05 · Nano</i><b>Células</b>
+        <p class="small" style="font-size:9.8px">La menor unidad agregada que conserva estabilidad estadística.</p></div>
+      <div class="s" style="flex-direction:column;align-items:flex-start;gap:3px"><i>06 · Activar</i><b>Decisión</b>
+        <p class="small" style="font-size:9.8px">Segmento, tema, mensaje, formato, canal, territorio y momento.</p></div>
+    </div>
+    <div class="cols c2" style="height:176px;gap:14px">
+      <div class="card"><span class="tick"></span><span class="idx">Nivel 01</span><h4>Microsegmentación</h4>
+        <p>Clusters accionables sobre los que se puede tomar una decisión de campaña esta misma semana:
+          base propia, persuadibles, voto blando, indecisos reales, abstencionistas movilizables,
+          públicos temáticos y territorios de oportunidad.</p>
+        <div class="deliver">Salida · <b>Mapa de clusters · scorecards territoriales · índice de oportunidad</b></div></div>
+      <div class="card accent"><span class="idx">Nivel 02</span><h4>Nanosegmentación</h4>
+        <p>Barrios, circuitos, problemas concretos, intensidades y ventanas de tiempo. Celdas agregadas,
+          útiles y responsables: trabajamos con grupos, <span style="color:var(--cyan)">nunca con expedientes
+          individuales ni datos sensibles de personas</span>.</p>
+        <div class="deliver">Salida · <b>Matriz segmento-mensaje · brief por célula · prioridad de inversión</b></div></div>
+    </div>
+    <div class="row between" style="margin:14px 0 6px">
+      <span class="mono" style="color:#7c8184;font-size:7.2px">Resolución de análisis · cada nivel multiplica la precisión de la decisión</span>
+      <span class="mono" style="color:#7c8184;font-size:7.2px">Menos promedio → más precisión</span>
+    </div>
+    <div class="lad" style="flex:1">
+      <div class="z"><span class="t">Distrito</span><div class="f" style="background-size:24px 24px"></div></div>
+      <div class="z"><span class="t">Zona</span><div class="f" style="background-size:16px 16px"></div></div>
+      <div class="z"><span class="t">Barrio</span><div class="f" style="background-size:11px 11px"></div></div>
+      <div class="z"><span class="t">Circuito</span><div class="f" style="background-size:8px 8px"></div></div>
+      <div class="z on"><span class="t">Célula · nano</span><div class="f" style="background-size:5.5px 5.5px"></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Data &amp; segmentation</span>
+    <span class="bar"><i style="width:50%"></i></span><span>Segmentación · 13 / 26</span></div>
+</section>
+
+<!-- ============ 14 · NOMOS ============ -->
+<section class="slide paper">
+  <div class="topo a" style="opacity:.18"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">12</span><span>Capacidad 05 · NOMOS</span><i class="rule"></i>
+      <span>Sistema de inteligencia electoral</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 18px;gap:48px">
+      <h2 class="display h-2" style="max-width:660px">No recibís informes sueltos.<br><span class="em">Recibís un sistema nervioso electoral.</span></h2>
+      <p class="small" style="max-width:400px">Centralizamos medición, historia, territorio, conversación pública y operación
+        en una infraestructura mobile-first: acumulativa, trazable y accionable. La información crítica,
+        disponible en el teléfono de quien tiene que decidir.</p>
+    </div>
+    <div class="schema" style="flex:1">
+      <div class="col">
+        <div class="node"><i>01</i><span><b>Encuestas y trackers</b><p>Clima, imagen, voto, problemas, mensajes y cambio.</p></span></div>
+        <div class="node"><i>02</i><span><b>Historia y territorio</b><p>Resultados, participación, mapas, series y escenarios.</p></span></div>
+        <div class="node"><i>03</i><span><b>Conversación pública</b><p>Agenda, narrativas, actores, velocidad y riesgo.</p></span></div>
+        <div class="node"><i>04</i><span><b>Operación digital</b><p>Contenidos, cuentas, pauta, reacción y desempeño.</p></span></div>
+      </div>
+      <div class="hub">
+        <div class="mark" style="width:40px;height:40px;margin:0 auto">
+          <svg viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="2.4">
+            <path d="M20 25 43 11h33v51L53 77H20Z"/>
+            <path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/>
+            <ellipse cx="48" cy="48" rx="18" ry="12"/><circle cx="48" cy="48" r="5" fill="currentColor"/>
+          </g></svg></div>
+        <h5>NOMOS</h5>
+        <p><strong>Single source of truth.</strong><br>Una sola consola para dirección, estrategia, comunicación y territorio.</p>
+        <span class="mono" style="color:var(--cyan-deep);font-size:7.2px">Mobile-first · acumulativo · trazable</span>
+      </div>
+      <div class="col">
+        <div class="node"><i>A</i><span><b>Consola ejecutiva</b><p>El estado de la campaña en una pantalla, actualizado.</p></span></div>
+        <div class="node"><i>B</i><span><b>Alertas y briefs</b><p>Qué cambió, por qué importa y qué hay que decidir hoy.</p></span></div>
+        <div class="node"><i>C</i><span><b>Mapas y escenarios</b><p>Dónde priorizar y qué exige cada camino al resultado.</p></span></div>
+        <div class="node"><i>D</i><span><b>Sala de situación</b><p>Una agenda común de evidencia, decisiones y responsables.</p></span></div>
+      </div>
+    </div>
+    <div class="band" style="margin-top:16px;border-bottom:0;padding-bottom:0">
+      <span class="k">La diferencia</span>
+      <p class="t">Una campaña ve fragmentos: un informe acá, un rumor allá, una captura en un grupo.
+        <span class="em">NOMOS reconstruye la imagen completa</span> — y la deja disponible cuando hay que decidir.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · NOMOS</span>
+    <span class="bar"><i style="width:54%"></i></span><span>Sistema · 14 / 26</span></div>
+</section>
+
+<!-- ============ 15 · WAR ROOM ============ -->
+<section class="slide">
+  <div class="topo b" style="opacity:.3"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">13</span><span>Capacidad 06 · Agencia de guerra digital</span><i class="rule"></i>
+      <span>War Room permanente</span></div>
+    <div class="row between" style="align-items:flex-end;margin:16px 0 14px;gap:48px">
+      <h2 class="display h-3" style="max-width:600px">La campaña no compite sólo por votos.<br><span class="em">Compite por atención, velocidad e interpretación.</span></h2>
+      <p class="small" style="max-width:420px">No administramos redes sociales. Construimos capacidad de combate comunicacional:
+        detectar antes, decidir mejor, producir rápido, distribuir coordinado y aprender con cada movimiento.
+        Ocho funciones que operan como una sola célula.</p>
+    </div>
+    <div class="cols c4" style="flex:1;gap:11px">
+      <div class="card sm"><span class="tick"></span><span class="idx">01 · Radar</span><h4>Escucha y alerta temprana</h4>
+        <p>Temas, ataques, actores, marcos, velocidad y oportunidades antes de que sean evidentes.</p><div class="deliver">Salida · <b>Alerta diaria</b></div></div>
+      <div class="card sm"><span class="idx">02 · Oportunidad</span><h4>Ventanas de campaña</h4>
+        <p>Recomendación clara: actuar, amplificar, responder o ignorar, con ángulo y vida útil.</p><div class="deliver">Salida · <b>Ventana priorizada</b></div></div>
+      <div class="card sm"><span class="idx">03 · Narrativa</span><h4>Arquitectura de mensajes</h4>
+        <p>Relato, ejes, marcos, argumentos, voces, tono y guías de respuesta documentadas.</p><div class="deliver">Salida · <b>Matriz narrativa</b></div></div>
+      <div class="card sm"><span class="idx">04 · Contenido</span><h4>Fábrica electoral</h4>
+        <p>Cada pieza nace de una necesidad: instalar, explicar, defender, contrastar, persuadir o movilizar.</p><div class="deliver">Salida · <b>Backlog de piezas</b></div></div>
+      <div class="card sm"><span class="idx">05 · Multicuentas</span><h4>Operación coordinada</h4>
+        <p>Cuentas oficiales, territoriales y vocerías autorizadas con roles, ritmo y trazabilidad.</p><div class="deliver">Salida · <b>Mapa de cuentas</b></div></div>
+      <div class="card sm"><span class="idx">06 · Respuesta</span><h4>Rapid response y crisis</h4>
+        <p>Protocolos, guardias, verificación, aprobación, réplica y contención bajo presión.</p><div class="deliver">Salida · <b>Crisis playbook</b></div></div>
+      <div class="card sm"><span class="idx">07 · Distribución</span><h4>Orgánico y pauta</h4>
+        <p>Secuencias, aliados, media plan, variantes, frecuencia, optimización y cumplimiento.</p><div class="deliver">Salida · <b>Media plan</b></div></div>
+      <div class="card sm accent"><span class="idx">08 · Analítica</span><h4>Medir y aprender</h4>
+        <p>KPIs por objetivo, tests A/B, impacto, atribución prudente, post mortem y próximo backlog.</p><div class="deliver">Salida · <b>Informe semanal</b></div></div>
+    </div>
+    <div class="cyc" style="margin-top:14px">
+      <div class="s"><i>01</i><b>Detectar</b></div>
+      <div class="s"><i>02</i><b>Decidir</b></div>
+      <div class="s"><i>03</i><b>Producir</b></div>
+      <div class="s"><i>04</i><b>Distribuir</b></div>
+      <div class="s"><i>05</i><b>Aprender</b></div>
+      <div class="s" style="flex:1.4"><i>Ciclo</i><b style="font-size:15px">El mismo día, no la semana siguiente</b></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Digital war room</span>
+    <span class="bar"><i style="width:58%"></i></span><span>War Room · 15 / 26</span></div>
+</section>
+
+<!-- ============ 16 · OPERACIÓN DIGITAL ============ -->
+<section class="slide paper">
+  <div class="gridlines"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">14</span><span>Capacidad 07 · Operación digital</span><i class="rule"></i>
+      <span>Multicuentas · contenido a medida</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:600px">La oportunidad dura horas.<br><span class="em">La operación no puede tardar días.</span></h2>
+      <p class="small" style="max-width:420px">Cada pieza sale con una ficha estratégica: objetivo, audiencia agregada,
+        tensión, evidencia, canal, ventana, llamado a la acción, riesgo y métrica. Nada se publica porque
+        "había que subir algo hoy".</p>
+    </div>
+    <div class="cols c3" style="flex:1;gap:14px">
+      <div class="card lg"><span class="tick"></span><span class="idx">01 · Multicuentas autorizadas</span><h4>Una estrategia. Distintas voces.</h4>
+        <ul class="list"><li>Matriz de cuentas, roles y permisos</li><li>Manual editorial por canal</li>
+          <li>Calendario, frecuencia y sincronización</li><li>Banco de respuestas y circuitos de aprobación</li>
+          <li>Registro de publicaciones y rendimiento</li></ul><div class="deliver">Entrega · <b>Manual de operación + registro</b></div></div>
+      <div class="card lg"><span class="idx">02 · Ventanas de oportunidad</span><h4>Contenido mientras todavía importa.</h4>
+        <ul class="list"><li>Radar y alerta priorizada</li><li>Brief creativo y mensaje rector</li>
+          <li>Plantillas preaprobadas y sprints</li><li>Cobertura en vivo y paquetes rápidos</li>
+          <li>Evaluación inmediata de reacción</li></ul><div class="deliver">Entrega · <b>Radar diario + kit de reacción</b></div></div>
+      <div class="card lg"><span class="idx">03 · Hecho a medida</span><h4>No reciclamos piezas genéricas.</h4>
+        <ul class="list"><li>Placas, carruseles, reels, clips y guiones</li><li>Propuestas, atributos y pedagogía</li>
+          <li>Defensa reputacional y contraste verificable</li><li>Versiones por territorio, público y plataforma</li>
+          <li>Kits para voceros y equipos identificados</li></ul><div class="deliver">Entrega · <b>Producción semanal a demanda</b></div></div>
+    </div>
+    <div class="cyc" style="margin-top:15px">
+      <div class="s"><i>Señal</i><b>Ventana abierta</b></div>
+      <div class="s"><i>Brief</i><b>Hipótesis electoral</b></div>
+      <div class="s"><i>Pieza</i><b>Producción modular</b></div>
+      <div class="s"><i>Salida</i><b>Canal y secuencia</b></div>
+      <div class="s"><i>Retorno</i><b>Métrica y ajuste</b></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Digital operations</span>
+    <span class="bar"><i style="width:62%"></i></span><span>Operación · 16 / 26</span></div>
+</section>
+
+<!-- ============ 17 · EL RITMO ============ -->
+<section class="slide">
+  <div class="topo a" style="opacity:.26"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">15</span><span>Cómo se trabaja</span><i class="rule"></i>
+      <span>Una semana con Malaparte</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 18px;gap:48px">
+      <h2 class="display h-2" style="max-width:640px">Esto no es un informe que llega<br>y se guarda en un cajón.<br><span class="em">Es un ritmo de trabajo.</span></h2>
+      <p class="small" style="max-width:400px">La mayor parte del valor no está en el estudio: está en la rutina que instala.
+        Un ciclo semanal fijo donde la campaña sabe qué se mide, qué se decide y quién queda a cargo.
+        Nadie tiene que aprender a usar un tablero para participar.</p>
+    </div>
+    <div class="week" style="flex:1">
+      <div class="d"><span>Lunes</span><h5>Brief de decisión</h5>
+        <p>Qué cambió en la semana, qué explica el cambio y las tres decisiones que hay que tomar hoy.</p><span class="dw">Dirección + jefatura</span></div>
+      <div class="d"><span>Martes</span><h5>Campo y producción</h5>
+        <p>Sale la ola o el flash acordado; la fábrica de contenido trabaja sobre el brief de la semana.</p><span class="dw">Research + contenido</span></div>
+      <div class="d"><span>Miércoles</span><h5>Radar y ventanas</h5>
+        <p>Alertas de conversación pública: qué responder, qué amplificar y qué conviene no tocar.</p><span class="dw">Comunicación</span></div>
+      <div class="d"><span>Jueves</span><h5>Reasignación</h5>
+        <p>Se corrige pauta, agenda del candidato y prioridad territorial con la evidencia de la semana.</p><span class="dw">Jefatura + pauta</span></div>
+      <div class="d"><span>Viernes</span><h5>Tracking y escenario</h5>
+        <p>Actualización de la serie, escenarios y mapa de crecimiento. Queda registrado qué funcionó.</p><span class="dw">Dirección + research</span></div>
+      <div class="d"><span>Fin de semana</span><h5>Guardia y territorio</h5>
+        <p>Cobertura de actos, rapid response de guardia y captura de datos de la estructura en calle.</p><span class="dw">Territorio + guardia</span></div>
+    </div>
+    <div class="band" style="margin-top:18px;border-bottom:0;padding-bottom:0">
+      <span class="k">El efecto real</span>
+      <p class="t">En cuatro semanas el equipo deja de discutir impresiones
+        <span class="em">y empieza a discutir números</span> — y las reuniones de campaña pasan a durar la mitad.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Ritmo de trabajo</span>
+    <span class="bar"><i style="width:65%"></i></span><span>Método · 17 / 26</span></div>
+</section>
+
+<!-- ============ 18 · PREGUNTAS QUE VAS A PODER RESPONDER ============ -->
+<section class="slide paper">
+  <div class="gridlines"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">16</span><span>Resultado concreto</span><i class="rule"></i>
+      <span>Diez preguntas y su fuente</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 14px;gap:48px">
+      <h2 class="display h-2" style="max-width:660px">Diez preguntas que hoy se responden con opinión.<br><span class="em">En tres semanas, con evidencia.</span></h2>
+      <p class="small" style="max-width:360px">Esta es la prueba práctica de si una consultora sirve o no:
+        qué preguntas podés contestar el lunes siguiente, y con qué respaldo.</p>
+    </div>
+    <div class="cols c2" style="flex:1;gap:34px">
+      <div class="ledger">
+        <div class="lr" style="grid-template-columns:1fr 148px;padding:9px 2px"><span class="k">Pregunta</span><span class="k">Lo que la responde</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿Cuánto mido hoy y cuánto medía hace un mes?</span><span class="a">Tracking · serie comparable</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿Mi techo es real o es falta de conocimiento?</span><span class="a">Estudio de imagen</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿Qué problema decide el voto de los indecisos?</span><span class="a">Línea de base · agenda</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿Este spot mueve algo o sólo gusta adentro?</span><span class="a">Test de mensaje · flash</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px;border-bottom:0"><span class="q" style="font-size:17px">¿El ataque de esta semana me costó votos?</span><span class="a">Flash poll · radar</span></div>
+      </div>
+      <div class="ledger">
+        <div class="lr" style="grid-template-columns:1fr 148px;padding:9px 2px"><span class="k">Pregunta</span><span class="k">Lo que la responde</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿En qué diez barrios se define la elección?</span><span class="a">Historia + territorio</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿Dónde rinde más una hora del candidato?</span><span class="a">Índice de oportunidad</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿A quién le hablo con cada peso de pauta?</span><span class="a">Micro y nanosegmentación</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px"><span class="q" style="font-size:17px">¿Cuánta gente mía se queda en casa?</span><span class="a">Modelo de participación</span></div>
+        <div class="lr" style="grid-template-columns:1fr 148px;border-bottom:0"><span class="q" style="font-size:17px">¿Qué tendría que pasar para que gane?</span><span class="a">Simulación de escenarios</span></div>
+      </div>
+    </div>
+    <div class="band" style="margin-top:14px;border-bottom:0;padding-bottom:0">
+      <span class="k">La vara</span>
+      <p class="t">Si tu equipo no puede responder estas diez preguntas con una fuente al lado,
+        <span class="em">la campaña todavía está en fase artesanal</span> — y el adversario lo va a notar antes que vos.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Resultado concreto</span>
+    <span class="bar"><i style="width:69%"></i></span><span>Resultado · 18 / 26</span></div>
+</section>
+
+<!-- ============ 19 · DEL DATO A LA ORDEN DEL DÍA ============ -->
+<section class="slide">
+  <div class="glow" style="top:-300px;right:-300px"></div>
+  <div class="topo b" style="opacity:.24"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">17</span><span>Uso interno</span><i class="rule"></i>
+      <span>Qué recibe cada área de la campaña</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:620px">Un dato que no cambia<br>la orden del día<br><span class="em">no sirve para nada.</span></h2>
+      <p class="small" style="max-width:420px">Por eso cada entrega baja traducida a la tarea concreta de cada área.
+        El informe completo queda para el que quiera leerlo; lo que circula es la decisión.
+        <span style="color:var(--cyan)">La medición no viene a reemplazar a nadie: viene a decirle a cada uno
+        dónde rinde su trabajo.</span></p>
+    </div>
+    <div class="cols c4" style="flex:1;gap:13px">
+      <div class="card lg"><span class="tick"></span><span class="idx">Rol 01 · Candidatura</span><h4>Dónde estar y qué decir</h4>
+        <p>Los tres temas que mueven tu voto, los dos que conviene no tocar, el atributo a construir
+          y la agenda de la semana ordenada por rendimiento.</p>
+        <div class="deliver">Formato · <b>Brief de una página</b></div></div>
+      <div class="card lg"><span class="idx">Rol 02 · Jefatura de campaña</span><h4>Dónde va cada peso</h4>
+        <p>Prioridad de inversión por segmento y territorio, costo estimado por voto incremental
+          y alertas cuando un frente se mueve.</p>
+        <div class="deliver">Formato · <b>Tablero + reasignación semanal</b></div></div>
+      <div class="card lg"><span class="idx">Rol 03 · Comunicación</span><h4>Qué pieza y para quién</h4>
+        <p>Matriz segmento-mensaje-canal, mensajes ya testeados, ventanas abiertas y guía
+          de respuesta ante ataques.</p>
+        <div class="deliver">Formato · <b>Brief creativo + banco de respuestas</b></div></div>
+      <div class="card lg accent"><span class="idx">Rol 04 · Estructura y territorio</span><h4>Qué barrio y qué meta</h4>
+        <p>Cada referente recibe su célula asignada, el problema que ordena a esa gente, el objetivo de mesa
+          y qué información tiene que traer de vuelta.</p>
+        <div class="deliver">Formato · <b>Ficha por célula + meta de mesa</b></div></div>
+    </div>
+    <div class="band" style="margin-top:16px;border-bottom:0;padding-bottom:0">
+      <span class="k">Para la estructura</span>
+      <p class="t">La caminata, el comité y el referente siguen siendo la ventaja competitiva.
+        <span class="em">Nosotros les decimos exactamente en qué cuadra rinde cada hora de esa caminata.</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Uso interno</span>
+    <span class="bar"><i style="width:73%"></i></span><span>Resultado · 19 / 26</span></div>
+</section>
+
+<!-- ============ 20 · PUERTAS DE ENTRADA ============ -->
+<section class="slide paper">
+  <div class="topo a" style="opacity:.18"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">18</span><span>Soluciones</span><i class="rule"></i>
+      <span>Una puerta de entrada o el sistema completo</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 16px;gap:48px">
+      <h2 class="display h-2" style="max-width:600px">Entramos por un problema.<br><span class="em">Instalamos la capacidad que falta.</span></h2>
+      <p class="small" style="max-width:420px">No hace falta contratar todo para empezar a decidir mejor.
+        Cada módulo funciona solo y se integra sin rehacer nada: lo que se mide hoy sigue sirviendo
+        cuando la campaña escala.</p>
+    </div>
+    <div class="cols c4" style="flex:1;gap:13px">
+      <div class="pack"><span class="n">Módulo 01 · Research</span><h4>Diagnóstico</h4>
+        <p class="who">Para quien todavía discute cuánto mide. La fotografía profunda del electorado:
+          problemas, liderazgos, escenario y oportunidades.</p><ul class="list" style="gap:5px"><li>Encuesta propia con ficha técnica</li><li>Informe, tabulados y brief ejecutivo</li><li>Presentación al equipo de campaña</li></ul>
+        <div class="inc" style="border-top:0;padding-top:0;padding-bottom:2px">Ideal si · <b>Arrancás la campaña o cambiaste de escenario</b></div><div class="inc" style="margin-top:0">Incluye · Diseño · campo · análisis · informe · dashboard · brief</div></div>
+      <div class="pack"><span class="n">Módulo 02 · Pulso</span><h4>Tracking y alerta</h4>
+        <p class="who">Para campañas en marcha que necesitan saber si lo que hacen funciona,
+          mientras todavía se puede corregir.</p><ul class="list" style="gap:5px"><li>Olas comparables cada 15 o 30 días</li><li>Flash poll ante cada evento fuerte</li><li>Alerta cuando un frente se mueve</li></ul>
+        <div class="inc" style="border-top:0;padding-top:0;padding-bottom:2px">Ideal si · <b>Ya estás en campaña y necesitás corregir</b></div><div class="inc" style="margin-top:0">Incluye · Series · flash polls · alertas · crosstabs · recomendaciones</div></div>
+      <div class="pack"><span class="n">Módulo 03 · Inteligencia</span><h4>NOMOS + targeting</h4>
+        <p class="who">Para quien ya tiene datos dispersos y necesita una sola verdad:
+          historia, territorio, Big Data y segmentación en una consola.</p><ul class="list" style="gap:5px"><li>Historia electoral del distrito</li><li>Mapa y ranking de mesas</li><li>NOMOS para todo el equipo</li></ul>
+        <div class="inc" style="border-top:0;padding-top:0;padding-bottom:2px">Ideal si · <b>Tenés datos sueltos y ninguna consola</b></div><div class="inc" style="margin-top:0">Incluye · Mapas · modelos · clusters · escenarios · prioridades</div></div>
+      <div class="pack reco"><span class="rib">Más elegido</span><span class="n">Módulo 04 · Full cycle</span><h4>War Room integral</h4>
+        <p class="who">Para elecciones competitivas: investigación, escucha, contenido, multicuentas,
+          respuesta y medición operando como una sola célula.</p><ul class="list" style="gap:5px"><li>Todo lo anterior, integrado</li><li>Contenido y respuesta el mismo día</li><li>Sala de situación semanal</li></ul>
+        <div class="inc" style="border-top:0;padding-top:0;padding-bottom:2px">Ideal si · <b>La elección se define por poco margen</b></div><div class="inc" style="margin-top:0">Incluye · Sala de situación · fábrica · rapid response · pauta · analítica</div></div>
+    </div>
+    <div class="row between" style="margin-top:16px;align-items:center;gap:24px">
+      <div class="chips">
+        <span class="chip on">Research-grade</span><span class="chip">Campaign-ready</span>
+        <span class="chip">Mobile-first</span><span class="chip">Modular</span><span class="chip">Trazable</span>
+      </div>
+      <p class="small" style="max-width:420px;text-align:right">Cada propuesta se cotiza sobre tu distrito:
+        tamaño del padrón, cantidad de olas, alcance territorial y calendario electoral. Sin paquetes cerrados.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Soluciones</span>
+    <span class="bar"><i style="width:77%"></i></span><span>Soluciones · 20 / 26</span></div>
+</section>
+
+<!-- ============ 21 · PRIMEROS 21 DÍAS ============ -->
+<section class="slide">
+  <div class="topo a" style="opacity:.24"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">19</span><span>Puesta en marcha</span><i class="rule"></i>
+      <span>De la firma a la primera decisión con evidencia</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 20px;gap:48px">
+      <h2 class="display h-2" style="max-width:640px">Veintiún días.<br><span class="em">Ese es todo el riesgo que estás tomando.</span></h2>
+      <p class="small" style="max-width:400px">No hace falta reorganizar la campaña ni contratar personal nuevo.
+        Trabajamos con el equipo que ya tenés y con la estructura que ya funciona. En tres semanas
+        la campaña toma su primera decisión respaldada por evidencia propia.</p>
+    </div>
+    <div class="steps" style="margin:auto 0">
+      <div class="sp on"><span class="n">01</span><h5>Inmersión</h5>
+        <p>Reunión de diagnóstico con dirección y estructura. Definimos qué decisiones hay que tomar,
+          con qué plazo y qué evidencia hace falta para tomarlas.</p>
+        <span class="w">Día 1 a 3</span></div>
+      <div class="sp"><span class="n">02</span><h5>Diseño</h5>
+        <p>Muestra, cuestionario, cuotas y controles. Recuperamos la historia electoral del distrito
+          y armamos la base territorial de partida.</p>
+        <span class="w">Día 4 a 10</span></div>
+      <div class="sp"><span class="n">03</span><h5>Campo</h5>
+        <p>Medición en terreno digital o híbrido, con monitoreo diario, validación de casos y control
+          de cobertura por segmento.</p>
+        <span class="w">Día 11 a 17</span></div>
+      <div class="sp"><span class="n">04</span><h5>Primera decisión</h5>
+        <p>Informe, tabulados, mapa de oportunidad y brief ejecutivo. NOMOS operativo y el ritmo semanal
+          en marcha con responsables asignados.</p>
+        <span class="w">Día 18 a 21</span></div>
+    </div>
+    <div class="band" style="margin-top:18px;border-bottom:0;padding-bottom:0">
+      <span class="k">Compromiso</span>
+      <p class="t">A las tres semanas de firmar, tu campaña discute su estrategia
+        <span class="em">con datos propios y una ficha técnica arriba de la mesa.</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Puesta en marcha</span>
+    <span class="bar"><i style="width:81%"></i></span><span>Implementación · 21 / 26</span></div>
+</section>
+
+<!-- ============ 22 · MÉTODO ============ -->
+<section class="slide paper">
+  <div class="gridlines"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">20</span><span>Método</span><i class="rule"></i>
+      <span>Trazabilidad de punta a punta</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 20px;gap:48px">
+      <h2 class="display h-2" style="max-width:620px">Rigor para medir.<br><span class="em">Disciplina para operar.</span></h2>
+      <p class="small" style="max-width:420px">La velocidad política exige rapidez. También exige saber de dónde sale cada dato,
+        qué supone cada modelo, quién autorizó cada activo y qué produjo cada acción.
+        Si un número no se puede defender frente a un periodista, no sirve para decidir.</p>
+    </div>
+    <div class="steps" style="margin:auto 0">
+      <div class="sp on"><span class="n">01</span><h5>Diseñar</h5>
+        <p>Definimos la decisión, la pregunta, la población, la evidencia necesaria y el estándar
+          de éxito antes de levantar un solo caso.</p>
+        <span class="w">Pregunta antes que dato</span></div>
+      <div class="sp"><span class="n">02</span><h5>Medir</h5>
+        <p>Instrumentos, controles y criterios explícitos de cobertura y calidad. Base auditada y
+          ficha técnica en cada entrega.</p>
+        <span class="w">Todo verificable</span></div>
+      <div class="sp"><span class="n">03</span><h5>Modelar</h5>
+        <p>Relacionamos fuentes, declaramos supuestos y distinguimos con claridad observación,
+          estimación e inferencia.</p>
+        <span class="w">Supuestos a la vista</span></div>
+      <div class="sp"><span class="n">04</span><h5>Operar</h5>
+        <p>Convertimos hallazgos en prioridades y acciones cuyo desempeño vuelve medido al sistema
+          para corregir la próxima.</p>
+        <span class="w">La campaña aprende</span></div>
+    </div>
+    <div class="cols c4" style="gap:0;margin-top:18px;border-top:1px solid var(--line-l);padding-top:14px">
+      <div><div class="kicker">01 · Evidencia</div><div class="small" style="margin-top:5px">Información verificable, con fuente</div></div>
+      <div><div class="kicker">02 · Datos</div><div class="small" style="margin-top:5px">Agregados o consentidos</div></div>
+      <div><div class="kicker">03 · Activos</div><div class="small" style="margin-top:5px">Cuentas y vocerías autorizadas</div></div>
+      <div><div class="kicker">04 · Operación</div><div class="small" style="margin-top:5px">Comunicación atribuible</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Method &amp; integrity</span>
+    <span class="bar"><i style="width:85%"></i></span><span>Método · 22 / 26</span></div>
+</section>
+
+<!-- ============ 23 · INTEGRIDAD ============ -->
+<section class="slide">
+  <div class="topo b" style="opacity:.24"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">21</span><span>Operación responsable</span><i class="rule"></i>
+      <span>Qué hacemos y qué no</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 18px;gap:48px">
+      <h2 class="display h-2" style="max-width:660px">«Guerra digital» describe velocidad,<br>coordinación y disciplina.<br><span class="em">No describe engaño.</span></h2>
+      <p class="small" style="max-width:400px">Esto también protege al cliente: un escándalo de manipulación cuesta
+        más votos que cualquier ventaja que prometa. Trabajamos de manera que todo lo que hacemos
+        pueda mostrarse sin dañar a la candidatura.</p>
+    </div>
+    <div class="cols c2" style="flex:1;gap:0">
+      <div class="card alarm" style="border-right:0">
+        <span class="idx" style="color:var(--alarm)">Lo que no hacemos, nunca</span>
+        <div class="cols c2" style="gap:0 22px;margin-top:2px">
+          <ul class="list" style="gap:7px">
+            <li>Identidades falsas o cuentas fantasma</li>
+            <li>Bots e interacción comprada</li>
+            <li>Spam y automatización engañosa</li>
+            <li>Hackeo o acceso indebido</li>
+          </ul>
+          <ul class="list" style="gap:7px">
+            <li>Doxxing y acoso coordinado</li>
+            <li>Desinformación deliberada</li>
+            <li>Supresión o desincentivo del voto</li>
+            <li>Perfiles individuales con datos sensibles</li>
+          </ul>
+        </div>
+        <p class="small" style="margin-top:auto;color:#c98a7c">Nada de esto está en nuestra oferta, ni con presupuesto extra.</p></div>
+      <div class="card accent">
+        <span class="idx">Lo que sí prometemos</span>
+        <ul class="list" style="gap:9px;margin-top:2px">
+          <li><strong style="color:#e9eaea;font-weight:500">Mejor evidencia:</strong> cada número con su método a la vista.</li>
+          <li><strong style="color:#e9eaea;font-weight:500">Mejor asignación:</strong> la plata y el tiempo donde rinden.</li>
+          <li><strong style="color:#e9eaea;font-weight:500">Mayor velocidad:</strong> decidir en horas, no en semanas.</li>
+          <li><strong style="color:#e9eaea;font-weight:500">Capacidad de corregir:</strong> detectar el error mientras todavía se arregla.</li>
+          <li><strong style="color:#e9eaea;font-weight:500">Confidencialidad total:</strong> tus datos, tus hallazgos y tu estrategia no salen de la sala.</li>
+        </ul>
+        <p class="small" style="margin-top:auto;color:var(--cyan)">Ventaja competitiva, construida con material que resiste ser mostrado.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Operación responsable</span>
+    <span class="bar"><i style="width:88%"></i></span><span>Integridad · 23 / 26</span></div>
+</section>
+
+<!-- ============ 24 · DOS CAMINOS ============ -->
+<section class="slide paper">
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">22</span><span>La decisión</span><i class="rule"></i>
+      <span>Dos caminos desde hoy</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 18px;gap:48px">
+      <h2 class="display h-2" style="max-width:620px">La fecha de la elección<br><span class="em-alarm">no se mueve.</span><br>Lo único que se decide hoy es con qué información llegás.</h2>
+      <p class="small" style="max-width:360px">Los dos caminos cuestan plata. Uno la gasta descubriendo el problema
+        cuando ya pasó; el otro la gasta encontrándolo cuando todavía se puede resolver.</p>
+    </div>
+    <div class="paths" style="flex:1">
+      <div class="hd"></div>
+      <div class="hd">A 90 días</div><div class="hd">A 60 días</div><div class="hd">A 30 días</div><div class="hd">Día de la elección</div>
+
+      <div class="rowA lb"><b>Camino A</b><span>Sin medición propia</span></div>
+      <div class="rowA"><p>Se discute la estrategia por intuición. Se compra pauta por costumbre y territorio por presión interna.</p></div>
+      <div class="rowA"><p>Aparece la sensación de que algo no funciona, sin poder decir qué, dónde ni entre quiénes.</p></div>
+      <div class="rowA"><p>Se corrige a ciegas y con apuro. La plata que quedaba se gasta en volumen, no en precisión.</p></div>
+      <div class="rowA"><p><strong style="color:var(--alarm);font-weight:500">El resultado explica la campaña.</strong> Recién ahí se entiende qué pasó.</p></div>
+
+      <div class="rowB lb"><b>Camino B</b><span>Con Malaparte</span></div>
+      <div class="rowB"><p>Línea de base propia: problemas, imagen, escenario y mapa territorial de crecimiento.</p></div>
+      <div class="rowB"><p>El tracking detecta el movimiento a tiempo y el mensaje ya está testeado antes de salir.</p></div>
+      <div class="rowB"><p>Se movilizan células priorizadas con meta de mesa y respaldo de contenido segmentado.</p></div>
+      <div class="rowB"><p><strong style="color:var(--cyan-deep);font-weight:500">La campaña explica el resultado.</strong> Y queda el sistema para la próxima.</p></div>
+    </div>
+    <div class="band" style="margin-top:16px;border-bottom:0;padding-bottom:0">
+      <span class="k">Costo de esperar</span>
+      <p class="t">Cada semana que pasa sin medir, el Camino B se vuelve más caro y da menos resultado.
+        <span class="em-alarm">Llega un punto en que ya no está disponible.</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · La decisión</span>
+    <span class="bar"><i style="width:92%"></i></span><span>Decisión · 24 / 26</span></div>
+</section>
+
+<!-- ============ 25 · CIERRE ============ -->
+<section class="slide">
+  <div class="topo a" style="opacity:.34"></div>
+  <div class="glow" style="bottom:-320px;left:-180px"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span class="n">23</span><span>Próximo paso</span><i class="rule"></i>
+      <span>Empecemos por donde más duele hoy</span></div>
+    <div class="row between" style="align-items:flex-end;margin:18px 0 18px;gap:48px">
+      <h2 class="display h-1" style="max-width:700px">De la encuesta al contenido.<br><span class="em">De la reacción a la próxima decisión.</span></h2>
+      <p class="small" style="max-width:360px">Tu campaña ya está produciendo datos todos los días: recorridas,
+        reuniones, redes, reclamos, actos. Nosotros los convertimos en poder de decisión.</p>
+    </div>
+    <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+      <div class="sp on"><span class="n">01</span><h5>Reunión de diagnóstico</h5>
+        <p>Cuarenta y cinco minutos con tu equipo. Salís con las tres preguntas críticas de tu campaña
+          ordenadas por urgencia, midas con nosotros o no.</p>
+        <span class="w">Sin costo · sin compromiso</span></div>
+      <div class="sp"><span class="n">02</span><h5>Propuesta a medida</h5>
+        <p>Alcance, olas, entregables, calendario y presupuesto calculados sobre tu distrito real
+          y tu fecha electoral.</p>
+        <span class="w">En 72 horas</span></div>
+      <div class="sp"><span class="n">03</span><h5>Primera evidencia</h5>
+        <p>Campo, informe, brief y NOMOS operativo. El ritmo semanal empieza a correr con
+          responsables asignados.</p>
+        <span class="w">A los 21 días</span></div>
+    </div>
+    <div class="row between" style="margin-top:20px;gap:24px;align-items:center">
+      <div class="cta"><span>Próximo paso</span><b>Solicitá tu reunión de diagnóstico</b></div>
+      <p class="small" style="max-width:390px;text-align:right">Cuanto antes empieza la medición, más decisiones
+        quedan disponibles. <span style="color:var(--cyan)">Un mes antes vale más que el doble de presupuesto después.</span></p>
+    </div>
+    <!-- ⚠︎ EDITAR: reemplazar por los datos de contacto reales antes de enviar al cliente -->
+    <div class="contact" style="margin-top:18px">
+      <div><span class="l">Correo</span><span class="v">contacto@malaparteanalytica.com</span></div>
+      <div><span class="l">Teléfono / WhatsApp</span><span class="v">+ ___ ___ ______</span></div>
+      <div><span class="l">Sitio</span><span class="v">malaparteanalytica.com</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Malaparte Analytica · Próximo paso</span>
+    <span class="bar"><i style="width:96%"></i></span><span>Cierre · 25 / 26</span></div>
+</section>
+
+<!-- ============ 26 · CONTRATAPA ============ -->
+<section class="slide">
+  <div class="topo a" style="opacity:.3"></div>
+  <div class="topo b" style="opacity:.24"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="pad">
+    <div class="eyebrow"><span>Malaparte Analytica</span><i class="rule"></i>
+      <span>Research · Data · Political Intelligence</span></div>
+    <div class="body center" style="align-items:center;text-align:center;gap:26px">
+      <div class="mark" style="width:96px;height:96px">
+        <svg viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M20 25 43 11h33v51L53 77H20Z"/>
+          <path d="M20 25h33v52M53 25l23-14M53 25h23M20 25l16 16M76 25 60 41"/>
+          <ellipse cx="48" cy="48" rx="18" ry="12"/>
+          <circle cx="48" cy="48" r="5" fill="currentColor"/>
+        </g></svg>
+      </div>
+      <h2 class="display h-1" style="max-width:820px">Medimos. Entendemos.<br>Segmentamos. <span class="em">Operamos.</span></h2>
+      <p class="lead" style="max-width:560px;text-align:center">Investigación de opinión pública e inteligencia
+        electoral para campañas que prefieren <strong>saber antes</strong>.</p>
+      <span class="mono" style="color:#7c8184;letter-spacing:.28em">Malaparte Analytica · Capacidades</span>
+    </div>
+    <div class="row between" style="border-top:1px solid var(--line-d);padding-top:14px">
+      <span class="mono" style="color:#6a6f72;font-size:7.2px">Documento confidencial · uso exclusivo del destinatario</span>
+      <span class="mono" style="color:#6a6f72;font-size:7.2px">No reproducir sin autorización</span>
+    </div>
+  </div>
+</section>
+</body>
+</html>
